@@ -6,7 +6,7 @@
 #    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2021/04/17 18:22:58 by julius           ###   ########.fr        #
+#    Updated: 2021/04/17 21:21:54 by julius           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ NAME		=	libarr.a
 CC			=	clang
 CFLAGS 		=	-O3 -Wall -Wextra -Werror -Wpedantic -Wtype-limits \
 				-Wunreachable-code -Wpadded -Wshadow -fPIC -Wconversion
+SFLAGS		=	-fsanitize=address -fsanitize=leak -fsanitize=undefined
 SRC_DIR		=	src/
 INC_DIR		=	inc/
 OBJ_DIR		=	obj/
@@ -50,18 +51,17 @@ SRC_BASE	=	arr_add.c \
 
 SRC			=	$(addprefix $(SRC_DIR), $(SRC_BASE))
 OBJ			=	$(addprefix $(OBJ_DIR), $(SRC_BASE:.c=.o))
-DIR			=	$(sort $(dir $(OBJ)))
 
 all:
 				$(MAKE) -j $(NAME)
 
-$(NAME): $(OBJ) Makefile
+$(NAME): $(OBJ)
 				@echo "\\n\033[32;1mARRAY FUNCTIONS COMPILED\033[0m \\n"
 
-$(DIR):
+$(OBJ_DIR):
 				@mkdir -p $@
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.c Makefile | $(DIR)
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c $(OBJ_DIR)
 				@$(CC) $(CFLAGS) -c $< -o $@ -I $(INC_DIR)
 
 clean:
