@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/17 18:11:32 by julius           ###   ########.fr       */
+/*   Updated: 2021/04/18 14:49:43 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ ssize_t		arr_parse(t_arr *dst, t_arr *src,
 	void	*data;
 
 	if (arr_null(src) || arr_null(dst))
-		return (ARR_FAIL);
+		return (CR_FAIL);
 	i = 0;
 	while (i < src->count)
 	{
@@ -34,7 +34,7 @@ ssize_t		arr_parse(t_arr *dst, t_arr *src,
 /*
 **  ----------------------------------------------------------------------------
 **
-**	ARR_PARSE
+**	CR_PARSE
 **
 **	Iterate array `src` so that for each member a parse function is executed
 **	The parse function is user-defined and parses each member so that rersults

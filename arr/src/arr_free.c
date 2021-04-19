@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/17 14:12:57 by julius           ###   ########.fr       */
+/*   Updated: 2021/04/18 14:49:43 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,16 @@
 ssize_t		arr_free(t_arr *arr)
 {
 	if (arr_null(arr))
-		return (ARR_FAIL);
+		return (CR_FAIL);
 	free(arr->data);
 	*arr = (t_arr){NULL, 0, 0, 0};
-	return (ARR_SUCCESS);
+	return (CR_SUCCESS);
 }
 
 /*
 **  ----------------------------------------------------------------------------
 **
-**	ARR_FREE
+**	CR_FREE
 **
 **	Deallocate a dynamic array.
 **

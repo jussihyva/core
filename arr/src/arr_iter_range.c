@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/17 18:16:44 by julius           ###   ########.fr       */
+/*   Updated: 2021/04/18 14:49:43 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ ssize_t		arr_iter_range(t_arr *arr, size_t start, size_t end,
 	if (arr_null(arr))
 	{
 		perror("arr_iter_range: EMPTY ARRAY\n");
-		return (ARR_FAIL);
+		return (CR_FAIL);
 	}
 	if (start > arr->count || end > arr->count || start < end)
 	{
 		perror("arr_iter_range: OUT OF BOUNDS\n");
-		return (ARR_FAIL);
+		return (CR_FAIL);
 	}
 	while (i < end)
 	{
@@ -42,7 +42,7 @@ ssize_t		arr_iter_range(t_arr *arr, size_t start, size_t end,
 /*
 **  ----------------------------------------------------------------------------
 **
-**	ARR_ITER_RANGE
+**	CR_ITER_RANGE
 **
 **	Iterate range between start and end and apply `fptr` to each member.
 **

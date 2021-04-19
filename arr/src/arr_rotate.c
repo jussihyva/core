@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/17 18:56:12 by julius           ###   ########.fr       */
+/*   Updated: 2021/04/18 14:49:43 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ ssize_t		arr_rotate(t_arr *src, ssize_t steps)
 	ssize_t	i;
 
 	if (arr_null(src))
-		return (ARR_FAIL);
+		return (CR_FAIL);
 	i = 0;
 	if (src->count < 2 || steps == 0)
 		return (0);
@@ -43,13 +43,13 @@ ssize_t		arr_rotate(t_arr *src, ssize_t steps)
 			i++;
 		}
 	}
-	return (ARR_SUCCESS);
+	return (CR_SUCCESS);
 }
 
 /*
 **  ----------------------------------------------------------------------------
 **
-**	ARR_ROTATE
+**	CR_ROTATE
 **
 **	Rotate array. If `steps` is positive positive
 **

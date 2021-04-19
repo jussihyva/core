@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/17 14:18:07 by julius           ###   ########.fr       */
+/*   Updated: 2021/04/18 14:49:43 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 ssize_t		arr_del_first(t_arr *arr)
 {
 	if (!(arr_del(arr, 0)))
-		return (ARR_FAIL);
-	return (ARR_SUCCESS);
+		return (CR_FAIL);
+	return (CR_SUCCESS);
 }
 
 /*
 **  ----------------------------------------------------------------------------
 **
-**	ARR_DEL_FIRST
+**	CR_DEL_FIRST
 **
 **	Delete the first member from a dynamic array.
 **

@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/17 14:15:07 by julius           ###   ########.fr       */
+/*   Updated: 2021/04/18 14:49:43 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ ssize_t		arr_add(t_arr *arr, void *data, size_t index)
 	uint8_t	*mem_tmp;
 
 	if (arr_null(arr))
-		return (ARR_FAIL);
+		return (CR_FAIL);
 	if (arr->count == arr->size)
 	{
 		if (!(arr_grow(arr, (arr->size + 1) * 2)))
-			return (ARR_FAIL);
+			return (CR_FAIL);
 	}
 	mem_pos = arr->data;
 	mem_pos += index * arr->memsize;
@@ -31,13 +31,13 @@ ssize_t		arr_add(t_arr *arr, void *data, size_t index)
 	mem_move(mem_tmp, mem_pos, arr->memsize * (arr->count - index));
 	mem_cpy_safe(mem_pos, data, arr->memsize);
 	arr->count++;
-	return (ARR_SUCCESS);
+	return (CR_SUCCESS);
 }
 
 /*
 **  ----------------------------------------------------------------------------
 **
-**	ARR_ADD
+**	CR_ADD
 **
 **	Add a new member to any index in an array. If index exceeds member
 **	count, new member is added to the end of the array.

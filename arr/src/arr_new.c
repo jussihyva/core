@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arr_new.c                                            :+:      :+:    :+:   */
+/*   arr_new.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/15 10:42:52 by julius           ###   ########.fr       */
+/*   Updated: 2021/04/18 14:54:00 by julius           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/arr.h"
 
-t_arr			arr_new(size_t arr_size, size_t m_size)
+t_arr		arr_new(size_t arr_size, size_t m_size)
 {
-	t_arr		out;
+	t_arr	out;
 
 	out.size = arr_size;
 	out.memsize = m_size;
@@ -30,7 +30,7 @@ t_arr			arr_new(size_t arr_size, size_t m_size)
 /*
 **  ----------------------------------------------------------------------------
 **
-**	ARR_NEW
+**	CR_NEW
 **
 **	Allocate a new dynamic array. You can pass any starting size and resizing
 **	will be hanled automatically. A better initial size approximation leads to

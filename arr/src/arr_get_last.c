@@ -20,7 +20,7 @@ void			*arr_get_last(t_arr *arr)
 /*
 **  ----------------------------------------------------------------------------
 **
-**	ARR_GET_LAST
+**	CR_GET_LAST
 **
 **	Pull the last member from a dynamic array.
 **

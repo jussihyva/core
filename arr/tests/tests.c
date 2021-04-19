@@ -1,5 +1,6 @@
 #include "../inc/arr.h"
 #include <assert.h>
+#include <stdio.h>
 
 typedef struct	s_test
 {
@@ -22,14 +23,14 @@ ssize_t		test_dealloc(void *data, size_t i)
 {
 	t_test	*ptr = data;
 	free(ptr->mem);
-	return(ARR_CONTINUE);
+	return(CR_CONTINUE);
 }
 
 ssize_t		test_print(void *data, size_t i)
 {
 	t_test	*ptr = data;
 	printf("%p %d %f %lf\n", ptr->mem, ptr->x, ptr->y, ptr->z);
-	return(ARR_CONTINUE);
+	return(CR_CONTINUE);
 }
 
 int			tests1()
@@ -74,14 +75,14 @@ int			tests2()
 	ptr = arr_get(&test, 3);
 	assert(memcmp(&struc, ptr, sizeof(t_test)) == 0);
 	assert(test.count == 6);
-	
+
 	// Prepend one element to the array.
 	struc = (t_test){malloc(1), 1, 0.5, 0.5};
 	arr_add_first(&test, &struc);
 	ptr = arr_get_first(&test);
 	assert(memcmp(&struc, ptr, sizeof(t_test)) == 0);
 	assert(test.count == 7);
-	
+
 	// Delete.
 	free(ptr->mem);
 	arr_del_first(&test);
@@ -103,7 +104,7 @@ ssize_t		print(void *data, size_t i)
 
 	ptr = data;
 	printf("%c", *ptr);
-	return (ARR_CONTINUE);
+	return (CR_CONTINUE);
 }
 
 int			tests3()

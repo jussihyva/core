@@ -6,30 +6,13 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 06:09:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/17 18:49:02 by julius           ###   ########.fr       */
+/*   Updated: 2021/04/18 14:58:10 by julius           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBARR_H
 # define LIBARR_H
-# include <stdio.h>
-# include <limits.h>
-# include <stdlib.h>
-# include <string.h>
-# include <stdarg.h>
-# include <unistd.h>
-# include <errno.h>
-# include "../../str/inc/str.h"
-# include "../../mem/inc/mem.h"
-# define ARR_STOP -1
-# define ARR_CONTINUE 1
-# define ARR_FAIL 0
-# define ARR_EMPTY -1
-# define ARR_SUCCESS 1
-# define ARR_WRITE 0
-# define ARR_APPEND 1
-# define ARR_PREPEND -1
-# define ARR_STRING NULL
+# include "../../inc/core.h"
 
 typedef struct	s_arr
 {
@@ -39,10 +22,6 @@ typedef struct	s_arr
 	size_t		memsize;
 }				t_arr;
 
-typedef struct	s_elem
-{
-	struct s_elem *ptr;
-}				t_elem;
 /*
 **	---------------------------------------------------------------------------
 **
@@ -101,8 +80,6 @@ ssize_t			arr_rotate(t_arr *arr, ssize_t steps);
 */
 
 ssize_t			arr_read_file(t_arr *dst, char *filename);
-ssize_t			arr_write(t_arr *dst, t_arr *src,
-				ssize_t (*f)(void *, void *));
 ssize_t			arr_iter(t_arr *src,
 				ssize_t (*f)(void *, size_t));
 ssize_t			arr_iter_range(t_arr *src, size_t start, size_t end,

@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mem_cpy_safe.c                                       :+:      :+:    :+:   */
+/*   mem_cpy_safe.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:31:35 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/15 20:37:22 by julius           ###   ########.fr       */
+/*   Updated: 2021/04/19 20:08:37 by julius           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/mem.h"
 
-void			*mem_cpy_safe(void *dst, const void *src, size_t n)
+void				*mem_cpy_safe(void *dst, const void *src, size_t n)
 {
-	const char	*s;
-	char		*d;
+	const uint8_t	*src8;
+	uint8_t			*dst8;
 
 	if (src == NULL)
 		return (NULL);
-	s = (const char *)src;
-	d = (char *)dst;
+	src8 = (const uint8_t *)src;
+	dst8 = (uint8_t *)dst;
 	while (n--)
-		*d++ = *s++;
+		*dst8++ = *src8++;
 	return (dst);
 }

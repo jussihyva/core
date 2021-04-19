@@ -1,29 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mem_set.c                                            :+:      :+:    :+:   */
+/*   mem_set.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:31:58 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/12 15:31:13 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/04/19 21:00:01 by julius           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/mem.h"
 
-void		*mem_set(void *s, int c, size_t n)
+static void		copy_words(uint64_t *dst, const int c, size_t words)
 {
-	uint8_t	*ptr;
+	uint64_t	pages;
+	uint64_t	offset;
 
-	ptr = s;
-	while (n)
+	pages = words / 4;
+	offset = words - pages * 4;
+	while (pages--)
 	{
-		*ptr = c;
-		ptr++;
-		n--;
+		*dst++ = c;
+		*dst++ = c;
+		*dst++ = c;
+		*dst++ = c;
 	}
-	return (s);
+	while (offset--)
+		*dst++ = c;
+}
+
+void			*mem_set(void *dst, int c, size_t size)
+{
+	uint8_t		*dst8;
+	size_t		offset;
+	size_t		words;
+	size_t		aligned_size;
+
+	if (!dst)
+		return (NULL);
+	words = size / 8;
+	aligned_size = words * 8;
+	offset = size - aligned_size;
+	copy_words(dst, c, words);
+	if (offset)
+	{
+		dst8 = (uint8_t *)dst;
+		dst8 = &dst8[aligned_size];
+		while (offset--)
+			*dst8++ = c;
+	}
+	return (dst);
 }
 
 /*
@@ -31,7 +58,7 @@ void		*mem_set(void *s, int c, size_t n)
 **
 **	mem_set
 **
-**	Void memory set; sets `n` bytes of memory pointed to by `s` with value `c`.
+**	Sets `size` bytes of memory pointed to by `dst` with value `c`.
 **
 **  ----------------------------------------------------------------------------
 */

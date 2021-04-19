@@ -6,7 +6,7 @@
 #    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2021/04/16 04:28:33 by jkoskela         ###   ########.fr        #
+#    Updated: 2021/04/19 21:13:58 by julius           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ all:
 				$(MAKE) -j $(NAME)
 
 $(NAME): $(OBJ) Makefile
+				@ar -rcs $(NAME) $(OBJ)
 				@echo "\\n\033[32;1mMEMORY FUNCTIONS COMPILED\033[0m \\n"
 
 $(DIR):

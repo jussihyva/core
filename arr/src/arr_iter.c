@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/17 18:10:12 by julius           ###   ########.fr       */
+/*   Updated: 2021/04/18 14:49:43 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ ssize_t		arr_iter(t_arr *arr, ssize_t (*f)(void *, size_t))
 	void	*tmp;
 
 	if (arr_null(arr))
-		return (ARR_FAIL);
+		return (CR_FAIL);
 	i = 0;
 	while (i < arr->count)
 	{
 		tmp = arr_get(arr, i);
-		if ((f(tmp, i)) == ARR_STOP)
+		if ((f(tmp, i)) == CR_STOP)
 			return ((ssize_t)i);
 		i++;
 	}
@@ -33,7 +33,7 @@ ssize_t		arr_iter(t_arr *arr, ssize_t (*f)(void *, size_t))
 /*
 **  ----------------------------------------------------------------------------
 **
-**	ARR_ITER
+**	CR_ITER
 **
 **	Iterate a dynamic array and execute a function passed by f on all
 **	members.

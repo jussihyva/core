@@ -6,51 +6,28 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:31:25 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/16 01:02:00 by julius           ###   ########.fr       */
+/*   Updated: 2021/04/19 20:58:51 by julius           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/mem.h"
 
-static int			mem_cmp_words(const void *src, const void *cmp, size_t words)
+int			mem_cmp(const void *src, const void *cmp, size_t size)
 {
 
-	const size_t	*src64;
-	const size_t	*dst64;
+	uint8_t	*src8;
+	uint8_t	*dst8;
 
-	src64 = (const size_t *)src;
-	dst64 = (const size_t *)cmp;
-    while (words-- && *dst64 == *src64)
+	src8 = (uint8_t *)src;
+	dst8 = (uint8_t *)cmp;
+	while (size--)
 	{
-		dst64++;
-		src64++;
-	}
-    return (*src64 - *dst64);
-}
-
-int					mem_cmp(const void *src, const void *cmp, const size_t size)
-{
-
-	const char		*src8;
-	const char		*dst8;
-	size_t			offset;
-	size_t			words;
-	int				ret;
-
-	words = size / 8;
-	offset = size - words * 8;
-	if ((ret = mem_cmp_words(src, cmp, words)) > 0)
-		return (ret);
-	src8 = (const char *)src;
-	src8 = &src8[words * 8];
-	dst8 = (const char *)cmp;
-	dst8 = &dst8[words * 8];
-	while (offset-- && src8 == dst8)
-	{
+		if (src8 == dst8)
+			return (*src8 - *dst8);
 		dst8++;
 		src8++;
 	}
-	return (*src8 - *dst8);
+	return (0);
 }
 /*
 **  ----------------------------------------------------------------------------
