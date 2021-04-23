@@ -1,30 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_del_last.c                                       :+:      :+:    :+:   */
+/*   arr_join_mult.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/14 16:23:35 by julius           ###   ########.fr       */
+/*   Updated: 2021/04/20 19:33:55 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/map.h"
+#include "../inc/arr.h"
 
-int				map_del_last(t_map *arr)
+ssize_t		arr_join_mult(t_arr *dst, size_t len, ...)
 {
-	if (!(map_del(arr, arr->len - 1)))
-		return (MAP_FAIL);
-	return (MAP_SUCCESS);
+	va_list	ap;
+	t_arr	*tmp;
+
+	va_start(ap, len);
+	if (arr_null(dst))
+		return (CR_FAIL);
+	while (len--)
+	{
+		tmp = va_arg(ap, t_arr *);
+		if (arr_null(tmp))
+			return (CR_FAIL);
+		if (!(arr_join(dst, tmp)))
+			return (CR_FAIL);
+	}
+	va_end(ap);
+	return ((ssize_t)dst->len);
 }
 
 /*
 **  ----------------------------------------------------------------------------
 **
-**	MAP_DEL_LAST
+**	ARR_JOIN_MULT
 **
-**	Delete the last member from a dynamic array.
+**	Join `len` amount of arrays to the source array `dst`.
 **
 **  ----------------------------------------------------------------------------
 */

@@ -6,23 +6,23 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:31:25 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/19 20:58:51 by julius           ###   ########.fr       */
+/*   Updated: 2021/04/20 18:23:04 by julius           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/mem.h"
 
-int			mem_cmp(const void *src, const void *cmp, size_t size)
+int		mem_cmp(const void *src, const void *cmp, size_t size)
 {
 
-	uint8_t	*src8;
-	uint8_t	*dst8;
+	const uint8_t	*src8;
+	const uint8_t	*dst8;
 
-	src8 = (uint8_t *)src;
-	dst8 = (uint8_t *)cmp;
+	src8 = (const uint8_t *)src;
+	dst8 = (const uint8_t *)cmp;
 	while (size--)
 	{
-		if (src8 == dst8)
+		if (*src8 != *dst8)
 			return (*src8 - *dst8);
 		dst8++;
 		src8++;

@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/18 14:49:43 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/04/20 17:51:05 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ ssize_t		arr_add_first(t_arr *arr, void *data)
 /*
 **  ----------------------------------------------------------------------------
 **
-**	CR_ADD_FIRST
+**	ARR_ADD_FIRST
 **
 **	Add a new member to the beginning of a dynamic string. If the string is not
 **	sufficiently big a new memory area double the size of the previous one

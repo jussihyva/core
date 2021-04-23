@@ -1,7 +1,8 @@
+
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arr_join.c                                         :+:      :+:    :+:   */
+/*   arr_add.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,38 +13,29 @@
 
 #include "../inc/arr.h"
 
-ssize_t		arr_join(t_arr *dst, size_t count, ...)
+ssize_t		arr_join(t_arr *dst, t_arr *src)
 {
-	va_list	ap;
-	t_arr	*tmp;
-	size_t	i;
+	uint8_t	*mem_start;
+	size_t	newsize;
 
-	va_start(ap, count);
-	if (arr_null(dst))
+	if (arr_null(dst) || arr_null(src))
 		return (CR_FAIL);
-	while (count--)
-	{
-		tmp = va_arg(ap, t_arr *);
-		if (arr_null(tmp))
-			return (CR_FAIL);
-		i = 0;
-		while (i < tmp->count)
-		{
-			if (!(arr_add_last(dst, arr_get(tmp, i))))
-				return (CR_FAIL);
-			i++;
-		}
-	}
-	va_end(ap);
-	return ((ssize_t)dst->count);
+	newsize = src->len + dst->len;
+	if (dst->size < newsize)
+		arr_grow(dst, dst->len + src->len);
+	mem_start = dst->data;
+	mem_start = &mem_start[dst->len * dst->elem_size];
+	mem_cpy(mem_start, src->data, (newsize - dst->len) * dst->elem_size);
+	dst->len = newsize;
+	return(CR_SUCCESS);
 }
 
 /*
 **  ----------------------------------------------------------------------------
 **
-**	CR_JOIN
+**	ARR_JOIN
 **
-**	Join `count` amount of arrays to the source array `dst`.
+**	Join arrays by appending `src` to `dst`.
 **
 **  ----------------------------------------------------------------------------
 */

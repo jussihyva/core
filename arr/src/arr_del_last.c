@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/18 14:49:43 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/04/20 19:33:55 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 ssize_t		arr_del_last(t_arr *arr)
 {
-	if (!(arr_del(arr, arr->count - 1)))
+	if (!(arr_del(arr, arr->len - 1)))
 		return (CR_FAIL);
 	return (CR_SUCCESS);
 }
@@ -22,7 +22,7 @@ ssize_t		arr_del_last(t_arr *arr)
 /*
 **  ----------------------------------------------------------------------------
 **
-**	CR_DEL_LAST
+**	ARR_DEL_LAST
 **
 **	Delete the last member from a dynamic array.
 **

@@ -20,7 +20,7 @@ void			*arr_get_first(t_arr *arr)
 /*
 **  ----------------------------------------------------------------------------
 **
-**	CR_GET_FIRST
+**	ARR_GET_FIRST
 **
 **	Pull the first member from a dynamic array.
 **

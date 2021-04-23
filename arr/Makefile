@@ -6,7 +6,7 @@
 #    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2021/04/19 21:20:23 by julius           ###   ########.fr        #
+#    Updated: 2021/04/21 14:25:49 by julius           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ SRC_BASE	=	arr_add.c \
 				arr_iter.c \
 				arr_iter_range.c \
 				arr_join.c \
-				arr_read_file.c \
+				arr_join_mult.c \
 				arr_take.c \
 				arr_take_first.c \
 				arr_take_last.c \

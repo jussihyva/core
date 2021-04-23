@@ -1,4 +1,4 @@
-#include "../inc/arr.h"
+#include "../../inc/core.h"
 #include <assert.h>
 #include <stdio.h>
 
@@ -39,8 +39,8 @@ int			tests1()
 
 	test = arr_new(1, sizeof(int));
 	assert(test.size == 1);
-	assert(test.memsize == sizeof(int));
-	assert(test.count == 0);
+	assert(test.elem_size == sizeof(int));
+	assert(test.len == 0);
 	assert(arr_grow(&test, 2) > 0);
 	arr_free(&test);
 	assert(arr_null(&test));
@@ -67,26 +67,26 @@ int			tests2()
 		assert(memcmp(&struc, ptr, sizeof(t_test)) == 0);
 		i++;
 	}
-	assert(test.count == 5);
+	assert(test.len == 5);
 
 	// Add 1 element to the middle of the array.
 	struc = (t_test){malloc(1), 2, 3.5, 4.5};
 	arr_add(&test, &struc, 3); // Problem here, creates a leak!!!
 	ptr = arr_get(&test, 3);
 	assert(memcmp(&struc, ptr, sizeof(t_test)) == 0);
-	assert(test.count == 6);
+	assert(test.len == 6);
 
 	// Prepend one element to the array.
 	struc = (t_test){malloc(1), 1, 0.5, 0.5};
 	arr_add_first(&test, &struc);
 	ptr = arr_get_first(&test);
 	assert(memcmp(&struc, ptr, sizeof(t_test)) == 0);
-	assert(test.count == 7);
+	assert(test.len == 7);
 
 	// Delete.
 	free(ptr->mem);
 	arr_del_first(&test);
-	assert(test.count == 6);
+	assert(test.len == 6);
 	ptr = arr_get_first(&test);
 	assert(memcmp(&struc, ptr, sizeof(t_test)) != 0);
 	ptr2 = arr_get_last(&test);

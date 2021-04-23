@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/18 14:49:43 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/04/21 14:19:35 by julius           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 ssize_t		arr_null(t_arr *arr)
 {
-	if (arr->data == NULL || arr->size == 0 || arr->memsize == 0)
+	if (arr->data == NULL
+		|| arr->size == 0
+		|| arr->elem_size == 0)
 		return (CR_SUCCESS);
 	return (CR_FAIL);
 }
@@ -22,7 +24,7 @@ ssize_t		arr_null(t_arr *arr)
 /*
 **  ----------------------------------------------------------------------------
 **
-**	CR_NULL
+**	ARR_NULL
 **
 **	Checks if the array is a NULL array.
 **

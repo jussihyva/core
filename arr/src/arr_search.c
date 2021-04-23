@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/18 14:49:43 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/04/20 19:35:57 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,21 @@
 
 ssize_t		arr_search(t_arr *src, t_arr *key)
 {
-	void	*value;
-	ssize_t	ret;
+	uint8_t	*mem_key;
+	uint8_t	*mem_src;
 	size_t	i;
 
 	if (arr_null(src)
-		|| (ret = arr_find(src, key->data)) < 0)
+		|| src->elem_size != key->elem_size)
 		return (CR_FAIL);
-	i = (size_t)ret;
+	mem_src = (uint8_t *)src->data;
+	mem_key = (uint8_t *)key->data;
+	i = 0;
 	while (1)
 	{
-		if (i == src->count)
+		if (i == src->len)
 			break ;
-		value = arr_get(src, i);
-		if (mem_cmp(key->data, value, key->count * key->memsize) == 0)
+		if (mem_cmp(&mem_src[key->elem_size * i], mem_key, key->len * key->elem_size) == 0)
 			return ((ssize_t)i);
 		i++;
 	}
@@ -37,7 +38,7 @@ ssize_t		arr_search(t_arr *src, t_arr *key)
 /*
 **  ----------------------------------------------------------------------------
 **
-**	CR_SEARCH
+**	ARR_SEARCH
 **
 **	Search from an array by passing a key and a selection function. In the
 **	selection function user can put any logic and anything returned from

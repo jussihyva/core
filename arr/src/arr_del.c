@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/18 14:49:43 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/04/21 00:42:38 by julius           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,26 @@ ssize_t		arr_del(t_arr *arr, size_t index)
 
 	if (arr_null(arr))
 		return (CR_FAIL);
-	if (index > arr->count)
+	if (index > arr->len)
 		return (CR_FAIL);
+	if (index == arr->len -1)
+	{
+		arr->len--;
+		return (CR_SUCCESS);
+	}
 	mem_start = arr->data;
-	mem_start += index * arr->memsize;
+	mem_start += index * arr->elem_size;
 	mem_end = arr->data;
-	mem_end += (index + 1) * arr->memsize;
-	mem_cpy_safe(mem_start, mem_end, arr->memsize * (arr->count - index));
-	arr->count--;
+	mem_end += (index + 1) * arr->elem_size;
+	mem_cpy_safe(mem_start, mem_end, arr->elem_size * (arr->len - index));
+	arr->len--;
 	return (CR_SUCCESS);
 }
 
 /*
 **  ----------------------------------------------------------------------------
 **
-**	CR_DEL
+**	ARR_DEL
 **
 **	Delete a member at `index` from a dynamic array.
 **
