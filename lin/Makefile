@@ -6,30 +6,37 @@
 #    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2021/04/24 21:49:53 by julius           ###   ########.fr        #
+#    Updated: 2021/04/25 01:12:07 by jkoskela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	libmem.a
+NAME		=	liblin.a
 
 CC			=	gcc
-FLAGS 		=	-g -Wall -Wextra -Werror -Wpedantic -Wtype-limits -Wswitch-default -Wunreachable-code -Wpadded -Wshadow -fPIC
+FLAGS 		=	-03 -Wall -Wextra -Werror -Wpedantic -Wtype-limits -Wswitch-default -Wunreachable-code -Wpadded -Wshadow -fPIC
 
 SRC_DIR		=	src/
 INC_DIR		=	inc/
 OBJ_DIR		=	obj/
 
-SRC_BASE	=	mem_alloc.c \
-				mem_zero.c \
-				mem_calloc.c \
-				mem_ccpy.c \
-				mem_chr.c \
-				mem_cmp.c \
-				mem_cpy.c \
-				mem_cpy_safe.c \
-				mem_del.c \
-				mem_move.c \
-				mem_set.c \
+SRC_BASE	=	lin_m4_getcol.c \
+				lin_m4_rotx.c \
+				lin_m4xm4_r.c \
+				lin_v4_mag.c \
+				lin_m4_getrow.c \
+				lin_m4_roty.c \
+				lin_m4xv4_r.c \
+				lin_v4_norm.c \
+				lin_m4_id.c \
+				lin_m4_rotz.c \
+				lin_v4_add.c \
+				lin_v4_sub.c \
+				lin_m4_print.c \
+				lin_m4_transform.c \
+				lin_v4_cross.c \
+				lin_m4_proj.c \
+				lin_m4_translate.c \
+				lin_v4_dot.c \
 
 SRC			=	$(addprefix $(SRC_DIR), $(SRC_BASE))
 OBJ			=	$(addprefix $(OBJ_DIR), $(SRC_BASE:.c=.o))

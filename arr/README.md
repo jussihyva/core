@@ -17,13 +17,13 @@ A multi-purpose dynamic array implementation for the C language.
 
 ```c
 
-typedef struct  s_map
+typedef struct  s_parr
 {
     void        **data;
     size_t      len;
     size_t      size;
     size_t      elem_size;
-}               t_map;
+}               t_parr;
 
 ```
 

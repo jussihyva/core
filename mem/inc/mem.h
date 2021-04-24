@@ -6,12 +6,12 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 06:09:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/18 14:44:03 by julius           ###   ########.fr       */
+/*   Updated: 2021/04/24 19:45:29 by julius           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VOID_H
-# define VOID_H
+#ifndef MEM_H
+# define MEM_H
 # include "../../inc/core.h"
 
 void				*mem_cpy(void *dst, const void *src, const size_t size);

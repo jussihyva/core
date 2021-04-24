@@ -6,30 +6,49 @@
 #    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2021/04/24 21:49:53 by julius           ###   ########.fr        #
+#    Updated: 2021/04/25 00:58:51 by jkoskela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	libmem.a
+NAME		=	libparr.a
 
 CC			=	gcc
-FLAGS 		=	-g -Wall -Wextra -Werror -Wpedantic -Wtype-limits -Wswitch-default -Wunreachable-code -Wpadded -Wshadow -fPIC
+CFLAGS 		=	-O3 -Wall -Wextra -Werror -Wpedantic -Wtype-limits -Wswitch-default -Wunreachable-code -Wpadded -Wshadow -fPIC
 
 SRC_DIR		=	src/
 INC_DIR		=	inc/
 OBJ_DIR		=	obj/
 
-SRC_BASE	=	mem_alloc.c \
-				mem_zero.c \
-				mem_calloc.c \
-				mem_ccpy.c \
-				mem_chr.c \
-				mem_cmp.c \
-				mem_cpy.c \
-				mem_cpy_safe.c \
-				mem_del.c \
-				mem_move.c \
-				mem_set.c \
+SRC_BASE	=	parr_add.c \
+				parr_add_first.c \
+				parr_add_last.c \
+				parr_add_mult.c \
+				parr_new.c \
+				parr_assign.c \
+				parr_free.c \
+				parr_del.c \
+				parr_del_first.c \
+				parr_del_last.c \
+				parr_get.c \
+				parr_get_first.c \
+				parr_get_last.c \
+				parr_iterate.c \
+				parr_join.c \
+				parr_read_file.c \
+				parr_write_file.c \
+				parr_split.c \
+				parr_take.c \
+				parr_take_first.c \
+				parr_take_last.c \
+				parr_search.c \
+				parr_find.c \
+				parr_parse.c \
+				parr_write.c \
+				parr_null.c \
+				parr_grow.c \
+				parr_copy.c \
+				parr_dup.c \
+				parr_rotate.c \
 
 SRC			=	$(addprefix $(SRC_DIR), $(SRC_BASE))
 OBJ			=	$(addprefix $(OBJ_DIR), $(SRC_BASE:.c=.o))
@@ -40,7 +59,7 @@ all:
 
 $(NAME): $(OBJ) Makefile
 				@ar -rcs $(NAME) $(OBJ)
-				@echo "\\n\033[32;1mMEMORY FUNCTIONS COMPILED\033[0m \\n"
+				@echo "\\n\033[32;1mMAP FUNCTIONS COMPILED\033[0m \\n"
 
 $(DIR):
 				@mkdir -p $@

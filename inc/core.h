@@ -22,7 +22,8 @@
 # define CR_WRITE 0
 # define CR_APPEND 1
 # define CR_PREPEND -1
-
+# define CR_STRING NULL
+# define CR_PI 3.14159265358979323846
 # include <stdlib.h>
 # include <stdint.h>
 # include <string.h>
@@ -31,8 +32,13 @@
 # include <errno.h>
 # include <stdio.h>
 # include <fcntl.h>
+# include <math.h>
+# include <limits.h>
 
 # include "../mem/inc/mem.h"
 # include "../arr/inc/arr.h"
+# include "../parr/inc/parr.h"
+# include "../lin/inc/lin.h"
+# include "../cstr/inc/cstr.h"
 
 #endif

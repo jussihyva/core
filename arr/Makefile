@@ -6,13 +6,13 @@
 #    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2021/04/21 14:25:49 by julius           ###   ########.fr        #
+#    Updated: 2021/04/24 21:49:44 by julius           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	libarr.a
 
-CC			=	clang
+CC			=	gcc
 CFLAGS 		=	-O3 -Wall -Wextra -Werror -Wpedantic -Wtype-limits \
 				-Wunreachable-code -Wpadded -Wshadow -fPIC -Wconversion
 SRC_DIR		=	src/
