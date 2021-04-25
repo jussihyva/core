@@ -6,16 +6,14 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 06:09:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/20 19:35:57 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/04/25 23:41:38 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/arr.h"
 
-void			*arr_take_last(void *dst, t_arr *src)
+void	*arr_take_last(void *dst, t_arr *src)
 {
-	if (arr_null(src))
-		return (NULL);
 	dst = arr_take(dst, src, src->len - 1);
 	return (dst);
 }

@@ -12,10 +12,11 @@
 
 #include "../inc/parr.h"
 
-static int		parr_write_string(t_parr *dst, t_parr *src)
+static
+ssize_t	parr_write_string(t_parr *dst, t_parr *src)
 {
-	size_t		i;
-	char		*tmp;
+	size_t	i;
+	char	*tmp;
 
 	i = 0;
 	while (i < src->len)
@@ -26,10 +27,11 @@ static int		parr_write_string(t_parr *dst, t_parr *src)
 	}
 	return (i);
 }
-int				parr_write(t_parr *dst, t_parr *src, int (*f)(void **, void *))
+
+ssize_t	parr_write(t_parr *dst, t_parr *src, ssize_t (*f)(void *, void *))
 {
-	size_t		i;
-	void		*tmp;
+	size_t	i;
+	void	*tmp;
 
 	i = 0;
 	if (f == CR_STRING)
@@ -37,7 +39,7 @@ int				parr_write(t_parr *dst, t_parr *src, int (*f)(void **, void *))
 	while (i < src->len)
 	{
 		tmp = NULL;
-		if (f(&tmp, parr_get(src, i)) == CR_STOP)
+		if (f(tmp, parr_get(src, i)) == CR_STOP)
 			return (i);
 		parr_add_last(dst, tmp);
 		i++;

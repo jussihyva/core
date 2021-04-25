@@ -12,9 +12,9 @@
 
 #include "../inc/parr.h"
 
-void			*parr_take_first(t_parr *arr)
+void	*parr_take_first(t_parr *arr)
 {
-	void		*out;
+	void	*out;
 
 	if (parr_null(arr))
 		return (NULL);

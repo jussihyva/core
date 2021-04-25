@@ -22,4 +22,3 @@ t_vec4			lin_m4_getcol(t_mat4 src, uint8_t col)
 	out.v[3] = src.m[12 + col];
 	return (out);
 }
-

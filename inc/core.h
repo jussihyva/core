@@ -17,6 +17,7 @@
 # define CR_STOP -1
 # define CR_CONTINUE 1
 # define CR_FAIL 0
+# define CR_NOALLOC 0
 # define CR_EMPTY -1
 # define CR_SUCCESS 1
 # define CR_WRITE 0

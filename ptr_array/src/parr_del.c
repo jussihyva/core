@@ -12,9 +12,9 @@
 
 #include "../inc/parr.h"
 
-int				parr_del(t_parr *arr, size_t index)
+ssize_t	parr_del(t_parr *arr, size_t index)
 {
-	size_t		i;
+	size_t	i;
 
 	if (parr_null(arr))
 		return (CR_FAIL);

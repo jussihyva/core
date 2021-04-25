@@ -12,7 +12,7 @@
 
 #include "../inc/arr.h"
 
-void			*arr_get_last(t_arr *arr)
+void	*arr_get_last(t_arr *arr)
 {
 	return (arr_get(arr, arr->len - 1));
 }

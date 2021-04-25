@@ -12,7 +12,7 @@
 
 #include "../inc/parr.h"
 
-int			parr_rotate(t_parr *arr, ssize_t steps)
+ssize_t	parr_rotate(t_parr *arr, ssize_t steps)
 {
 	void	*tmp;
 	ssize_t	i;

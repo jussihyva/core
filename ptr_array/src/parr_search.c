@@ -12,11 +12,11 @@
 
 #include "../inc/parr.h"
 
-int				parr_search(t_parr *dst, t_parr *src, void *key,
-				void *(*f)(void *, void *))
+ssize_t	parr_search(t_parr *dst, t_parr *src, void *key,
+		void *(*f)(void *, void *))
 {
-	void		*data;
-	size_t		i;
+	void	*data;
+	size_t	i;
 
 	i = 0;
 	data = NULL;

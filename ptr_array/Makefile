@@ -6,7 +6,7 @@
 #    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2021/04/25 00:58:51 by jkoskela         ###   ########.fr        #
+#    Updated: 2021/04/26 00:23:53 by jkoskela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ SRC_BASE	=	parr_add.c \
 				parr_get.c \
 				parr_get_first.c \
 				parr_get_last.c \
-				parr_iterate.c \
+				parr_iter.c \
 				parr_join.c \
 				parr_read_file.c \
 				parr_write_file.c \

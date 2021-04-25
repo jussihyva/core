@@ -12,11 +12,11 @@
 
 #include "../inc/parr.h"
 
-int				parr_join(t_parr *dst, size_t len, ...)
+ssize_t	parr_join(t_parr *dst, size_t len, ...)
 {
-	va_list		ap;
-	t_parr		*tmp;
-	size_t		i;
+	va_list	ap;
+	t_parr	*tmp;
+	size_t	i;
 
 	va_start(ap, len);
 	if (parr_null(dst))

@@ -123,7 +123,7 @@ int			test_usr(char *dst, char *src, size_t bytes)
 	while (i < iters)
 	{
 		mem_cpy(dst, src, bytes);
-		assert(memcmp(dst, src, bytes) == 0);
+		/*assert(memcmp(dst, src, bytes) == 0);*/
 		i++;
 	}
 	return (1);
@@ -137,7 +137,7 @@ int			test_lib(char *dst, char *src, size_t bytes)
 	while (i < iters)
 	{
 		memcpy(dst, src, bytes);
-		assert(memcmp(dst, src, bytes) == 0);
+		/*assert(memcmp(dst, src, bytes) == 0);*/
 		i++;
 	}
 	return (1);

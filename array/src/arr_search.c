@@ -6,29 +6,27 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/20 19:35:57 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/04/25 23:41:24 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/arr.h"
 
-ssize_t		arr_search(t_arr *src, t_arr *key)
+ssize_t	arr_search(t_arr *src, t_arr *key)
 {
 	uint8_t	*mem_key;
 	uint8_t	*mem_src;
 	size_t	i;
 
-	if (arr_null(src)
-		|| src->elem_size != key->elem_size)
+	if (src->elem_size != key->elem_size)
 		return (CR_FAIL);
 	mem_src = (uint8_t *)src->data;
 	mem_key = (uint8_t *)key->data;
 	i = 0;
-	while (1)
+	while (i < src->len)
 	{
-		if (i == src->len)
-			break ;
-		if (mem_cmp(&mem_src[key->elem_size * i], mem_key, key->len * key->elem_size) == 0)
+		if (mem_cmp(&mem_src[key->elem_size * i],
+		mem_key, key->len * key->elem_size) == 0)
 			return ((ssize_t)i);
 		i++;
 	}

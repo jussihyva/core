@@ -12,9 +12,9 @@
 
 #include "../inc/parr.h"
 
-t_parr			parr_new(size_t size)
+t_parr	parr_new(size_t size)
 {
-	t_parr		out;
+	t_parr	out;
 
 	out.size = size;
 	out.len = 0;

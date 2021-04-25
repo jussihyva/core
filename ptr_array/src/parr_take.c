@@ -12,9 +12,9 @@
 
 #include "../inc/parr.h"
 
-void			*parr_take(t_parr *arr, size_t index)
+void	*parr_take(t_parr *arr, size_t index)
 {
-	void		*out;
+	void	*out;
 
 	if (index > arr->len || parr_null(arr))
 		return (NULL);

@@ -12,9 +12,9 @@
 
 #include "../inc/parr.h"
 
-int				parr_add_mult(t_parr *arr, size_t len, ...)
+ssize_t	parr_add_mult(t_parr *arr, size_t len, ...)
 {
-	va_list		ap;
+	va_list	ap;
 
 	va_start(ap, len);
 	while (len--)

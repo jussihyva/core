@@ -12,11 +12,11 @@
 
 #include "../inc/parr.h"
 
-int				parr_read_file(t_parr *dst, char *filename)
+ssize_t	parr_read_file(t_parr *dst, char *filename)
 {
-	char		*line;
-	int			fd;
-	int			ret;
+	char	*line;
+	ssize_t	fd;
+	ssize_t	ret;
 
 	if (parr_null(dst))
 		return (CR_FAIL);

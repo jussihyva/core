@@ -6,18 +6,17 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/20 17:51:05 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/04/25 23:39:55 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/arr.h"
 
-ssize_t		arr_free(t_arr *arr)
+ssize_t	arr_free(t_arr *arr)
 {
-	if (arr_null(arr))
-		return (CR_FAIL);
-	free(arr->data);
-	*arr = (t_arr){NULL, 0, 0, 0};
+	if (arr->alloc_size > 0)
+		free(arr->data);
+	*arr = (t_arr){NULL, 0, 0, 0, 0};
 	return (CR_SUCCESS);
 }
 

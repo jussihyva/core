@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/20 20:25:03 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/04/25 23:41:17 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,8 @@ static ssize_t	rrot(t_arr *src, ssize_t steps)
 	return (i);
 }
 
-ssize_t		arr_rotate(t_arr *src, ssize_t steps)
+ssize_t	arr_rotate(t_arr *src, ssize_t steps)
 {
-	if (arr_null(src))
-		return (CR_FAIL);
 	if (src->len < 2 || steps == 0)
 		return (0);
 	if (steps > 0)

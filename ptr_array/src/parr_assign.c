@@ -12,9 +12,9 @@
 
 #include "../inc/parr.h"
 
-int				parr_assign(t_parr *arr, void **src, size_t size)
+ssize_t	parr_assign(t_parr *arr, void **src, size_t size)
 {
-	size_t		i;
+	size_t	i;
 
 	i = 0;
 	if (parr_null(arr) || !src || size < 1)

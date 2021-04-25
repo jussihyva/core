@@ -1,4 +1,4 @@
-#include "../../inc/core.h"
+#include "../inc/core.h"
 #include <assert.h>
 #include <stdio.h>
 
@@ -37,8 +37,8 @@ int			tests1()
 {
 	t_arr	test;
 
-	test = arr_new(1, sizeof(int));
-	assert(test.size == 1);
+	test = arr_new(sizeof(int));
+	assert(test.alloc_size == 0);
 	assert(test.elem_size == sizeof(int));
 	assert(test.len == 0);
 	assert(arr_grow(&test, 2) > 0);
@@ -55,7 +55,7 @@ int			tests2()
 	t_test	struc;
 	size_t	i;
 
-	test = arr_new(1, sizeof(t_test));
+	test = arr_new(sizeof(t_test));
 
 	// Append 5 elements to the array.
 	i= 0;
@@ -114,28 +114,28 @@ int			tests3()
 	char	c = '6';
 	int		pos;
 
-	test = arr_new(1, sizeof(char));
+	test = arr_new(sizeof(char));
 	arr_put(&test, "0123456789", 10);
 	arr_iter(&test, print);
 	printf("\n");
-	/*assert(memcmp((char *)test.data, "0123456789", 10) == 0);*/
+	assert(memcmp((char *)test.data, "0123456789", 10) == 0);
 	arr_del(&test, arr_find(&test, &c));
 	arr_iter(&test, print);
 	printf("\n");
-	/*assert(memcmp((char *)test.data, "012345789", 9) == 0);*/
+	assert(memcmp((char *)test.data, "012345789", 9) == 0);
 
-	comp = arr_new(1, sizeof(char));
+	comp = arr_new(sizeof(char));
 	arr_put(&comp, "345", 3);
 	pos = arr_search(&test, &comp);
 	arr_del(&test, pos);
 	arr_iter(&test, print);
 	printf("\n");
-	/*assert(memcmp((char *)test.data, "01245789", 8) == 0);*/
+	assert(memcmp((char *)test.data, "01245789", 8) == 0);
 	arr_take_last(&c, &test);
 	arr_rotate(&test, 3);
 	arr_iter(&test, print);
 	printf("\n");
-	/*assert(memcmp((char *)test.data, "4578012", 7) == 0);*/
+	assert(memcmp((char *)test.data, "4578012", 7) == 0);
 	arr_free(&test);
 	arr_free(&comp);
 	return (1);

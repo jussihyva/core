@@ -12,7 +12,7 @@
 
 #include "../inc/parr.h"
 
-int				parr_del_first(t_parr *arr)
+ssize_t	parr_del_first(t_parr *arr)
 {
 	if (!(parr_del(arr, 0)))
 		return (CR_FAIL);

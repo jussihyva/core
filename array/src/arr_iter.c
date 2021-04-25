@@ -6,13 +6,14 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/20 19:33:55 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/04/25 16:57:24 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/arr.h"
 
-ssize_t		arr_iter(t_arr *arr, ssize_t (*f)(void *, size_t))
+ssize_t	arr_iter(t_arr *arr,
+		ssize_t (*f)(void *, size_t))
 {
 	size_t	i;
 	void	*tmp;

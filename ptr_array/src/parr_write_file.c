@@ -6,24 +6,25 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/24 23:20:31 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/04/26 01:52:13 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/parr.h"
 
-static int		deallocate_str(void **data, size_t i)
+static
+ssize_t	deallocate_str(void *data, size_t i)
 {
-	free(*data);
-	*data = NULL;
+	free(data);
 	return (i);
 }
 
-static int		write_file(FILE *file, t_parr *prepend,
-				int (*f)(void **, void *))
+static
+ssize_t	write_file(FILE *file, t_parr *prepend,
+		ssize_t (*f)(void *, void *))
 {
-	size_t		i;
-	char		*line;
+	size_t	i;
+	char	*line;
 
 	i = 0;
 	while (i < prepend->len)
@@ -32,20 +33,23 @@ static int		write_file(FILE *file, t_parr *prepend,
 		if (f == CR_STRING)
 			line = (char *)prepend->data[i];
 		else
-			f((void **)&line, prepend->data[i]);
-		if (!(fprintf(file, "%s\n", line)))
-			return (CR_FAIL);
+			f((void *)line, prepend->data[i]);
+		if (line)
+		{
+			if (!(fprintf(file, "%s\n", line)))
+				return (CR_FAIL);
+		}
 		i++;
 	}
-	parr_iterate(prepend, deallocate_str);
+	parr_iter(prepend, deallocate_str);
 	return (1);
 }
 
-int				parr_write_file(char *dst, t_parr *src, ssize_t flag,
-				int (*f)(void **, void *))
+ssize_t	parr_write_file(char *dst, t_parr *src, ssize_t flag,
+		ssize_t (*f)(void *, void *))
 {
-	FILE		*file;
-	t_parr		prepend;
+	FILE	*file;
+	t_parr	prepend;
 
 	if (parr_null(src))
 		return (CR_FAIL);

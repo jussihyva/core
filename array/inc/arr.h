@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 06:09:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/21 14:25:30 by julius           ###   ########.fr       */
+/*   Updated: 2021/04/25 22:49:37 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ typedef struct	s_arr
 {
 	uint8_t		*data;
 	size_t		len;
-	size_t		size;
+	size_t		alloc_size;
+	size_t		reserv_size;
 	size_t		elem_size;
 }				t_arr;
 
@@ -27,7 +28,8 @@ typedef struct	s_arr
 **
 **	General functionality.
 */
-t_arr			arr_new(size_t arrsize, size_t elem_size);
+t_arr			arr_new(size_t elem_size);
+ssize_t			arr_alloc(t_arr *src, size_t alloc_size);
 ssize_t			arr_free(t_arr *src);
 ssize_t			arr_grow(t_arr *src, size_t newsize);
 ssize_t			arr_null(t_arr *arr);
@@ -36,6 +38,7 @@ ssize_t			arr_null(t_arr *arr);
 **
 **	Manipulate elements in the array.
 */
+ssize_t			arr_assign(t_arr *dst, void *data, size_t len);
 ssize_t			arr_add(t_arr *src, void *node, size_t index);
 ssize_t			arr_add_first(t_arr *src, void *node);
 ssize_t			arr_add_last(t_arr *src, void *node);

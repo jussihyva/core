@@ -12,9 +12,9 @@
 
 #include "../inc/parr.h"
 
-int				parr_copy(t_parr *dst, t_parr *src)
+ssize_t	parr_copy(t_parr *dst, t_parr *src)
 {
-	size_t		i;
+	size_t	i;
 
 	i = 0;
 	if (parr_null(src) || parr_null(dst))

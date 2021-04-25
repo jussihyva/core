@@ -12,11 +12,11 @@
 
 #include "../inc/parr.h"
 
-int				parr_add(t_parr *arr, void *data, size_t index)
+ssize_t	parr_add(t_parr *arr, void *data, size_t index)
 {
-	t_parr		newarr;
-	void		*tmp;
-	size_t		i;
+	t_parr	newarr;
+	void	*tmp;
+	size_t	i;
 
 	if (index > arr->len)
 		return (CR_FAIL);

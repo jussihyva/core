@@ -6,13 +6,13 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/20 19:33:55 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/04/25 23:32:36 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/arr.h"
 
-ssize_t		arr_add_mult(t_arr *arr, size_t count, ...)
+ssize_t	arr_add_mult(t_arr *arr, size_t count, ...)
 {
 	va_list	ap;
 

@@ -23,4 +23,3 @@ t_mat4	lin_m4_id(void)
 	out.m[15] = 1;
 	return (out);
 }
-

@@ -12,7 +12,7 @@
 
 #include "../inc/parr.h"
 
-int				parr_free(t_parr *arr)
+ssize_t	parr_free(t_parr *arr)
 {
 	if (parr_null(arr))
 		return (CR_FAIL);

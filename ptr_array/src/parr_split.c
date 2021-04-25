@@ -12,10 +12,10 @@
 
 #include "../inc/parr.h"
 
-int				parr_split(t_parr *dst, t_parr *src)
+ssize_t	parr_split(t_parr *dst, t_parr *src)
 {
-	size_t		o_size;
-	size_t		i;
+	size_t	o_size;
+	size_t	i;
 
 	if (parr_null(dst) || parr_null(src))
 		return (CR_FAIL);

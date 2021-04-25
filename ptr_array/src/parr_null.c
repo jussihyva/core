@@ -12,7 +12,7 @@
 
 #include "../inc/parr.h"
 
-int				parr_null(t_parr *arr)
+ssize_t	parr_null(t_parr *arr)
 {
 	if (arr->data == NULL || arr->size == 0)
 		return (CR_SUCCESS);

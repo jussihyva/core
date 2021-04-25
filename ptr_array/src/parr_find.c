@@ -12,10 +12,10 @@
 
 #include "../inc/parr.h"
 
-void			*parr_find(t_parr *src, void *key, void *(*f)(void *, void *))
+void	*parr_find(t_parr *src, void *key, void *(*f)(void *, void *))
 {
-	void		*data;
-	size_t		i;
+	void	*data;
+	size_t	i;
 
 	i = 0;
 	data = NULL;

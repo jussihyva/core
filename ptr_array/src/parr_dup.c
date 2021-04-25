@@ -12,33 +12,19 @@
 
 #include "../inc/parr.h"
 
-static void		*internal_memcpy(void *dst, const void *src, uint64_t n)
+ssize_t	parr_dup(t_parr *dst, t_parr *src, size_t size)
 {
-	const char	*s;
-	char		*d;
+	void	*elem;
+	size_t	i;
 
-	if (src == NULL)
-		return (NULL);
-	dst = malloc(n);
-	s = (const char *)src;
-	d = (char *)dst;
-	while (n--)
-		*d++ = *s++;
-	return (dst);
-}
-
-int				parr_dup(t_parr *dst, t_parr *src, size_t size)
-{
-	void		*member;
-	size_t		i;
-
+	elem = NULL;
 	i = 0;
 	if (parr_null(src) || parr_null(dst))
 		return (CR_FAIL);
 	while (i < src->len)
 	{
-		member = internal_memcpy(member, parr_get(src, i), size);
-		if (!(parr_add_last(dst, member)))
+		elem = mem_cpy_safe(elem, parr_get(src, i), size);
+		if (!(parr_add_last(dst, elem)))
 			return (CR_FAIL);
 		i++;
 	}

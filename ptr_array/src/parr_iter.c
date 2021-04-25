@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parr_iterate.c                                        :+:      :+:    :+:   */
+/*   parr_iter.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/13 11:24:56 by julius           ###   ########.fr       */
+/*   Updated: 2021/04/26 01:30:08 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/parr.h"
 
-int				parr_iterate(t_parr *arr, int (*f)(void **, size_t))
+ssize_t	parr_iter(t_parr *arr, ssize_t (*f)(void *, size_t))
 {
-	size_t		i;
-	int			ret;
+	size_t	i;
 
 	if (parr_null(arr))
 		return (CR_FAIL);
 	i = 0;
 	while (i < arr->len)
 	{
-		if ((ret = f(&arr->data[i], i)) == CR_STOP)
+		if (f(arr->data[i], i) == CR_STOP)
 			return (i);
 		i++;
 	}
@@ -32,9 +31,9 @@ int				parr_iterate(t_parr *arr, int (*f)(void **, size_t))
 /*
 **  ----------------------------------------------------------------------------
 **
-**	PARR_ITERATE
+**	PARR_iter
 **
-**	Iterate a dynamic array and execute a function passed by f on all
+**	iter a dynamic array and execute a function passed by f on all
 **	members.
 **
 **  ----------------------------------------------------------------------------

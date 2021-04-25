@@ -6,13 +6,13 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/20 17:51:05 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/04/25 16:55:53 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/arr.h"
 
-ssize_t		arr_del_first(t_arr *arr)
+ssize_t	arr_del_first(t_arr *arr)
 {
 	if (!(arr_del(arr, 0)))
 		return (CR_FAIL);

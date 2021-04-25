@@ -1,55 +1,58 @@
-#include "inc/core.h"
+#include "../inc/core.h"
 #include <time.h>
 
 const size_t	iters = 100000000;
 
-int			test(int (*f)())
+int			test_clock(char *test_name, void *alloc_param, int (*f)(void *))
 {	
 	clock_t begin = clock();
-	f();
+	f(alloc_param);
 	clock_t end = clock();
 	double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
-	printf("TIME: %f\n", time_spent);
+	printf("%s\n%f\n", test_name, time_spent);
 	return (1);
 }
 
-int			test1()
+int			test1(void *param)
 {
-	t_arr	test;
-	size_t	*ptr;
+	t_arr	*test;
 	size_t	i;
 
-	test = arr_new(1, sizeof(size_t));
+	test = param;
 	i = 0;
 	while (i < iters)
 	{
-		arr_add_last(&test, &i);
+		arr_add_last(test, &i);
 		i++;
 	}
-	ptr = arr_get_last(&test);
-	printf("%zu\n", *ptr);
 	return (1);
 }
 
-
-int			test2()
+int			test2(void *param)
 {
 	size_t	*test;
 	size_t	i;
 
 	i = 0;
-	test = (size_t *)malloc(sizeof(size_t) * iters);
+	test = param;
 	while (i < iters)
 	{
 		test[i] = i;
 		i++;
 	}
-	printf("%zu\n", test[iters - 1]);
 	return (1);
 }
 
 int			main(void)
-{
-	test(test1);
-	test(test2);
+{	
+	t_arr	test1_param;
+	size_t	*test2_param;
+
+	test1_param = arr_new(sizeof(size_t));
+	arr_alloc(&test1_param, iters);
+	test2_param = (size_t *)malloc(sizeof(size_t) * iters);
+	test_clock("Add elements to t_arr", &test1_param, test1);
+	test_clock("Assign elements to preallocated c-array", test2_param, test2);
+	arr_free(&test1_param);
+	free(test2_param);
 }

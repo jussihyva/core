@@ -6,13 +6,13 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/20 19:35:57 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/04/25 16:56:33 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/arr.h"
 
-void		*arr_get(t_arr *src, size_t index)
+void	*arr_get(t_arr *src, size_t index)
 {
 	uint8_t	*mem_pos;
 
