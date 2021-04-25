@@ -35,10 +35,10 @@
 # include <math.h>
 # include <limits.h>
 
-# include "../mem/inc/mem.h"
-# include "../arr/inc/arr.h"
-# include "../parr/inc/parr.h"
-# include "../lin/inc/lin.h"
-# include "../cstr/inc/cstr.h"
+# include "../memory/inc/mem.h"
+# include "../array/inc/arr.h"
+# include "../ptr_array/inc/parr.h"
+# include "../linear_algebra/inc/lin.h"
+# include "../cstring/inc/cstr.h"
 
 #endif

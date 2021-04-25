@@ -1,26 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_lin_impl.c                                    :+:      :+:    :+:   */
+/*   test_lin_usage.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 00:30:42 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/25 00:50:02 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/04/25 11:40:17 by julius           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/core.h"
-
-ssize_t	lin_v4_print(void *elem, size_t i)
-{
-	t_vec4	*src;
-
-	src = elem;
-	printf("%-5.2lf|%-5.2lf|%-5.2lf|%-5.2lf|\n",
-			src->v[0], src->v[1], src->v[2], src->v[3]);
-	return (i);
-}
 
 ssize_t	parse_vec(t_arr *dst, t_parr *src)
 {
@@ -37,7 +27,9 @@ ssize_t	parse_vec(t_arr *dst, t_parr *src)
 		arr_add_last(dst, &curr);
 		i += 4;
 	}
+	return (i);
 }
+
 
 int		main(int argc, char **argv)
 {
@@ -53,3 +45,6 @@ int		main(int argc, char **argv)
 	arr_free(&buffer);
 }
 
+/*
+ * Comment
+ */

@@ -6,23 +6,18 @@
 #    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/22 22:32:30 by jkoskela          #+#    #+#              #
-#    Updated: 2021/04/24 23:14:46 by jkoskela         ###   ########.fr        #
+#    Updated: 2021/04/25 12:05:19 by jkoskela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	libcore.a
 
-MEM 		=	mem/
-ARR 		=	arr/
-LIN 		=	lin/
-PARR 		=	parr/
-CSTR 		=	cstr/
+MEM 		=	memory/
+ARR 		=	array/
+LIN 		=	linear_algebra/
+PARR 		=	ptr_array/
 
-MEM_A 		=	mem/libmem.a
-ARR_A 		=	arr/libarr.a
-LIN_A 		=	lin/liblin.a
-PARR_A 		=	parr/libparr.a
-CSTR_A 		=	cstr/libcstr.a
+CSTR 		=	cstring/
 
 RM			=	rm -rf
 

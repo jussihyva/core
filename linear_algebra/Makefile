@@ -6,7 +6,7 @@
 #    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2021/04/25 01:12:07 by jkoskela         ###   ########.fr        #
+#    Updated: 2021/04/25 12:08:13 by jkoskela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,7 @@ SRC_BASE	=	lin_m4_getcol.c \
 				lin_v4_add.c \
 				lin_v4_sub.c \
 				lin_m4_print.c \
+				lin_v4_print.c \
 				lin_m4_transform.c \
 				lin_v4_cross.c \
 				lin_m4_proj.c \
