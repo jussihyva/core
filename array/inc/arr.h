@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 06:09:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/25 22:49:37 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/04/26 02:33:49 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,11 @@ typedef struct	s_arr
 	size_t		elem_size;
 }				t_arr;
 
-/*
-**-----------------------------------------------------------------------------
-**
-**	General functionality.
-*/
 t_arr			arr_new(size_t elem_size);
 ssize_t			arr_alloc(t_arr *src, size_t alloc_size);
 ssize_t			arr_free(t_arr *src);
 ssize_t			arr_grow(t_arr *src, size_t newsize);
 ssize_t			arr_null(t_arr *arr);
-/*
-**-----------------------------------------------------------------------------
-**
-**	Manipulate elements in the array.
-*/
 ssize_t			arr_assign(t_arr *dst, void *data, size_t len);
 ssize_t			arr_add(t_arr *src, void *node, size_t index);
 ssize_t			arr_add_first(t_arr *src, void *node);
@@ -53,11 +43,6 @@ void			*arr_get_last(t_arr *src);
 void			*arr_take(void *dst, t_arr *src, size_t index);
 void			*arr_take_first(void *dst, t_arr *src);
 void			*arr_take_last(void *dst, t_arr *src);
-/*
-**-----------------------------------------------------------------------------
-**
-**	Manipulate, iterate or reat to the array itself.
-*/
 ssize_t			arr_find(t_arr *src, void *key);
 ssize_t			arr_search(t_arr *src, t_arr *key);
 ssize_t			arr_copy(t_arr *dst, t_arr *src);
