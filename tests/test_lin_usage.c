@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 00:30:42 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/26 00:37:06 by julius           ###   ########.fr       */
+/*   Updated: 2021/04/26 13:03:05 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,9 @@ ssize_t	parse_vec(t_arr *dst, t_parr *src)
 	return (i);
 }
 
-static int		deallocate_str(void **data, size_t i)
+static ssize_t	deallocate_str(void *data, size_t i)
 {
-	free(*data);
-	*data = NULL;
+	free(data);
 	return (i);
 }
 
@@ -59,6 +58,8 @@ int		main(int argc, char **argv)
 	t_parr	file;
 	t_arr	buffer;
 
+	if (argc != 2)
+		return (0);
 	file = parr_new(1);
 	buffer = arr_new(sizeof(t_vec4));
 	parr_read_file(&file, argv[1]);
