@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/28 00:26:18 by julius           ###   ########.fr       */
+/*   Updated: 2021/04/28 19:13:30 by julius           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ static ssize_t	rrot(t_arr *src, ssize_t steps)
 		arr_add_first(src, tmp);
 		i++;
 	}
+	free(tmp);
 	return (i);
 }
 
