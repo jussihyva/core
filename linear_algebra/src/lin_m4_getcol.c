@@ -12,9 +12,9 @@
 
 #include "../inc/lin.h"
 
-t_vec4			lin_m4_getcol(t_mat4 src, uint8_t col)
+t_vec4	lin_m4_getcol(t_mat4 src, uint8_t col)
 {
-	t_vec4		out;
+	t_vec4	out;
 
 	out.v[0] = src.m[col];
 	out.v[1] = src.m[4 + col];

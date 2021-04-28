@@ -12,9 +12,9 @@
 
 #include "../inc/lin.h"
 
-t_vec4			lin_v4_cross(t_vec4 *a, t_vec4 *b)
+t_vec4	lin_v4_cross(t_vec4 *a, t_vec4 *b)
 {
-	t_vec4		out;
+	t_vec4	out;
 
 	out.v[0] = (a->v[1] * b->v[2]) - (a->v[2] * b->v[1]);
 	out.v[1] = (a->v[2] * b->v[0]) - (a->v[0] * b->v[2]);

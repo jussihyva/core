@@ -6,14 +6,14 @@
 #    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2021/04/26 00:19:20 by jkoskela         ###   ########.fr        #
+#    Updated: 2021/04/27 22:46:26 by jkoskela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	libarr.a
 
 CC			=	gcc
-CFLAGS 		=	-O3 -Wall -Wextra -Werror -Wpedantic -Wtype-limits \
+CFLAGS 		=	-g -Wall -Wextra -Werror -Wpedantic -Wtype-limits \
 				-Wunreachable-code -Wpadded -Wshadow -fPIC -Wconversion
 SRC_DIR		=	src/
 INC_DIR		=	inc/
@@ -47,6 +47,7 @@ SRC_BASE	=	arr_add.c \
 				arr_copy.c \
 				arr_rotate.c \
 				arr_alloc.c \
+				arr_assign.c \
 
 SRC			=	$(addprefix $(SRC_DIR), $(SRC_BASE))
 OBJ			=	$(addprefix $(OBJ_DIR), $(SRC_BASE:.c=.o))

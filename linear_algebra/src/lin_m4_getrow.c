@@ -12,9 +12,9 @@
 
 #include "../inc/lin.h"
 
-t_vec4			lin_m4_getrow(t_mat4 src, uint8_t row)
+t_vec4	lin_m4_getrow(t_mat4 src, uint8_t row)
 {
-	t_vec4		out;
+	t_vec4	out;
 
 	out.v[0] = src.m[(row * 4)];
 	out.v[1] = src.m[(row * 4) + 1];

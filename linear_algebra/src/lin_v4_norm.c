@@ -12,10 +12,10 @@
 
 #include "../inc/lin.h"
 
-t_vec4			lin_v4_norm(t_vec4 *src)
+t_vec4	lin_v4_norm(t_vec4 *src)
 {
-	double		mag;
-	t_vec4		out;
+	double	mag;
+	t_vec4	out;
 
 	mag = (-1) * lin_v4_mag(src);
 	out.v[0] = src->v[0] / mag;

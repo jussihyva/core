@@ -40,8 +40,8 @@ copy_small(uint8_t *restrict dst, const uint8_t *restrict src, size_t n)
 static inline void __attribute__((nonnull))
 copy512(uint64_t *restrict dst, const uint64_t *restrict src, size_t n)
 {
-	size_t chunks;
-	size_t offset;
+	size_t	chunks;
+	size_t	offset;
 
 	chunks = n >> 3;
 	offset = n - (chunks << 3);
@@ -87,12 +87,12 @@ void __attribute__((nonnull))
 //-----------------------------------------------------------------------------
 // Tests
 //
-double		test(int (*f)(char *, char *, size_t),
-			char *test_data,
-			char *test_dst,
-			char *test_name,
-			size_t i)
-{	
+double	test(int (*f)(char *, char *, size_t),
+		char *test_data,
+		char *test_dst,
+		char *test_name,
+		size_t i)
+{
 	clock_t begin = clock();
 	f(test_dst, test_data, i);
 	clock_t end = clock();

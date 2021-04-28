@@ -12,9 +12,9 @@
 
 #include "../inc/lin.h"
 
-t_mat4			lin_m4_transform(double scale)
+t_mat4	lin_m4_transform(double scale)
 {
-	t_mat4		out;
+	t_mat4	out;
 
 	out = lin_m4_id();
 	out.m[0] *= scale;
