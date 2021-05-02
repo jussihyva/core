@@ -16,7 +16,7 @@ typedef struct      s_graph_node
 {
     t_arr           in;
     t_arr           out;
-    uint8_t         visited;
+    size_t			visited;
     void            *attr;
 }                   t_graph_node;
 
@@ -163,9 +163,11 @@ ssize_t graph_bfs_loop(t_graph *g, t_arr *bfs_queue, t_graph_node *curr, size_t 
         }
         i++;
     }
-	dst_node = arr_get(bfs_queue, curr_index);
     if (curr_index < bfs_queue->len)
+	{
+		dst_node = arr_get(bfs_queue, curr_index);
         graph_bfs_loop(g, bfs_queue, dst_node, curr_index + 1);
+	}
     return (CR_SUCCESS);
 }
 
@@ -269,11 +271,13 @@ int main(void)
     graph_add_edge(&g, room1, sink, &ea3);
 
 	bfs = arr_new(sizeof(t_graph_node));
+	arr_alloc(&bfs, 100);
 	graph_bfs(&g, &bfs, graph_find_node(&g, "S", compare_nodes));
 	printf("Breadth First Search\n\n");
 	arr_iter(&bfs, graph_print_node);
     
     dfs = arr_new(sizeof(t_graph_node));
+	arr_alloc(&dfs, 100);
     graph_dfs(&g, &dfs, graph_find_node(&g, "S", compare_nodes));
     printf("Depth First Search\n\n");
     arr_iter(&dfs, graph_print_node);
