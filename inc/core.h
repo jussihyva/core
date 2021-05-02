@@ -24,6 +24,8 @@
 # define CR_APPEND 1
 # define CR_PREPEND -1
 # define CR_STRING NULL
+# define CR_PARR_NULL (t_parr) {NULL, 0, 0}
+# define CR_ARR_NULL (t_arr) {NULL, 0, 0, 0, 0}
 # define CR_PI 3.14159265358979323846
 # include <stdlib.h>
 # include <stdint.h>
@@ -35,6 +37,7 @@
 # include <fcntl.h>
 # include <math.h>
 # include <limits.h>
+# include <stdbool.h>
 
 # include "../memory/inc/mem.h"
 # include "../array/inc/arr.h"
