@@ -13,7 +13,7 @@ int	main(void)
 {
 	t_arr	arr;
 	char	c;
-
+	
 	c = 'A';
 	arr = arr_new(sizeof(char));
 	arr_assign(&arr, "abcdefg", 3);
