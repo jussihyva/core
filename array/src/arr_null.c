@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/25 23:30:25 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/02 22:46:19 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 
 ssize_t	arr_null(t_arr *arr)
 {
-	if (!arr->alloc_size && !arr->reserv_size)
-		return (CR_SUCCESS);
-	if (!arr->elem_size)
+	if (memcmp(arr, &CR_ARR_NULL, sizeof(t_arr)) == 0)
 		return (CR_SUCCESS);
 	return (CR_FAIL);
 }

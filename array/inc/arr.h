@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 06:09:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/27 01:25:02 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/03 01:10:32 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,10 @@ typedef struct	s_arr
 	uint8_t		*data;
 	size_t		len;
 	size_t		alloc_size;
-	size_t		reserv_size;
 	size_t		elem_size;
 }				t_arr;
 
-t_arr			arr_new(size_t elem_size);
-ssize_t			arr_alloc(t_arr *src, size_t alloc_size);
+t_arr			arr_new(size_t len, size_t elem_size);
 ssize_t			arr_free(t_arr *src);
 ssize_t			arr_null(t_arr *src);
 void			*arr_get(t_arr *src, size_t index);
@@ -53,6 +51,8 @@ ssize_t			arr_iter(t_arr *src,
 				ssize_t (*f)(void *, size_t));
 ssize_t			arr_iter_range(t_arr *src, size_t start, size_t end,
 				ssize_t (*f)(void *, size_t));
+ssize_t			arr_find_by(t_arr *arr, const void *key,
+				ssize_t (*f)(const void *, const void *));
 ssize_t			arr_parse(t_arr *dst, t_arr *src,
 				ssize_t (*f)(t_arr *, void *));
 

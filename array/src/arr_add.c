@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/28 00:38:16 by julius           ###   ########.fr       */
+/*   Updated: 2021/05/02 23:34:30 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,9 @@ ssize_t	arr_add(t_arr *arr, void *data, size_t index)
 	uint8_t	*mem_pos;
 	uint8_t	*mem_tmp;
 
-	if ((arr->alloc_size && arr->len == arr->alloc_size)
-	|| (arr->reserv_size && arr->len == arr->reserv_size)
-	|| arr_null(arr))
+	if (arr->len == arr->alloc_size)
 	{
-		if (!(arr_grow(arr, arr->len * 2 + 1)))
+		if (!(arr_grow(arr, arr->alloc_size * 2)))
 			return (CR_FAIL);
 	}
 	mem_pos = arr->data;

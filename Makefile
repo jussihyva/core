@@ -6,7 +6,7 @@
 #    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/22 22:32:30 by jkoskela          #+#    #+#              #
-#    Updated: 2021/04/25 12:05:19 by jkoskela         ###   ########.fr        #
+#    Updated: 2021/05/03 01:59:17 by jkoskela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,8 @@ MEM 		=	memory/
 ARR 		=	array/
 LIN 		=	linear_algebra/
 PARR 		=	ptr_array/
-
 CSTR 		=	cstring/
+GRAPH 		=	graph/
 
 RM			=	rm -rf
 
@@ -30,12 +30,14 @@ all:
 			+@make -C $(LIN)
 			+@make -C $(PARR)
 			+@make -C $(CSTR)
+			+@make -C $(GRAPH)
 			@mkdir -p $(OBJ)
 			@cp $(MEM)obj/*.o $(OBJ)
 			@cp $(ARR)obj/*.o $(OBJ)
 			@cp $(LIN)obj/*.o $(OBJ)
 			@cp $(PARR)obj/*.o $(OBJ)
 			@cp $(CSTR)obj/*.o $(OBJ)
+			@cp $(GRAPH)obj/*.o $(OBJ)
 			ar -rcs $(NAME) $(OBJ)*.o
 			@echo "\\n\033[32;1mCORE ACTIVATED \033[0m \\n"
 
@@ -45,6 +47,7 @@ clean:
 			@make clean -C $(LIN)
 			@make clean -C $(PARR)
 			@make clean -C $(CSTR)
+			@make clean -C $(GRAPH)
 			@echo "\\n\033[32;1mCORE DEACTIVATED \033[0m \\n"
 
 fclean:		clean
@@ -55,6 +58,7 @@ fclean:		clean
 			@make fclean -C $(LIN)
 			@make fclean -C $(PARR)
 			@make fclean -C $(CSTR)
+			@make fclean -C $(GRAPH)
 
 re:			fclean all
 

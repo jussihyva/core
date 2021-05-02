@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/26 00:14:30 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/02 23:30:25 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ ssize_t	arr_grow(t_arr *arr, size_t new_size)
 {
 	t_arr	out;
 
-	out = arr_new(arr->elem_size);
-	if (!(arr_alloc(&out, new_size)))
+	out = arr_new(new_size, arr->elem_size);
+	if (arr_null(&out))
 		return (CR_FAIL);
 	arr_copy(&out, arr);
 	arr_free(arr);
