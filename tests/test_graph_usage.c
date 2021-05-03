@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "../inc/core.h"
+#include "../graph/inc/graph.h"
 
 # define CR_GRAPH_NULL (t_graph) {NULL, CR_ARR_NULL}
 # define CR_GRAPH_EDGE_NULL (t_graph_edge) {NULL, NULL, NULL}
