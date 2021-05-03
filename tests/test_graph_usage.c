@@ -69,30 +69,25 @@ int main(void)
 	ssize_t room2;
 
 	graph_new(&g, "Flow Graph");
-	na0 = (t_node_attr) {"S", NONE, NONE};
-	n = (t_graph_node) {CR_ARR_NULL, CR_ARR_NULL, SOURCE, &na0};
-	source = graph_add_node(&g, n);
-	na1 = (t_node_attr) {"T", NONE, NONE};
-	n = (t_graph_node) {CR_ARR_NULL, CR_ARR_NULL, SINK, &na1};
-	sink = graph_add_node(&g, n);
-	na2 = (t_node_attr) {"R0", 3, 3};
-	n = (t_graph_node) {CR_ARR_NULL, CR_ARR_NULL, 0, &na2};
-	room1 = graph_add_node(&g, n);
-	na3 = (t_node_attr) {"R1", 4, 4};
-	n = (t_graph_node) {CR_ARR_NULL, CR_ARR_NULL, 1, &na3};
-	room2 = graph_add_node(&g, n);
+	graph_add_node(&g, (t_graph_node) {CR_ARR_NULL, CR_ARR_NULL, SOURCE, &(t_node_attr) {"S", NONE, NONE}});
+	graph_add_node(&g, (t_graph_node) {CR_ARR_NULL, CR_ARR_NULL, SINK, &(t_node_attr) {"T", NONE, NONE}});
+	graph_add_node(&g, (t_graph_node) {CR_ARR_NULL, CR_ARR_NULL, 0, &(t_node_attr) {"R0", 3, 3}});
+	graph_add_node(&g, (t_graph_node) {CR_ARR_NULL, CR_ARR_NULL, 1, &(t_node_attr) {"R1", 4, 4}});
+	graph_add_node(&g, (t_graph_node) {CR_ARR_NULL, CR_ARR_NULL, 2, &(t_node_attr) {"R2", 2, 2}});
+	graph_add_node(&g, (t_graph_node) {CR_ARR_NULL, CR_ARR_NULL, 3, &(t_node_attr) {"R3", 4, 4}});
+	graph_add_node(&g, (t_graph_node) {CR_ARR_NULL, CR_ARR_NULL, 4, &(t_node_attr) {"R4", 5, 5}});
 
-	ea0 = (t_edge_attr) {1};
-	graph_add_edge(&g, source, room1, &ea0);
-	ea1 = (t_edge_attr) {1};
-	graph_add_edge(&g, source, room2, &ea1);
-	ea2 = (t_edge_attr) {1};
-	graph_add_edge(&g, room2, sink, &ea2);
-	ea3 = (t_edge_attr) {1};
-	graph_add_edge(&g, room1, sink, &ea3);
+	graph_add_edge(&g, SOURCE, 0, &(t_edge_attr) {1});
+	graph_add_edge(&g, SOURCE, 1, &(t_edge_attr) {1});
+	graph_add_edge(&g, SOURCE, 2, &(t_edge_attr) {1});
+	graph_add_edge(&g, 0, 3, &(t_edge_attr) {1});
+	graph_add_edge(&g, 3, 4, &(t_edge_attr) {1});
+	graph_add_edge(&g, 2, 3, &(t_edge_attr) {1});
+	graph_add_edge(&g, 2, 4, &(t_edge_attr) {1});
+	graph_add_edge(&g, 4, SINK, &(t_edge_attr) {1});
 
 	bfs = arr_new(1, sizeof(t_graph_node));
-	graph_bfs(&bfs, graph_find_node(&g, SOURCE));
+	graph_find_shortest_path(&bfs, graph_find_node(&g, SOURCE), graph_find_node(&g, SINK));
 	printf("\nBreadth First Search\n\n");
 	arr_iter(&bfs, print_node);
 

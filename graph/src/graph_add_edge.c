@@ -1,14 +1,14 @@
 #include "../inc/graph.h"
 
-ssize_t graph_add_edge(t_graph *g, size_t src_index,
-		size_t dst_index, void *attr)
+ssize_t graph_add_edge(t_graph *g, ssize_t src_id,
+		ssize_t dst_id, void *attr)
 {
 	t_graph_edge	e;
 	t_graph_node	*src;
 	t_graph_node	*dst;
 
-	src = arr_get(&g->nodes, src_index);
-	dst = arr_get(&g->nodes, dst_index);
+	src = graph_find_node(g, src_id);
+	dst = graph_find_node(g, dst_id);
 	if (!src || !dst)
 		return (-1);
 	e.src = src;
