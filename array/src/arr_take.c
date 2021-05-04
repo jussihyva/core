@@ -1,14 +1,3 @@
-/*
- *  ----------------------------------------------------------------------------
- *
- *	Take a member from the array. Contrary to `arr_get`, take also
- *	removes the member from the array. Takes as the
- *	first argument a pointer to an allocated memory sufficient to hold
- *	`src->elem_size` amount of data.
- *
- *  ----------------------------------------------------------------------------
- */
-
 #include "../inc/arr.h"
 
 void	*arr_take(void *dst, t_arr *src, size_t index)
@@ -23,3 +12,14 @@ void	*arr_take(void *dst, t_arr *src, size_t index)
 		return (NULL);
 	return (dst);
 }
+
+/*
+ *  ----------------------------------------------------------------------------
+ *
+ *	Take a member from the array. Contrary to `arr_get`, take also
+ *	removes the member from the array. Takes as the
+ *	first argument a pointer to an allocated memory sufficient to hold
+ *	`src->elem_size` amount of data.
+ *
+ *  ----------------------------------------------------------------------------
+ */

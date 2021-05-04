@@ -1,3 +1,14 @@
+#include "../inc/arr.h"
+
+ssize_t	arr_assign(t_arr *dst, void *data, size_t len)
+{
+	if (dst->alloc_size > 0)
+		return (CR_FAIL);
+	dst->data = data;
+	dst->len = len;
+	return (CR_SUCCESS);
+}
+
 /*
  * ----------------------------------------------------------------------------
  *
@@ -9,14 +20,3 @@
  *
  * ----------------------------------------------------------------------------
  */
-
-#include "../inc/arr.h"
-
-ssize_t	arr_assign(t_arr *dst, void *data, size_t len)
-{
-	if (dst->alloc_size > 0)
-		return (CR_FAIL);
-	dst->data = data;
-	dst->len = len;
-	return (CR_SUCCESS);
-}

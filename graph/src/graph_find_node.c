@@ -1,4 +1,5 @@
 /*******************************************************************************
+ * \authors Julius Koskela
  * \brief Find node from a graph by id.
  * \param g Source graph.
  * \param id Id to be matched.
