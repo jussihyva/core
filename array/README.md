@@ -29,16 +29,14 @@ typedef struct  s_arr
     uint8_t     *data;
     size_t      len;
     size_t      alloc_size;
-    size_t      reserv_size;
     size_t      elem_size;
 }               t_arr;
 
 ```
 
-`len` refers to the number of members in the array. `alloc_size` is the amount of
-allocated space for `elem_size` sized objects. `reserv_size` is the amount of space
-available in case pre-allocated memory was assigned to the array. These values
-should never be manipulated by the user but they can be accessed and checked easily.
+`len` refers to the number of members in the array. `alloc_size` is the amount
+of allocated space for `elem_size` sized objects. These values should never be
+manipulated by the user but they can be accessed and checked easily.
 
 ## Functions
 

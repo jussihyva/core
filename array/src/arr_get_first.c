@@ -1,8 +1,16 @@
 /*******************************************************************************
+ *
  * \authors Julius Koskela
- * \brief
- * \param
- * \return
+ *
+ * \brief Get a pointer to the first element in the array.
+ *
+ * Does not copy the element, pointer points directly to the memory in the
+ * array so be careful.
+ *
+ * \param src Source array.
+ *
+ * \return Pointer to an element or NULL if no element is found.
+ *
  ******************************************************************************/
 
 #include "../inc/arr.h"
@@ -11,13 +19,3 @@ void	*arr_get_first(t_arr *arr)
 {
 	return (arr_get(arr, 0));
 }
-
-/*
-**  ----------------------------------------------------------------------------
-**
-**	ARR_GET_FIRST
-**
-**	Pull the first member from a dynamic array.
-**
-**  ----------------------------------------------------------------------------
-*/

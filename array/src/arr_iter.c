@@ -1,8 +1,18 @@
 /*******************************************************************************
+ *
  * \authors Julius Koskela
- * \brief
- * \param
- * \return
+ *
+ * \brief Iterate a dynamic array and apply f to each element.
+ *
+ * An iterator function that takes a user defined function f as a parameter
+ * and applies f to each element iterated. If f returns a
+ * value < 1, iteration stops.
+ *
+ * \param src Source array.
+ * \param f A function to be applied to each iterated element.
+ *
+ * \return Amount of elements iterated on success or 0 on failure.
+ *
  ******************************************************************************/
 
 #include "../inc/arr.h"
@@ -25,14 +35,3 @@ ssize_t	arr_iter(t_arr *arr,
 	}
 	return ((ssize_t)i);
 }
-
-/*
-**  ----------------------------------------------------------------------------
-**
-**	ARR_ITER
-**
-**	Iterate a dynamic array and execute a function passed by f on all
-**	members.
-**
-**  ----------------------------------------------------------------------------
-*/
