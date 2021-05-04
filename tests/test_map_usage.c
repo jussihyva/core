@@ -11,6 +11,6 @@ int main(void)
 	map_add(&m, "Quantum Physics 2", "qp02");
 	map_add(&m, "Computer Science 1", "cs01");
 	map_add(&m, "Computer Science 2", "cs02");
-	map_get(course, &m, "qp02");
+	course = map_get(&m, "qp02");
 	printf("Course: %s\n", course);
 }

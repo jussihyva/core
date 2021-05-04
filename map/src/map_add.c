@@ -10,7 +10,7 @@ ssize_t	map_add(t_map *dst, void *src, const char *key)
 
 	new_node.data = src;
 	new_node.key = key;
-	treshold = dst->load_factor * (double)dst->capacity;
+	treshold = dst->load_factor * (double)dst->capacity - 1;
 	if (dst->count >= (uint64_t)treshold)
 		map_grow(dst);
 	hash_key = dst->hash(key);

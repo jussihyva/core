@@ -27,7 +27,7 @@ ssize_t	map_grow(t_map *src)
 	t_map	new;
 	size_t	i;
 
-	new.capacity = src->resize(src->capacity);
+	new.capacity = src->resize(src->capacity + 1);
 	new.count = 0;
 	new.hash = src->hash;
 	new.load_factor = src->load_factor;

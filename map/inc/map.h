@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 06:09:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/04 17:36:38 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/04 19:57:13 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ typedef struct		s_map
 }					t_map;
 
 ssize_t		map_add(t_map *dst, void *src, const char *key);
-ssize_t		map_get(void *dst, t_map *src, const char *key);
+void		*map_get(t_map *src, const char *key);
 t_map		map_new(void);
 ssize_t		map_grow(t_map *src);
 ssize_t		map_null_node(t_map_node *n);
