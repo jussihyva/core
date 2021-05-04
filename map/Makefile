@@ -6,45 +6,43 @@
 #    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2021/05/04 00:29:07 by jkoskela         ###   ########.fr        #
+#    Updated: 2021/05/04 17:37:04 by jkoskela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	libgraph.a
+NAME		=	libmap.a
 
 CC			=	gcc
-CFLAGS 		=	-O3 -Wall -Wextra -Werror -Wpedantic -Wtype-limits \
-				-Wunreachable-code -Wpadded -Wshadow -fPIC -Wconversion
+FLAGS 		=	-g -Wall -Wextra -Werror -Wpedantic -Wtype-limits -Wswitch-default -Wunreachable-code -Wpadded -Wshadow -fPIC
+
 SRC_DIR		=	src/
 INC_DIR		=	inc/
 OBJ_DIR		=	obj/
 
-SRC_BASE	=	graph_new.c \
-				graph_null.c \
-				graph_add_node.c \
-				graph_add_edge.c \
-				graph_cmp_nodes.c \
-				graph_find_node.c \
-				graph_find_roots.c \
-				graph_bfs.c \
-				graph_dfs.c \
-				graph_find_shortest_path.c \
-				graph_edge_backtrack.c \
+SRC_BASE	=	map_add.c \
+				map_get.c \
+				map_new.c \
+				map_grow.c \
+				map_null_node.c \
+				map_hash_1.c \
+				map_probe_quad_pow2.c \
+				map_resize_pow2.c \
 
 SRC			=	$(addprefix $(SRC_DIR), $(SRC_BASE))
 OBJ			=	$(addprefix $(OBJ_DIR), $(SRC_BASE:.c=.o))
+DIR			=	$(sort $(dir $(OBJ)))
 
 all:
 				$(MAKE) -j $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) Makefile
 				@ar -rcs $(NAME) $(OBJ)
-				@echo "\\n\033[32;1mGRAPH FUNCTIONS COMPILED\033[0m \\n"
+				@echo "\\n\033[32;MAP FUNCTIONS COMPILED\033[0m \\n"
 
-$(OBJ_DIR):
+$(DIR):
 				@mkdir -p $@
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJ_DIR)
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c Makefile | $(DIR)
 				@$(CC) $(CFLAGS) -c $< -o $@ -I $(INC_DIR)
 
 clean:
@@ -54,6 +52,7 @@ clean:
 fclean: clean
 				@rm -rf $(NAME);
 
-re: fclean all
+re: fclean
+				@$(MAKE) -j $(NAME)
 
-.PHONY: all fclean clean re
+.PHONY: fclean clean re

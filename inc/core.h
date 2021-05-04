@@ -16,16 +16,19 @@
 
 # define CR_STOP -1
 # define CR_CONTINUE 1
+# define CR_SUCCESS 1
 # define CR_FAIL 0
+# define CR_TRUE 1
+# define CR_FALSE 0
 # define CR_NOALLOC 0
 # define CR_EMPTY -1
-# define CR_SUCCESS 1
 # define CR_WRITE 0
 # define CR_APPEND 1
 # define CR_PREPEND -1
 # define CR_STRING NULL
 # define CR_PARR_NULL (t_parr) {NULL, 0, 0}
 # define CR_ARR_NULL (t_arr) {NULL, 0, 0, 0}
+# define CR_GRAPH_NULL (t_graph) {NULL, CR_ARR_NULL}
 # define CR_PI 3.14159265358979323846
 # include <stdlib.h>
 # include <stdint.h>
@@ -44,5 +47,6 @@
 # include "../ptr_array/inc/parr.h"
 # include "../linear_algebra/inc/lin.h"
 # include "../cstring/inc/cstr.h"
+# include "../map/inc/map.h"
 
 #endif

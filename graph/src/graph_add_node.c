@@ -1,5 +1,5 @@
 /*******************************************************************************
- * \brief Add a node to n to graph g.
+ * \brief Add a node n to graph g.
  *
  * New adjacency lists in and out are created for the node, after which the
  * node is added into the nodes list in the graph.

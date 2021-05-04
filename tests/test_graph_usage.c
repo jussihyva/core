@@ -38,6 +38,15 @@ ssize_t print_node(void *data, size_t i)
 	return (i);
 }
 
+ssize_t print_edge(void *data, size_t i)
+{
+	t_graph_edge	*tmp;
+
+	tmp = data;
+	printf("[%ld]=>[%ld]\n", tmp->src->id, tmp->dst->id);
+	return ((ssize_t)i);
+}
+
 ssize_t	free_node(void *data, size_t i)
 {
 	t_graph_node	*tmp;
@@ -54,21 +63,10 @@ int main(void)
 	t_graph g;
 	t_arr	bfs;
 	t_arr	dfs;
-	t_graph_node n;
-	t_node_attr na0;
-	t_node_attr na1;
-	t_node_attr na2;
-	t_node_attr na3;
-	t_edge_attr ea0;
-	t_edge_attr ea1;
-	t_edge_attr ea2;
-	t_edge_attr ea3;
-	ssize_t source;
-	ssize_t sink;
-	ssize_t room1;
-	ssize_t room2;
 
-	graph_new(&g, "Flow Graph");
+	g = graph_new("Flow Graph");
+	if (graph_null(&g))
+		return (0);
 	graph_add_node(&g, (t_graph_node) {CR_ARR_NULL, CR_ARR_NULL, SOURCE, &(t_node_attr) {"S", NONE, NONE}});
 	graph_add_node(&g, (t_graph_node) {CR_ARR_NULL, CR_ARR_NULL, SINK, &(t_node_attr) {"T", NONE, NONE}});
 	graph_add_node(&g, (t_graph_node) {CR_ARR_NULL, CR_ARR_NULL, 0, &(t_node_attr) {"R0", 3, 3}});
@@ -91,10 +89,10 @@ int main(void)
 	printf("\nBreadth First Search\n\n");
 	arr_iter(&bfs, print_node);
 
-	dfs = arr_new(1, sizeof(t_graph_node));
-	graph_dfs(&dfs, graph_find_node(&g, SOURCE));
+	dfs = arr_new(1, sizeof(t_graph_edge));
+	graph_dfs(&dfs, graph_find_node(&g, SOURCE), graph_find_node(&g, SINK));
 	printf("\nDepth First Search\n\n");
-	arr_iter(&dfs, print_node);
+	arr_iter(&dfs, print_edge);
 	arr_iter(&g.nodes, free_node);
 	arr_free(&bfs);
 	arr_free(&dfs);

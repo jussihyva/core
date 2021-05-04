@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   graph.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 06:09:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/03 16:48:10 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/04 01:35:49 by julius           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,17 @@ typedef struct		s_graph
 	t_arr			nodes;
 }					t_graph;
 
-ssize_t			graph_new(t_graph *g, char *name);
+t_graph			graph_new(char *name);
+ssize_t			graph_null(t_graph *g);
 ssize_t			graph_add_node(t_graph *g, t_graph_node n);
 ssize_t			graph_add_edge(t_graph *g,
 				ssize_t src_id, ssize_t dst_id, void *attr);
 ssize_t			graph_cmp_nodes(const void *n1, const void *n2);
 t_graph_node	*graph_find_node(t_graph *g, const ssize_t id);
 ssize_t			graph_find_roots(t_graph *g, t_arr *roots);
-ssize_t			graph_bfs(t_arr *bfs_queue, t_graph_node *root);
-ssize_t			graph_dfs(t_arr *dfs_queue, t_graph_node *root);
+ssize_t			graph_bfs(t_arr *res_edges, t_graph_node *src, t_graph_node *dst);
+ssize_t			graph_dfs(t_arr *res_edges, t_graph_node *src, t_graph_node *dst);
+ssize_t			graph_edge_backtrack(t_arr *breadcrumbs, t_arr *edge_list);
 ssize_t 		graph_find_shortest_path(
 				t_arr *spath, t_graph_node *source, t_graph_node *sink);
 

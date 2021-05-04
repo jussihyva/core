@@ -10,7 +10,10 @@ ssize_t graph_add_edge(t_graph *g, ssize_t src_id,
 	src = graph_find_node(g, src_id);
 	dst = graph_find_node(g, dst_id);
 	if (!src || !dst)
+	{
+		printf("Trying to connect an edge with a non-existing node!\n");
 		return (-1);
+	}
 	e.src = src;
 	e.dst = dst;
 	e.attr = attr;
