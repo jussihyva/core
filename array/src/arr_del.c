@@ -1,32 +1,37 @@
+/*******************************************************************************
+ *
+ * \authors Julius Koskela
+ *
+ * \brief Delete an element from a specific index.
+ *
+ * If the element has pointers to allocated memory, those have to be handled
+ * by the user. Checks for out of bounds index.
+ *
+ * \param src Source array.
+ * \param index Index of the element to be deleted.
+ * \return 1 on success 0 on failure.
+ *
+ ******************************************************************************/
+
 #include "../inc/arr.h"
 
-ssize_t	arr_del(t_arr *arr, size_t index)
+ssize_t	arr_del(t_arr *src, size_t index)
 {
 	uint8_t	*mem_start;
 	uint8_t	*mem_end;
 
-	if (index > arr->len)
+	if (index >= src->len)
 		return (CR_FAIL);
-	if (index == arr->len -1)
+	if (index == src->len -1)
 	{
-		arr->len--;
+		src->len--;
 		return (CR_SUCCESS);
 	}
-	mem_start = arr->data;
-	mem_start += index * arr->elem_size;
-	mem_end = arr->data;
-	mem_end += (index + 1) * arr->elem_size;
-	mem_move(mem_start, mem_end, arr->elem_size * (arr->len - index));
-	arr->len--;
+	mem_start = src->data;
+	mem_start += index * src->elem_size;
+	mem_end = src->data;
+	mem_end += (index + 1) * src->elem_size;
+	mem_move(mem_start, mem_end, src->elem_size * (src->len - index));
+	src->len--;
 	return (CR_SUCCESS);
 }
-
-/*
-**  ----------------------------------------------------------------------------
-**
-**	ARR_DEL
-**
-**	Delete a member at `index` from a dynamic array.
-**
-**  ----------------------------------------------------------------------------
-*/

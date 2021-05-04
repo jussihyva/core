@@ -1,3 +1,17 @@
+/*******************************************************************************
+ *
+ * \authors Julius Koskela
+ *
+ * \brief Delete last element in a dynamic array.
+ *
+ * If the element has pointers to allocated memory, those have to be handled
+ * by the user.
+ *
+ * \param src Source array.
+ * \return 1 on success 0 on failure.
+ *
+ ******************************************************************************/
+
 #include "../inc/arr.h"
 
 ssize_t	arr_del_last(t_arr *arr)
@@ -6,13 +20,3 @@ ssize_t	arr_del_last(t_arr *arr)
 		return (CR_FAIL);
 	return (CR_SUCCESS);
 }
-
-/*
-**  ----------------------------------------------------------------------------
-**
-**	ARR_DEL_LAST
-**
-**	Delete the last member from a dynamic array.
-**
-**  ----------------------------------------------------------------------------
-*/

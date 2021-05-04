@@ -1,3 +1,17 @@
+/*******************************************************************************
+ *
+ * \authors Julius Koskela
+ *
+ * \brief Find an index of an element.
+ *
+ * Finds the index of an element passed as an argument from the array src.
+ *
+ * \param src Source array.
+ * \param key The element to be searched.
+ * \return Index of the element or -1 on failure.
+ *
+ ******************************************************************************/
+
 #include "../inc/arr.h"
 
 ssize_t	arr_find(t_arr *src, void *key)
@@ -17,15 +31,3 @@ ssize_t	arr_find(t_arr *src, void *key)
 	}
 	return (CR_EMPTY);
 }
-
-/*
-**  ----------------------------------------------------------------------------
-**
-**	ARR_FIND
-**
-**	Search from an array by passing a key and a selection function. In the
-**	selection function user can put any logic and anything returned from
-**	the selection function is returned as a void pointer.
-**
-**  ----------------------------------------------------------------------------
-*/

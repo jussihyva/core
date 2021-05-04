@@ -1,3 +1,10 @@
+/*******************************************************************************
+ * \authors Julius Koskela
+ * \brief
+ * \param
+ * \return
+ ******************************************************************************/
+
 #include "../inc/arr.h"
 
 ssize_t	arr_iter_range(t_arr *arr, size_t start, size_t end,

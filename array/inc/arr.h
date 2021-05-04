@@ -1,25 +1,26 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   arr.h                                              :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/11 06:09:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/03 01:10:32 by jkoskela         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+/*******************************************************************************
+ *
+ * \authors Julius Koskela
+ *
+ * \brief Dynamic array implementation library.
+ *
+ ******************************************************************************/
 
 #ifndef LIBARR_H
 # define LIBARR_H
 # include "../../inc/core.h"
 
+/**
+ * \struct A dynamic array structure
+ */
 typedef struct	s_arr
 {
-	uint8_t		*data;
-	size_t		len;
-	size_t		alloc_size;
-	size_t		elem_size;
+	/*@{*/
+	uint8_t		*data; /**< Array memory */
+	size_t		len; /**< Length and amount of elements in the array */
+	size_t		alloc_size; /**< Capacity of the array at current allocation */
+	size_t		elem_size; /**< Size of an element in the array */
+	/*@}*/
 }				t_arr;
 
 t_arr			arr_new(size_t len, size_t elem_size);

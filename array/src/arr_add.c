@@ -1,32 +1,39 @@
+/*******************************************************************************
+ *
+ * \authors Julius Koskela
+ *
+ * \brief Add element to a specific index in a dynamic dstay.
+ *
+ * Add an element to an index passed as an argument. If index is out of bounds
+ * returns 0.
+ *
+ * \param dst Destination dstay.
+ * \param elem Element to be added.
+ * \param index Index where element will be added.
+ * \return 1 on success 0 on failure.
+ *
+ ******************************************************************************/
+
 #include "../inc/arr.h"
 
-ssize_t	arr_add(t_arr *arr, void *data, size_t index)
+ssize_t	arr_add(t_arr *dst, void *elem, size_t index)
 {
 	uint8_t	*mem_pos;
 	uint8_t	*mem_tmp;
 
-	if (arr->len == arr->alloc_size)
+	if (index >= dst->len)
+		return (CR_FAIL);
+	if (dst->len == dst->alloc_size)
 	{
-		if (!(arr_grow(arr, arr->alloc_size * 2)))
+		if (!(arr_grow(dst, dst->alloc_size * 2)))
 			return (CR_FAIL);
 	}
-	mem_pos = arr->data;
-	mem_pos += index * arr->elem_size;
-	mem_tmp = arr->data;
-	mem_tmp += (index + 1) * arr->elem_size;
-	mem_move(mem_tmp, mem_pos, arr->elem_size * (arr->len - index));
-	memcpy(mem_pos, data, arr->elem_size);
-	arr->len++;
+	mem_pos = dst->data;
+	mem_pos += index * dst->elem_size;
+	mem_tmp = dst->data;
+	mem_tmp += (index + 1) * dst->elem_size;
+	mem_move(mem_tmp, mem_pos, dst->elem_size * (dst->len - index));
+	memcpy(mem_pos, elem, dst->elem_size);
+	dst->len++;
 	return (CR_SUCCESS);
 }
-
-/*
-**  ----------------------------------------------------------------------------
-**
-**	ARR_ADD
-**
-**	Add a new member to any index in an array. If index exceeds member
-**	len, new member is added to the end of the array.
-**
-**  ----------------------------------------------------------------------------
-*/
