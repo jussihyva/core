@@ -49,6 +49,4 @@
 # include "../cstring/inc/cstr.h"
 # include "../map/inc/map.h"
 
-typedef struct uint8_t t_byte;
-
 #endif

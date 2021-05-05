@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 06:09:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/05 20:07:49 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/05 22:00:23 by julius           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,6 @@ ssize_t		map_null_node(t_map_node *n);
 uint64_t	map_hash_1(const char *key);
 uint64_t	map_probe_quad_pow2(uint64_t x);
 uint64_t	map_resize_pow2(uint64_t capacity);
+void		map_print(t_map *m);
 
 #endif

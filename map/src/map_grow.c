@@ -7,7 +7,7 @@
 
 #include "../inc/map.h"
 
-static ssize_t	map_add_(t_map *dst, void *src, const char *key)
+static ssize_t	map_grow_add(t_map *dst, void *src, const char *key)
 {
 	uint64_t	hash_key;
 	t_map_node	new_node;
@@ -45,7 +45,7 @@ ssize_t	map_grow(t_map *src)
 	while (i < src->capacity)
 	{
 		if (!map_null_node(&src->node[i]))
-			map_add_(&new, src->node[i].data, src->node[i].key);
+			map_grow_add(&new, src->node[i].data, src->node[i].key);
 		i++;
 	}
 	free(src->node);

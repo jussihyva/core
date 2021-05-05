@@ -6,7 +6,7 @@
 #    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2021/05/05 20:08:14 by jkoskela         ###   ########.fr        #
+#    Updated: 2021/05/05 22:00:36 by julius           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ OBJ_DIR		=	obj/
 
 SRC_BASE	=	map_add.c \
 				map_get.c \
+				map_print.c \
 				map_new.c \
 				map_del.c \
 				map_grow.c \
@@ -57,3 +58,4 @@ re: fclean
 				@$(MAKE) -j $(NAME)
 
 .PHONY: fclean clean re
+

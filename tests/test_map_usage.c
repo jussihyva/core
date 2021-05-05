@@ -38,6 +38,9 @@ int main(void)
 
 	map_del(&m, "ch01");
 
+	course = map_get(&m, "ch01");
+	printf("Course: %s\n", course);
+
 	course = map_get(&m, "cs03");
 	printf("Course: %s\n", course);
 }
