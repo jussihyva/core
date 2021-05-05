@@ -97,21 +97,17 @@ int main(void)
 	graph_add_edge(&g, "cs01", "csw01", NULL);
 	graph_add_edge(&g, "cs02", "csw02", NULL);
 
-	depth_first_search = arr_new(1, sizeof(t_graph_edge));
-	graph_dfs(&depth_first_search, graph_find_node(&g, "00"), NULL);
+	depth_first_search = graph_dfs(&g, "00", NULL);
 	printf("\nDepth First Search\n\n");
 	arr_iter(&depth_first_search, print_edge);
 
-	breadth_first_search = arr_new(1, sizeof(t_graph_edge));
-	graph_bfs(&breadth_first_search, graph_find_node(&g, "00"), NULL);
+	breadth_first_search = graph_bfs(&g, "00", NULL);
 	printf("\nBreadth First Search\n\n");
 	arr_iter(&breadth_first_search, print_edge);
 
-	shortest_path = arr_new(1, sizeof(t_graph_node));
-	graph_find_shortest_path(&shortest_path, graph_find_node(&g, "00"), graph_find_node(&g, "csw02"));
+	shortest_path = graph_find_shortest_path(&g, "00", "csw02");
 	printf("\nFind shortest path [csw02] => [00]\n");
 	arr_iter(&shortest_path, print_node);
-
 
 	arr_free(&breadth_first_search);
 	arr_free(&depth_first_search);

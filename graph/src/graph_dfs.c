@@ -35,18 +35,26 @@ ssize_t graph_dfs_loop(
 	return (CR_SUCCESS);
 }
 
-ssize_t graph_dfs(
-		t_arr *res_edges,
-		t_graph_node *source,
-		t_graph_node *sink)
+t_arr graph_dfs(
+		t_graph *g,
+		const char *src_key,
+		const char *dst_key)
 {
-	t_arr	dfs_queue;
+	t_arr			dfs_queue;
+	t_arr			res_edges;
+	t_graph_node	*src;
+	t_graph_node	*dst;
 
+	src = graph_find_node(g, src_key);
+	dst = NULL;
+	if (dst_key)
+		dst = graph_find_node(g, dst_key);
+	res_edges = arr_new(1, sizeof(t_graph_edge));
 	dfs_queue = arr_new(1, sizeof(t_graph_node));
-	if (!(arr_add_last(&dfs_queue, source)))
-		return (CR_FAIL);
-	if (!(graph_dfs_loop(res_edges, &dfs_queue, source, sink)))
-		return (CR_FAIL);
+	if (!(arr_add_last(&dfs_queue, src)))
+		return (CR_ARR_NULL);
+	if (!(graph_dfs_loop(&res_edges, &dfs_queue, src, dst)))
+		return (CR_ARR_NULL);
 	arr_free(&dfs_queue);
-	return (CR_SUCCESS);
+	return (res_edges);
 }

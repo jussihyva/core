@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 06:09:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/06 00:44:34 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/06 02:11:30 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,9 @@ ssize_t			graph_add_edge(t_graph *g, const char *src_key, const char *dst_key, v
 ssize_t			graph_cmp_nodes(const void *n1, const void *n2);
 t_graph_node	*graph_find_node(t_graph *g, const char *key);
 ssize_t			graph_find_roots(t_graph *g, t_arr *roots);
-ssize_t			graph_bfs(t_arr *res_edges, t_graph_node *src, t_graph_node *dst);
-ssize_t			graph_dfs(t_arr *res_edges, t_graph_node *src, t_graph_node *dst);
+t_arr			graph_bfs(t_graph *g, const char *src_key, const char *dst_key);
+t_arr			graph_dfs(t_graph *g, const char *src_key, const char *dst_key);
+t_arr 			graph_find_shortest_path(t_graph *g, const char *src_key, const char *dst_key);
 ssize_t			graph_edge_backtrack(t_arr *breadcrumbs, t_arr *edge_list);
-ssize_t 		graph_find_shortest_path(
-				t_arr *spath, t_graph_node *source, t_graph_node *sink);
 
 #endif

@@ -9,16 +9,17 @@
 
 #include "../inc/graph.h"
 
-ssize_t graph_find_shortest_path(
-		t_arr *spath,
-		t_graph_node *source,
-		t_graph_node *sink)
+t_arr graph_find_shortest_path(
+		t_graph *g,
+		const char *src_key,
+		const char *dst_key)
 {
 	t_arr	edge_list;
+	t_arr	spath;
 
-	edge_list = arr_new(1, sizeof(t_graph_edge));
-	graph_bfs(&edge_list, source, sink);
-	graph_edge_backtrack(spath, &edge_list);
+	spath = arr_new(1, sizeof(t_graph_node));
+	edge_list = graph_bfs(g, src_key, dst_key);
+	graph_edge_backtrack(&spath, &edge_list);
 	arr_free(&edge_list);
-	return (CR_SUCCESS);
+	return (spath);
 }
