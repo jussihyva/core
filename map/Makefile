@@ -6,7 +6,7 @@
 #    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2021/05/04 17:37:04 by jkoskela         ###   ########.fr        #
+#    Updated: 2021/05/05 20:08:14 by jkoskela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ OBJ_DIR		=	obj/
 SRC_BASE	=	map_add.c \
 				map_get.c \
 				map_new.c \
+				map_del.c \
 				map_grow.c \
 				map_null_node.c \
 				map_hash_1.c \
