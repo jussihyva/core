@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 06:09:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/05 22:00:23 by julius           ###   ########.fr       */
+/*   Updated: 2021/05/05 22:14:47 by julius           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # define CR_MAP_PROBE map_probe_quad_pow2
 # define CR_MAP_RESIZE map_resize_pow2
 # define CR_MAP_NULL_NODE (t_map_node) {NULL, NULL}
+# define CR_MAP_NULL (t_map) {NULL, 0, 0, 0.0, NULL, NULL, NULL}
 
 // Hash table using quadratic probing.
 // Probing function: P(x) = (x^2 + x) / 2

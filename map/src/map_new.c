@@ -18,6 +18,8 @@ t_map	map_new(void)
 	m.probe = CR_MAP_PROBE;
 	m.resize = CR_MAP_RESIZE;
 	m.node = (t_map_node *)mem_alloc(sizeof(t_map_node) * m.capacity);
+	if (!m.node)
+		return (CR_MAP_NULL);
 	i = 0;
 	while (i < m.capacity)
 	{

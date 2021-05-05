@@ -41,6 +41,8 @@ ssize_t	map_grow(t_map *src)
 	new.probe = src->probe;
 	new.resize = src->resize;
 	new.node = (t_map_node *)malloc(sizeof(t_map_node) * new.capacity);
+	if (!new.node)
+		return (-1);
 	i = 0;
 	while (i < src->capacity)
 	{
