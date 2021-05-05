@@ -26,9 +26,9 @@ ssize_t graph_edge_backtrack(t_arr *breadcrums, t_arr *edge_list)
 	while (i--)
 	{
 		curr_edge = arr_get(edge_list, i);
-		if (curr_edge->dst->id == curr_node->id)
+		if (s_cmp(curr_edge->dst->key, curr_node->key) == 0)
 		{
-			arr_add_last(breadcrums, curr_edge->src);
+			arr_add_first(breadcrums, curr_edge->src);
 			curr_node = curr_edge->src;
 			dist++;
 		}

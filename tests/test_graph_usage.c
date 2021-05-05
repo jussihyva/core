@@ -3,10 +3,6 @@
 #include "../inc/core.h"
 #include "../graph/inc/graph.h"
 
-# define CR_GRAPH_NULL (t_graph) {NULL, CR_ARR_NULL}
-# define CR_GRAPH_EDGE_NULL (t_graph_edge) {NULL, NULL, NULL}
-# define CR_GRAPH_NODE_NULL (t_graph_node) \
-			{CR_PARR_NULL, CR_PARR_NULL, NULL}
 # define NONE -1
 # define NO_ATTR NULL
 # define TRUE 1
@@ -16,35 +12,38 @@
 
 typedef struct		s_node_attr
 {
-	char			*name;
-	ssize_t			max_capacity;
-	ssize_t			curr_capacity;
+	const char		*name;
 }					t_node_attr;
 
 typedef struct		s_edge_attr
 {
-	size_t			dist;
+	size_t			attributes;
 }					t_edge_attr;
-
-ssize_t print_node(void *data, size_t i)
-{
-	t_graph_node	*tmp;
-	t_node_attr		*attr;
-
-	tmp = data;
-	attr = tmp->attr;
-	printf("%s max[%ld] curr[%ld]\n", attr->name,
-			attr->max_capacity, attr->curr_capacity);
-	return (i);
-}
 
 ssize_t print_edge(void *data, size_t i)
 {
 	t_graph_edge	*tmp;
+	t_node_attr		*src_attr;
+	t_node_attr		*dst_attr;
 
 	tmp = data;
-	printf("[%ld]=>[%ld]\n", tmp->src->id, tmp->dst->id);
+	src_attr = tmp->src->attr;
+	dst_attr = tmp->dst->attr;
+	printf("%-30s=>    %-30s\n", src_attr->name, dst_attr->name);
 	return ((ssize_t)i);
+}
+
+ssize_t print_node(void *data, size_t i)
+{
+	t_graph_node	*tmp;
+
+	tmp = data;
+	printf("\nNode key: %s\n", tmp->key);
+	// printf("In edges:\n");
+	// arr_iter(&tmp->in, print_edge);
+	// printf("Out edges:\n");
+	// arr_iter(&tmp->out, print_edge);
+	return (i);
 }
 
 ssize_t	free_node(void *data, size_t i)
@@ -61,40 +60,60 @@ ssize_t	free_node(void *data, size_t i)
 int main(void)
 {
 	t_graph g;
-	t_arr	bfs;
-	t_arr	dfs;
+	t_arr	breadth_first_search;
+	t_arr	depth_first_search;
+	t_arr	shortest_path;
 
-	g = graph_new("Flow Graph");
+	g = graph_new();
 	if (graph_null(&g))
 		return (0);
-	graph_add_node(&g, (t_graph_node) {CR_ARR_NULL, CR_ARR_NULL, SOURCE, &(t_node_attr) {"S", NONE, NONE}});
-	graph_add_node(&g, (t_graph_node) {CR_ARR_NULL, CR_ARR_NULL, SINK, &(t_node_attr) {"T", NONE, NONE}});
-	graph_add_node(&g, (t_graph_node) {CR_ARR_NULL, CR_ARR_NULL, 0, &(t_node_attr) {"R0", 3, 3}});
-	graph_add_node(&g, (t_graph_node) {CR_ARR_NULL, CR_ARR_NULL, 1, &(t_node_attr) {"R1", 4, 4}});
-	graph_add_node(&g, (t_graph_node) {CR_ARR_NULL, CR_ARR_NULL, 2, &(t_node_attr) {"R2", 2, 2}});
-	graph_add_node(&g, (t_graph_node) {CR_ARR_NULL, CR_ARR_NULL, 3, &(t_node_attr) {"R3", 4, 4}});
-	graph_add_node(&g, (t_graph_node) {CR_ARR_NULL, CR_ARR_NULL, 4, &(t_node_attr) {"R4", 5, 5}});
 
-	graph_add_edge(&g, SOURCE, 0, &(t_edge_attr) {1});
-	graph_add_edge(&g, SOURCE, 1, &(t_edge_attr) {1});
-	graph_add_edge(&g, SOURCE, 2, &(t_edge_attr) {1});
-	graph_add_edge(&g, 0, 3, &(t_edge_attr) {1});
-	graph_add_edge(&g, 3, 4, &(t_edge_attr) {1});
-	graph_add_edge(&g, 2, 3, &(t_edge_attr) {1});
-	graph_add_edge(&g, 2, 4, &(t_edge_attr) {1});
-	graph_add_edge(&g, 4, SINK, &(t_edge_attr) {1});
+	graph_add_node(&g, graph_new_node("00", &(t_node_attr){"Introduction"}));
+	graph_add_node(&g, graph_new_node("m00", &(t_node_attr){"Math Introduction"}));
+	graph_add_node(&g, graph_new_node("qp01", &(t_node_attr){"Quantum Physics 1"}));
+	graph_add_node(&g, graph_new_node("qp02", &(t_node_attr){"Quantum Physics 2"}));
+	graph_add_node(&g, graph_new_node("qp03", &(t_node_attr){"Quantum Physics 3"}));
+	graph_add_node(&g, graph_new_node("qpc01", &(t_node_attr){"Quantum Chromodynamics 1"}));
+	graph_add_node(&g, graph_new_node("qpc02", &(t_node_attr){"Quantum Chromodynamics 2"}));
+	graph_add_node(&g, graph_new_node("ch01", &(t_node_attr){"Chemistry 1"}));
+	graph_add_node(&g, graph_new_node("ch02", &(t_node_attr){"Chemistry 2"}));
+	graph_add_node(&g, graph_new_node("ch03", &(t_node_attr){"Chemistry 3"}));
+	graph_add_node(&g, graph_new_node("cs01", &(t_node_attr){"Computer Science 1"}));
+	graph_add_node(&g, graph_new_node("cs02", &(t_node_attr){"Computer Science 2"}));
+	graph_add_node(&g, graph_new_node("csw01", &(t_node_attr){"Computer Science Workshop 1"}));
+	graph_add_node(&g, graph_new_node("csw02", &(t_node_attr){"Computer Science Workshop 2"}));
 
-	bfs = arr_new(1, sizeof(t_graph_node));
-	graph_find_shortest_path(&bfs, graph_find_node(&g, SOURCE), graph_find_node(&g, SINK));
-	printf("\nBreadth First Search\n\n");
-	arr_iter(&bfs, print_node);
+	graph_add_edge(&g, "00", "m00", NULL);
+	graph_add_edge(&g, "m00", "qp01", NULL);
+	graph_add_edge(&g, "qp01", "qp02", NULL);
+	graph_add_edge(&g, "qp02", "qp03", NULL);
+	graph_add_edge(&g, "qp02", "qpc01", NULL);
+	graph_add_edge(&g, "qpc01", "qpc02", NULL);
+	graph_add_edge(&g, "m00", "ch01", NULL);
+	graph_add_edge(&g, "ch01", "ch02", NULL);
+	graph_add_edge(&g, "ch02", "ch03", NULL);
+	graph_add_edge(&g, "00", "cs01", NULL);
+	graph_add_edge(&g, "cs01", "cs02", NULL);
+	graph_add_edge(&g, "cs01", "csw01", NULL);
+	graph_add_edge(&g, "cs02", "csw02", NULL);
 
-	dfs = arr_new(1, sizeof(t_graph_edge));
-	graph_dfs(&dfs, graph_find_node(&g, SOURCE), graph_find_node(&g, SINK));
+	depth_first_search = arr_new(1, sizeof(t_graph_edge));
+	graph_dfs(&depth_first_search, graph_find_node(&g, "00"), NULL);
 	printf("\nDepth First Search\n\n");
-	arr_iter(&dfs, print_edge);
-	arr_iter(&g.nodes, free_node);
-	arr_free(&bfs);
-	arr_free(&dfs);
-	arr_free(&g.nodes);
+	arr_iter(&depth_first_search, print_edge);
+
+	breadth_first_search = arr_new(1, sizeof(t_graph_edge));
+	graph_bfs(&breadth_first_search, graph_find_node(&g, "00"), NULL);
+	printf("\nBreadth First Search\n\n");
+	arr_iter(&breadth_first_search, print_edge);
+
+	shortest_path = arr_new(1, sizeof(t_graph_node));
+	graph_find_shortest_path(&shortest_path, graph_find_node(&g, "00"), graph_find_node(&g, "csw02"));
+	printf("\nFind shortest path [csw02] => [00]\n");
+	arr_iter(&shortest_path, print_node);
+
+
+	arr_free(&breadth_first_search);
+	arr_free(&depth_first_search);
+	arr_free(&shortest_path);
 }

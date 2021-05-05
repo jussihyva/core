@@ -6,20 +6,13 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 06:09:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/05 22:14:47 by julius           ###   ########.fr       */
+/*   Updated: 2021/05/05 23:37:18 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBMAP_H
 # define LIBMAP_H
 # include "../../inc/core.h"
-# define CR_MAP_START_CAPACITY 4
-# define CR_MAP_LOAD_FACTOR 0.4
-# define CR_MAP_HASH map_hash_1
-# define CR_MAP_PROBE map_probe_quad_pow2
-# define CR_MAP_RESIZE map_resize_pow2
-# define CR_MAP_NULL_NODE (t_map_node) {NULL, NULL}
-# define CR_MAP_NULL (t_map) {NULL, 0, 0, 0.0, NULL, NULL, NULL}
 
 // Hash table using quadratic probing.
 // Probing function: P(x) = (x^2 + x) / 2
@@ -48,6 +41,7 @@ ssize_t		map_add(t_map *dst, void *src, const char *key);
 void		*map_get(t_map *src, const char *key);
 ssize_t		map_del(t_map *src, const char *key);
 ssize_t		map_grow(t_map *src);
+ssize_t		map_null(t_map *src);
 ssize_t		map_null_node(t_map_node *n);
 uint64_t	map_hash_1(const char *key);
 uint64_t	map_probe_quad_pow2(uint64_t x);

@@ -5,13 +5,12 @@
 
 #include "../inc/graph.h"
 
-t_graph graph_new(char *name)
+t_graph graph_new(void)
 {
 	t_graph	new_graph;
 
-	new_graph.name = name;
-	new_graph.nodes = arr_new(1, sizeof(t_graph_node));
-	if (arr_null(&new_graph.nodes))
+	new_graph.nodes = map_new();
+	if (map_null(&new_graph.nodes))
 		return (CR_GRAPH_NULL);
 	return (new_graph);
 }

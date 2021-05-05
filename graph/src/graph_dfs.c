@@ -22,13 +22,13 @@ ssize_t graph_dfs_loop(
 	{
 		curr_edge = arr_get(&curr->out, i);
 		dst_node = curr_edge->dst;
-		if (!(arr_find_by(dfs_queue, dst_node, graph_cmp_nodes)))
+		if (arr_find_by(dfs_queue, dst_node, graph_cmp_nodes) == -1)
 		{
 			arr_add_last(dfs_queue, dst_node);
 			arr_add_last(res_edges, curr_edge);
 			graph_dfs_loop(res_edges, dfs_queue, dst_node, sink);
 		}
-		if (dst_node->id == sink->id)
+		if (sink && s_cmp(dst_node->key, sink->key) == 0)
 			return (CR_SUCCESS);
 		i++;
 	}

@@ -21,25 +21,22 @@ static ssize_t graph_bfs_loop(
 	if (bfs_queue->len == queue_index)
 		return (CR_FAIL);
 	curr_node = arr_get(bfs_queue, queue_index);
-	i = curr_node->out.len;
-	while (i--)
+	i = 0;
+	while (i < curr_node->out.len)
 	{
 		curr_edge = arr_get(&curr_node->out, i);
-		if (!(arr_find_by(bfs_queue, curr_edge->dst, graph_cmp_nodes)))
+		if ((arr_find_by(bfs_queue, curr_edge->dst, graph_cmp_nodes)) == -1)
 		{
 			if (!(arr_add_last(res_edges, curr_edge)))
 				return (CR_FAIL);
 			if (!(arr_add_last(bfs_queue, curr_edge->dst)))
 				return (CR_FAIL);
-			if (sink && curr_edge->dst->id == sink->id)
+			if (sink && s_cmp(curr_edge->dst->key, sink->key) == 0)
 				return (CR_SUCCESS);
 		}
+		i++;
 	}
-	return (graph_bfs_loop(
-				bfs_queue,
-				res_edges,
-				sink,
-				queue_index + 1));
+	return (graph_bfs_loop(bfs_queue, res_edges, sink, queue_index + 1));
 }
 
 ssize_t graph_bfs(

@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 06:09:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/04 01:35:49 by julius           ###   ########.fr       */
+/*   Updated: 2021/05/06 00:44:34 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ typedef struct		s_graph_node
 {
 	t_arr			in;
 	t_arr			out;
-	ssize_t			id;
+	const char		*key;
 	void			*attr;
 }					t_graph_node;
 
@@ -34,17 +34,16 @@ typedef struct		s_graph_edge
 
 typedef struct		s_graph
 {
-	char			*name;
-	t_arr			nodes;
+	t_map			nodes;
 }					t_graph;
 
-t_graph			graph_new(char *name);
+t_graph			graph_new(void);
 ssize_t			graph_null(t_graph *g);
-ssize_t			graph_add_node(t_graph *g, t_graph_node n);
-ssize_t			graph_add_edge(t_graph *g,
-				ssize_t src_id, ssize_t dst_id, void *attr);
+t_graph_node 	*graph_new_node(const char *key, void *attr);
+ssize_t			graph_add_node(t_graph *g, t_graph_node *n);
+ssize_t			graph_add_edge(t_graph *g, const char *src_key, const char *dst_key, void *attr);
 ssize_t			graph_cmp_nodes(const void *n1, const void *n2);
-t_graph_node	*graph_find_node(t_graph *g, const ssize_t id);
+t_graph_node	*graph_find_node(t_graph *g, const char *key);
 ssize_t			graph_find_roots(t_graph *g, t_arr *roots);
 ssize_t			graph_bfs(t_arr *res_edges, t_graph_node *src, t_graph_node *dst);
 ssize_t			graph_dfs(t_arr *res_edges, t_graph_node *src, t_graph_node *dst);

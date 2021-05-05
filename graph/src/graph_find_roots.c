@@ -8,15 +8,20 @@
 
 ssize_t graph_find_roots(t_graph *g, t_arr *roots)
 {
-	t_graph_node	*tmp;
+	t_map_node		m_node;
+	t_graph_node	*g_node;
 	size_t			i;
 
 	i = 0;
-	while (i < g->nodes.len)
+	while (i < g->nodes.count)
 	{
-		tmp = arr_get(&g->nodes, i);
-		if (tmp->in.len == 0)
-			arr_add_last(roots, tmp);
+		m_node = g->nodes.node[i];
+		if (!map_null_node(&m_node))
+		{
+			g_node = (t_graph_node *)m_node.data;
+			if (g_node->in.len == 0)
+				arr_add_last(roots, g_node);
+		}
 		i++;
 	}
 	if (roots->len)
