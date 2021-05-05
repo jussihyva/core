@@ -38,7 +38,7 @@ int			tests1()
 	t_arr	test;
 
 	test = arr_new(1, sizeof(int));
-	assert(test.alloc_size == 0);
+	assert(test.alloc_size == 1);
 	assert(test.elem_size == sizeof(int));
 	assert(test.len == 0);
 	assert(arr_grow(&test, 2) > 0);
@@ -135,7 +135,7 @@ int			tests3()
 	arr_rotate(&test, 3);
 	arr_iter(&test, print);
 	printf("\n");
-	assert(memcmp((char *)test.data, "4578012", 7) == 0);
+	assert(memcmp((char *)test.data, "5780124", 7) == 0);
 	arr_free(&test);
 	arr_free(&comp);
 	return (1);

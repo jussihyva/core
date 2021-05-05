@@ -22,7 +22,7 @@ ssize_t graph_edge_backtrack(t_arr *breadcrums, t_arr *edge_list)
 	curr_node = curr_edge->src;
 	arr_add_mult(breadcrums, 2, curr_edge->dst, curr_edge->src);
 	dist = 0;
-	i = edge_list->len - 1;
+	i = edge_list->len;
 	while (i--)
 	{
 		curr_edge = arr_get(edge_list, i);

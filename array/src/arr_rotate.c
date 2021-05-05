@@ -1,8 +1,17 @@
 /*******************************************************************************
+ *
  * \authors Julius Koskela
- * \brief
- * \param
- * \return
+ *
+ * \brief Rotate a dynamic array.
+ *
+ * Number of rotations passed as a parameter. A negative number rotates the
+ * array counter-clockwise, positive clockwise. 0 does nothing.
+ *
+ * \param src Source array.
+ * \param steps Amount of rotations.
+ *
+ * \return 1 on success 0 on failure.
+ *
  ******************************************************************************/
 
 #include "../inc/arr.h"
@@ -29,7 +38,7 @@ static ssize_t	rrot(t_arr *src, ssize_t steps)
 	void	*tmp;
 	ssize_t	i;
 
-	tmp = malloc(src->elem_size); // Data overlap when rotating this way so need to allocate.
+	tmp = malloc(src->elem_size);
 	i = 0;
 	while (i < steps)
 	{
@@ -51,14 +60,3 @@ ssize_t	arr_rotate(t_arr *src, ssize_t steps)
 		rot(src, steps);
 	return (CR_SUCCESS);
 }
-
-/*
-**  ----------------------------------------------------------------------------
-**
-**	ARR_ROTATE
-**
-**	Rotate array. If `steps` is positive positive
-**
-**  ----------------------------------------------------------------------------
-*/
-

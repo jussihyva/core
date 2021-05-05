@@ -1,8 +1,17 @@
 /*******************************************************************************
+ *
  * \authors Julius Koskela
- * \brief
- * \param
- * \return
+ *
+ * \brief Search array key from src.
+ *
+ * Searches for data in src that matches the whole data in key and returns the
+ * index of the first matching element.
+ *
+ * \param src Source array.
+ * \param key Array data to be matched.
+ *
+ * \return Index of the fisrt matching element on success, -1 on failure.
+ *
  ******************************************************************************/
 
 #include "../inc/arr.h"
@@ -27,15 +36,3 @@ ssize_t	arr_search(t_arr *src, t_arr *key)
 	}
 	return (CR_EMPTY);
 }
-
-/*
-**  ----------------------------------------------------------------------------
-**
-**	ARR_SEARCH
-**
-**	Search from an array by passing a key and a selection function. In the
-**	selection function user can put any logic and anything returned from
-**	the selection function is put into the array `dst` passed as an argument.
-**
-**  ----------------------------------------------------------------------------
-*/

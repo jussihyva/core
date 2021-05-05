@@ -8,7 +8,7 @@
  * data are of size dst.elem_size which has been defined when creating the
  * array.
  *
- * \param dst Destination dstay.
+ * \param dst Destination array.
  * \param data Raw data to be added.
  * \param len Length of data at stride dst.elem_size.
  * \return 1 on success 0 on failure.

@@ -1,8 +1,21 @@
 /*******************************************************************************
+ *
  * \authors Julius Koskela
- * \brief
- * \param
- * \return
+ *
+ * \brief Iterate the array for each element for parsing.
+ *
+ * Iterates over each element of the src array. At each iteration a user
+ * defined function f is called and dst array as well as current member passed
+ * as parameters. Intended usage is for parsing each member and putting the
+ * results in the dst array. Iteration can be stopped by returning a
+ * non-positive integer from f.
+ *
+ * \param dst Destination array.
+ * \param src Source array.
+ * \param f Function f to be called for each member.
+ *
+ * \return Amount of elements iterated on success 0 on failure.
+ *
  ******************************************************************************/
 
 #include "../inc/arr.h"
@@ -25,15 +38,3 @@ ssize_t	arr_parse(t_arr *dst, t_arr *src,
 	}
 	return ((ssize_t)i);
 }
-
-/*
-**  ----------------------------------------------------------------------------
-**
-**	ARR_PARSE
-**
-**	Iterate array `src` so that for each member a parse function is executed
-**	The parse function is user-defined and parses each member so that rersults
-**	are added in `dst`.
-**
-**  ----------------------------------------------------------------------------
-*/

@@ -1,25 +1,20 @@
 /*******************************************************************************
+ *
  * \authors Julius Koskela
- * \brief
- * \param
- * \return
+ *
+ * \brief Checks if the array is a null array.
+ *
+ * \param src The source array.
+ *
+ * \return 1 on success 0 on failure.
+ *
  ******************************************************************************/
 
 #include "../inc/arr.h"
 
-ssize_t	arr_null(t_arr *arr)
+ssize_t	arr_null(t_arr *src)
 {
-	if (memcmp(arr, &CR_ARR_NULL, sizeof(t_arr)) == 0)
+	if (memcmp(src, &CR_ARR_NULL, sizeof(t_arr)) == 0)
 		return (CR_SUCCESS);
 	return (CR_FAIL);
 }
-
-/*
-**  ----------------------------------------------------------------------------
-**
-**	ARR_NULL
-**
-**	Checks if the array is a NULL array.
-**
-**  ----------------------------------------------------------------------------
-*/

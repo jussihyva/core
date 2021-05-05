@@ -1,8 +1,17 @@
 /*******************************************************************************
+ *
  * \authors Julius Koskela
- * \brief
- * \param
- * \return
+ *
+ * \brief Take the first element from an array.
+ *
+ * Take is a combination of get and del. A pointer to an allocated memory dst
+ * sufficient to hold the results has to be passed as a parameter.
+ *
+ * \param dst Destination memory.
+ * \param src source array.
+ *
+ * \return Pointer to dst.
+ *
  ******************************************************************************/
 
 #include "../inc/arr.h"
@@ -12,16 +21,3 @@ void	*arr_take_first(void *dst, t_arr *src)
 	dst = arr_take(dst, src, 0);
 	return (dst);
 }
-
-/*
-**  ----------------------------------------------------------------------------
-**
-**	ARR_TAKE_FIRST
-**
-**	Take the first member from the array. Contrary to get, take also
-**	removes the member from the array. For this same reason it takes as the
-**	first argument a pointer to an allocated memory sufficient to hold
-**	src->elem_size amount of data.
-**
-**  ----------------------------------------------------------------------------
-*/

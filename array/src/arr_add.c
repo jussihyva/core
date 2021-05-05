@@ -7,7 +7,7 @@
  * Add an element to an index passed as an argument. If index is out of bounds
  * returns 0.
  *
- * \param dst Destination dstay.
+ * \param dst Destination array.
  * \param elem Element to be added.
  * \param index Index where element will be added.
  * \return 1 on success 0 on failure.

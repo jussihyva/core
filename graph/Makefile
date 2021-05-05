@@ -6,14 +6,14 @@
 #    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2021/05/04 00:29:07 by jkoskela         ###   ########.fr        #
+#    Updated: 2021/05/05 19:38:30 by jkoskela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	libgraph.a
 
 CC			=	gcc
-CFLAGS 		=	-O3 -Wall -Wextra -Werror -Wpedantic -Wtype-limits \
+CFLAGS 		=	-g -Wall -Wextra -Werror -Wpedantic -Wtype-limits \
 				-Wunreachable-code -Wpadded -Wshadow -fPIC -Wconversion
 SRC_DIR		=	src/
 INC_DIR		=	inc/
