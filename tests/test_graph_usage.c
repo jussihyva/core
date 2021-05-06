@@ -57,6 +57,7 @@ ssize_t	free_node(void *data, size_t i)
 	arr_free(&tmp->out);
 	return (i);
 }
+
 //-----------------------------------------------------------------------------
 
 int main(void)
