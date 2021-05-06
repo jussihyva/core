@@ -5,12 +5,13 @@
 
 #include "../inc/graph.h"
 
-t_graph graph_new(void)
+t_graph graph_new(void *attr)
 {
 	t_graph	new_graph;
 
-	new_graph = map_new();
-	if (map_null(&new_graph))
+	new_graph.data = map_new();
+	new_graph.attr = attr;
+	if (map_null(&new_graph.data))
 		return (CR_GRAPH_NULL);
 	return (new_graph);
 }

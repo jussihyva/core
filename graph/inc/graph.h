@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 06:09:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/06 18:16:15 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/06 18:44:57 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,11 @@
 # define SOURCE -1
 # define SINK -2
 
-typedef t_map t_graph;
+typedef struct	s_graph
+{
+	t_map		data;
+	void		*attr;
+}				t_graph;
 
 typedef struct		s_graph_node
 {
@@ -34,7 +38,7 @@ typedef struct		s_graph_edge
 	void			*attr;
 }					t_graph_edge;
 
-t_graph			graph_new(void);
+t_graph			graph_new(void *attr);
 ssize_t 		graph_add_node(t_graph *g, const char *key, void *attr);
 t_graph_node	*graph_find_node(t_graph *g, const char *key);
 ssize_t			graph_add_edge(t_graph *g, const char *src_key, const char *dst_key, void *attr);

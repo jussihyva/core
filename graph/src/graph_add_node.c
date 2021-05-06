@@ -22,5 +22,5 @@ ssize_t	graph_add_node(t_graph *g, const char *key, void *attr)
 	if (arr_null(&n->in) || arr_null(&n->out))
 		return (-1);
 	n->attr = attr;
-	return (map_add(g, n, n->key));
+	return (map_add(&g->data, n, n->key));
 }

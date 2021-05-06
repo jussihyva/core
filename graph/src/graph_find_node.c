@@ -11,6 +11,6 @@ t_graph_node	*graph_find_node(t_graph *g, const char *key)
 {
 	t_graph_node	*tmp;
 
-	tmp = map_get(g, key);
+	tmp = map_get(&g->data, key);
 	return (tmp);
 }

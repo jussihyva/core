@@ -67,7 +67,7 @@ int main(void)
 	t_array	depth_first_search;
 	t_array	shortest_path;
 
-	g = graph_new();
+	g = graph_new(NULL);
 	if (graph_null(&g))
 		return (0);
 
