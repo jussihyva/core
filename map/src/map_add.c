@@ -25,6 +25,8 @@ ssize_t	map_add(t_map *dst, void *val, const char *key)
 	uint64_t	probe;
 	size_t		i;
 
+	if (!key || !val || map_null(dst))
+		return (CR_FAIL);
 	new_node.data = val;
 	new_node.key = key;
 	treshold = dst->load_factor * (double)dst->capacity - 1;
@@ -35,7 +37,7 @@ ssize_t	map_add(t_map *dst, void *val, const char *key)
 	i = 0;
 	while (!map_null_node(&dst->node[(hash_key + probe) % dst->capacity]))
 	{
-		if (s_cmp(dst->node->key, key) == 0)
+		if (s_cmp(dst->node[(hash_key + probe) % dst->capacity].key, key) == 0)
 			return (CR_FAIL);
 		probe = dst->probe(i);
 		i++;
