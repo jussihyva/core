@@ -29,7 +29,6 @@ static ssize_t graph_bfs_loop(
 	t_graph_edge	*curr_edge;
 	size_t			i;
 
-
 	if (bfs_queue->len == queue_index)
 		return (CR_SUCCESS);
 	curr_node = arr_get(bfs_queue, queue_index);
@@ -46,6 +45,7 @@ static ssize_t graph_bfs_loop(
 			if (sink && s_cmp(curr_edge->dst->key, sink->key) == 0)
 				return (CR_SUCCESS);
 		}
+		curr_node = arr_get(bfs_queue, queue_index);
 		i++;
 	}
 	return (graph_bfs_loop(bfs_queue, res_edges, sink, queue_index + 1));
@@ -72,4 +72,3 @@ t_array graph_bfs(
 	arr_free(&bfs_queue);
 	return (res_edges);
 }
-
