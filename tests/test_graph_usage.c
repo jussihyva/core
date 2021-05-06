@@ -36,9 +36,11 @@ ssize_t print_edge(void *data, size_t i)
 ssize_t print_node(void *data, size_t i)
 {
 	t_graph_node	*tmp;
+	t_node_attr		*attr;
 
 	tmp = data;
-	printf("\nNode key: %s\n", tmp->key);
+	attr = tmp->attr;
+	printf("%s\n", attr->name);
 	// printf("In edges:\n");
 	// arr_iter(&tmp->in, print_edge);
 	// printf("Out edges:\n");
@@ -59,7 +61,7 @@ ssize_t	free_node(void *data, size_t i)
 
 int main(void)
 {
-	t_graph g;
+	t_graph	g;
 	t_arr	breadth_first_search;
 	t_arr	depth_first_search;
 	t_arr	shortest_path;
@@ -101,12 +103,12 @@ int main(void)
 	printf("\nDepth First Search\n\n");
 	arr_iter(&depth_first_search, print_edge);
 
-	breadth_first_search = graph_bfs(&g, "00", NULL);
+	breadth_first_search = graph_bfs(&g, "00", "csw02");
 	printf("\nBreadth First Search\n\n");
 	arr_iter(&breadth_first_search, print_edge);
 
 	shortest_path = graph_find_shortest_path(&g, "00", "csw02");
-	printf("\nFind shortest path [csw02] => [00]\n");
+	printf("\nFind shortest path [00] => [csw02]\n");
 	arr_iter(&shortest_path, print_node);
 
 	arr_free(&breadth_first_search);
