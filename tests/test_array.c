@@ -1,6 +1,6 @@
 #include "../inc/core.h"
 
-ssize_t	arr_assign(t_arr *dst, void *data, size_t len)
+ssize_t	arr_assign(t_array *dst, void *data, size_t len)
 {
 	if (arr_null(dst) || dst->alloc_size > 0)
 		return (CR_FAIL);
@@ -21,7 +21,7 @@ ssize_t	print_char(void *data, size_t i)
 
 int main(void)
 {
-	t_arr	b;
+	t_array	b;
 	char	c;
 	char	str[10] = "123456789";
 

@@ -9,13 +9,13 @@
 
 #include "../inc/graph.h"
 
-t_arr graph_find_shortest_path(
+t_array graph_find_shortest_path(
 		t_graph *g,
 		const char *src_key,
 		const char *dst_key)
 {
-	t_arr	edge_list;
-	t_arr	spath;
+	t_array	edge_list;
+	t_array	spath;
 
 	spath = arr_new(1, sizeof(t_graph_node));
 	edge_list = graph_bfs(g, src_key, dst_key);

@@ -8,8 +8,8 @@
 #include "../inc/graph.h"
 
 ssize_t graph_dfs_loop(
-		t_arr *res_edges,
-		t_arr *dfs_queue,
+		t_array *res_edges,
+		t_array *dfs_queue,
 		t_graph_node *curr,
 		t_graph_node *sink)
 {
@@ -35,13 +35,13 @@ ssize_t graph_dfs_loop(
 	return (CR_SUCCESS);
 }
 
-t_arr graph_dfs(
+t_array graph_dfs(
 		t_graph *g,
 		const char *src_key,
 		const char *dst_key)
 {
-	t_arr			dfs_queue;
-	t_arr			res_edges;
+	t_array			dfs_queue;
+	t_array			res_edges;
 	t_graph_node	*src;
 	t_graph_node	*dst;
 

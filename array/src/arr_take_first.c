@@ -16,7 +16,7 @@
 
 #include "../inc/arr.h"
 
-void	*arr_take_first(void *dst, t_arr *src)
+void	*arr_take_first(void *dst, t_array *src)
 {
 	dst = arr_take(dst, src, 0);
 	return (dst);

@@ -15,7 +15,7 @@
 
 #include "../inc/arr.h"
 
-ssize_t	arr_del(t_arr *src, size_t index)
+ssize_t	arr_del(t_array *src, size_t index)
 {
 	uint8_t	*mem_start;
 	uint8_t	*mem_end;

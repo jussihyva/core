@@ -62,9 +62,9 @@ ssize_t	free_node(void *data, size_t i)
 int main(void)
 {
 	t_graph	g;
-	t_arr	breadth_first_search;
-	t_arr	depth_first_search;
-	t_arr	shortest_path;
+	t_array	breadth_first_search;
+	t_array	depth_first_search;
+	t_array	shortest_path;
 
 	g = graph_new();
 	if (graph_null(&g))

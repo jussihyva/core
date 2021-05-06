@@ -12,15 +12,15 @@
 
 #include "../inc/arr.h"
 
-ssize_t	arr_join_mult(t_arr *dst, size_t len, ...)
+ssize_t	arr_join_mult(t_array *dst, size_t len, ...)
 {
 	va_list	ap;
-	t_arr	*tmp;
+	t_array	*tmp;
 
 	va_start(ap, len);
 	while (len--)
 	{
-		tmp = va_arg(ap, t_arr *);
+		tmp = va_arg(ap, t_array *);
 		if (arr_null(tmp))
 			return (CR_FAIL);
 		if (!(arr_join(dst, tmp)))

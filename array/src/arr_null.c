@@ -12,9 +12,9 @@
 
 #include "../inc/arr.h"
 
-ssize_t	arr_null(t_arr *src)
+ssize_t	arr_null(t_array *src)
 {
-	if (memcmp(src, &CR_ARR_NULL, sizeof(t_arr)) == 0)
+	if (memcmp(src, &CR_ARR_NULL, sizeof(t_array)) == 0)
 		return (CR_SUCCESS);
 	return (CR_FAIL);
 }

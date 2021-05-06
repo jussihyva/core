@@ -12,7 +12,7 @@ ssize_t	print_char(void *data, size_t i)
 
 int	test_arr_add()
 {
-	t_arr	arr;
+	t_array	arr;
 	char	c;
 
 	arr = arr_new(sizeof(char));

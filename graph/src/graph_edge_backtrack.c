@@ -11,7 +11,7 @@
 
 #include "../inc/graph.h"
 
-ssize_t graph_edge_backtrack(t_arr *breadcrums, t_arr *edge_list)
+ssize_t graph_edge_backtrack(t_array *breadcrums, t_array *edge_list)
 {
 	t_graph_node	*curr_node;
 	t_graph_edge	*curr_edge;

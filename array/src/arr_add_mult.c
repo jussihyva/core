@@ -15,7 +15,7 @@
 
 #include "../inc/arr.h"
 
-ssize_t	arr_add_mult(t_arr *dst, size_t count, ...)
+ssize_t	arr_add_mult(t_array *dst, size_t count, ...)
 {
 	va_list	ap;
 

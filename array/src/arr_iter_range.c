@@ -20,7 +20,7 @@
 
 #include "../inc/arr.h"
 
-ssize_t	arr_iter_range(t_arr *src, size_t start, size_t end,
+ssize_t	arr_iter_range(t_array *src, size_t start, size_t end,
 		ssize_t (*f)(void *, size_t))
 {
 	size_t	i;

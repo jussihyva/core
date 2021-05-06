@@ -16,7 +16,7 @@
 
 #include "../inc/arr.h"
 
-ssize_t	arr_search(t_arr *src, t_arr *key)
+ssize_t	arr_search(t_array *src, t_array *key)
 {
 	uint8_t	*mem_key;
 	uint8_t	*mem_src;

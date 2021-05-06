@@ -17,7 +17,7 @@
 
 #include "../inc/arr.h"
 
-ssize_t	arr_join(t_arr *dst, t_arr *src)
+ssize_t	arr_join(t_array *dst, t_array *src)
 {
 	uint8_t	*mem_start;
 	size_t	newsize;

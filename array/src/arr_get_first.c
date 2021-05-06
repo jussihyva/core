@@ -15,7 +15,7 @@
 
 #include "../inc/arr.h"
 
-void	*arr_get_first(t_arr *arr)
+void	*arr_get_first(t_array *arr)
 {
 	return (arr_get(arr, 0));
 }

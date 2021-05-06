@@ -6,7 +6,7 @@
  ******************************************************************************/
 #include "../inc/graph.h"
 
-ssize_t graph_find_roots(t_graph *g, t_arr *roots)
+ssize_t graph_find_roots(t_graph *g, t_array *roots)
 {
 	t_map_node		m_node;
 	t_graph_node	*g_node;

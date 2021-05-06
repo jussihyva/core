@@ -7,7 +7,7 @@
 
 #include "../inc/arr.h"
 
-ssize_t	arr_put(t_arr *arr, void *src, size_t size)
+ssize_t	arr_put(t_array *arr, void *src, size_t size)
 {
 	size_t	i;
 	uint8_t	*mem;

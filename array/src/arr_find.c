@@ -14,7 +14,7 @@
 
 #include "../inc/arr.h"
 
-ssize_t	arr_find(t_arr *src, void *key)
+ssize_t	arr_find(t_array *src, void *key)
 {
 	void	*value;
 	size_t	i;

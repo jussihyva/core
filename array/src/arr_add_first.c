@@ -15,7 +15,7 @@
 
 #include "../inc/arr.h"
 
-ssize_t	arr_add_first(t_arr *dst, void *elem)
+ssize_t	arr_add_first(t_array *dst, void *elem)
 {
 	if (!(arr_add(dst, elem, 0)))
 		return (CR_FAIL);

@@ -14,7 +14,7 @@
 
 #include "../inc/arr.h"
 
-ssize_t	arr_del_first(t_arr *src)
+ssize_t	arr_del_first(t_array *src)
 {
 	if (!(arr_del(src, 0)))
 		return (CR_FAIL);

@@ -16,7 +16,7 @@
 
 #include "../inc/arr.h"
 
-ssize_t	arr_add(t_arr *dst, void *elem, size_t index)
+ssize_t	arr_add(t_array *dst, void *elem, size_t index)
 {
 	uint8_t	*mem_pos;
 	uint8_t	*mem_tmp;

@@ -15,9 +15,9 @@
 
 #include "../inc/arr.h"
 
-ssize_t	arr_grow(t_arr *arr, size_t new_size)
+ssize_t	arr_grow(t_array *arr, size_t new_size)
 {
-	t_arr	out;
+	t_array	out;
 
 	out = arr_new(new_size, arr->elem_size);
 	if (arr_null(&out))

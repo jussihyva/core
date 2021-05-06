@@ -6,13 +6,13 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 00:30:42 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/27 00:51:27 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/06 03:43:40 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/core.h"
 
-static ssize_t	parse_vec(t_arr *dst, t_parr *src)
+static ssize_t	parse_vec(t_array *dst, t_parr *src)
 {
 	t_vec4	curr;
 	size_t	i;
@@ -36,7 +36,7 @@ static ssize_t	deallocate_str(void *data, size_t i)
 	return (i);
 }
 
-void	transform(t_arr *buffer)
+void	transform(t_array *buffer)
 {
 	t_mat4	scale;
 	t_vec4	*cast;
@@ -56,7 +56,7 @@ void	transform(t_arr *buffer)
 int	main(int argc, char **argv)
 {
 	t_parr	file;
-	t_arr	buffer;
+	t_array	buffer;
 
 	if (argc != 2)
 		return (0);

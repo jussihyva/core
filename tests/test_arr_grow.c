@@ -22,7 +22,7 @@ ssize_t	print_uint64(void *data, size_t i)
 
 void	test_arr_grow()
 {
-	t_arr	test_1;
+	t_array	test_1;
 	uint64_t	x;
 	test_1 = arr_new(1, sizeof(uint64_t));
 	x = 0;
