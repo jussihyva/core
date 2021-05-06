@@ -46,5 +46,7 @@ uint64_t	map_hash_1(const char *key);
 uint64_t	map_probe_quad_pow2(uint64_t x);
 uint64_t	map_resize_pow2(uint64_t capacity);
 void		map_print(t_map *m);
+void    	map_iter(t_map *src,
+			ssize_t (*f)(void *, size_t));
 
 #endif

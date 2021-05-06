@@ -6,7 +6,7 @@
 #    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2021/05/05 23:37:29 by jkoskela         ###   ########.fr        #
+#    Updated: 2021/05/06 19:05:30 by julius           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRC_BASE	=	map_add.c \
 				map_print.c \
 				map_new.c \
 				map_del.c \
+				map_iter.c \
 				map_null.c \
 				map_grow.c \
 				map_null_node.c \
