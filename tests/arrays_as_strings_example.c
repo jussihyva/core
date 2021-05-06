@@ -4,7 +4,7 @@
 # define DEL str_del
 # define PRINT str_print
 
-typedef t_arr t_str;
+typedef t_array t_str;
 
 void	str_print(t_str src)
 {

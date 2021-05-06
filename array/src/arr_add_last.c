@@ -15,7 +15,7 @@
 
 #include "../inc/arr.h"
 
-ssize_t	arr_add_last(t_arr *dst, void *elem)
+ssize_t	arr_add_last(t_array *dst, void *elem)
 {
 	uint8_t	*mem_pos;
 

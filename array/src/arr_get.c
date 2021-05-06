@@ -15,7 +15,7 @@
 
 #include "../inc/arr.h"
 
-void	*arr_get(t_arr *src, size_t index)
+void	*arr_get(t_array *src, size_t index)
 {
 	uint8_t	*mem_pos;
 

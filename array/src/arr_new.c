@@ -20,9 +20,9 @@
 
 #include "../inc/arr.h"
 
-t_arr	arr_new(size_t alloc_size, size_t elem_size)
+t_array	arr_new(size_t alloc_size, size_t elem_size)
 {
-	t_arr	out;
+	t_array	out;
 
 	out.len = 0;
 	out.elem_size = elem_size;

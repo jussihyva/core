@@ -11,9 +11,9 @@ ssize_t	print_char(void *data, size_t i)
 
 int	main(void)
 {
-	t_arr	arr;
+	t_array	arr;
 	char	c;
-	
+
 	c = 'A';
 	arr = arr_new(sizeof(char));
 	arr_assign(&arr, "abcdefg", 3);

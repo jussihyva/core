@@ -16,7 +16,7 @@
 
 #include "../inc/arr.h"
 
-void	*arr_take_last(void *dst, t_arr *src)
+void	*arr_take_last(void *dst, t_array *src)
 {
 	dst = arr_take(dst, src, src->len - 1);
 	return (dst);

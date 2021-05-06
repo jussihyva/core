@@ -13,6 +13,8 @@ void	*map_get(t_map *src, const char *key)
 	uint64_t	probe;
 	size_t		i;
 
+	if (!key)
+		return (NULL);
 	hash_key = src->hash(key);
 	probe = 0;
 	i = 0;

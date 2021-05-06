@@ -16,7 +16,7 @@
 
 #include "../inc/arr.h"
 
-static ssize_t	rot(t_arr *src, ssize_t steps)
+static ssize_t	rot(t_array *src, ssize_t steps)
 {
 	void	*tmp;
 	ssize_t	i;
@@ -33,7 +33,7 @@ static ssize_t	rot(t_arr *src, ssize_t steps)
 	return (i);
 }
 
-static ssize_t	rrot(t_arr *src, ssize_t steps)
+static ssize_t	rrot(t_array *src, ssize_t steps)
 {
 	void	*tmp;
 	ssize_t	i;
@@ -50,7 +50,7 @@ static ssize_t	rrot(t_arr *src, ssize_t steps)
 	return (i);
 }
 
-ssize_t	arr_rotate(t_arr *src, ssize_t steps)
+ssize_t	arr_rotate(t_array *src, ssize_t steps)
 {
 	if (src->len < 2 || steps == 0)
 		return (0);

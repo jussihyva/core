@@ -5,16 +5,11 @@
  * \return
  ******************************************************************************/
 
-#include "../inc/graph.h"
+#include "../inc/map.h"
 
-ssize_t graph_cmp_nodes(const void *n1, const void *n2)
+ssize_t	map_null(t_map *src)
 {
-	t_graph_node *n1c;
-	t_graph_node *n2c;
-
-	n1c = (t_graph_node *)n1;
-	n2c = (t_graph_node *)n2;
-	if (s_cmp(n1c->key, n2c->key) == 0)
+	if (memcmp(src, &CR_MAP_NULL, sizeof(t_map)) == 0)
 		return (1);
 	return (0);
 }

@@ -12,7 +12,7 @@
 
 #include "../inc/arr.h"
 
-ssize_t	arr_free(t_arr *src)
+ssize_t	arr_free(t_array *src)
 {
 	free(src->data);
 	*src = CR_ARR_NULL;

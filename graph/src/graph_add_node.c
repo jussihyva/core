@@ -11,11 +11,9 @@
 
 #include "../inc/graph.h"
 
-ssize_t graph_add_node(t_graph *g, t_graph_node n)
+ssize_t graph_add_node(t_graph *g, t_graph_node *n)
 {
-	n.out = arr_new(1, sizeof(t_graph_edge));
-	n.in = arr_new(1, sizeof(t_graph_edge));
-	if (!(arr_add_last(&g->nodes, &n)))
+	if (!(map_add(&g->nodes, n, n->key)))
 		return (-1);
-	return ((ssize_t)g->nodes.len - 1);
+	return ((ssize_t)g->nodes.count);
 }

@@ -6,7 +6,7 @@
 #    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2021/05/05 19:38:30 by jkoskela         ###   ########.fr        #
+#    Updated: 2021/05/05 23:55:47 by jkoskela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ INC_DIR		=	inc/
 OBJ_DIR		=	obj/
 
 SRC_BASE	=	graph_new.c \
+				graph_new_node.c \
 				graph_null.c \
 				graph_add_node.c \
 				graph_add_edge.c \

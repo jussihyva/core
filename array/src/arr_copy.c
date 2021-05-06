@@ -15,7 +15,7 @@
 
 #include "../inc/arr.h"
 
-ssize_t	arr_copy(t_arr *dst, t_arr *src)
+ssize_t	arr_copy(t_array *dst, t_array *src)
 {
 	uint8_t	*mem_start;
 

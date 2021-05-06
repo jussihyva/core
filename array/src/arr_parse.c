@@ -20,8 +20,8 @@
 
 #include "../inc/arr.h"
 
-ssize_t	arr_parse(t_arr *dst, t_arr *src,
-		ssize_t (*f)(t_arr *, void *))
+ssize_t	arr_parse(t_array *dst, t_array *src,
+		ssize_t (*f)(t_array *, void *))
 {
 	size_t	i;
 	void	*data;

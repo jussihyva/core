@@ -35,7 +35,7 @@ ssize_t		test_print(void *data, size_t i)
 
 int			tests1()
 {
-	t_arr	test;
+	t_array	test;
 
 	test = arr_new(1, sizeof(int));
 	assert(test.alloc_size == 1);
@@ -49,7 +49,7 @@ int			tests1()
 
 int			tests2()
 {
-	t_arr	test;
+	t_array	test;
 	t_test *ptr;
 	t_test *ptr2;
 	t_test	struc;
@@ -109,8 +109,8 @@ ssize_t		print(void *data, size_t i)
 
 int			tests3()
 {
-	t_arr	test;
-	t_arr	comp;
+	t_array	test;
+	t_array	comp;
 	char	c = '6';
 	int		pos;
 
