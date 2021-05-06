@@ -1,8 +1,20 @@
 /*******************************************************************************
- * \authors
- * \brief
- * \param
- * \return
+ *
+ * \authors Julius Koskela
+ *
+ * \brief Breadth first search on a graph.
+ *
+ * Performs a breadth first search on a graph saving the result as edges
+ * put into an array. If NULL is passed as destination, will search the
+ * whole graph.
+ *
+ * \param g Source graph.
+ * \param src_key Key of the root of the search.
+ * \param dst_key Key of the destination of the search. If NULL is passed
+ * will seacrh the whole graph.
+ *
+ * \return An array containing a list of edges.
+ *
  ******************************************************************************/
 
 #include "../inc/graph.h"
