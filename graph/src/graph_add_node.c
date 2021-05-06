@@ -13,7 +13,7 @@
 
 ssize_t graph_add_node(t_graph *g, t_graph_node *n)
 {
-	if (!(map_add(&g->nodes, n, n->key)))
+	if (!(map_add(g, n, n->key)))
 		return (-1);
-	return ((ssize_t)g->nodes.count);
+	return ((ssize_t)g->count);
 }

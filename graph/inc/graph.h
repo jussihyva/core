@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 06:09:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/06 03:43:40 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/06 04:28:50 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,7 @@ typedef struct		s_graph_edge
 	void			*attr;
 }					t_graph_edge;
 
-typedef struct		s_graph
-{
-	t_map			nodes;
-}					t_graph;
+typedef t_map t_graph;
 
 t_graph			graph_new(void);
 ssize_t			graph_null(t_graph *g);

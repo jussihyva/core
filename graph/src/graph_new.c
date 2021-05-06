@@ -9,8 +9,8 @@ t_graph graph_new(void)
 {
 	t_graph	new_graph;
 
-	new_graph.nodes = map_new();
-	if (map_null(&new_graph.nodes))
+	new_graph = map_new();
+	if (map_null(&new_graph))
 		return (CR_GRAPH_NULL);
 	return (new_graph);
 }
