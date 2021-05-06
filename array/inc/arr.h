@@ -8,7 +8,9 @@
 
 #ifndef LIBARR_H
 # define LIBARR_H
-# include "../../inc/core.h"
+
+# include <string.h>
+# include <inttypes.h>
 
 /**
  * \struct A dynamic array structure

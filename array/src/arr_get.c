@@ -14,6 +14,7 @@
  ******************************************************************************/
 
 #include "../inc/arr.h"
+#include "../../inc/core.h"
 
 void	*arr_get(t_array *src, size_t index)
 {

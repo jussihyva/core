@@ -14,6 +14,7 @@
  ******************************************************************************/
 
 #include "../inc/arr.h"
+#include "../../inc/core.h"
 
 ssize_t	arr_copy(t_array *dst, t_array *src)
 {

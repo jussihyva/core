@@ -8,7 +8,9 @@
 
 #ifndef LIBMAP_H
 # define LIBMAP_H
-# include "../../inc/core.h"
+
+# include <string.h>
+# include <inttypes.h>
 
 typedef struct		s_map_node
 {

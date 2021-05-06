@@ -1,4 +1,5 @@
 #include "../inc/map.h"
+#include "../../inc/core.h"
 
 void	map_print(t_map *m)
 {

@@ -6,6 +6,7 @@
  ******************************************************************************/
 
 #include "../inc/map.h"
+#include "../../inc/core.h"
 
 uint64_t	map_hash_1(const char *key)
 {

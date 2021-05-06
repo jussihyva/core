@@ -15,6 +15,7 @@
  ******************************************************************************/
 
 #include "../inc/arr.h"
+#include "../../inc/core.h"
 
 ssize_t	arr_add(t_array *dst, void *elem, size_t index)
 {

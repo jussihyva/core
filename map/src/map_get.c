@@ -6,6 +6,7 @@
  ******************************************************************************/
 
 #include "../inc/map.h"
+#include "../../inc/core.h"
 
 void	*map_get(t_map *src, const char *key)
 {

@@ -12,6 +12,7 @@
  ******************************************************************************/
 
 #include "../inc/map.h"
+#include "../../inc/core.h"
 
 ssize_t	map_del(t_map *src, const char *key)
 {

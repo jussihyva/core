@@ -14,6 +14,7 @@
  ******************************************************************************/
 
 #include "../inc/arr.h"
+#include "../../inc/core.h"
 
 ssize_t	arr_del(t_array *src, size_t index)
 {
