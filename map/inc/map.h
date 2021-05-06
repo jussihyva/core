@@ -10,7 +10,8 @@
 # define LIBMAP_H
 
 # include <string.h>
-# include <inttypes.h>
+# include <unistd.h>
+# include <stdint.h>
 
 typedef struct		s_map_node
 {

@@ -10,7 +10,8 @@
 # define LIBARR_H
 
 # include <string.h>
-# include <inttypes.h>
+# include <stdint.h>
+# include <unistd.h>
 
 /**
  * \struct A dynamic array structure

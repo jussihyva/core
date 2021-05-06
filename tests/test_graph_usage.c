@@ -71,20 +71,20 @@ int main(void)
 	if (graph_null(&g))
 		return (0);
 
-	graph_add_node(&g, graph_new_node("00", &(t_node_attr){"Introduction"}));
-	graph_add_node(&g, graph_new_node("m00", &(t_node_attr){"Math Introduction"}));
-	graph_add_node(&g, graph_new_node("qp01", &(t_node_attr){"Quantum Physics 1"}));
-	graph_add_node(&g, graph_new_node("qp02", &(t_node_attr){"Quantum Physics 2"}));
-	graph_add_node(&g, graph_new_node("qp03", &(t_node_attr){"Quantum Physics 3"}));
-	graph_add_node(&g, graph_new_node("qpc01", &(t_node_attr){"Quantum Chromodynamics 1"}));
-	graph_add_node(&g, graph_new_node("qpc02", &(t_node_attr){"Quantum Chromodynamics 2"}));
-	graph_add_node(&g, graph_new_node("ch01", &(t_node_attr){"Chemistry 1"}));
-	graph_add_node(&g, graph_new_node("ch02", &(t_node_attr){"Chemistry 2"}));
-	graph_add_node(&g, graph_new_node("ch03", &(t_node_attr){"Chemistry 3"}));
-	graph_add_node(&g, graph_new_node("cs01", &(t_node_attr){"Computer Science 1"}));
-	graph_add_node(&g, graph_new_node("cs02", &(t_node_attr){"Computer Science 2"}));
-	graph_add_node(&g, graph_new_node("csw01", &(t_node_attr){"Computer Science Workshop 1"}));
-	graph_add_node(&g, graph_new_node("csw02", &(t_node_attr){"Computer Science Workshop 2"}));
+	graph_add_node(&g, "00", &(t_node_attr){"Introduction"});
+	graph_add_node(&g, "m00", &(t_node_attr){"Math Introduction"});
+	graph_add_node(&g, "qp01", &(t_node_attr){"Quantum Physics 1"});
+	graph_add_node(&g, "qp02", &(t_node_attr){"Quantum Physics 2"});
+	graph_add_node(&g, "qp03", &(t_node_attr){"Quantum Physics 3"});
+	graph_add_node(&g, "qpc01", &(t_node_attr){"Quantum Chromodynamics 1"});
+	graph_add_node(&g, "qpc02", &(t_node_attr){"Quantum Chromodynamics 2"});
+	graph_add_node(&g, "ch01", &(t_node_attr){"Chemistry 1"});
+	graph_add_node(&g, "ch02", &(t_node_attr){"Chemistry 2"});
+	graph_add_node(&g, "ch03", &(t_node_attr){"Chemistry 3"});
+	graph_add_node(&g, "cs01", &(t_node_attr){"Computer Science 1"});
+	graph_add_node(&g, "cs02", &(t_node_attr){"Computer Science 2"});
+	graph_add_node(&g, "csw01", &(t_node_attr){"Computer Science Workshop 1"});
+	graph_add_node(&g, "csw02", &(t_node_attr){"Computer Science Workshop 2"});
 
 	graph_add_edge(&g, "00", "m00", NULL);
 	graph_add_edge(&g, "m00", "qp01", NULL);

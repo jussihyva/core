@@ -11,9 +11,16 @@
 
 #include "../inc/graph.h"
 
-ssize_t graph_add_node(t_graph *g, t_graph_node *n)
+ssize_t	graph_add_node(t_graph *g, const char *key, void *attr)
 {
-	if (!(map_add(g, n, n->key)))
+	t_graph_node	*n;
+
+	n = (t_graph_node *)malloc(sizeof(t_graph_node));
+	n->key = key;
+	n->in = arr_new(1, sizeof(t_graph_edge));
+	n->out = arr_new(1, sizeof(t_graph_edge));
+	if (arr_null(&n->in) || arr_null(&n->out))
 		return (-1);
-	return ((ssize_t)g->count);
+	n->attr = attr;
+	return (map_add(g, n, n->key));
 }
