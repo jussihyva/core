@@ -24,7 +24,7 @@ manner. This implementation emulates the functionality of a C++ std::vector.
 
 ```c
 
-typedef struct  s_arr
+typedef struct  s_array
 {
     uint8_t     *data;
     size_t      len;

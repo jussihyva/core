@@ -13,7 +13,7 @@
 /**
  * \struct A dynamic array structure
  */
-typedef struct	s_arr
+typedef struct	s_array
 {
 	/*@{*/
 	uint8_t		*data; /**< Array memory */
