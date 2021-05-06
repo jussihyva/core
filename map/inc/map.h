@@ -1,23 +1,14 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   map.h                                              :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/11 06:09:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/05 23:37:18 by jkoskela         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+/*******************************************************************************
+ *
+ * \authors Julius Koskela
+ *
+ * \brief A hash map implementation library.
+ *
+ ******************************************************************************/
 
 #ifndef LIBMAP_H
 # define LIBMAP_H
 # include "../../inc/core.h"
-
-// Hash table using quadratic probing.
-// Probing function: P(x) = (x^2 + x) / 2
-// Map capacity = 2^x
-// Max load factor = 0.4
 
 typedef struct		s_map_node
 {
@@ -25,15 +16,20 @@ typedef struct		s_map_node
 	void			*data;
 }					t_map_node;
 
+/**
+ * \struct A has map structure
+ */
 typedef struct		s_map
 {
-	t_map_node		*node;
-	size_t			capacity;
-	size_t			count;
-	double			load_factor;
-	uint64_t		(*hash)(const char *);
-	uint64_t		(*probe)(uint64_t);
-	uint64_t		(*resize)(uint64_t);
+	/*@{*/
+	t_map_node		*node; /**< Memory to hold map nodes.*/
+	size_t			capacity; /**< Current max capacity of the hash map.*/
+	size_t			count; /**< Current node count of the hash map.*/
+	double			load_factor; /**< Load factor to indicate at which treshold to resize.*/
+	uint64_t		(*hash)(const char *); /**< A hash function*/
+	uint64_t		(*probe)(uint64_t); /**< Quadratic probing founction*/
+	uint64_t		(*resize)(uint64_t); /**< Resizing function.*/
+	/*@}*/
 }					t_map;
 
 t_map		map_new(void);
