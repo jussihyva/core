@@ -6,6 +6,7 @@
  ******************************************************************************/
 
 #include "../inc/map.h"
+#include "../../inc/core.h"
 
 static ssize_t	map_grow_add(t_map *dst, void *src, const char *key)
 {

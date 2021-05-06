@@ -57,5 +57,6 @@
 # include "../linear_algebra/inc/lin.h"
 # include "../cstring/inc/cstr.h"
 # include "../map/inc/map.h"
+# include "../graph/inc/graph.h"
 
 #endif

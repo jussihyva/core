@@ -15,6 +15,7 @@
  ******************************************************************************/
 
 #include "../inc/arr.h"
+#include "../../inc/core.h"
 
 static ssize_t	rot(t_array *src, ssize_t steps)
 {

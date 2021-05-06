@@ -11,6 +11,7 @@
  ******************************************************************************/
 
 #include "../inc/map.h"
+#include "../../inc/core.h"
 
 uint64_t	map_resize_pow2(uint64_t capacity)
 {

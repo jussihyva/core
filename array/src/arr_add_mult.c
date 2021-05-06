@@ -14,6 +14,7 @@
  ******************************************************************************/
 
 #include "../inc/arr.h"
+#include "../../inc/core.h"
 
 ssize_t	arr_add_mult(t_array *dst, size_t count, ...)
 {

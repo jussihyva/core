@@ -13,6 +13,7 @@
  ******************************************************************************/
 
 #include "../inc/arr.h"
+#include "../../inc/core.h"
 
 ssize_t	arr_del_last(t_array *arr)
 {

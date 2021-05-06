@@ -16,6 +16,7 @@
  ******************************************************************************/
 
 #include "../inc/arr.h"
+#include "../../inc/core.h"
 
 ssize_t	arr_iter(t_array *arr,
 		ssize_t (*f)(void *, size_t))

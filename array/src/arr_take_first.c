@@ -15,6 +15,7 @@
  ******************************************************************************/
 
 #include "../inc/arr.h"
+#include "../../inc/core.h"
 
 void	*arr_take_first(void *dst, t_array *src)
 {

@@ -15,6 +15,7 @@
  ******************************************************************************/
 
 #include "../inc/arr.h"
+#include "../../inc/core.h"
 
 ssize_t	arr_search(t_array *src, t_array *key)
 {

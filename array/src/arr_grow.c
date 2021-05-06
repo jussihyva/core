@@ -14,6 +14,7 @@
  ******************************************************************************/
 
 #include "../inc/arr.h"
+#include "../../inc/core.h"
 
 ssize_t	arr_grow(t_array *arr, size_t new_size)
 {
