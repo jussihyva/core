@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 06:09:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/06 18:44:57 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/06 23:38:23 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,6 @@ t_array			graph_dfs(t_graph *g, const char *src_key, const char *dst_key);
 t_array 		graph_find_shortest_path(t_graph *g, const char *src_key, const char *dst_key);
 ssize_t			graph_edge_backtrack(t_array *breadcrumbs, t_array *edge_list);
 ssize_t			graph_null(t_graph *g);
+t_graph_edge	*graph_find_edge(t_graph *g, const char *src_key, const char *dst_key);
 
 #endif

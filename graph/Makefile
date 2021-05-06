@@ -6,7 +6,7 @@
 #    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2021/05/06 18:16:15 by jkoskela         ###   ########.fr        #
+#    Updated: 2021/05/06 23:38:35 by jkoskela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRC_BASE	=	graph_new.c \
 				graph_add_edge.c \
 				graph_cmp_nodes.c \
 				graph_find_node.c \
+				graph_find_edge.c \
 				graph_find_roots.c \
 				graph_bfs.c \
 				graph_dfs.c \
