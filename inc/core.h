@@ -14,6 +14,7 @@
 #ifndef LIBCORE_H
 # define LIBCORE_H
 
+# define CR_PI 3.14159265358979323846
 # define CR_STOP -1
 # define CR_CONTINUE 1
 # define CR_SUCCESS 1
@@ -58,5 +59,6 @@
 # include "../cstring/inc/cstr.h"
 # include "../map/inc/map.h"
 # include "../graph/inc/graph.h"
+# include "../math/inc/math.h"
 
 #endif
