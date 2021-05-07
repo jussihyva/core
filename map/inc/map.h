@@ -48,5 +48,7 @@ uint64_t	map_resize_pow2(uint64_t capacity);
 void		map_print(t_map *m);
 void    	map_iter(t_map *src,
 			ssize_t (*f)(void *, size_t));
+char		*map_parse(t_map *src, void *dst,
+			char *(*f)(void *, void *, const char *key));
 
 #endif
