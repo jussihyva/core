@@ -3,21 +3,26 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
+#    By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2021/05/05 19:38:40 by jkoskela         ###   ########.fr        #
+#    Updated: 2021/05/07 22:06:13 by skoskine         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	libarr.a
 
-CC			=	gcc
-CFLAGS 		=	-g -Wall -Wextra -Werror -Wpedantic -Wtype-limits \
-				-Wunreachable-code -Wpadded -Wshadow -fPIC -Wconversion
 SRC_DIR		=	src/
 INC_DIR		=	inc/
 OBJ_DIR		=	obj/
+DEP_DIR		=	.deps/
+
+CC			=	gcc
+CFLAGS 		=	-g -Wall -Wextra -Werror -Wpedantic -Wtype-limits \
+				-Wunreachable-code -Wpadded -Wshadow -fPIC -Wconversion
+CPPFLAGS	=	-I $(INC_DIR)
+DEPFLAGS	=	-MT $@ -MMD -MP -MF $(DEP_DIR)$*.d
+COMPILE.c	=	$(CC) $(DEPFLAGS) $(CFLAGS) $(CPPFLAGS) -c
 
 SRC_BASE	=	arr_add.c \
 				arr_add_first.c \
@@ -59,15 +64,20 @@ $(NAME): $(OBJ)
 				@ar -rcs $(NAME) $(OBJ)
 				@echo "\\n\033[32;1mARRAY FUNCTIONS COMPILED\033[0m \\n"
 
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c $(DEP_DIR)%.d | $(OBJ_DIR) $(DEP_DIR)
+				@$(COMPILE.c) $< -o $@
+
 $(OBJ_DIR):
 				@mkdir -p $@
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJ_DIR)
-				@$(CC) $(CFLAGS) -c $< -o $@ -I $(INC_DIR)
+$(DEP_DIR):
+				@mkdir -p $@
+
+DEPFILES = $(addprefix $(DEP_DIR), $(SRC_BASE:.c=.d))
+$(DEPFILES):
 
 clean:
-				@rm -rf $(OBJ_DIR);
-
+				@rm -rf $(OBJ_DIR) $(DEP_DIR)
 
 fclean: clean
 				@rm -rf $(NAME);
@@ -75,3 +85,5 @@ fclean: clean
 re: fclean all
 
 .PHONY: all fclean clean re
+
+include $(wildcard $(DEPFILES))
