@@ -12,7 +12,7 @@
 
 #include "../inc/parr.h"
 
-void	*parr_get_first(t_parr *arr)
+void	*parr_get_first(t_parray *arr)
 {
 	return (parr_get(arr, 0));
 }

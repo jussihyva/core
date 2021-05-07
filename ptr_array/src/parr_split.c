@@ -12,7 +12,7 @@
 
 #include "../inc/parr.h"
 
-ssize_t	parr_split(t_parr *dst, t_parr *src)
+ssize_t	parr_split(t_parray *dst, t_parray *src)
 {
 	size_t	o_size;
 	size_t	i;

@@ -12,7 +12,7 @@
 
 #include "../inc/parr.h"
 
-void	*parr_take(t_parr *arr, size_t index)
+void	*parr_take(t_parray *arr, size_t index)
 {
 	void	*out;
 

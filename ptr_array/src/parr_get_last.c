@@ -12,7 +12,7 @@
 
 #include "../inc/parr.h"
 
-void	*parr_get_last(t_parr *arr)
+void	*parr_get_last(t_parray *arr)
 {
 	return (parr_get(arr, arr->len - 1));
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   example1.c                                         :+:      :+:    :+:   */
+/*   test_parr_usage.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/25 01:04:42 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/07 16:10:42 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void			*match_firstname(void *key, void *val)
 // that data is parsed and add that data into the destination array on each
 // iteration. User can return CR_STOP or -1 to indicate the loop should CR_STOP.
 
-int				deserialize(t_parr *dst, void *data)
+int				deserialize(t_parray *dst, void *data)
 {
 	t_person	*person;
 	char		**words;
@@ -159,10 +159,10 @@ int				serialize(void **dst, void *src)
 
 int				main(int argc, char **argv)
 {
-	t_parr		source;
-	t_parr		people;
-	t_parr		results;
-	t_parr		duplicate;
+	t_parray		source;
+	t_parray		people;
+	t_parray		results;
+	t_parray		duplicate;
 
 	if (argc != 3)
 		return (-1);

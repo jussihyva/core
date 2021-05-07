@@ -26,7 +26,7 @@
 # define CR_APPEND 1
 # define CR_PREPEND -1
 # define CR_STRING NULL
-# define CR_PARR_NULL (t_parr) {NULL, 0, 0}
+# define CR_PARR_NULL (t_parray) {NULL, 0, 0}
 # define CR_ARR_NULL (t_array) {NULL, 0, 0, 0}
 # define CR_GRAPH_NULL (t_graph) {CR_MAP_NULL, NULL}
 # define CR_GRAPH_NULL_NODE (t_graph_node) {CR_ARR_NULL, CR_ARR_NULL, NULL, NULL}

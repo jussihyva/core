@@ -12,7 +12,7 @@
 
 #include "../inc/parr.h"
 
-ssize_t	parr_del(t_parr *arr, size_t index)
+ssize_t	parr_del(t_parray *arr, size_t index)
 {
 	size_t	i;
 

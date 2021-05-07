@@ -12,7 +12,7 @@
 
 #include "../inc/parr.h"
 
-ssize_t	parr_add_mult(t_parr *arr, size_t len, ...)
+ssize_t	parr_add_mult(t_parray *arr, size_t len, ...)
 {
 	va_list	ap;
 

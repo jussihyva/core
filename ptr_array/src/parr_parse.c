@@ -6,14 +6,14 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/26 01:39:43 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/07 16:10:42 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/parr.h"
 
-ssize_t	parr_parse(t_parr *dst, t_parr *src,
-		ssize_t (*f)(t_parr *, void *))
+ssize_t	parr_parse(t_parray *dst, t_parray *src,
+		ssize_t (*f)(t_parray *, void *))
 {
 	size_t	i;
 	void	*data;

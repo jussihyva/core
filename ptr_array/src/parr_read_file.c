@@ -12,7 +12,7 @@
 
 #include "../inc/parr.h"
 
-ssize_t	parr_read_file(t_parr *dst, char *filename)
+ssize_t	parr_read_file(t_parray *dst, char *filename)
 {
 	char	*line;
 	ssize_t	fd;

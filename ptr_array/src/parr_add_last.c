@@ -12,7 +12,7 @@
 
 #include "../inc/parr.h"
 
-ssize_t	parr_add_last(t_parr *arr, void *data)
+ssize_t	parr_add_last(t_parray *arr, void *data)
 {
 	if (parr_null(arr))
 		return (CR_FAIL);

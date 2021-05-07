@@ -12,9 +12,9 @@
 
 #include "../inc/parr.h"
 
-ssize_t	parr_add(t_parr *arr, void *data, size_t index)
+ssize_t	parr_add(t_parray *arr, void *data, size_t index)
 {
-	t_parr	newarr;
+	t_parray	newarr;
 	void	*tmp;
 	size_t	i;
 

@@ -12,7 +12,7 @@
 
 #include "../inc/parr.h"
 
-ssize_t	parr_search(t_parr *dst, t_parr *src, void *key,
+ssize_t	parr_search(t_parray *dst, t_parray *src, void *key,
 		void *(*f)(void *, void *))
 {
 	void	*data;

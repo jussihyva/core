@@ -12,7 +12,7 @@
 
 #include "../inc/parr.h"
 
-void	*parr_get(t_parr *arr, size_t index)
+void	*parr_get(t_parray *arr, size_t index)
 {
 	if (index > arr->len || arr->len == 0)
 		return (NULL);

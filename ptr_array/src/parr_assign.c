@@ -12,7 +12,7 @@
 
 #include "../inc/parr.h"
 
-ssize_t	parr_assign(t_parr *arr, void **src, size_t size)
+ssize_t	parr_assign(t_parray *arr, void **src, size_t size)
 {
 	size_t	i;
 

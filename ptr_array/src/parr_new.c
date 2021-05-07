@@ -12,16 +12,16 @@
 
 #include "../inc/parr.h"
 
-t_parr	parr_new(size_t size)
+t_parray	parr_new(size_t size)
 {
-	t_parr	out;
+	t_parray	out;
 
 	out.size = size;
 	out.len = 0;
 	if (!(out.data = (void **)malloc(sizeof(void *) * size)))
 	{
 		perror("Array allocation failed in parr_new!\n");
-		return ((t_parr){NULL, 0, 0});
+		return ((t_parray){NULL, 0, 0});
 	}
 	return (out);
 }

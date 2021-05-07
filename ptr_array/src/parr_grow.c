@@ -12,9 +12,9 @@
 
 #include "../inc/parr.h"
 
-ssize_t	parr_grow(t_parr *arr, size_t new_size)
+ssize_t	parr_grow(t_parray *arr, size_t new_size)
 {
-	t_parr	out;
+	t_parray	out;
 	ssize_t	error;
 
 	out = parr_new(new_size);

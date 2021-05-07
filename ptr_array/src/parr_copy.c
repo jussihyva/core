@@ -12,7 +12,7 @@
 
 #include "../inc/parr.h"
 
-ssize_t	parr_copy(t_parr *dst, t_parr *src)
+ssize_t	parr_copy(t_parray *dst, t_parray *src)
 {
 	size_t	i;
 

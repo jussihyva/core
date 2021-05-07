@@ -13,7 +13,7 @@
 #include "../inc/parr.h"
 
 static
-ssize_t	parr_write_string(t_parr *dst, t_parr *src)
+ssize_t	parr_write_string(t_parray *dst, t_parray *src)
 {
 	size_t	i;
 	char	*tmp;
@@ -28,7 +28,7 @@ ssize_t	parr_write_string(t_parr *dst, t_parr *src)
 	return (i);
 }
 
-ssize_t	parr_write(t_parr *dst, t_parr *src, ssize_t (*f)(void *, void *))
+ssize_t	parr_write(t_parray *dst, t_parray *src, ssize_t (*f)(void *, void *))
 {
 	size_t	i;
 	void	*tmp;

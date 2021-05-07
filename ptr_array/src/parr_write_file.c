@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/26 01:52:13 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/07 16:10:42 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ ssize_t	deallocate_str(void *data, size_t i)
 }
 
 static
-ssize_t	write_file(FILE *file, t_parr *prepend,
+ssize_t	write_file(FILE *file, t_parray *prepend,
 		ssize_t (*f)(void *, void *))
 {
 	size_t	i;
@@ -45,11 +45,11 @@ ssize_t	write_file(FILE *file, t_parr *prepend,
 	return (1);
 }
 
-ssize_t	parr_write_file(char *dst, t_parr *src, ssize_t flag,
+ssize_t	parr_write_file(char *dst, t_parray *src, ssize_t flag,
 		ssize_t (*f)(void *, void *))
 {
 	FILE	*file;
-	t_parr	prepend;
+	t_parray	prepend;
 
 	if (parr_null(src))
 		return (CR_FAIL);

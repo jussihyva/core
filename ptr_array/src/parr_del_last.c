@@ -12,7 +12,7 @@
 
 #include "../inc/parr.h"
 
-ssize_t	parr_del_last(t_parr *arr)
+ssize_t	parr_del_last(t_parray *arr)
 {
 	if (!(parr_del(arr, arr->len - 1)))
 		return (CR_FAIL);

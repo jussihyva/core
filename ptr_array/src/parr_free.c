@@ -12,12 +12,12 @@
 
 #include "../inc/parr.h"
 
-ssize_t	parr_free(t_parr *arr)
+ssize_t	parr_free(t_parray *arr)
 {
 	if (parr_null(arr))
 		return (CR_FAIL);
 	free(arr->data);
-	*arr = (t_parr){NULL, 0, 0};
+	*arr = (t_parray){NULL, 0, 0};
 	return (CR_SUCCESS);
 }
 

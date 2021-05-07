@@ -6,13 +6,13 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 00:30:42 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/06 03:43:40 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/07 16:10:42 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/core.h"
 
-static ssize_t	parse_vec(t_array *dst, t_parr *src)
+static ssize_t	parse_vec(t_array *dst, t_parray *src)
 {
 	t_vec4	curr;
 	size_t	i;
@@ -55,7 +55,7 @@ void	transform(t_array *buffer)
 
 int	main(int argc, char **argv)
 {
-	t_parr	file;
+	t_parray	file;
 	t_array	buffer;
 
 	if (argc != 2)

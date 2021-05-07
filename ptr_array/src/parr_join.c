@@ -12,10 +12,10 @@
 
 #include "../inc/parr.h"
 
-ssize_t	parr_join(t_parr *dst, size_t len, ...)
+ssize_t	parr_join(t_parray *dst, size_t len, ...)
 {
 	va_list	ap;
-	t_parr	*tmp;
+	t_parray	*tmp;
 	size_t	i;
 
 	va_start(ap, len);
@@ -23,7 +23,7 @@ ssize_t	parr_join(t_parr *dst, size_t len, ...)
 		return (CR_FAIL);
 	while (len--)
 	{
-		tmp = va_arg(ap, t_parr *);
+		tmp = va_arg(ap, t_parray *);
 		if (parr_null(tmp))
 			return (CR_FAIL);
 		i = 0;

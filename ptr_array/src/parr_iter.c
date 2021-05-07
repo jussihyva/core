@@ -6,13 +6,13 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/26 01:30:08 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/07 16:10:42 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/parr.h"
 
-ssize_t	parr_iter(t_parr *arr, ssize_t (*f)(void *, size_t))
+ssize_t	parr_iter(t_parray *arr, ssize_t (*f)(void *, size_t))
 {
 	size_t	i;
 
