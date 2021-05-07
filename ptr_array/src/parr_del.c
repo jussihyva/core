@@ -21,7 +21,7 @@ ssize_t	parr_del(t_parray *arr, size_t index)
 	if (index > arr->len)
 		return (CR_FAIL);
 	i = index;
-	while (i < arr->len)
+	while (i < arr->len - 1)
 	{
 		arr->data[i] = arr->data[i + 1];
 		i++;
