@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
+#    By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2021/05/07 03:31:12 by jkoskela         ###   ########.fr        #
+#    Updated: 2021/05/07 21:42:52 by skoskine         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,8 @@ SRC_BASE	=	map_add.c \
 				map_hash_1.c \
 				map_probe_quad_pow2.c \
 				map_resize_pow2.c \
+				map_probe_linear.c \
+				map_resize_linear.c
 
 SRC			=	$(addprefix $(SRC_DIR), $(SRC_BASE))
 OBJ			=	$(addprefix $(OBJ_DIR), $(SRC_BASE:.c=.o))
