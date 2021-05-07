@@ -10,7 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../libft/inc/libft.h"
+#include "../../inc/core.h"
+
+typedef struct		s_uint80
+{
+	uint64_t		u64;
+	uint16_t		u16;
+}					t_uint80;
+
+typedef union		u_ldbits
+{
+	long double		ldbl;
+	t_uint80		u80;
+}					t_ldbits;
 
 long double			math_roundl(long double x)
 {

@@ -12,6 +12,12 @@
 
 #include "../../inc/core.h"
 
+typedef union		u_double
+{
+	double			f;
+	uint64_t		i;
+}					t_double;
+
 static double	aux(double x, double *iptr, t_double u, int e)
 {
 	if (e >= 52)

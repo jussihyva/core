@@ -12,10 +12,28 @@
 
 #include "../../inc/core.h"
 
+typedef union		u_ldshape
+{
+	long double		f;
+	uint64_t		m;
+	uint16_t		se;
+}					t_ldshape;
+
+typedef struct		s_modl
+{
+	t_ldshape		u;
+	int				e;
+	int				s;
+	long double		y;
+	long double		absx;
+	long double		toint;
+}					t_modl;
+
 long double		math_modl(long double x, long double *iptr)
 {
 	t_modl		vars;
 
+	mem_zero(&vars, sizeof(t_modl));
 	vars.u = (t_ldshape)x;
 	vars.e = (vars.u.se & 0x7fff) - 0x3fff;
 	vars.s = vars.u.se >> 15;

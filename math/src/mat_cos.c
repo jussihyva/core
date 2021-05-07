@@ -14,7 +14,7 @@
 
 double			math_cos(double x, int64_t p)
 {
-	return (math_sin(PI / 2 - x, p));
+	return (math_sin(CR_PI / 2 - x, p));
 }
 
 /*

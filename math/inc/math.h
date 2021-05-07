@@ -10,6 +10,7 @@
 # define MATH_H
 
 #include "../../inc/core.h"
+# include "../../array/inc/arr.h"
 
 double				math_rad(double dgr);
 double				math_dgr(double rad);

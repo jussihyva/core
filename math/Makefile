@@ -6,48 +6,42 @@
 #    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2021/05/05 19:38:40 by jkoskela         ###   ########.fr        #
+#    Updated: 2021/05/07 22:07:24 by jkoskela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	libarr.a
 
 CC			=	gcc
-CFLAGS 		=	-g -Wall -Wextra -Werror -Wpedantic -Wtype-limits \
-				-Wunreachable-code -Wpadded -Wshadow -fPIC -Wconversion
+CFLAGS 		=	-g -Wall -Wextra -Werror -fPIC
 SRC_DIR		=	src/
 INC_DIR		=	inc/
 OBJ_DIR		=	obj/
 
-SRC_BASE	=	arr_add.c \
-				arr_add_first.c \
-				arr_add_last.c \
-				arr_add_mult.c \
-				arr_new.c \
-				arr_put.c \
-				arr_free.c \
-				arr_del.c \
-				arr_del_first.c \
-				arr_del_last.c \
-				arr_get.c \
-				arr_get_first.c \
-				arr_get_last.c \
-				arr_iter.c \
-				arr_iter_range.c \
-				arr_join.c \
-				arr_join_mult.c \
-				arr_take.c \
-				arr_take_first.c \
-				arr_take_last.c \
-				arr_search.c \
-				arr_find.c \
-				arr_find_by.c \
-				arr_parse.c \
-				arr_null.c \
-				arr_grow.c \
-				arr_copy.c \
-				arr_rotate.c \
-				arr_assign.c \
+SRC_BASE	=	mat_abs.c \
+				mat_ceil.c \
+				mat_cos.c \
+				mat_dcnt.c \
+				mat_dgr.c \
+				mat_fabs.c \
+				mat_fac.c \
+				mat_flabs.c \
+				mat_floor.c \
+				mat_fsign.c \
+				mat_intlen.c \
+				mat_ipow.c \
+				mat_log.c \
+				mat_modf.c \
+				mat_modl.c \
+				mat_nextprime.c \
+				mat_pow.c \
+				mat_prime.c \
+				mat_primefac.c \
+				mat_rad.c \
+				mat_roundl.c \
+				mat_sign.c \
+				mat_sin.c \
+				mat_sqrt.c \
 
 SRC			=	$(addprefix $(SRC_DIR), $(SRC_BASE))
 OBJ			=	$(addprefix $(OBJ_DIR), $(SRC_BASE:.c=.o))

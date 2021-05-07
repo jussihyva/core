@@ -20,7 +20,7 @@ double			math_ceil(double f)
 	uint64_t	integral_mask;
 	uint64_t	output;
 
-	v_cpy(&input, &f, 4);
+	mem_cpy(&input, &f, 4);
 	exponent = ((input >> 23) & 255) - 127;
 	if (exponent < 0)
 		return (f > 0);
@@ -29,7 +29,7 @@ double			math_ceil(double f)
 		return (f);
 	integral_mask = 0xffffffff << fractional_bits;
 	output = input & integral_mask;
-	v_cpy(&f, &output, 4);
+	mem_cpy(&f, &output, 4);
 	if (f > 0 && output != input)
 		++f;
 	return (f);
