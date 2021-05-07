@@ -6,14 +6,14 @@
 #    By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2021/05/07 21:42:52 by skoskine         ###   ########.fr        #
+#    Updated: 2021/05/07 22:42:34 by julius           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	libmap.a
 
 CC			=	gcc
-FLAGS 		=	-g -Wall -Wextra -Werror -Wpedantic -Wtype-limits -Wswitch-default -Wunreachable-code -Wpadded -Wshadow -fPIC
+FLAGS 		=	-O3 -Wall -Wextra -Werror -Wpedantic -Wtype-limits -Wswitch-default -Wunreachable-code -Wpadded -Wshadow -fPIC
 
 SRC_DIR		=	src/
 INC_DIR		=	inc/
