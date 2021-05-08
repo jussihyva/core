@@ -6,7 +6,7 @@
 #    By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2021/05/07 22:42:34 by julius           ###   ########.fr        #
+#    Updated: 2021/05/08 17:17:35 by julius           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ INC_DIR		=	inc/
 OBJ_DIR		=	obj/
 
 SRC_BASE	=	map_add.c \
+				map_free.c \
 				map_get.c \
 				map_print.c \
 				map_new.c \

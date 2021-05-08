@@ -36,6 +36,7 @@ typedef struct		s_map
 }					t_map;
 
 t_map		map_new(void);
+ssize_t		map_free(t_map *src);
 ssize_t		map_add(t_map *dst, void *src, const char *key);
 void		*map_get(t_map *src, const char *key);
 ssize_t		map_del(t_map *src, const char *key);
