@@ -6,46 +6,57 @@
 #    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2021/05/07 22:43:20 by julius           ###   ########.fr        #
+#    Updated: 2021/05/07 22:42:43 by julius           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	libmem.a
+NAME		=	libarr.a
 
 CC			=	gcc
-FLAGS 		=	-O3 -Wall -Wextra -Werror -Wpedantic -Wtype-limits -Wswitch-default -Wunreachable-code -Wpadded -Wshadow -fPIC
-
+CFLAGS 		=	-O3 -Wall -Wextra -Werror -fPIC
 SRC_DIR		=	src/
 INC_DIR		=	inc/
 OBJ_DIR		=	obj/
 
-SRC_BASE	=	mem_alloc.c \
-				mem_zero.c \
-				mem_calloc.c \
-				mem_ccpy.c \
-				mem_chr.c \
-				mem_cmp.c \
-				mem_cpy.c \
-				mem_cpy_safe.c \
-				mem_del.c \
-				mem_move.c \
-				mem_set.c \
+SRC_BASE	=	mat_abs.c \
+				mat_ceil.c \
+				mat_cos.c \
+				mat_dcnt.c \
+				mat_dgr.c \
+				mat_fabs.c \
+				mat_fac.c \
+				mat_flabs.c \
+				mat_floor.c \
+				mat_fsign.c \
+				mat_intlen.c \
+				mat_ipow.c \
+				mat_log.c \
+				mat_modf.c \
+				mat_modl.c \
+				mat_nextprime.c \
+				mat_pow.c \
+				mat_prime.c \
+				mat_primefac.c \
+				mat_rad.c \
+				mat_roundl.c \
+				mat_sign.c \
+				mat_sin.c \
+				mat_sqrt.c \
 
 SRC			=	$(addprefix $(SRC_DIR), $(SRC_BASE))
 OBJ			=	$(addprefix $(OBJ_DIR), $(SRC_BASE:.c=.o))
-DIR			=	$(sort $(dir $(OBJ)))
 
 all:
 				$(MAKE) -j $(NAME)
 
-$(NAME): $(OBJ) Makefile
+$(NAME): $(OBJ)
 				@ar -rcs $(NAME) $(OBJ)
-				@echo "\\n\033[32;1mMEMORY FUNCTIONS COMPILED\033[0m \\n"
+				@echo "\\n\033[32;1mARRAY FUNCTIONS COMPILED\033[0m \\n"
 
-$(DIR):
+$(OBJ_DIR):
 				@mkdir -p $@
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.c Makefile | $(DIR)
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJ_DIR)
 				@$(CC) $(CFLAGS) -c $< -o $@ -I $(INC_DIR)
 
 clean:
@@ -55,7 +66,6 @@ clean:
 fclean: clean
 				@rm -rf $(NAME);
 
-re: fclean
-				@$(MAKE) -j $(NAME)
+re: fclean all
 
-.PHONY: fclean clean re
+.PHONY: all fclean clean re

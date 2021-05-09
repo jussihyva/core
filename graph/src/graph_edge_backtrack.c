@@ -11,7 +11,7 @@
 
 #include "../inc/graph.h"
 
-ssize_t graph_edge_backtrack(t_array *breadcrums, t_array *edge_list)
+ssize_t graph_edge_backtrack(t_array *node_path, t_array *edge_list)
 {
 	t_graph_node	*curr_node;
 	t_graph_edge	*curr_edge;
@@ -20,7 +20,7 @@ ssize_t graph_edge_backtrack(t_array *breadcrums, t_array *edge_list)
 
 	curr_edge = arr_get_last(edge_list);
 	curr_node = curr_edge->src;
-	arr_add_mult(breadcrums, 2, curr_edge->src, curr_edge->dst);
+	arr_add_mult(node_path, 2, curr_edge->src, curr_edge->dst);
 	dist = 0;
 	i = edge_list->len;
 	while (i--)
@@ -28,7 +28,7 @@ ssize_t graph_edge_backtrack(t_array *breadcrums, t_array *edge_list)
 		curr_edge = arr_get(edge_list, i);
 		if (s_cmp(curr_edge->dst->key, curr_node->key) == 0)
 		{
-			arr_add_first(breadcrums, curr_edge->src);
+			arr_add_first(node_path, curr_edge->src);
 			curr_node = curr_edge->src;
 			dist++;
 		}

@@ -1,41 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_cmp.c                                            :+:      :+:    :+:   */
+/*   math_intlen.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/16 01:28:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/09 02:09:52 by jkoskela         ###   ########.fr       */
+/*   Created: 2020/07/03 04:22:26 by jkoskela          #+#    #+#             */
+/*   Updated: 2021/05/07 20:57:56 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/cstr.h"
+#include "../../inc/core.h"
 
-int			s_cmp(const char *s1, const char *s2)
+int			math_intlen(int64_t n)
 {
-	unsigned int	i;
+	int		res;
 
-	i = 0;
-	if (!s1 && !s2)
-		return (0);
-	if (!s1 || !s2)
-		return (-1);
-	while (s1[i] != '\0' && s1[i] == s2[i])
-		i++;
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	res = 1;
+	if (n < 0)
+		n = n * -1;
+	while (n > 9)
+	{
+		n = n / 10;
+		res++;
+	}
+	return (res);
 }
 
 /*
 **  ----------------------------------------------------------------------------
 **
-**	S_cmp
+**	math_intlen
 **
-**	String compare, lexicographically compares the null-terminated
-**	strings `s1` and `s2`.
-**
-**	Returns 0 if strings are identical. Otherwise it returns the difference
-**	(in integers) between the first non-matching characters in the strings.
+**	Calculate the lenght of an integer in base 10.
 **
 **  ----------------------------------------------------------------------------
 */

@@ -6,7 +6,7 @@
 #    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/22 22:32:30 by jkoskela          #+#    #+#              #
-#    Updated: 2021/05/04 16:03:51 by julius           ###   ########.fr        #
+#    Updated: 2021/05/07 21:58:39 by jkoskela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ PARR 		=	ptr_array/
 CSTR 		=	cstring/
 GRAPH 		=	graph/
 MAP 		=	map/
+MATH 		=	math/
 
 RM			=	rm -rf
 
@@ -33,6 +34,7 @@ all:
 			+@make -C $(CSTR)
 			+@make -C $(GRAPH)
 			+@make -C $(MAP)
+			+@make -C $(MATH)
 			@mkdir -p $(OBJ)
 			@cp $(MEM)obj/*.o $(OBJ)
 			@cp $(ARR)obj/*.o $(OBJ)
@@ -52,6 +54,7 @@ clean:
 			@make clean -C $(CSTR)
 			@make clean -C $(GRAPH)
 			@make clean -C $(MAP)
+			@make clean -C $(MATH)
 			@echo "\\n\033[32;1mCORE DEACTIVATED \033[0m \\n"
 
 fclean:		clean
@@ -64,6 +67,7 @@ fclean:		clean
 			@make fclean -C $(CSTR)
 			@make fclean -C $(GRAPH)
 			@make fclean -C $(MAP)
+			@make fclean -C $(MATH)
 
 re:			fclean all
 

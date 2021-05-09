@@ -3,23 +3,24 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
+#    By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2021/05/07 03:31:12 by jkoskela         ###   ########.fr        #
+#    Updated: 2021/05/08 17:17:35 by julius           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	libmap.a
 
 CC			=	gcc
-FLAGS 		=	-g -Wall -Wextra -Werror -Wpedantic -Wtype-limits -Wswitch-default -Wunreachable-code -Wpadded -Wshadow -fPIC
+FLAGS 		=	-O3 -Wall -Wextra -Werror -Wpedantic -Wtype-limits -Wswitch-default -Wunreachable-code -Wpadded -Wshadow -fPIC
 
 SRC_DIR		=	src/
 INC_DIR		=	inc/
 OBJ_DIR		=	obj/
 
 SRC_BASE	=	map_add.c \
+				map_free.c \
 				map_get.c \
 				map_print.c \
 				map_new.c \
@@ -32,6 +33,8 @@ SRC_BASE	=	map_add.c \
 				map_hash_1.c \
 				map_probe_quad_pow2.c \
 				map_resize_pow2.c \
+				map_probe_linear.c \
+				map_resize_linear.c
 
 SRC			=	$(addprefix $(SRC_DIR), $(SRC_BASE))
 OBJ			=	$(addprefix $(OBJ_DIR), $(SRC_BASE:.c=.o))

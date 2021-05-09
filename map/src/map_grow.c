@@ -43,7 +43,10 @@ ssize_t	map_grow(t_map *src)
 	new.resize = src->resize;
 	new.node = (t_map_node *)mem_alloc(sizeof(t_map_node) * new.capacity);
 	if (!new.node)
-		return (-1);
+	{
+		printf("Allocation failed in function: map_grow!\n");
+		exit(-1);
+	}
 	i = 0;
 	while (i < src->capacity)
 	{

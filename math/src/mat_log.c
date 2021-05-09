@@ -1,41 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_cmp.c                                            :+:      :+:    :+:   */
+/*   math_log.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/16 01:28:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/09 02:09:52 by jkoskela         ###   ########.fr       */
+/*   Created: 2020/09/02 16:26:55 by jkoskela          #+#    #+#             */
+/*   Updated: 2021/05/07 20:57:56 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/cstr.h"
+#include "../../inc/core.h"
 
-int			s_cmp(const char *s1, const char *s2)
+int64_t					math_log(int64_t n)
 {
-	unsigned int	i;
+	static uint64_t	x = 0x07EDD5E59A4E28C2;
+	static int		tab64[64] = {
+	63, 0, 58, 1, 59, 47, 53, 2,
+	60, 39, 48, 27, 54, 33, 42, 3,
+	61, 51, 37, 40, 49, 18, 28, 20,
+	55, 30, 34, 11, 43, 14, 22, 4,
+	62, 57, 46, 52, 38, 26, 32, 41,
+	50, 36, 17, 19, 29, 10, 13, 21,
+	56, 45, 25, 31, 35, 16, 9, 12,
+	44, 24, 15, 8, 23, 7, 6, 5};
 
-	i = 0;
-	if (!s1 && !s2)
-		return (0);
-	if (!s1 || !s2)
-		return (-1);
-	while (s1[i] != '\0' && s1[i] == s2[i])
-		i++;
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	n |= n >> 1;
+	n |= n >> 2;
+	n |= n >> 4;
+	n |= n >> 8;
+	n |= n >> 16;
+	n |= n >> 32;
+	return (tab64[((uint64_t)((n - (n >> 1)) * x)) >> 58]);
 }
 
 /*
 **  ----------------------------------------------------------------------------
 **
-**	S_cmp
+**	math_log
 **
-**	String compare, lexicographically compares the null-terminated
-**	strings `s1` and `s2`.
-**
-**	Returns 0 if strings are identical. Otherwise it returns the difference
-**	(in integers) between the first non-matching characters in the strings.
+**	Calculate the base 2 logarithm of n.
 **
 **  ----------------------------------------------------------------------------
 */

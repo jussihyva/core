@@ -1,41 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_cmp.c                                            :+:      :+:    :+:   */
+/*   math_prime.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/16 01:28:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/09 02:09:52 by jkoskela         ###   ########.fr       */
+/*   Created: 2020/10/20 03:52:37 by jkoskela          #+#    #+#             */
+/*   Updated: 2021/05/07 20:57:56 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/cstr.h"
+#include "../../inc/core.h"
 
-int			s_cmp(const char *s1, const char *s2)
+uint64_t		math_prime(uint64_t n)
 {
-	unsigned int	i;
+	uint64_t	i;
 
-	i = 0;
-	if (!s1 && !s2)
+	i = 5;
+	if (n <= 3)
+		return (1);
+	else if (n % 2 == 0 || n % 3 == 0)
 		return (0);
-	if (!s1 || !s2)
-		return (-1);
-	while (s1[i] != '\0' && s1[i] == s2[i])
-		i++;
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	while (i * i <= n)
+	{
+		if (n % i == 0 || n % (i + 2) == 0)
+			return (0);
+		i = i + 6;
+	}
+	return (1);
 }
 
 /*
 **  ----------------------------------------------------------------------------
 **
-**	S_cmp
+**	math_prime
 **
-**	String compare, lexicographically compares the null-terminated
-**	strings `s1` and `s2`.
-**
-**	Returns 0 if strings are identical. Otherwise it returns the difference
-**	(in integers) between the first non-matching characters in the strings.
+**	Calculate if `n` is a prime number and return 1 if so.
 **
 **  ----------------------------------------------------------------------------
 */

@@ -14,6 +14,7 @@
 #ifndef LIBCORE_H
 # define LIBCORE_H
 
+# define CR_PI 3.14159265358979323846
 # define CR_STOP -1
 # define CR_CONTINUE 1
 # define CR_SUCCESS 1
@@ -34,10 +35,10 @@
 # define CR_MAP_NULL_NODE (t_map_node) {NULL, NULL}
 # define CR_MAP_NULL (t_map) {NULL, 0, 0, 0.0, NULL, NULL, NULL}
 # define CR_MAP_START_CAPACITY 4
-# define CR_MAP_LOAD_FACTOR 0.4
+# define CR_MAP_LOAD_FACTOR 1
 # define CR_MAP_HASH map_hash_1
-# define CR_MAP_PROBE map_probe_quad_pow2
-# define CR_MAP_RESIZE map_resize_pow2
+# define CR_MAP_PROBE map_probe_linear
+# define CR_MAP_RESIZE map_resize_linear
 # define CR_PI 3.14159265358979323846
 # include <stdlib.h>
 # include <stdint.h>
@@ -58,5 +59,6 @@
 # include "../cstring/inc/cstr.h"
 # include "../map/inc/map.h"
 # include "../graph/inc/graph.h"
+# include "../math/inc/math.h"
 
 #endif

@@ -6,14 +6,14 @@
 #    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2021/04/25 12:08:13 by jkoskela         ###   ########.fr        #
+#    Updated: 2021/05/07 22:43:47 by julius           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	liblin.a
 
 CC			=	gcc
-FLAGS 		=	-03 -Wall -Wextra -Werror -Wpedantic -Wtype-limits -Wswitch-default -Wunreachable-code -Wpadded -Wshadow -fPIC
+FLAGS 		=	-O3 -Wall -Wextra -Werror -Wpedantic -Wtype-limits -Wswitch-default -Wunreachable-code -Wpadded -Wshadow -fPIC
 
 SRC_DIR		=	src/
 INC_DIR		=	inc/
