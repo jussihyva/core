@@ -20,7 +20,7 @@ t_parray	parr_new(size_t size)
 	out.len = 0;
 	if (!(out.data = (void **)malloc(sizeof(void *) * size)))
 	{
-		perror("Array allocation failed in parr_new!\n");
+		printf("Allocation failed in function: map_new!\n");
 		return ((t_parray){NULL, 0, 0});
 	}
 	return (out);

@@ -20,7 +20,10 @@ t_map	map_new(void)
 	m.resize = CR_MAP_RESIZE;
 	m.node = (t_map_node *)mem_alloc(sizeof(t_map_node) * m.capacity);
 	if (!m.node)
-		return (CR_MAP_NULL);
+	{
+		printf("Allocation failed in function: map_new!\n");
+		exit(-1);
+	}
 	i = 0;
 	while (i < m.capacity)
 	{

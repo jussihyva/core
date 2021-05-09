@@ -31,8 +31,8 @@ t_array	arr_new(size_t alloc_size, size_t elem_size)
 	out.data = (uint8_t *)malloc(sizeof(uint8_t) * elem_size * alloc_size);
 	if (!out.data)
 	{
-		perror("Array allocation failed in arr_new!\n");
-		return (CR_ARR_NULL);
+		printf("Allocation failed in function: arr_new!\n");
+		exit(-1);
 	}
 	return (out);
 }
