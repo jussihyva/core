@@ -29,12 +29,12 @@
 # define CR_STRING NULL
 # define CR_PARR_NULL (t_parray) {NULL, 0, 0}
 # define CR_ARR_NULL (t_array) {NULL, 0, 0, 0}
-# define CR_GRAPH_NULL (t_graph) {CR_MAP_NULL, NULL}
-# define CR_GRAPH_NULL_NODE (t_graph_node) {CR_ARR_NULL, CR_ARR_NULL, NULL, NULL}
+# define CR_GRAPH_NULL (t_graph) {CR_MAP_NULL, 0, NULL}
+# define CR_GRAPH_NULL_NODE (t_graph_node) {CR_ARR_NULL, CR_ARR_NULL, 0, NULL, NULL}
 # define CR_GRAPH_EDGE_NULL (t_graph_edge) {NULL, NULL, NULL}
 # define CR_MAP_NULL_NODE (t_map_node) {NULL, NULL}
 # define CR_MAP_NULL (t_map) {NULL, 0, 0, 0.0, NULL, NULL, NULL}
-# define CR_MAP_START_CAPACITY 4
+# define CR_MAP_START_CAPACITY 4196
 # define CR_MAP_LOAD_FACTOR 1
 # define CR_MAP_HASH map_hash_1
 # define CR_MAP_PROBE map_probe_linear
@@ -60,5 +60,7 @@
 # include "../map/inc/map.h"
 # include "../graph/inc/graph.h"
 # include "../math/inc/math.h"
+
+# include "../ft_printf/inc/ft_printf.h"
 
 #endif

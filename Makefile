@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
+#    By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/22 22:32:30 by jkoskela          #+#    #+#              #
-#    Updated: 2021/05/07 21:58:39 by jkoskela         ###   ########.fr        #
+#    Updated: 2021/05/10 18:04:40 by skoskine         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ CSTR 		=	cstring/
 GRAPH 		=	graph/
 MAP 		=	map/
 MATH 		=	math/
+FT_PRINTF	=	ft_printf/
 
 RM			=	rm -rf
 
@@ -35,6 +36,7 @@ all:
 			+@make -C $(GRAPH)
 			+@make -C $(MAP)
 			+@make -C $(MATH)
+			+@make -C $(FT_PRINTF)
 			@mkdir -p $(OBJ)
 			@cp $(MEM)obj/*.o $(OBJ)
 			@cp $(ARR)obj/*.o $(OBJ)
@@ -43,6 +45,7 @@ all:
 			@cp $(CSTR)obj/*.o $(OBJ)
 			@cp $(GRAPH)obj/*.o $(OBJ)
 			@cp $(MAP)obj/*.o $(OBJ)
+			@cp $(FT_PRINTF)obj/*.o $(OBJ)
 			ar -rcs $(NAME) $(OBJ)*.o
 			@echo "\\n\033[32;1mCORE ACTIVATED \033[0m \\n"
 
@@ -55,6 +58,7 @@ clean:
 			@make clean -C $(GRAPH)
 			@make clean -C $(MAP)
 			@make clean -C $(MATH)
+			@make clean -C $(FT_PRINTF)
 			@echo "\\n\033[32;1mCORE DEACTIVATED \033[0m \\n"
 
 fclean:		clean
@@ -68,6 +72,7 @@ fclean:		clean
 			@make fclean -C $(GRAPH)
 			@make fclean -C $(MAP)
 			@make fclean -C $(MATH)
+			@make fclean -C $(FT_PRINTF)
 
 re:			fclean all
 
