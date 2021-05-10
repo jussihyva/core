@@ -6,7 +6,7 @@
 /*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 14:40:23 by skoskine          #+#    #+#             */
-/*   Updated: 2021/05/10 20:22:41 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/10 23:41:27 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int	parse_string(t_data *specs, char *str, char **result)
 	if (*result == NULL)
 		return (-1);
 	else
-		return (s_len(*result));
+		return ((int)s_len(*result));
 }
 
 int	parse_char(t_data *specs, char c, char **result)
@@ -87,5 +87,5 @@ int	parse_char(t_data *specs, char c, char **result)
 	*result = parse_str_result(specs, &c, 1);
 	if (*result == NULL)
 		return (-1);
-	return (specs->min_field_width + 1);
+	return ((int)specs->min_field_width + 1);
 }

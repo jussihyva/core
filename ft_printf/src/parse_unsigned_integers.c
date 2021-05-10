@@ -6,7 +6,7 @@
 /*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 09:06:28 by skoskine          #+#    #+#             */
-/*   Updated: 2021/05/10 20:17:13 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/10 23:43:53 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static uintmax_t	get_unsigned_arg(t_data *specs, va_list *ap)
 	return (value);
 }
 
-static int	update_uint_specs(t_data *specs, uintmax_t value, char *value_str)
+static size_t	update_uint_specs(t_data *specs, uintmax_t value, char *value_str)
 {
 	size_t	len;
 
@@ -90,5 +90,5 @@ int	parse_unsigned_ints(t_data *specs, va_list *ap, char **result)
 	free(value_str);
 	if (*result == NULL)
 		return (-1);
-	return (len);
+	return ((int)len);
 }

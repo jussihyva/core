@@ -6,7 +6,7 @@
 /*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 16:54:43 by skoskine          #+#    #+#             */
-/*   Updated: 2021/05/10 20:24:24 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/10 23:39:34 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_uintmax_itoa_base(uintmax_t value, int base, int uppercase)
 	char	*result;
 	char	*digits;
 	char	temp[64 + 1];
-	int		i;
+	size_t	i;
 
 	if (base < 2 || base > 16)
 		return (NULL);
@@ -34,8 +34,8 @@ char	*ft_uintmax_itoa_base(uintmax_t value, int base, int uppercase)
 		temp[i--] = '0';
 	while (value != 0)
 	{
-		temp[i--] = digits[value % base];
-		value = value / base;
+		temp[i--] = digits[value % (uintmax_t)base];
+		value = value / (uintmax_t)base;
 	}
 	result = (char *)malloc(64 - i + 1);
 	if (result == NULL)

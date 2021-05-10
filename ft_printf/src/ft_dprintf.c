@@ -6,7 +6,7 @@
 /*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 13:25:41 by skoskine          #+#    #+#             */
-/*   Updated: 2021/04/09 09:58:13 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/10 23:35:19 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_dprintf(int fd, const char *format, ...)
 	va_end(ap);
 	if (ret != -1)
 	{
-		if (write(fd, result, ret) == -1)
+		if (write(fd, result, (size_t)ret) == -1)
 			ret = -1;
 	}
 	free(result);

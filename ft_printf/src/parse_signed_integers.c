@@ -6,7 +6,7 @@
 /*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 09:39:00 by skoskine          #+#    #+#             */
-/*   Updated: 2021/05/10 20:16:43 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/10 23:43:23 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ static size_t	update_int_specs(t_data *specs, intmax_t value, char *value_str)
 		len = 0;
 	if (specs->has_precision)
 		specs->zero_padding = 0;
-	if (specs->precision > len - specs->is_negative)
-		specs->precision = specs->precision - len + specs->is_negative;
+	if (specs->precision > len - (size_t)specs->is_negative)
+		specs->precision = specs->precision - len + (size_t)specs->is_negative;
 	else
 		specs->precision = 0;
 	len += specs->precision;
@@ -74,5 +74,5 @@ int	parse_signed_ints(t_data *specs, va_list *ap, char **result)
 	free(value_str);
 	if (*result == NULL)
 		return (-1);
-	return (len);
+	return ((int)len);
 }

@@ -6,7 +6,7 @@
 /*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 21:28:28 by skoskine          #+#    #+#             */
-/*   Updated: 2021/05/10 20:18:01 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/11 00:30:12 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	parse_conversion(t_data *specs, va_list *ap, char **result)
 	if (specs->conversion == '%')
 		ret = parse_char(specs, '%', result);
 	else if (specs->conversion == 'c')
-		ret = parse_char(specs, va_arg(*ap, int), result);
+		ret = parse_char(specs, (char)va_arg(*ap, int), result);
 	else if (specs->conversion == 's')
 		ret = parse_string(specs, va_arg(*ap, char *), result);
 	else if (specs->conversion == 'p')
@@ -37,9 +37,9 @@ static int	parse_conversion(t_data *specs, va_list *ap, char **result)
 	return (ret);
 }
 
-static int	append_to_result(char **result, int ret, int len, const char *str)
+static int	append_to_result(char **result, int len, int ret, const char *str)
 {
-	static int	arr_size = 100;
+	static size_t	arr_size = 100;
 
 	if (*result == NULL)
 	{
@@ -47,15 +47,34 @@ static int	append_to_result(char **result, int ret, int len, const char *str)
 		if (*result == NULL)
 			return (-1);
 	}
-	if (ret + len > arr_size)
+	if ((size_t)(ret + len) > arr_size)
 	{
-		*result = ft_realloc(*result, arr_size, arr_size * 2 + len + 1);
+		*result = ft_realloc(*result, arr_size, arr_size * 2 + (size_t)ret + 1);
 		if (*result == NULL)
 			return (-1);
-		arr_size = arr_size * 2 + len;
+		arr_size = arr_size * 2 + (size_t)ret;
 	}
-	mem_cpy(&(*result)[ret], str, len);
+	mem_cpy_safe(&(*result)[len], str, (size_t)ret);
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+	return (ret);
+=======
+=======
+>>>>>>> 2776445... fix warnings on ft_printf, switch mem_cpy to mem_cpy_safe, remove -Wpadded flag
 	return (len);
+>>>>>>> 2776445... fix warnings on ft_printf, switch mem_cpy to mem_cpy_safe, remove -Wpadded flag
+=======
+	return (ret);
+>>>>>>> 74579a5... fix error on ft_printf parser
+=======
+	return (ret);
+>>>>>>> 35fe5cc... fix warnings on ft_printf, switch mem_cpy to mem_cpy_safe, remove -Wpadded flag
+=======
+	return (ret);
+>>>>>>> 74579a5... fix error on ft_printf parser
 }
 
 int	parse_next_item(const char *format, va_list *ap, char **result, int len)

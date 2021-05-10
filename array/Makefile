@@ -21,7 +21,7 @@ DEP_DIR		=	.deps/
 
 CC			=	gcc
 CFLAGS 		=	-g -Wall -Wextra -Werror -Wpedantic -Wtype-limits \
-				-Wunreachable-code -Wpadded -Wshadow -fPIC -Wconversion
+				-Wunreachable-code -Wshadow -fPIC -Wconversion
 CPPFLAGS	=	-I $(INC_DIR)
 DEPFLAGS	=	-MT $@ -MMD -MP -MF $(DEP_DIR)$*.d
 COMPILE.c	=	$(CC) $(DEPFLAGS) $(CFLAGS) $(CPPFLAGS) -c

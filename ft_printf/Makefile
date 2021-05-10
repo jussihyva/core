@@ -51,7 +51,16 @@ SRC = $(MATH_SRC) \
 	$(PRINTF_SRC)
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g #-fsanitize=address
+CFLAGS = -g -Wall -Wextra -Werror -Wpedantic -Wtype-limits \
+<<<<<<< HEAD
+<<<<<<< HEAD
+				-Wunreachable-code -Wshadow -fPIC #-Wconversion
+=======
+				-Wunreachable-code -Wshadow -fPIC -Wconversion
+>>>>>>> 2776445... fix warnings on ft_printf, switch mem_cpy to mem_cpy_safe, remove -Wpadded flag
+=======
+				-Wunreachable-code -Wshadow -fPIC #-Wconversion
+>>>>>>> 5eff9c1... fix warning from ft_printf's dtoa
 CPPFLAGS = -I . -I ../inc -I inc
 DEPFLAGS = -MT $@ -MMD -MP -MF $(DEP_DIR)/$*.d
 COMPILE.c = $(CC) $(DEPFLAGS) $(CFLAGS) $(CPPFLAGS) -c

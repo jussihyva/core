@@ -6,7 +6,7 @@
 /*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 16:56:14 by skoskine          #+#    #+#             */
-/*   Updated: 2021/05/10 20:24:22 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/10 23:39:04 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_intmax_itoa_base(intmax_t value, int base)
 	char	*result;
 	char	*digits;
 	char	temp[64 + 1];
-	int		i;
+	size_t	i;
 	int		is_neg;
 
 	if (base < 2 || base > 16)
@@ -41,7 +41,7 @@ char	*ft_intmax_itoa_base(intmax_t value, int base)
 		temp[i--] = '0';
 	while (value != 0)
 	{
-		temp[i--] = digits[ft_abs(value % base)];
+		temp[i--] = digits[ft_abs((int)(value % base))];
 		value = value / base;
 	}
 	if (is_neg && base == 10)

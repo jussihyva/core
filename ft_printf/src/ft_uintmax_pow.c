@@ -6,7 +6,7 @@
 /*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 10:37:09 by skoskine          #+#    #+#             */
-/*   Updated: 2021/05/10 20:24:23 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/10 23:38:48 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ uintmax_t	ft_uintmax_pow(int base, int power)
 	result = 1;
 	while (power > 0)
 	{
-		result *= base;
+		result *= (uintmax_t)base;
 		power--;
 	}
 	return (result);

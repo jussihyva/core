@@ -6,7 +6,7 @@
 /*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/17 21:28:07 by skoskine          #+#    #+#             */
-/*   Updated: 2021/05/10 17:17:22 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/10 23:33:43 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	get_precision(t_data *specs, const char *format)
 
 	i = 1;
 	specs->has_precision = 1;
-	specs->precision = ft_atoi(&format[i]);
+	specs->precision = (size_t)ft_atoi(&format[i]);
 	if (specs->precision == 0)
 		specs->zero_precision = 1;
 	while (ft_isdigit(format[i]))
@@ -50,7 +50,7 @@ int	get_min_field_width(t_data *specs, const char *format)
 	int	i;
 
 	i = 0;
-	specs->min_field_width = ft_atoi(&format[i]);
+	specs->min_field_width = (size_t)ft_atoi(&format[i]);
 	while (ft_isdigit(format[i]))
 		i++;
 	return (i);

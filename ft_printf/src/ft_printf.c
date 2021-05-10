@@ -6,7 +6,7 @@
 /*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/17 09:35:01 by skoskine          #+#    #+#             */
-/*   Updated: 2021/04/09 09:58:15 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/10 23:37:22 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_printf(const char *format, ...)
 	ret = ft_vasprintf(&result, format, ap);
 	va_end(ap);
 	if (ret != -1)
-		write(1, result, ret);
+		write(1, result, (size_t)ret);
 	free(result);
 	return (ret);
 }

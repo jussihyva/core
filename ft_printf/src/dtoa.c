@@ -6,7 +6,7 @@
 /*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 16:02:24 by skoskine          #+#    #+#             */
-/*   Updated: 2021/05/10 20:10:30 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/11 00:30:00 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static int	add_integral_part(char *result, double int_part, int len)
 		while (++j < len)
 			dbl_tmp /= 10;
 		int_tmp = (int)dbl_tmp;
-		result[i++] = int_tmp + '0';
+		result[i++] = (char)int_tmp + '0';
 		len--;
 		res = ft_dpow(10.0, len);
 		res *= (double)int_tmp;
@@ -55,7 +55,7 @@ static int	add_integral_part(char *result, double int_part, int len)
 }
 
 static int	add_fractional_part(char *result, long double frac_part,
-int precision)
+size_t precision)
 {
 	int			i;
 
@@ -69,7 +69,7 @@ int precision)
 	while (precision-- > 0)
 	{
 		frac_part *= 10;
-		result[i++] = (int)frac_part + '0';
+		result[i++] = (char)frac_part + '0';
 		frac_part -= (int)frac_part;
 	}
 	return (i);
@@ -82,7 +82,7 @@ static int	result_len(double int_part, size_t precision)
 	len = int_part_len(int_part);
 	if (ft_isnegative(int_part))
 		len++;
-	len += precision;
+	len += (int)precision;
 	if (precision > 0)
 		len++;
 	return (len);
@@ -106,10 +106,10 @@ char	*ft_dtoa(double nbr, size_t precision)
 		int_part += (int)frac_part;
 		frac_part -= (int)frac_part;
 	}
-	else if (rounds_half_to_even(nbr, precision)
+	else if (rounds_half_to_even(nbr, (int)precision)
 		&& (uintmax_t)(ft_fabs(int_part) + 1) % 2 == 0)
 		int_part += ft_isnegative(nbr) * -1.0 + (1 - ft_isnegative(nbr)) * 1.0;
-	result = (char *)mem_alloc(result_len(int_part, precision) + 1);
+	result = (char *)mem_alloc((size_t)result_len(int_part, precision) + 1);
 	if (result == NULL)
 		return (NULL);
 	add_integral_part(result, int_part, int_part_len(int_part));

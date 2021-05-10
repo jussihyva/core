@@ -6,7 +6,7 @@
 /*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/17 09:35:48 by skoskine          #+#    #+#             */
-/*   Updated: 2021/05/10 20:23:50 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/10 23:51:45 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ size_t			add_prefix(t_data *specs, char *result);
 size_t			add_number(t_data *specs, char *number, char *result);
 char			*ft_dtoa(double nbr, size_t precision);
 long double		round_double(double nbr, size_t precision);
-int				rounds_half_to_even(double nbr, size_t precision);
+int				rounds_half_to_even(double nbr, int precision);
 
 int				ft_atoi(const char *str);
 int				ft_isdigit(int c);

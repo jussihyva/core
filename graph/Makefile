@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
+#    By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2021/05/07 22:43:01 by julius           ###   ########.fr        #
+#    Updated: 2021/05/10 23:55:56 by skoskine         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME		=	libgraph.a
 
 CC			=	gcc
 CFLAGS 		=	-O3 -Wall -Wextra -Werror -Wpedantic -Wtype-limits \
-				-Wunreachable-code -Wpadded -Wshadow -fPIC -Wconversion
+				-Wunreachable-code  -Wshadow -fPIC -Wconversion
 SRC_DIR		=	src/
 INC_DIR		=	inc/
 OBJ_DIR		=	obj/

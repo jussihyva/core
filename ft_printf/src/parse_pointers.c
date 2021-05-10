@@ -6,7 +6,7 @@
 /*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 19:08:42 by skoskine          #+#    #+#             */
-/*   Updated: 2021/05/10 20:16:14 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/10 23:42:44 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,5 @@ int	parse_pointer(t_data *specs, void *ptr, char **result)
 	free(value_str);
 	if (*result == NULL)
 		return (-1);
-	return (result_len);
+	return ((int)result_len);
 }

@@ -6,13 +6,13 @@
 /*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 14:25:12 by skoskine          #+#    #+#             */
-/*   Updated: 2021/05/10 17:52:00 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/10 23:50:39 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	has_exact_fraction(double nbr, size_t precision, double div)
+static int	has_exact_fraction(double nbr, int precision, double div)
 {
 	double		int_part;
 	double		frac_part;
@@ -26,7 +26,7 @@ static int	has_exact_fraction(double nbr, size_t precision, double div)
 		return (0);
 }
 
-int	rounds_half_to_even(double nbr, size_t precision)
+int	rounds_half_to_even(double nbr, int precision)
 {
 	double	div;
 
@@ -75,7 +75,7 @@ long double	round_double(double nbr, size_t precision)
 	long_nbr = nbr;
 	while (i++ < precision)
 		div *= 10;
-	if (rounds_half_to_even(nbr, precision))
+	if (rounds_half_to_even(nbr, (int)precision))
 		long_nbr = round_half_to_even(nbr, div, precision);
 	if (ft_isnegative(nbr))
 		long_nbr = (long_nbr - 0.5 / div);
