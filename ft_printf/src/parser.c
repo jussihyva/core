@@ -6,7 +6,7 @@
 /*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 21:28:28 by skoskine          #+#    #+#             */
-/*   Updated: 2021/05/11 00:30:12 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/11 00:32:07 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,26 +55,7 @@ static int	append_to_result(char **result, int len, int ret, const char *str)
 		arr_size = arr_size * 2 + (size_t)ret;
 	}
 	mem_cpy_safe(&(*result)[len], str, (size_t)ret);
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 	return (ret);
-=======
-=======
->>>>>>> 2776445... fix warnings on ft_printf, switch mem_cpy to mem_cpy_safe, remove -Wpadded flag
-	return (len);
->>>>>>> 2776445... fix warnings on ft_printf, switch mem_cpy to mem_cpy_safe, remove -Wpadded flag
-=======
-	return (ret);
->>>>>>> 74579a5... fix error on ft_printf parser
-=======
-	return (ret);
->>>>>>> 35fe5cc... fix warnings on ft_printf, switch mem_cpy to mem_cpy_safe, remove -Wpadded flag
-=======
-	return (ret);
->>>>>>> 74579a5... fix error on ft_printf parser
 }
 
 int	parse_next_item(const char *format, va_list *ap, char **result, int len)
