@@ -6,11 +6,12 @@
 /*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 19:08:42 by skoskine          #+#    #+#             */
-/*   Updated: 2021/05/10 17:51:41 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/10 20:16:14 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "core.h"
 #include <stdlib.h>
 
 int	parse_pointer(t_data *specs, void *ptr, char **result)
@@ -23,7 +24,7 @@ int	parse_pointer(t_data *specs, void *ptr, char **result)
 	value_str = ft_uintmax_itoa_base(value, 16, 0);
 	if (value_str == NULL)
 		return (-1);
-	result_len = ft_strlen(value_str) + 2;
+	result_len = s_len(value_str) + 2;
 	specs->conversion = 'x';
 	specs->alt_form = 1;
 	specs->has_precision = 0;

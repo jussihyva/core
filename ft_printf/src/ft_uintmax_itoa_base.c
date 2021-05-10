@@ -6,12 +6,13 @@
 /*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 16:54:43 by skoskine          #+#    #+#             */
-/*   Updated: 2021/05/10 17:51:10 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/10 20:24:24 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <inttypes.h>
+#include <stdint.h>
+#include "core.h"
 #include "ft_printf.h"
 
 char	*ft_uintmax_itoa_base(uintmax_t value, int base, int uppercase)
@@ -39,5 +40,5 @@ char	*ft_uintmax_itoa_base(uintmax_t value, int base, int uppercase)
 	result = (char *)malloc(64 - i + 1);
 	if (result == NULL)
 		return (NULL);
-	return (ft_strcpy(result, &temp[i + 1]));
+	return (s_cpy(result, &temp[i + 1]));
 }

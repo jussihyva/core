@@ -6,24 +6,25 @@
 /*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 09:39:00 by skoskine          #+#    #+#             */
-/*   Updated: 2021/05/10 18:01:03 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/10 20:16:43 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "core.h"
 #include <stdlib.h>
 
 static intmax_t	get_signed_arg(t_data *specs, va_list *ap)
 {
 	intmax_t	value;
 
-	if (ft_strcmp(specs->length_modifier, "hh") == 0)
+	if (s_cmp(specs->length_modifier, "hh") == 0)
 		value = (signed char)va_arg(*ap, int);
-	else if (ft_strcmp(specs->length_modifier, "h") == 0)
+	else if (s_cmp(specs->length_modifier, "h") == 0)
 		value = (short)va_arg(*ap, int);
-	else if (ft_strcmp(specs->length_modifier, "ll") == 0)
+	else if (s_cmp(specs->length_modifier, "ll") == 0)
 		value = va_arg(*ap, long long);
-	else if (ft_strcmp(specs->length_modifier, "l") == 0)
+	else if (s_cmp(specs->length_modifier, "l") == 0)
 		value = va_arg(*ap, long);
 	else
 		value = va_arg(*ap, int);
@@ -38,7 +39,7 @@ static size_t	update_int_specs(t_data *specs, intmax_t value, char *value_str)
 		specs->is_zero = 1;
 	if (value < 0)
 		specs->is_negative = 1;
-	len = ft_strlen(value_str);
+	len = s_len(value_str);
 	if (specs->is_zero && specs->zero_precision)
 		len = 0;
 	if (specs->has_precision)

@@ -6,11 +6,12 @@
 /*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 12:56:17 by skoskine          #+#    #+#             */
-/*   Updated: 2021/05/10 17:51:38 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/10 20:15:58 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "core.h"
 #include <stdlib.h>
 
 size_t	add_number(t_data *specs, char *number, char *result)
@@ -45,7 +46,7 @@ size_t	add_prefix(t_data *specs, char *result)
 	i = 0;
 	if (specs->is_negative)
 		result[i++] = '-';
-	else if (ft_strchr("difF", specs->conversion)
+	else if (s_chr("difF", specs->conversion)
 		&& (specs->blank_signed || specs->plus_signed))
 	{
 		if (specs->plus_signed)

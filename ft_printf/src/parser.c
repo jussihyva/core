@@ -6,11 +6,12 @@
 /*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 21:28:28 by skoskine          #+#    #+#             */
-/*   Updated: 2021/05/10 17:51:55 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/10 20:18:01 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "core.h"
 #include "ft_printf.h"
 
 static int	parse_conversion(t_data *specs, va_list *ap, char **result)
@@ -25,11 +26,11 @@ static int	parse_conversion(t_data *specs, va_list *ap, char **result)
 		ret = parse_string(specs, va_arg(*ap, char *), result);
 	else if (specs->conversion == 'p')
 		ret = parse_pointer(specs, va_arg(*ap, void *), result);
-	else if (ft_strchr("di", specs->conversion))
+	else if (s_chr("di", specs->conversion))
 		ret = parse_signed_ints(specs, ap, result);
-	else if (ft_strchr("ouxX", specs->conversion))
+	else if (s_chr("ouxX", specs->conversion))
 		ret = parse_unsigned_ints(specs, ap, result);
-	else if (ft_strchr("fF", specs->conversion))
+	else if (s_chr("fF", specs->conversion))
 		ret = parse_doubles(specs, ap, result);
 	else
 		ret = -1;
@@ -42,7 +43,7 @@ static int	append_to_result(char **result, int ret, int len, const char *str)
 
 	if (*result == NULL)
 	{
-		*result = ft_memalloc(arr_size + 1);
+		*result = mem_alloc(arr_size + 1);
 		if (*result == NULL)
 			return (-1);
 	}
@@ -53,7 +54,7 @@ static int	append_to_result(char **result, int ret, int len, const char *str)
 			return (-1);
 		arr_size = arr_size * 2 + len;
 	}
-	ft_memcpy(&(*result)[ret], str, len);
+	mem_cpy(&(*result)[ret], str, len);
 	return (len);
 }
 
@@ -66,13 +67,13 @@ int	parse_next_item(const char *format, va_list *ap, char **result, int len)
 	conversion = NULL;
 	if (*format == '%')
 	{
-		ft_memset((void *)&conversion_specs, 0, sizeof(t_data));
+		mem_set((void *)&conversion_specs, 0, sizeof(t_data));
 		get_conversion_specs(&conversion_specs, format + 1);
 		ret = parse_conversion(&conversion_specs, ap, &conversion);
 		if (ret == -1)
 			return (-1);
 		ret = append_to_result(result, len, ret, conversion);
-		ft_strdel(&conversion);
+		s_del(&conversion);
 	}
 	else
 		ret = append_to_result(result, len, 1, format);
@@ -112,6 +113,6 @@ int	parse(const char *format, va_list *ap, char **result)
 	if (ret == -1)
 		return (-1);
 	if (i == 0)
-		*result = ft_strdup("");
+		*result = s_dup("");
 	return (len);
 }

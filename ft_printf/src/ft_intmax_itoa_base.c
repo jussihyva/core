@@ -6,12 +6,13 @@
 /*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 16:56:14 by skoskine          #+#    #+#             */
-/*   Updated: 2021/05/10 18:07:26 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/10 20:24:22 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <inttypes.h>
+#include <stdint.h>
+#include "core.h"
 #include "ft_printf.h"
 
 static int	is_negative(intmax_t value)
@@ -48,5 +49,5 @@ char	*ft_intmax_itoa_base(intmax_t value, int base)
 	result = (char *)malloc(64 - i + 1);
 	if (result == NULL)
 		return (NULL);
-	return (ft_strcpy(result, &temp[i + 1]));
+	return (s_cpy(result, &temp[i + 1]));
 }

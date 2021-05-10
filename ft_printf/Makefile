@@ -18,22 +18,12 @@ MATH_SRC = $(addprefix src/, \
 )
 
 MEM_SRC = $(addprefix src/, \
-	ft_memalloc.c \
-	ft_memchr.c \
-	ft_memcpy.c \
-	ft_memset.c \
 	ft_realloc.c \
 )
 
 STR_SRC = $(addprefix src/, \
 	ft_isdigit.c \
 	ft_isspace.c \
-	ft_strchr.c \
-	ft_strdel.c \
-	ft_strdup.c \
-	ft_strlen.c \
-	ft_strcmp.c \
-	ft_strcpy.c \
 	ft_intmax_itoa_base.c \
 	ft_uintmax_itoa_base.c \
 )
@@ -62,7 +52,7 @@ SRC = $(MATH_SRC) \
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g #-fsanitize=address
-CPPFLAGS = -I . -I inc
+CPPFLAGS = -I . -I ../inc -I inc
 DEPFLAGS = -MT $@ -MMD -MP -MF $(DEP_DIR)/$*.d
 COMPILE.c = $(CC) $(DEPFLAGS) $(CFLAGS) $(CPPFLAGS) -c
 

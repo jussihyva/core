@@ -6,11 +6,12 @@
 /*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 09:06:28 by skoskine          #+#    #+#             */
-/*   Updated: 2021/05/10 17:51:51 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/10 20:17:13 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "core.h"
 #include <stdlib.h>
 
 static char	*get_value_string(t_data *specs, uintmax_t value)
@@ -32,13 +33,13 @@ static uintmax_t	get_unsigned_arg(t_data *specs, va_list *ap)
 {
 	uintmax_t	value;
 
-	if (ft_strcmp(specs->length_modifier, "hh") == 0)
+	if (s_cmp(specs->length_modifier, "hh") == 0)
 		value = (unsigned char)va_arg(*ap, unsigned int);
-	else if (ft_strcmp(specs->length_modifier, "h") == 0)
+	else if (s_cmp(specs->length_modifier, "h") == 0)
 		value = (unsigned short)va_arg(*ap, unsigned int);
-	else if (ft_strcmp(specs->length_modifier, "ll") == 0)
+	else if (s_cmp(specs->length_modifier, "ll") == 0)
 		value = va_arg(*ap, unsigned long long);
-	else if (ft_strcmp(specs->length_modifier, "l") == 0)
+	else if (s_cmp(specs->length_modifier, "l") == 0)
 		value = va_arg(*ap, unsigned long);
 	else
 		value = (uintmax_t)va_arg(*ap, unsigned int);
@@ -53,7 +54,7 @@ static int	update_uint_specs(t_data *specs, uintmax_t value, char *value_str)
 		specs->is_zero = 1;
 	if (specs->has_precision)
 		specs->zero_padding = 0;
-	len = ft_strlen(value_str);
+	len = s_len(value_str);
 	if (specs->is_zero && specs->zero_precision)
 		len = 0;
 	if (specs->precision > len)
@@ -64,7 +65,7 @@ static int	update_uint_specs(t_data *specs, uintmax_t value, char *value_str)
 		&& (!specs->is_zero || specs->zero_precision))
 		specs->precision++;
 	len += specs->precision;
-	if (specs->alt_form && ft_strchr("xX", specs->conversion)
+	if (specs->alt_form && s_chr("xX", specs->conversion)
 		&& !specs->is_zero)
 		len += 2;
 	if (specs->min_field_width > len)

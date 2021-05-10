@@ -6,11 +6,12 @@
 /*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/10 08:31:27 by skoskine          #+#    #+#             */
-/*   Updated: 2021/05/10 17:50:50 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/10 20:13:10 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "core.h"
 #include "ft_printf.h"
 
 void	*ft_realloc(void *ptr, size_t old_size, size_t new_size)
@@ -31,9 +32,9 @@ void	*ft_realloc(void *ptr, size_t old_size, size_t new_size)
 			copy_size = new_size;
 		else
 			copy_size = old_size;
-		ft_memcpy(new, ptr, copy_size);
+		mem_cpy(new, ptr, copy_size);
 		if (new_size > old_size)
-			ft_memset((void *)(&((char *)new)[old_size]),
+			mem_set((void *)(&((char *)new)[old_size]),
 				0, new_size - old_size);
 		free(ptr);
 	}

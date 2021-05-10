@@ -6,11 +6,12 @@
 /*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 14:40:23 by skoskine          #+#    #+#             */
-/*   Updated: 2021/05/10 17:51:24 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/10 20:22:41 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "core.h"
 #include <stdlib.h>
 
 static char	*parse_str_result(t_data *specs, char *str, size_t str_len)
@@ -53,7 +54,7 @@ static size_t	update_str_specs(t_data *specs, char *str)
 	}
 	else
 	{
-		len = ft_strlen(str);
+		len = s_len(str);
 		if (specs->has_precision && specs->precision < len)
 			len = specs->precision;
 	}
@@ -76,7 +77,7 @@ int	parse_string(t_data *specs, char *str, char **result)
 	if (*result == NULL)
 		return (-1);
 	else
-		return (ft_strlen(*result));
+		return (s_len(*result));
 }
 
 int	parse_char(t_data *specs, char c, char **result)

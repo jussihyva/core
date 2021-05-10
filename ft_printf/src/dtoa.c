@@ -6,10 +6,11 @@
 /*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 16:02:24 by skoskine          #+#    #+#             */
-/*   Updated: 2021/05/10 17:21:52 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/10 20:10:30 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "core.h"
 #include "ft_printf.h"
 
 static int	int_part_len(long double nbr)
@@ -94,11 +95,11 @@ char	*ft_dtoa(double nbr, size_t precision)
 	long double	frac_part;
 
 	if (ft_isnan(nbr))
-		return (ft_strdup("nan"));
+		return (s_dup("nan"));
 	else if (ft_isposinf(nbr))
-		return (ft_strdup("inf"));
+		return (s_dup("inf"));
 	else if (ft_isneginf(nbr))
-		return (ft_strdup("-inf"));
+		return (s_dup("-inf"));
 	frac_part = round_double(ft_modf(nbr, &int_part), precision);
 	if (frac_part >= 1.0 || frac_part <= -1)
 	{
@@ -108,7 +109,7 @@ char	*ft_dtoa(double nbr, size_t precision)
 	else if (rounds_half_to_even(nbr, precision)
 		&& (uintmax_t)(ft_fabs(int_part) + 1) % 2 == 0)
 		int_part += ft_isnegative(nbr) * -1.0 + (1 - ft_isnegative(nbr)) * 1.0;
-	result = (char *)ft_memalloc(result_len(int_part, precision) + 1);
+	result = (char *)mem_alloc(result_len(int_part, precision) + 1);
 	if (result == NULL)
 		return (NULL);
 	add_integral_part(result, int_part, int_part_len(int_part));

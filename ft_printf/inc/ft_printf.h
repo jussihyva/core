@@ -6,7 +6,7 @@
 /*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/17 09:35:48 by skoskine          #+#    #+#             */
-/*   Updated: 2021/05/10 18:02:25 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/10 20:23:50 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int				ft_vasprintf(char **ret, const char *format, va_list ap);
 int				ft_asprintf(char **ret, const char *format, ...);
 int				ft_dprintf(int fd, const char *format, ...);
 int				ft_printf(const char *format, ...);
+
 int				parse(const char *format, va_list *ap, char **result);
 int				get_conversion_specs(t_data *specs, const char *format);
 int				parse_percentage(t_data *specs, char **result);
@@ -62,7 +63,6 @@ long double		round_double(double nbr, size_t precision);
 int				rounds_half_to_even(double nbr, size_t precision);
 
 int				ft_atoi(const char *str);
-long long int	ft_atoll(const char *str);
 int				ft_isdigit(int c);
 int				ft_isspace(int c);
 void			*ft_realloc(void *ptr, size_t ptr_size, size_t size);
@@ -79,15 +79,5 @@ double			ft_fabs(double nbr);
 long double		ft_fabsl(long double nbr);
 uintmax_t		ft_uintmax_pow(int base, int power);
 double			ft_sqrt(double value);
-void			*ft_memalloc(size_t size);
-void			*ft_memcpy(void *dst, const void *src, size_t n);
-void			*ft_memset(void *b, int c, size_t len);
-void			*ft_memchr(const void *s, int c, size_t n);
-void			ft_strdel(char **as);
-char			*ft_strchr(const char *s, int c);
-char			*ft_strdup(const char *s1);
-size_t			ft_strlen(const char *s);
-char			*ft_strcpy(char *dst, const char *src);
-int				ft_strcmp(const char *s1, const char *s2);
 
 #endif
