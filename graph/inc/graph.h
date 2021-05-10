@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   graph.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 06:09:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/09 02:39:25 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/10 13:08:25 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 typedef struct	s_graph
 {
 	t_map		data;
+	uint64_t	next_id;
 	void		*attr;
 }				t_graph;
 
@@ -27,6 +28,7 @@ typedef struct		s_graph_node
 {
 	t_array			in;
 	t_array			out;
+	uint64_t		id;
 	const char		*key;
 	void			*attr;
 }					t_graph_node;

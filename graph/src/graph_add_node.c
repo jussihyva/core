@@ -16,6 +16,8 @@ ssize_t	graph_add_node(t_graph *g, const char *key, void *attr)
 	t_graph_node	*n;
 
 	n = (t_graph_node *)malloc(sizeof(t_graph_node));
+	n->id = g->next_id;
+	g->next_id = g->next_id + 1;
 	n->key = key;
 	n->in = arr_new(1, sizeof(t_graph_edge));
 	n->out = arr_new(1, sizeof(t_graph_edge));
