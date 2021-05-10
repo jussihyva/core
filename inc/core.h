@@ -61,4 +61,6 @@
 # include "../graph/inc/graph.h"
 # include "../math/inc/math.h"
 
+# include "../ft_printf/inc/ft_printf.h"
+
 #endif
