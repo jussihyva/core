@@ -40,7 +40,7 @@ all:
 
 $(NAME): $(OBJ)
 				@ar -rcs $(NAME) $(OBJ)
-				@echo "\\n\033[32;1mARRAY FUNCTIONS COMPILED\033[0m \\n"
+				@echo "\\n\033[32;1mSTRING FUNCTIONS COMPILED\033[0m \\n"
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(DEP_DIR)%.d | $(OBJ_DIR) $(DEP_DIR)
 				@$(COMPILE.c) $< -o $@

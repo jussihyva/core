@@ -74,7 +74,7 @@ all:
 
 $(NAME): $(OBJ) Makefile
 				@ar -rcs $(NAME) $(OBJ)
-				@echo "\\n\033[32;1mSTRING FUNCTIONS COMPILED\033[0m \\n"
+				@echo "\\n\033[32;1mCSTRING FUNCTIONS COMPILED\033[0m \\n"
 
 $(DIR):
 				@mkdir -p $@
