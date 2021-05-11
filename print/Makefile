@@ -29,9 +29,8 @@ STR_SRC = $(addprefix src/, \
 )
 
 PRINTF_SRC = $(addprefix src/, \
-	ft_asprintf.c \
-	ft_dprintf.c \
 	print.c \
+	fd_print.c \
 	format.c \
 	ft_vasprintf.c \
 	conversion_specs.c \
