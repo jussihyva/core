@@ -9,18 +9,15 @@
 #include "../../inc/core.h"
 #include "../inc/print_internal.h"
 
-int	print(const char *format, ...)
+uintmax_t	_uintmax_pow(int base, int power)
 {
-	va_list	ap;
-	char	*result;
-	int		ret;
+	uintmax_t	result;
 
-	result = NULL;
-	va_start(ap, format);
-	ret = _vasprint(&result, format, ap);
-	va_end(ap);
-	if (ret != -1)
-		ret = write(1, result, (size_t)ret);
-	free(result);
-	return (ret);
+	result = 1;
+	while (power > 0)
+	{
+		result *= base;
+		power--;
+	}
+	return (result);
 }

@@ -9,18 +9,14 @@
 #include "../../inc/core.h"
 #include "../inc/print_internal.h"
 
-int	print(const char *format, ...)
+int	_vasprint(char **ret, const char *format, va_list ap)
 {
-	va_list	ap;
-	char	*result;
-	int		ret;
+	int		ret_value;
+	va_list	ap_copy;
 
-	result = NULL;
-	va_start(ap, format);
-	ret = _vasprint(&result, format, ap);
-	va_end(ap);
-	if (ret != -1)
-		ret = write(1, result, (size_t)ret);
-	free(result);
-	return (ret);
+	va_copy(ap_copy, ap);
+	*ret = NULL;
+	ret_value = _parse(format, &ap_copy, ret);
+	va_end(ap_copy);
+	return (ret_value);
 }

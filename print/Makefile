@@ -4,45 +4,51 @@ OBJ_DIR = obj
 SRC_DIR = src
 DEP_DIR = .deps
 
-MATH_SRC = $(addprefix src/, \
-	ft_dpow.c \
-	ft_abs.c \
-	ft_fabs.c \
-	ft_modf.c \
-	ft_uintmax_pow.c \
-	ft_atoi.c \
+MATH_SRC = $(addprefix sub/, \
+	_dpow.c \
+	_abs.c \
+	_fabs.c \
+	_modf.c \
+	_uintmax_pow.c \
 )
 
-MEM_SRC = $(addprefix src/, \
-	ft_realloc.c \
+MEM_SRC = $(addprefix sub/, \
+	_realloc.c \
 )
 
-STR_SRC = $(addprefix src/, \
-	ft_intmax_itoa_base.c \
-	ft_uintmax_itoa_base.c \
+STR_SRC = $(addprefix sub/, \
+	_atoi.c \
+	_intmax_itoa_base.c \
+	_uintmax_itoa_base.c \
 )
 
-PRINTF_SRC = $(addprefix src/, \
+OTHER_SRC = $(addprefix sub/, \
+	_vasprint.c \
+	_get_conversion_specs.c \
+	parse_chars.c \
+	_parse_doubles.c \
+	_parse_pointer.c \
+	_parse_signed_ints.c \
+	_parse_unsigned_ints.c \
+	parse_helpers.c \
+	_parse.c \
+	_dtoa.c \
+	_round_double.c \
+	_rounds_half_to_even.c \
+)
+
+PRINT_SRC = \
 	print.c \
 	print_fd.c \
-	format.c \
-	ft_vasprintf.c \
-	conversion_specs.c \
-	dtoa.c \
-	parse_chars.c \
-	parse_doubles.c \
-	parse_pointers.c \
-	parse_signed_integers.c \
-	parse_unsigned_integers.c \
-	parse_helpers.c \
-	parser.c \
-	round_double.c \
-)
+	format.c
 
-SRC = $(MATH_SRC) \
+SRC = $(addprefix src/, \
+	$(MATH_SRC) \
 	$(MEM_SRC) \
 	$(STR_SRC) \
-	$(PRINTF_SRC)
+	$(OTHER_SRC) \
+	$(PRINT_SRC) \
+)
 
 CC = gcc
 CFLAGS = -O3 -Wall -Wextra -Werror  #-fsanitize=address
@@ -57,13 +63,16 @@ all: $(NAME)
 $(NAME): $(subst $(SRC_DIR), $(OBJ_DIR), $(SRC:.c=.o))
 	@echo "\\n\033[32;1mPRINT FUNCTIONS COMPILED\033[0m \\n"
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(DEP_DIR) $(OBJ_DIR)
+$(OBJ_DIR)/%.o: $(SRC_DIR)/sub/%.c | $(OBJ_DIR) $(DEP_DIR)
+	@$(COMPILE.c) -o $@ $<
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR) $(DEP_DIR)
 	@$(COMPILE.c) -o $@ $<
 	@echo $@
 
-$(DEP_DIR): ; @mkdir -p $@
+$(OBJ_DIR): ; @mkdir -p $@/sub
 
-$(OBJ_DIR): ; @mkdir -p $@
+$(DEP_DIR): ; @mkdir -p $@/sub
 
 DEPFILES = $(addprefix $(DEP_DIR)/, $(SRC:.c=.d))
 $(DEPFILES):

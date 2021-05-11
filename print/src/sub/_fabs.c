@@ -9,18 +9,18 @@
 #include "../../inc/core.h"
 #include "../inc/print_internal.h"
 
-int	print(const char *format, ...)
+long double	_fabsl(long double nbr)
 {
-	va_list	ap;
-	char	*result;
-	int		ret;
+	if (nbr < 0.0 || nbr == -0.0)
+		return (-nbr);
+	else
+		return (nbr);
+}
 
-	result = NULL;
-	va_start(ap, format);
-	ret = _vasprint(&result, format, ap);
-	va_end(ap);
-	if (ret != -1)
-		ret = write(1, result, (size_t)ret);
-	free(result);
-	return (ret);
+double	_fabs(double nbr)
+{
+	if (is_neg(nbr))
+		return (-nbr);
+	else
+		return (nbr);
 }

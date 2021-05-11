@@ -16,7 +16,7 @@ char	*format(const char *format, ...)
 
 	va_start(ap, format);
 	ret = NULL;
-	if (!(ft_vasprintf(&ret, format, ap)))
+	if (!(_vasprint(&ret, format, ap)))
 		return (NULL);
 	va_end(ap);
 	return (ret);
