@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   s_copy.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 03:47:58 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/24 23:21:02 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/11 09:08:35 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cstr.h"
 
-char				*s_copy(char *str, size_t start, size_t end, size_t flag)
+char	*s_copy(char *str, size_t start, size_t end, size_t flag)
 {
 	char			*out;
 	size_t			i;
@@ -20,7 +20,10 @@ char				*s_copy(char *str, size_t start, size_t end, size_t flag)
 	if (!str || start > end)
 		return (NULL);
 	out = NULL;
-	out = end > 0 ? s_new(end - start) : s_new(s_len(str));
+	if (end > 0)
+		out = s_new(end - start);
+	else
+		s_new(s_len(str));
 	i = 0;
 	while (i < end - start && str[i + start])
 	{

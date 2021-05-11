@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   mem_cpy_safe.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:31:35 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/19 20:08:37 by julius           ###   ########.fr       */
+/*   Updated: 2021/05/11 09:37:35 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/mem.h"
 
-void				*mem_cpy_safe(void *dst, const void *src, size_t n)
+void	*mem_cpy_safe(void *dst, const void *src, size_t n)
 {
 	const uint8_t	*src8;
 	uint8_t			*dst8;

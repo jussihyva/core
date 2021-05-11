@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   mem_move.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:31:53 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/19 20:19:48 by julius           ###   ########.fr       */
+/*   Updated: 2021/05/11 09:37:49 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/mem.h"
 
-void				*mem_move(void *dst, const void *src, size_t size)
+void	*mem_move(void *dst, const void *src, size_t size)
 {
 	const uint8_t	*src8;
 	uint8_t			*dst8;

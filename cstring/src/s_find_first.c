@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   s_find_first.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 02:41:42 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/25 00:04:19 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/11 09:03:53 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cstr.h"
 
-int				s_find_first(char *ref, char *src)
+int	s_find_first(char *ref, char *src)
 {
 	size_t			i;
 

@@ -1,13 +1,13 @@
-/*******************************************************************************
+/******************************************************************************
  * \authors
  * \brief
  * \param
  * \return
- ******************************************************************************/
+ *****************************************************************************/
 
 #include "../inc/graph.h"
 
-ssize_t graph_dfs_loop(
+ssize_t	graph_dfs_loop(
 		t_array *res_edges,
 		t_array *dfs_queue,
 		t_graph_node *curr,
@@ -35,7 +35,7 @@ ssize_t graph_dfs_loop(
 	return (CR_SUCCESS);
 }
 
-t_array graph_dfs(
+t_array	graph_dfs(
 		t_graph *g,
 		const char *src_key,
 		const char *dst_key)

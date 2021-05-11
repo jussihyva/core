@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   mem_set.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:31:58 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/19 21:00:01 by julius           ###   ########.fr       */
+/*   Updated: 2021/05/11 09:37:46 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/mem.h"
 
-static void		copy_words(uint64_t *dst, const int c, size_t words)
+static void	copy_words(uint64_t *dst, const int c, size_t words)
 {
 	uint64_t	pages;
 	uint64_t	offset;
@@ -30,7 +30,7 @@ static void		copy_words(uint64_t *dst, const int c, size_t words)
 		*dst++ = c;
 }
 
-void			*mem_set(void *dst, int c, size_t size)
+void	*mem_set(void *dst, int c, size_t size)
 {
 	uint8_t		*dst8;
 	size_t		offset;

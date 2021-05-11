@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mem_calloc.c                                         :+:      :+:    :+:   */
+/*   mem_calloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:31:08 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/12 15:31:13 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/11 09:38:44 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/mem.h"
 
-void			*mem_calloc(size_t nmemb, size_t size)
+void	*mem_calloc(size_t nmemb, size_t size)
 {
 	void		*addr;
 

@@ -12,7 +12,7 @@
 
 #include "../inc/cstr.h"
 
-int			s_nequ(char const *s1, char const *s2, uint64_t n)
+int	s_nequ(char const *s1, char const *s2, uint64_t n)
 {
 	if (s1 == NULL || s2 == NULL)
 		return (1);

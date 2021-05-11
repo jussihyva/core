@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   math_sqrt.c                                           :+:      :+:    :+:   */
+/*   mat_sqrt.c                                         :+:      :+:    :+:*/
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/23 21:07:56 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/07 20:57:56 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/11 09:28:50 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static double	p10(int num)
 	return (rst);
 }
 
-static void		whole(int i, double *z, double *j, double *rst)
+static void	whole(int i, double *z, double *j, double *rst)
 {
 	while (i > 0)
 	{
@@ -60,7 +60,7 @@ static void		whole(int i, double *z, double *j, double *rst)
 	}
 }
 
-static void		decimal(int i, double *z, double *j, double *rst)
+static void	decimal(int i, double *z, double *j, double *rst)
 {
 	while (i >= 0 )
 	{
@@ -79,7 +79,7 @@ static void		decimal(int i, double *z, double *j, double *rst)
 	}
 }
 
-double			math_sqrt(double n)
+double	math_sqrt(double n)
 {
 	double		z;
 	double		rst;

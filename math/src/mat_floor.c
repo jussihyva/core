@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   math_floor.c                                          :+:      :+:    :+:   */
+/*   mat_floor.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 22:05:32 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/07 20:57:56 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/11 09:34:17 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,26 @@ static double	aux(double xcopy, int64_t zeros, double n, double x)
 		}
 	}
 	if (x < 0)
-		return (xcopy == 0 ? x : x - (1 - xcopy));
+	{
+		if (xcopy == 0)
+			return (x);
+		else
+			return (x - (1 - xcopy));
+	}
 	else
 		return (x - xcopy);
 }
 
-double			math_floor(double x)
+double	math_floor(double x)
 {
 	double		xcopy;
 	int64_t		zeros;
 	double		n;
 
-	xcopy = x < 0 ? x * -1 : x;
+	if (x < 0)
+		xcopy = x * -1;
+	else
+		xcopy = x;
 	zeros = 0;
 	n = 1;
 	return (aux(xcopy, zeros, n, x));

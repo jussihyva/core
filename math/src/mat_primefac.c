@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mat_primefac.c                                     :+:      :+:    :+:   */
+/*   mat_primefac.c                                     :+:      :+:    :+:*/
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 04:03:45 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/07 21:20:47 by julius           ###   ########.fr       */
+/*   Updated: 2021/05/11 09:28:07 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/core.h"
 
-t_array			math_primefac(uint64_t n)
+t_array	math_primefac(uint64_t n)
 {
 	t_array		out;
 	uint64_t	i;

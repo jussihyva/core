@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   s_fill.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 21:20:36 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/24 23:21:02 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/11 09:07:53 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cstr.h"
 
-char			*s_fill(char *data, size_t b_size, char *flags)
+char	*s_fill(char *data, size_t b_size, char *flags)
 {
 	char		*out;
 	size_t		i;
@@ -23,8 +23,14 @@ char			*s_fill(char *data, size_t b_size, char *flags)
 	j = 0;
 	if (b_size < d_size)
 		return (data);
-	i = s_chr(flags, '-') ? 0 : b_size - d_size;
-	out = s_chr(flags, '0') ? s_newc(b_size, '0') : s_newc(b_size, ' ');
+	if (s_chr(flags, '-'))
+		i = 0;
+	else
+		i = b_size - d_size;
+	if (s_chr(flags, '0'))
+		out = s_newc(b_size, '0');
+	else
+		out = s_newc(b_size, ' ');
 	while (data[j])
 		out[i++] = data[j++];
 	s_del(&data);
