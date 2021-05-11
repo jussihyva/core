@@ -51,7 +51,6 @@ int				parse_long_double(t_data *specs, long double value,
 					char **result);
 char			*parse_int_result(t_data *specs, char *number,
 					size_t result_len);
-
 size_t			add_padding(size_t len, char c, char *result);
 size_t			add_prefix(t_data *specs, char *result);
 size_t			add_number(t_data *specs, char *number, char *result);

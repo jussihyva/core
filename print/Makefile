@@ -30,7 +30,7 @@ STR_SRC = $(addprefix src/, \
 
 PRINTF_SRC = $(addprefix src/, \
 	print.c \
-	fd_print.c \
+	print_fd.c \
 	format.c \
 	ft_vasprintf.c \
 	conversion_specs.c \
