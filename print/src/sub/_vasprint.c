@@ -9,7 +9,7 @@
 #include "../../inc/core.h"
 #include "../inc/print_internal.h"
 
-int	_vasprintf(char **ret, const char *format, va_list ap)
+int	_vasprint(char **ret, const char *format, va_list ap)
 {
 	int		ret_value;
 	va_list	ap_copy;

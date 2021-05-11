@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jkoskela <jkoskela@student.42.fr>          +#+  +:+       +#+         #
+#    By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/22 22:32:30 by jkoskela          #+#    #+#              #
-#    Updated: 2021/05/11 15:49:43 by jkoskela         ###   ########.fr        #
+#    Updated: 2021/05/11 23:02:13 by skoskine         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,6 +50,7 @@ all:
 			@cp $(GRAPH)obj/*.o $(OBJ)
 			@cp $(MAP)obj/*.o $(OBJ)
 			@cp $(PRINT)obj/*.o $(OBJ)
+			@cp $(PRINT)obj/sub/*.o $(OBJ)
 			@cp $(STRING)obj/*.o $(OBJ)
 			@cp $(CHECKS)obj/*.o $(OBJ)
 			ar -rcs $(NAME) $(OBJ)*.o

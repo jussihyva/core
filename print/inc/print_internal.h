@@ -32,8 +32,7 @@ typedef struct s_data
 	int		is_zero;
 }			t_data;
 
-int				_vasprintf(char **ret, const char *format, va_list ap);
-
+int				_vasprint(char **ret, const char *format, va_list ap);
 int				_parse(const char *format, va_list *ap, char **result);
 int				_get_conversion_specs(t_data *specs, const char *format);
 int				_parse_percentage(t_data *specs, char **result);
