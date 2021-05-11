@@ -28,8 +28,8 @@ int main(void)
 			202, 228, 254, 280,
 			314, 356, 398, 440,
 			426, 484, 542, 600}};
-	const t_mat4	res = lin_m4xm4_r(mat_1, mat_2);
+	const t_mat4	res = lin_m4xm4_r(&mat_1, &mat_2);
 	if (lin_m4_cmp(answer, res) == 1)
 		print("Test ok!\n");
-	lin_m4_print(res);
+	lin_m4_print(&res);
 }
