@@ -16,13 +16,16 @@ ssize_t	graph_add_node(t_graph *g, const char *key, void *attr)
 	t_graph_node	*n;
 
 	n = (t_graph_node *)malloc(sizeof(t_graph_node));
+	if (!n)
+	{
+		printf("Allocation failed in function: graph_add_node!\n");
+		exit(-1);
+	}
 	n->id = g->next_id;
 	g->next_id = g->next_id + 1;
 	n->key = key;
 	n->in = arr_new(1, sizeof(t_graph_edge));
 	n->out = arr_new(1, sizeof(t_graph_edge));
-	if (arr_null(&n->in) || arr_null(&n->out))
-		return (-1);
 	n->attr = attr;
 	return (map_add(&g->data, n, n->key));
 }

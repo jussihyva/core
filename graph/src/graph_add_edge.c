@@ -27,9 +27,7 @@ ssize_t	graph_add_edge(
 	e.src = src;
 	e.dst = dst;
 	e.attr = attr;
-	if (!(arr_add_last(&src->out, &e)))
-		return (-1);
-	if (!(arr_add_last(&dst->in, &e)))
-		return (-1);
+	arr_add_last(&src->out, &e);
+	arr_add_last(&dst->in, &e);
 	return (CR_SUCCESS);
 }

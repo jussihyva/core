@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   graph.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 06:09:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/11 09:15:28 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/11 23:41:39 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,23 @@
 # define SOURCE -1
 # define SINK -2
 
-typedef struct s_graph
+typedef struct	s_graph
 {
 	t_map		data;
 	uint64_t	next_id;
 	void		*attr;
 }				t_graph;
 
-typedef struct s_graph_node
+typedef struct	s_graph_node
 {
-	t_array			in;
-	t_array			out;
-	uint64_t		id;
-	const char		*key;
-	void			*attr;
-}					t_graph_node;
+	t_array		in;
+	t_array		out;
+	uint64_t	id;
+	const char	*key;
+	void		*attr;
+}				t_graph_node;
 
-typedef struct s_graph_edge
+typedef struct		s_graph_edge
 {
 	t_graph_node	*src;
 	t_graph_node	*dst;
