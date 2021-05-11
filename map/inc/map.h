@@ -8,7 +8,6 @@
 
 #ifndef LIBMAP_H
 # define LIBMAP_H
-
 # include <string.h>
 # include <unistd.h>
 # include <stdint.h>
@@ -19,20 +18,15 @@ typedef struct		s_map_node
 	void			*data;
 }					t_map_node;
 
-/**
- * \struct A has map structure
- */
 typedef struct		s_map
 {
-	/*@{*/
-	t_map_node		*node; /**< Memory to hold map nodes.*/
-	size_t			capacity; /**< Current max capacity of the hash map.*/
-	size_t			count; /**< Current node count of the hash map.*/
-	double			load_factor; /**< Load factor to indicate at which treshold to resize.*/
-	uint64_t		(*hash)(const char *); /**< A hash function*/
-	uint64_t		(*probe)(uint64_t); /**< Quadratic probing founction*/
-	uint64_t		(*resize)(uint64_t); /**< Resizing function.*/
-	/*@}*/
+	t_map_node		*node;
+	size_t			capacity;
+	size_t			count;
+	double			load_factor;
+	uint64_t		(*hash)(const char *);
+	uint64_t		(*probe)(uint64_t);
+	uint64_t		(*resize)(uint64_t);
 }					t_map;
 
 t_map		map_new(void);

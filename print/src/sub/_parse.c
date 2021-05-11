@@ -54,7 +54,11 @@ static int	append_to_result(char **result, int len, int ret, const char *str)
 	return (ret);
 }
 
-static int	parse_next_item(const char *format, va_list *ap, char **result, int len)
+static int	parse_next_item(
+	const char *format,
+	va_list *ap,
+	char **result,
+	int len)
 {
 	t_data	conversion_specs;
 	char	*conversion;

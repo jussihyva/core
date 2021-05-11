@@ -39,6 +39,7 @@ OTHER_SRC = $(addprefix sub/, \
 
 PRINT_SRC = \
 	print.c \
+	print_file.c \
 	print_fd.c \
 	format.c
 
