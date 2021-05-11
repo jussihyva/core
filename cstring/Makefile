@@ -70,10 +70,10 @@ OBJ			=	$(addprefix $(OBJ_DIR), $(SRC_BASE:.c=.o))
 DIR			=	$(sort $(dir $(OBJ)))
 
 all:
-				$(MAKE) -j $(NAME)
+				@$(MAKE) -j $(NAME)
 
 $(NAME): $(OBJ) Makefile
-				@ar -rcs $(NAME) $(OBJ)
+
 				@echo "\\n\033[32;1mCSTRING FUNCTIONS COMPILED\033[0m \\n"
 
 $(DIR):
@@ -81,6 +81,7 @@ $(DIR):
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c Makefile | $(DIR)
 				@$(CC) $(FLAGS) -c $< -o $@ -I $(INC_DIR)
+				@echo $@
 
 clean:
 				@rm -rf $(OBJ_DIR);

@@ -61,7 +61,6 @@ COMPILE.c = $(CC) $(DEPFLAGS) $(CFLAGS) $(CPPFLAGS) -c
 all: $(NAME)
 
 $(NAME): $(subst $(SRC_DIR), $(OBJ_DIR), $(SRC:.c=.o))
-	@ar rc $@ $^
 	@echo "\\n\033[32;1mPRINT FUNCTIONS COMPILED\033[0m \\n"
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/sub/%.c | $(OBJ_DIR) $(DEP_DIR)
@@ -69,6 +68,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/sub/%.c | $(OBJ_DIR) $(DEP_DIR)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR) $(DEP_DIR)
 	@$(COMPILE.c) -o $@ $<
+	@echo $@
 
 $(OBJ_DIR): ; @mkdir -p $@/sub
 

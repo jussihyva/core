@@ -24,10 +24,9 @@ SRC			=	$(addprefix $(SRC_DIR), $(SRC_BASE))
 OBJ			=	$(addprefix $(OBJ_DIR), $(SRC_BASE:.c=.o))
 
 all:
-				$(MAKE) -j $(NAME)
+				@$(MAKE) -j $(NAME)
 
 $(NAME): $(OBJ)
-				@ar -rcs $(NAME) $(OBJ)
 				@echo "\\n\033[32;1mGRAPH FUNCTIONS COMPILED\033[0m \\n"
 
 $(OBJ_DIR):
@@ -35,6 +34,7 @@ $(OBJ_DIR):
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJ_DIR)
 				@$(CC) $(CFLAGS) -c $< -o $@ -I $(INC_DIR)
+				@echo $@
 
 clean:
 				@rm -rf $(OBJ_DIR);

@@ -12,15 +12,15 @@
 
 #include "../inc/lin.h"
 
-t_mat4	lin_m4_translate(t_vec4 src)
+t_mat4	lin_m4_translate(t_vec4 *src)
 {
 	t_mat4	out;
 
 	out = lin_m4_id();
-	out.m[3] = src.v[0];
-	out.m[7] = src.v[1];
-	out.m[11] = src.v[2];
-	out.m[15] = src.v[3];
+	out.m[3] = src->v[0];
+	out.m[7] = src->v[1];
+	out.m[11] = src->v[2];
+	out.m[15] = src->v[3];
 	return (out);
 }
 

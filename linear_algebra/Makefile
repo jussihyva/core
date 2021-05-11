@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jkoskela <jkoskela@student.42.fr>          +#+  +:+       +#+         #
+#    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2021/05/11 14:23:08 by jkoskela         ###   ########.fr        #
+#    Updated: 2021/05/11 22:52:40 by jkoskela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	liblin.a
 
 CC			=	gcc
-FLAGS 		=	-O3 -Wall -Wextra -Werror -Wpedantic -Wtype-limits -Wswitch-default -Wunreachable-code  -Wshadow -fPIC
+FLAGS 		=	-g -Wall -Wextra -Werror -Wpedantic -Wtype-limits -Wswitch-default -Wunreachable-code  -Wshadow -fPIC
 
 SRC_DIR		=	src/
 INC_DIR		=	inc/
@@ -44,10 +44,10 @@ OBJ			=	$(addprefix $(OBJ_DIR), $(SRC_BASE:.c=.o))
 DIR			=	$(sort $(dir $(OBJ)))
 
 all:
-				$(MAKE) -j $(NAME)
+				@$(MAKE) -j $(NAME)
 
 $(NAME): $(OBJ) Makefile
-				@ar -rcs $(NAME) $(OBJ)
+
 				@echo "\\n\033[32;1mLINEAR ALGEBRA FUNCTIONS COMPILED\033[0m \\n"
 
 $(DIR):
@@ -55,6 +55,7 @@ $(DIR):
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c Makefile | $(DIR)
 				@$(CC) $(CFLAGS) -c $< -o $@ -I $(INC_DIR)
+				@echo $@
 
 clean:
 				@rm -rf $(OBJ_DIR);

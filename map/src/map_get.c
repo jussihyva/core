@@ -21,11 +21,9 @@ void	*map_get(t_map *src, const char *key)
 	i = 0;
 	while (i < src->count)
 	{
-		if (src->node[(hash_key + probe)
-				% src->capacity].key
-			&& s_cmp(src->node[(hash_key + probe)
-					% src->capacity].key,
-				key) == 0)
+		if (src->node[(hash_key + probe) % src->capacity].key
+			&& s_cmp(src->node[(hash_key + probe) % src->capacity].key, key)
+			== 0)
 			return (src->node[(hash_key + probe) % src->capacity].data);
 		probe = src->probe(i);
 		i++;

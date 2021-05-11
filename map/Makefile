@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jkoskela <jkoskela@student.42.fr>          +#+  +:+       +#+         #
+#    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2021/05/11 14:24:57 by jkoskela         ###   ########.fr        #
+#    Updated: 2021/05/11 22:52:49 by jkoskela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,10 +41,10 @@ OBJ			=	$(addprefix $(OBJ_DIR), $(SRC_BASE:.c=.o))
 DIR			=	$(sort $(dir $(OBJ)))
 
 all:
-				$(MAKE) -j $(NAME)
+				@$(MAKE) -j $(NAME)
 
 $(NAME): $(OBJ) Makefile
-				@ar -rcs $(NAME) $(OBJ)
+
 				@echo "\\n\033[32;1mMAP FUNCTIONS COMPILED\033[0m \\n"
 
 $(DIR):
@@ -52,6 +52,7 @@ $(DIR):
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c Makefile | $(DIR)
 				@$(CC) $(CFLAGS) -c $< -o $@ -I $(INC_DIR)
+				@echo $@
 
 clean:
 				@rm -rf $(OBJ_DIR);
