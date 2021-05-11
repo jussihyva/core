@@ -1,14 +1,10 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   lin.h                                              :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/11 06:09:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/11 09:19:08 by skoskine         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************
+ *
+ * \authors Julius Koskela
+ *
+ * \brief Functions for linear algebra.
+ *
+ *****************************************************************************/
 
 #ifndef LIN_H
 # define LIN_H
@@ -28,6 +24,13 @@ typedef struct s_vec2
 {
 	double		v[2];
 }				t_vec2;
+
+typedef struct	s_mat
+{
+	double		*m;
+	size_t		x;
+	size_t		y;
+}				t_mat;
 
 typedef struct s_mat4
 {
@@ -65,15 +68,14 @@ t_mat4			lin_m4_roty(double angle);
 t_mat4			lin_m4_rotz(double angle);
 t_mat4			lin_m4_proj(double fov, double ratio, int near, int far);
 t_mat4			lin_m4_transform(double scale);
-t_mat4			lin_m4_translate(t_vec4 src);
-t_vec4			lin_m4_getcol(t_mat4 src, uint8_t col);
-t_vec4			lin_m4_getrow(t_mat4 src, uint8_t row);
-t_mat4			lin_m4xm4_r(t_mat4 *a, t_mat4 *b);
+t_mat4			lin_m4_translate(t_vec4 *src);
+t_vec4			lin_m4_getcol(t_mat4 *src, uint8_t col);
+t_vec4			lin_m4_getrow(t_mat4 *src, uint8_t row);
 /*
 **-----------------------------------------------------------------------------
 **	Multiplications
 */
-void			lin_m4_print(t_mat4 *src);
+void			lin_m4_print(const t_mat4 *src);
 t_mat4			lin_m4xm4_r(t_mat4 *a, t_mat4 *b);
 t_vec4			lin_m4xv4_r(t_mat4 *a, t_vec4 *b);
 /*
@@ -81,5 +83,4 @@ t_vec4			lin_m4xv4_r(t_mat4 *a, t_vec4 *b);
 **	Print
 */
 ssize_t			lin_v4_print(void *elem, size_t i);
-void			lin_m4_print(t_mat4 *src);
 #endif

@@ -47,14 +47,15 @@ SRC			=	$(addprefix $(SRC_DIR), $(SRC_BASE))
 OBJ			=	$(addprefix $(OBJ_DIR), $(SRC_BASE:.c=.o))
 
 all:
-				$(MAKE) -j $(NAME)
+				@$(MAKE) -j $(NAME)
 
 $(NAME): $(OBJ)
-				@ar -rcs $(NAME) $(OBJ)
+
 				@echo "\\n\033[32;1mARRAY FUNCTIONS COMPILED\033[0m \\n"
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(DEP_DIR)%.d | $(OBJ_DIR) $(DEP_DIR)
 				@$(COMPILE.c) $< -o $@
+				@echo $@
 
 $(OBJ_DIR):
 				@mkdir -p $@

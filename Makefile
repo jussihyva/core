@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jkoskela <jkoskela@student.42.fr>          +#+  +:+       +#+         #
+#    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/22 22:32:30 by jkoskela          #+#    #+#              #
-#    Updated: 2021/05/11 15:49:43 by jkoskela         ###   ########.fr        #
+#    Updated: 2021/05/11 22:52:07 by jkoskela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,17 +42,18 @@ all:
 			+@make -C $(STRING)
 			+@make -C $(CHECKS)
 			@mkdir -p $(OBJ)
-			@cp $(MEM)obj/*.o $(OBJ)
-			@cp $(ARR)obj/*.o $(OBJ)
-			@cp $(LIN)obj/*.o $(OBJ)
-			@cp $(PARR)obj/*.o $(OBJ)
-			@cp $(CSTR)obj/*.o $(OBJ)
-			@cp $(GRAPH)obj/*.o $(OBJ)
-			@cp $(MAP)obj/*.o $(OBJ)
-			@cp $(PRINT)obj/*.o $(OBJ)
-			@cp $(STRING)obj/*.o $(OBJ)
-			@cp $(CHECKS)obj/*.o $(OBJ)
-			ar -rcs $(NAME) $(OBJ)*.o
+			@mv $(MEM)obj/*.o $(OBJ)
+			@mv $(ARR)obj/*.o $(OBJ)
+			@mv $(LIN)obj/*.o $(OBJ)
+			@mv $(PARR)obj/*.o $(OBJ)
+			@mv $(CSTR)obj/*.o $(OBJ)
+			@mv $(GRAPH)obj/*.o $(OBJ)
+			@mv $(MAP)obj/*.o $(OBJ)
+			@mv $(MATH)obj/*.o $(OBJ)
+			@mv $(PRINT)obj/*.o $(OBJ)
+			@mv $(STRING)obj/*.o $(OBJ)
+			@mv $(CHECKS)obj/*.o $(OBJ)
+			@ar -rcs $(NAME) $(OBJ)*.o
 			@echo "\\n\033[32;1mCORE ACTIVATED \033[0m \\n"
 
 clean:
