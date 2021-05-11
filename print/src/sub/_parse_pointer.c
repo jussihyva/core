@@ -9,14 +9,14 @@
 #include "../../inc/core.h"
 #include "../inc/print_internal.h"
 
-int	parse_pointer(t_data *specs, void *ptr, char **result)
+int	_parse_pointer(t_data *specs, void *ptr, char **result)
 {
 	uintmax_t	value;
 	char		*value_str;
 	size_t		result_len;
 
 	value = (uintmax_t)ptr;
-	value_str = ft_uintmax_itoa_base(value, 16, 0);
+	value_str = _uintmax_itoa_base(value, 16, 0);
 	if (value_str == NULL)
 		return (-1);
 	result_len = s_len(value_str) + 2;
@@ -29,7 +29,7 @@ int	parse_pointer(t_data *specs, void *ptr, char **result)
 	else
 		specs->min_field_width = 0;
 	result_len += specs->min_field_width;
-	*result = parse_int_result(specs, value_str, result_len);
+	*result = _parse_int_result(specs, value_str, result_len);
 	free(value_str);
 	if (*result == NULL)
 		return (-1);

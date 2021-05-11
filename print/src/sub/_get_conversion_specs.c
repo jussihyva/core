@@ -9,7 +9,7 @@
 #include "../../inc/core.h"
 #include "../inc/print_internal.h"
 
-int	get_length_modifier(t_data *specs, const char *format)
+static int	get_length_modifier(t_data *specs, const char *format)
 {
 	int		i;
 	char	modifier;
@@ -28,13 +28,13 @@ int	get_length_modifier(t_data *specs, const char *format)
 	return (i);
 }
 
-int	get_precision(t_data *specs, const char *format)
+static int	get_precision(t_data *specs, const char *format)
 {
 	int	i;
 
 	i = 1;
 	specs->has_precision = 1;
-	specs->precision = (size_t)ft_atoi(&format[i]);
+	specs->precision = (size_t)_atoi(&format[i]);
 	if (specs->precision == 0)
 		specs->zero_precision = 1;
 	while (is_digit(format[i]))
@@ -42,18 +42,18 @@ int	get_precision(t_data *specs, const char *format)
 	return (i);
 }
 
-int	get_min_field_width(t_data *specs, const char *format)
+static int	get_min_field_width(t_data *specs, const char *format)
 {
 	int	i;
 
 	i = 0;
-	specs->min_field_width = (size_t)ft_atoi(&format[i]);
+	specs->min_field_width = (size_t)_atoi(&format[i]);
 	while (is_digit(format[i]))
 		i++;
 	return (i);
 }
 
-int	get_flags(t_data *specs, const char *format)
+static int	get_flags(t_data *specs, const char *format)
 {
 	int	i;
 
@@ -76,7 +76,7 @@ int	get_flags(t_data *specs, const char *format)
 	return (i);
 }
 
-int	get_conversion_specs(t_data *specs, const char *format)
+int	_get_conversion_specs(t_data *specs, const char *format)
 {
 	int	i;
 

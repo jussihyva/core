@@ -9,7 +9,7 @@
 #include "../../inc/core.h"
 #include "../inc/print_internal.h"
 
-int	ft_atoi(const char *str)
+int	_atoi(const char *str)
 {
 	int	i;
 	int	sign;

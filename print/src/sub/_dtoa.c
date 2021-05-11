@@ -33,7 +33,7 @@ static int	add_integral_part(char *result, double int_part, int len)
 	i = 0;
 	if (is_neg(int_part))
 		result[i++] = '-';
-	int_part = ft_fabs(int_part);
+	int_part = _fabs(int_part);
 	while (len > 0)
 	{
 		dbl_tmp = int_part;
@@ -43,7 +43,7 @@ static int	add_integral_part(char *result, double int_part, int len)
 		int_tmp = (int)dbl_tmp;
 		result[i++] = (char)int_tmp + '0';
 		len--;
-		res = ft_dpow(10.0, len);
+		res = _dpow(10.0, len);
 		res *= (double)int_tmp;
 		int_part -= res;
 	}
@@ -57,7 +57,7 @@ size_t precision)
 
 	if (precision == 0)
 		return (0);
-	frac_part = ft_fabsl(frac_part);
+	frac_part = _fabsl(frac_part);
 	i = 0;
 	while (result[i])
 		i++;
@@ -84,7 +84,7 @@ static int	result_len(double int_part, size_t precision)
 	return (len);
 }
 
-char	*ft_dtoa(double nbr, size_t precision)
+char	*_dtoa(double nbr, size_t precision)
 {
 	char		*result;
 	double		int_part;
@@ -96,14 +96,14 @@ char	*ft_dtoa(double nbr, size_t precision)
 		return (s_dup("inf"));
 	else if (is_neginf(nbr))
 		return (s_dup("-inf"));
-	frac_part = round_double(ft_modf(nbr, &int_part), precision);
+	frac_part = _round_double(_modf(nbr, &int_part), precision);
 	if (frac_part >= 1.0 || frac_part <= -1)
 	{
 		int_part += (int)frac_part;
 		frac_part -= (int)frac_part;
 	}
-	else if (rounds_half_to_even(nbr, (int)precision)
-		&& (uintmax_t)(ft_fabs(int_part) + 1) % 2 == 0)
+	else if (_rounds_half_to_even(nbr, (int)precision)
+		&& (uintmax_t)(_fabs(int_part) + 1) % 2 == 0)
 		int_part += is_neg(nbr) * -1.0 + (1 - is_neg(nbr)) * 1.0;
 	result = (char *)mem_alloc((size_t)result_len(int_part, precision) + 1);
 	if (result == NULL)

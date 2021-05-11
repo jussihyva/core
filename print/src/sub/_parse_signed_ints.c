@@ -54,18 +54,18 @@ static size_t	update_int_specs(t_data *specs, intmax_t value, char *value_str)
 	return (len);
 }
 
-int	parse_signed_ints(t_data *specs, va_list *ap, char **result)
+int	_parse_signed_ints(t_data *specs, va_list *ap, char **result)
 {
 	intmax_t	value;
 	char		*value_str;
 	size_t		len;
 
 	value = get_signed_arg(specs, ap);
-	value_str = ft_intmax_itoa_base(value, 10);
+	value_str = _intmax_itoa_base(value, 10);
 	if (value_str == NULL)
 		return (-1);
 	len = update_int_specs(specs, value, value_str);
-	*result = parse_int_result(specs, value_str, len);
+	*result = _parse_int_result(specs, value_str, len);
 	free(value_str);
 	if (*result == NULL)
 		return (-1);

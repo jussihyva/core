@@ -9,21 +9,15 @@
 #include "../../inc/core.h"
 #include "../inc/print_internal.h"
 
-int	ft_dprintf(int fd, const char *format, ...)
+uintmax_t	_uintmax_pow(int base, int power)
 {
-	va_list	ap;
-	char	*result;
-	int		ret;
+	uintmax_t	result;
 
-	result = NULL;
-	va_start(ap, format);
-	ret = ft_vasprintf(&result, format, ap);
-	va_end(ap);
-	if (ret != -1)
+	result = 1;
+	while (power > 0)
 	{
-		if (write(fd, result, ret) == -1)
-			ret = -1;
+		result *= base;
+		power--;
 	}
-	free(result);
-	return (ret);
+	return (result);
 }

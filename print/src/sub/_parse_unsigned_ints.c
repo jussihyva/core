@@ -14,13 +14,13 @@ static char	*get_value_string(t_data *specs, uintmax_t value)
 	char	*result;
 
 	if (specs->conversion == 'o')
-		result = ft_uintmax_itoa_base(value, 8, 0);
+		result = _uintmax_itoa_base(value, 8, 0);
 	else if (specs->conversion == 'u')
-		result = ft_uintmax_itoa_base(value, 10, 0);
+		result = _uintmax_itoa_base(value, 10, 0);
 	else if (specs->conversion == 'x')
-		result = ft_uintmax_itoa_base(value, 16, 0);
+		result = _uintmax_itoa_base(value, 16, 0);
 	else
-		result = ft_uintmax_itoa_base(value, 16, 1);
+		result = _uintmax_itoa_base(value, 16, 1);
 	return (result);
 }
 
@@ -70,7 +70,7 @@ static size_t	update_uint_specs(t_data *specs, uintmax_t value, char *value_str)
 	return (len + specs->min_field_width);
 }
 
-int	parse_unsigned_ints(t_data *specs, va_list *ap, char **result)
+int	_parse_unsigned_ints(t_data *specs, va_list *ap, char **result)
 {
 	uintmax_t	value;
 	char		*value_str;
@@ -81,7 +81,7 @@ int	parse_unsigned_ints(t_data *specs, va_list *ap, char **result)
 	if (value_str == NULL)
 		return (-1);
 	len = update_uint_specs(specs, value, value_str);
-	*result = parse_int_result(specs, value_str, len);
+	*result = _parse_int_result(specs, value_str, len);
 	free(value_str);
 	if (*result == NULL)
 		return (-1);

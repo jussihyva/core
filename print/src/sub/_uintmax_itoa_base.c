@@ -9,7 +9,7 @@
 #include "../../inc/core.h"
 #include "../inc/print_internal.h"
 
-char	*ft_uintmax_itoa_base(uintmax_t value, int base, int uppercase)
+char	*_uintmax_itoa_base(uintmax_t value, int base, int uppercase)
 {
 	char	*result;
 	char	*digits;

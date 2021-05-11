@@ -32,16 +32,16 @@ char	*parse_double_result(t_data *specs, char *value_str, size_t len)
 	i = 0;
 	if (specs->min_field_width > 0 && !specs->zero_padding
 		&& !specs->neg_field_width)
-		i += add_padding(specs->min_field_width, ' ', &result[i]);
-	i += add_prefix(specs, &result[i]);
+		i += _add_padding(specs->min_field_width, ' ', &result[i]);
+	i += _add_prefix(specs, &result[i]);
 	if (specs->min_field_width > 0 && specs->zero_padding
 		&& !specs->neg_field_width)
-		i += add_padding(specs->min_field_width, '0', &result[i]);
-	i += add_number(specs, value_str, &result[i]);
+		i += _add_padding(specs->min_field_width, '0', &result[i]);
+	i += _add_number(specs, value_str, &result[i]);
 	if (specs->precision == 0 && specs->alt_form)
 		result[i++] = '.';
 	if (specs->min_field_width > 0 && specs->neg_field_width)
-		i += add_padding(specs->min_field_width, ' ', &result[i]);
+		i += _add_padding(specs->min_field_width, ' ', &result[i]);
 	result[i] = '\0';
 	return (result);
 }
@@ -86,7 +86,7 @@ static void	update_double_specs(t_data *specs, double value)
 	}
 }
 
-int	parse_doubles(t_data *specs, va_list *ap, char **result)
+int	_parse_doubles(t_data *specs, va_list *ap, char **result)
 {
 	double		value;
 	char		*value_str;
@@ -97,7 +97,7 @@ int	parse_doubles(t_data *specs, va_list *ap, char **result)
 	else
 		value = (double)va_arg(*ap, long double);
 	update_double_specs(specs, value);
-	value_str = ft_dtoa(value, specs->precision);
+	value_str = _dtoa(value, specs->precision);
 	if (value_str == NULL)
 		return (-1);
 	len = get_result_length(specs, value, value_str);

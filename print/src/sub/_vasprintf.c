@@ -9,14 +9,14 @@
 #include "../../inc/core.h"
 #include "../inc/print_internal.h"
 
-int	ft_asprintf(char **ret, const char *format, ...)
+int	_vasprintf(char **ret, const char *format, va_list ap)
 {
-	va_list	ap;
 	int		ret_value;
+	va_list	ap_copy;
 
-	va_start(ap, format);
+	va_copy(ap_copy, ap);
 	*ret = NULL;
-	ret_value = ft_vasprintf(ret, format, ap);
-	va_end(ap);
+	ret_value = _parse(format, &ap_copy, ret);
+	va_end(ap_copy);
 	return (ret_value);
 }

@@ -9,7 +9,7 @@
 #include "../../inc/core.h"
 #include "../inc/print_internal.h"
 
-char	*ft_intmax_itoa_base(intmax_t value, int base)
+char	*_intmax_itoa_base(intmax_t value, int base)
 {
 	char	*result;
 	char	*digits;
@@ -27,7 +27,7 @@ char	*ft_intmax_itoa_base(intmax_t value, int base)
 		temp[i--] = '0';
 	while (value != 0)
 	{
-		temp[i--] = digits[ft_abs(value % base)];
+		temp[i--] = digits[_abs(value % base)];
 		value = value / base;
 	}
 	if (negative && base == 10)
