@@ -33,5 +33,5 @@ int	parse_pointer(t_data *specs, void *ptr, char **result)
 	free(value_str);
 	if (*result == NULL)
 		return (-1);
-	return (result_len);
+	return ((int)result_len);
 }

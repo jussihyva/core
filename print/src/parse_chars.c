@@ -72,7 +72,7 @@ int	parse_string(t_data *specs, char *str, char **result)
 	if (*result == NULL)
 		return (-1);
 	else
-		return (s_len(*result));
+		return ((int)s_len(*result));
 }
 
 int	parse_char(t_data *specs, char c, char **result)
@@ -82,5 +82,5 @@ int	parse_char(t_data *specs, char c, char **result)
 	*result = parse_str_result(specs, &c, 1);
 	if (*result == NULL)
 		return (-1);
-	return (specs->min_field_width + 1);
+	return ((int)specs->min_field_width + 1);
 }
