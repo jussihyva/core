@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jkoskela <jkoskela@student.42.fr>          +#+  +:+       +#+         #
+#    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2021/05/11 14:30:32 by jkoskela         ###   ########.fr        #
+#    Updated: 2021/05/11 19:02:18 by jkoskela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,30 +18,30 @@ SRC_DIR		=	src/
 INC_DIR		=	inc/
 OBJ_DIR		=	obj/
 
-SRC_BASE	=	mat_abs.c \
-				mat_ceil.c \
-				mat_cos.c \
-				mat_dcnt.c \
-				mat_dgr.c \
-				mat_fabs.c \
-				mat_fac.c \
-				mat_flabs.c \
-				mat_floor.c \
-				mat_fsign.c \
-				mat_intlen.c \
-				mat_ipow.c \
-				mat_log.c \
-				mat_modf.c \
-				mat_modl.c \
-				mat_nextprime.c \
-				mat_pow.c \
-				mat_prime.c \
-				mat_primefac.c \
-				mat_rad.c \
-				mat_roundl.c \
-				mat_sign.c \
-				mat_sin.c \
-				mat_sqrt.c \
+SRC_BASE	=	math_abs.c \
+				math_ceil.c \
+				math_cos.c \
+				math_dcnt.c \
+				math_dgr.c \
+				math_fabs.c \
+				math_fac.c \
+				math_flabs.c \
+				math_floor.c \
+				math_fsign.c \
+				math_intlen.c \
+				math_ipow.c \
+				math_log.c \
+				math_modf.c \
+				math_modl.c \
+				math_nextprime.c \
+				math_pow.c \
+				math_prime.c \
+				math_primefac.c \
+				math_rad.c \
+				math_roundl.c \
+				math_sign.c \
+				math_sin.c \
+				math_sqrt.c \
 
 SRC			=	$(addprefix $(SRC_DIR), $(SRC_BASE))
 OBJ			=	$(addprefix $(OBJ_DIR), $(SRC_BASE:.c=.o))
