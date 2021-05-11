@@ -1,0 +1,78 @@
+###############################################################################
+#
+# \authors Satu Koskinen
+#
+# \brief Add a new element to the beginning of a dynamic array.
+#
+# If the array is not sufficiently big a new memory area double the
+# alloc_size of the previous one is allocated.
+#
+# \param dst Destination array.
+# \param elem Element to be added.
+# \return 1 on success 0 on failure.
+#
+###############################################################################
+
+NAME		=	libchecks.a
+
+SRC_DIR		=	src/
+INC_DIR		=	inc/
+OBJ_DIR		=	obj/
+DEP_DIR		=	.deps/
+
+CC			=	gcc
+CFLAGS 		=	-O3 -Wall -Wextra -Werror -Wpedantic -Wtype-limits \
+				-Wunreachable-code -Wshadow -fPIC -Wconversion
+CPPFLAGS	=	-I $(INC_DIR)
+DEPFLAGS	=	-MT $@ -MMD -MP -MF $(DEP_DIR)$*.d
+COMPILE.c	=	$(CC) $(DEPFLAGS) $(CFLAGS) $(CPPFLAGS) -c
+
+SRC_BASE	=	is_alnum.c \
+				is_alpha.c \
+				is_ascii.c \
+				is_digit.c \
+				is_lower.c \
+				is_nan.c \
+				is_neg.c \
+				is_negf.c \
+				is_neginf.c \
+				is_numeric.c \
+				is_posinf.c \
+				is_print.c \
+				is_space.c \
+				is_upper.c \
+				is_wspace.c \
+
+SRC			=	$(addprefix $(SRC_DIR), $(SRC_BASE))
+OBJ			=	$(addprefix $(OBJ_DIR), $(SRC_BASE:.c=.o))
+
+all:
+				$(MAKE) -j $(NAME)
+
+$(NAME): $(OBJ)
+				@ar -rcs $(NAME) $(OBJ)
+				@echo "\\n\033[32;1mARRAY FUNCTIONS COMPILED\033[0m \\n"
+
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c $(DEP_DIR)%.d | $(OBJ_DIR) $(DEP_DIR)
+				@$(COMPILE.c) $< -o $@
+
+$(OBJ_DIR):
+				@mkdir -p $@
+
+$(DEP_DIR):
+				@mkdir -p $@
+
+DEPFILES = $(addprefix $(DEP_DIR), $(SRC_BASE:.c=.d))
+$(DEPFILES):
+
+clean:
+				@rm -rf $(OBJ_DIR) $(DEP_DIR)
+
+fclean: clean
+				@rm -rf $(NAME);
+
+re: fclean all
+
+.PHONY: all fclean clean re
+
+include $(wildcard $(DEPFILES))

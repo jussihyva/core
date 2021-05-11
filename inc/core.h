@@ -62,5 +62,6 @@
 # include "../math/inc/math.h"
 # include "../print/inc/print.h"
 # include "../string/inc/string.h"
+# include "../checks/inc/checks.h"
 
 #endif

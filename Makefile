@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
+#    By: jkoskela <jkoskela@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/22 22:32:30 by jkoskela          #+#    #+#              #
-#    Updated: 2021/05/11 01:47:36 by jkoskela         ###   ########.fr        #
+#    Updated: 2021/05/11 15:49:43 by jkoskela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ MAP 		=	map/
 MATH 		=	math/
 PRINT		=	print/
 STRING		=	string/
+CHECKS		=	checks/
 
 RM			=	rm -rf
 
@@ -39,6 +40,7 @@ all:
 			+@make -C $(MATH)
 			+@make -C $(PRINT)
 			+@make -C $(STRING)
+			+@make -C $(CHECKS)
 			@mkdir -p $(OBJ)
 			@cp $(MEM)obj/*.o $(OBJ)
 			@cp $(ARR)obj/*.o $(OBJ)
@@ -49,6 +51,7 @@ all:
 			@cp $(MAP)obj/*.o $(OBJ)
 			@cp $(PRINT)obj/*.o $(OBJ)
 			@cp $(STRING)obj/*.o $(OBJ)
+			@cp $(CHECKS)obj/*.o $(OBJ)
 			ar -rcs $(NAME) $(OBJ)*.o
 			@echo "\\n\033[32;1mCORE ACTIVATED \033[0m \\n"
 
@@ -63,6 +66,7 @@ clean:
 			@make clean -C $(MATH)
 			@make clean -C $(PRINT)
 			@make clean -C $(STRING)
+			@make clean -C $(CHECKS)
 			@echo "\\n\033[32;1mCORE DEACTIVATED \033[0m \\n"
 
 fclean:		clean
@@ -78,6 +82,7 @@ fclean:		clean
 			@make fclean -C $(MATH)
 			@make fclean -C $(PRINT)
 			@make fclean -C $(STRING)
+			@make fclean -C $(CHECKS)
 
 re:			fclean all
 

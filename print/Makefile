@@ -61,8 +61,8 @@ COMPILE.c = $(CC) $(DEPFLAGS) $(CFLAGS) $(CPPFLAGS) -c
 all: $(NAME)
 
 $(NAME): $(subst $(SRC_DIR), $(OBJ_DIR), $(SRC:.c=.o))
-	@echo "Create $@"
 	@ar rc $@ $^
+	@echo "\\n\033[32;1mPRINT FUNCTIONS COMPILED\033[0m \\n"
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(DEP_DIR) $(OBJ_DIR)
 	@$(COMPILE.c) -o $@ $<
