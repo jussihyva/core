@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   mem_cmp.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:31:25 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/07 23:08:20 by julius           ###   ########.fr       */
+/*   Updated: 2021/05/11 09:47:37 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/mem.h"
 
-static inline int
-cmp_small(uint8_t *restrict dst, const uint8_t *restrict src, size_t n)
+static inline
+int	cmp_small(uint8_t *restrict dst, const uint8_t *restrict src, size_t n)
 {
 	size_t	i;
 
@@ -27,34 +27,23 @@ cmp_small(uint8_t *restrict dst, const uint8_t *restrict src, size_t n)
 	return (0);
 }
 
-static inline int
-cmp512(uint64_t *restrict dst, const uint64_t *restrict src, size_t n)
+static inline
+int	cmp512(uint64_t *restrict dst, const uint64_t *restrict src, size_t n)
 {
-	size_t chunks;
-	size_t offset;
+	size_t	chunks;
+	size_t	offset;
+	size_t	unroll_count;
 
 	chunks = n >> 3;
 	offset = n - (chunks << 3);
 	while (chunks--)
 	{
-		if (*dst++ != *src++)
-			return (-1);
-		if (*dst++ != *src++)
-			return (-1);
-		if (*dst++ != *src++)
-			return (-1);
-		if (*dst++ != *src++)
-			return (-1);
-		if (*dst++ != *src++)
-			return (-1);
-		if (*dst++ != *src++)
-			return (-1);
-		if (*dst++ != *src++)
-			return (-1);
-		if (*dst++ != *src++)
-			return (-1);
-		if (*dst++ != *src++)
-			return (-1);
+		unroll_count = 9;
+		while (unroll_count--)
+		{
+			if (*dst++ != *src++)
+				return (-1);
+		}
 	}
 	while (offset--)
 		if (*dst++ != *src++)
@@ -62,20 +51,54 @@ cmp512(uint64_t *restrict dst, const uint64_t *restrict src, size_t n)
 	return (0);
 }
 
-int
-mem_cmp(const void *dst, const void *src, size_t n)
+// static inline
+// int	cmp512(uint64_t *restrict dst, const uint64_t *restrict src, size_t n)
+// {
+// 	size_t	chunks;
+// 	size_t	offset;
+
+// 	chunks = n >> 3;
+// 	offset = n - (chunks << 3);
+// 	while (chunks--)
+// 	{
+// 		if (*dst++ != *src++)
+// 			return (-1);
+// 		if (*dst++ != *src++)
+// 			return (-1);
+// 		if (*dst++ != *src++)
+// 			return (-1);
+// 		if (*dst++ != *src++)
+// 			return (-1);
+// 		if (*dst++ != *src++)
+// 			return (-1);
+// 		if (*dst++ != *src++)
+// 			return (-1);
+// 		if (*dst++ != *src++)
+// 			return (-1);
+// 		if (*dst++ != *src++)
+// 			return (-1);
+// 		if (*dst++ != *src++)
+// 			return (-1);
+// 	}
+// 	while (offset--)
+// 		if (*dst++ != *src++)
+// 			return (-1);
+// 	return (0);
+// }
+
+int	mem_cmp(const void *dst, const void *src, size_t n)
 {
 	uint8_t			*dst8;
 	const uint8_t	*src8;
 	size_t			qwords;
 	size_t			aligned_size;
 
-	dst8 = (uint8_t*)dst;
-	src8 = (const uint8_t*)src;
+	dst8 = (uint8_t *)dst;
+	src8 = (const uint8_t *)src;
 	qwords = n >> 3;
 	if (n > 8)
 	{
-		if ((cmp512((uint64_t*)dst, (const uint64_t*)src, qwords)) == -1)
+		if ((cmp512((uint64_t *)dst, (const uint64_t *)src, qwords)) == -1)
 			return (-1);
 	}
 	aligned_size = qwords << 3;

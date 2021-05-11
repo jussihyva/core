@@ -6,5 +6,5 @@ t_str	str_dup(const char *src)
 
 	new = str_new(s_len(src));
 	s_cpy(new, src);
-	return(new);
+	return (new);
 }

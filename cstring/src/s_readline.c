@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   s_readline.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/17 00:32:25 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/24 23:21:02 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/11 09:13:33 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cstr.h"
 
-static int		eof(char **mem, char **line, int r)
+static int	eof(char **mem, char **line, int r)
 {
 	if (r == 0 && *mem[0] != '\0')
 	{
@@ -27,16 +27,15 @@ static int		eof(char **mem, char **line, int r)
 	}
 }
 
-static int		readbuf(char **mem, char **line, int fd)
+static int	readbuf(char **mem, char **line, int fd)
 {
 	char			*tmp;
 	char			buff[READLINE_MAX_BUFF + 1];
 	int				r;
 
-	while ((r = read(fd, buff, READLINE_MAX_BUFF)))
+	r = read(fd, buff, READLINE_MAX_BUFF);
+	while (r)
 	{
-		if (r == -1)
-			return (-1);
 		buff[r] = '\0';
 		tmp = s_join(*mem, buff);
 		s_del(&*mem);
@@ -49,11 +48,14 @@ static int		readbuf(char **mem, char **line, int fd)
 			free(tmp);
 			return (1);
 		}
+		r = read(fd, buff, READLINE_MAX_BUFF);
 	}
+	if (r == -1)
+		return (-1);
 	return (eof(&*mem, &*line, r));
 }
 
-int				s_readline(const int fd, char **line)
+int	s_readline(const int fd, char **line)
 {
 	static char		*mem[READLINE_MAX_FD];
 	char			*tmp;

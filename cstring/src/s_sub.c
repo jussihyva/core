@@ -12,7 +12,7 @@
 
 #include "../inc/cstr.h"
 
-char			*s_sub(char const *s, unsigned int start, uint64_t len)
+char	*s_sub(char const *s, unsigned int start, uint64_t len)
 {
 	char		*out;
 	uint64_t	i;

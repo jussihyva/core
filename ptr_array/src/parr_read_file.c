@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parr_read_file.c                                      :+:      :+:    :+:   */
+/*   parr_read_file.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/12 11:22:01 by julius           ###   ########.fr       */
+/*   Updated: 2021/05/11 10:13:33 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,22 @@ ssize_t	parr_read_file(t_parray *dst, char *filename)
 		return (CR_FAIL);
 	if (filename == NULL)
 		return (CR_FAIL);
-	if (!(fd = open(filename, O_RDONLY)))
+	fd = open(filename, O_RDONLY);
+	if (!fd)
 		return (CR_FAIL);
 	line = NULL;
-	while ((ret = s_readline(fd, &line)))
+	ret = s_readline(fd, &line);
+	while (ret)
+	{
 		if (!(parr_add_last(dst, line)))
 			return (CR_FAIL);
+		ret = s_readline(fd, &line);
+	}
 	close(fd);
-	return (dst->len);
+	if (ret == -1)
+		return (-1);
+	else
+		return (dst->len);
 }
 
 /*

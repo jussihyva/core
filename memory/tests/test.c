@@ -1,21 +1,7 @@
 #include "../../inc/core.h"
 #include <assert.h> 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-typedef struct	s_test
+typedef struct s_test
 {
 	int			x;
 	float		y;
@@ -45,10 +31,6 @@ int		test_mem_cmp()
 	// Struct
 	return (1);
 }
-
-
-
-
 
 int		main(void)
 {

@@ -1,4 +1,4 @@
-/*******************************************************************************
+/******************************************************************************
  * \brief Backtrack edges in edge_list and store nodes in breadcrumbs.
  *
  * Traverses a list of edges from the node to the first node assuming that
@@ -7,11 +7,11 @@
  * \param breadcrumbs Traversed nodes.
  * \param edge_list List of edges as returned from breadth first search.
  * \return Distance of nodes travelled and -1 on failure.
- ******************************************************************************/
+ *****************************************************************************/
 
 #include "../inc/graph.h"
 
-ssize_t graph_edge_backtrack(t_array *node_path, t_array *edge_list)
+ssize_t	graph_edge_backtrack(t_array *node_path, t_array *edge_list)
 {
 	t_graph_node	*curr_node;
 	t_graph_edge	*curr_edge;

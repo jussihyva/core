@@ -1,5 +1,5 @@
-#ifndef LIBCSTR_H
-# define LIBCSTR_H
+#ifndef CSTR_H
+# define CSTR_H
 # include <stdlib.h>
 # include <fcntl.h>
 # include <unistd.h>

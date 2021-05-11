@@ -1,9 +1,9 @@
-/*******************************************************************************
+/******************************************************************************
  * \authors
  * \brief
  * \param
  * \return
- ******************************************************************************/
+ *****************************************************************************/
 
 #include "../inc/map.h"
 #include "../../inc/core.h"
@@ -24,7 +24,7 @@ void	*map_get(t_map *src, const char *key)
 		if (src->node[(hash_key + probe)
 				% src->capacity].key
 			&& s_cmp(src->node[(hash_key + probe)
-				% src->capacity].key,
+					% src->capacity].key,
 				key) == 0)
 			return (src->node[(hash_key + probe) % src->capacity].data);
 		probe = src->probe(i);

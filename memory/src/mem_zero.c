@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mem_zero.c                                          :+:      :+:    :+:   */
+/*   mem_zero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 03:25:38 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/12 15:31:13 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/11 09:38:51 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/mem.h"
 
-void		mem_zero(void *s, size_t n)
+void	mem_zero(void *s, size_t n)
 {
 	mem_set(s, 0, n);
 }

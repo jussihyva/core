@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parr_write_file.c                                  :+:      :+:    :+:   */
+/*   parr_write_file.c                                  :+:      :+:    :+:*/
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -45,28 +45,36 @@ ssize_t	write_file(FILE *file, t_parray *prepend,
 	return (1);
 }
 
+static
+FILE	*open_file(char *filename, ssize_t flag)
+{
+	FILE	*file;
+
+	if (flag == CR_APPEND)
+		file = fopen(filename, "a");
+	else
+		file = fopen(filename, "w");
+	return (file);
+}
+
 ssize_t	parr_write_file(char *dst, t_parray *src, ssize_t flag,
 		ssize_t (*f)(void *, void *))
 {
-	FILE	*file;
+	FILE		*file;
 	t_parray	prepend;
 
 	if (parr_null(src))
 		return (CR_FAIL);
 	prepend = parr_new(1);
-	if (flag == CR_PREPEND)
-		if (!(parr_read_file(&prepend, dst)))
-			return (CR_FAIL);
-	file = fopen(dst, "w");
-	if ((flag == CR_WRITE || flag == CR_PREPEND) && !file)
+	if (flag == CR_PREPEND && !(parr_read_file(&prepend, dst)))
 		return (CR_FAIL);
-	else if (flag == CR_APPEND && !(file = fopen(dst, "a")))
+	file = open_file(dst, flag);
+	if (!file)
 		return (CR_FAIL);
 	if (!(write_file(file, src, f)))
 		return (CR_FAIL);
-	if (flag == CR_PREPEND)
-		if (!(write_file(file, &prepend, f)))
-			return (CR_FAIL);
+	if (flag == CR_PREPEND && !(write_file(file, &prepend, f)))
+		return (CR_FAIL);
 	parr_free(&prepend);
 	if (file)
 		fclose(file);

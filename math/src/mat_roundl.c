@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   math_roundl.c                                         :+:      :+:    :+:   */
+/*   mat_roundl.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 19:35:26 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/02/08 21:40:13 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/11 09:30:11 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/core.h"
 
-typedef struct		s_uint80
+typedef struct s_uint80
 {
 	uint64_t		u64;
 	uint16_t		u16;
 }					t_uint80;
 
-typedef union		u_ldbits
+typedef union u_ldbits
 {
 	long double		ldbl;
 	t_uint80		u80;
 }					t_ldbits;
 
-long double			math_roundl(long double x)
+long double	math_roundl(long double x)
 {
 	long double		toint;
 	t_ldbits		u;

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parr_join.c                                           :+:      :+:    :+:   */
+/*   parr_join.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/14 16:29:34 by julius           ###   ########.fr       */
+/*   Updated: 2021/05/11 09:49:31 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 ssize_t	parr_join(t_parray *dst, size_t len, ...)
 {
-	va_list	ap;
+	va_list		ap;
 	t_parray	*tmp;
-	size_t	i;
+	size_t		i;
 
 	va_start(ap, len);
 	if (parr_null(dst))

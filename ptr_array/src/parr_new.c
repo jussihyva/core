@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parr_new.c                                            :+:      :+:    :+:   */
+/*   parr_new.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/13 13:09:15 by julius           ###   ########.fr       */
+/*   Updated: 2021/05/11 09:51:32 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ t_parray	parr_new(size_t size)
 
 	out.size = size;
 	out.len = 0;
-	if (!(out.data = (void **)malloc(sizeof(void *) * size)))
+	out.data = (void **)malloc(sizeof(void *) * size);
+	if (!out.data)
 	{
 		printf("Allocation failed in function: map_new!\n");
 		return ((t_parray){NULL, 0, 0});

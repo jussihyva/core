@@ -15,4 +15,3 @@ void	map_print(t_map *m)
 		i++;
 	}
 }
-

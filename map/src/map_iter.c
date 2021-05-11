@@ -1,14 +1,14 @@
 #include "../../inc/core.h"
 
-void    map_iter(t_map *src, ssize_t (*f)(void *, size_t))
+void	map_iter(t_map *src, ssize_t (*f)(void *, size_t))
 {
-    size_t  i;
+	size_t	i;
 
-    i = 0;
-    while (i < src->capacity)
-    {
-        if (!map_null_node(&src->node[i]))
+	i = 0;
+	while (i < src->capacity)
+	{
+		if (!map_null_node(&src->node[i]))
 			f(src->node[i].data, i);
-        i++;
-    }
+		i++;
+	}
 }

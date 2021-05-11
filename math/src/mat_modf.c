@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   math_modf.c                                           :+:      :+:    :+:   */
+/*   mat_modf.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 00:50:32 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/07 20:57:56 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/11 09:32:32 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/core.h"
 
-typedef union		u_double
+typedef union u_double
 {
 	double			f;
 	uint64_t		i;
@@ -37,7 +37,7 @@ static double	aux(double x, double *iptr, t_double u, int e)
 	return (0);
 }
 
-double			math_modf(double x, double *iptr)
+double	math_modf(double x, double *iptr)
 {
 	t_double	u;
 	uint64_t	mask;
@@ -46,7 +46,8 @@ double			math_modf(double x, double *iptr)
 
 	u = (t_double)x;
 	e = (int)(u.i >> 52 & 0x7ff) - 0x3ff;
-	if ((ret = aux(x, iptr, u, e)))
+	ret = aux(x, iptr, u, e);
+	if (ret)
 		return (ret);
 	mask = -1ULL >> 12 >> e;
 	if ((u.i & mask) == 0)
