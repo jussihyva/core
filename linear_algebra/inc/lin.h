@@ -25,13 +25,6 @@ typedef struct s_vec2
 	double		v[2];
 }				t_vec2;
 
-typedef struct	s_mat
-{
-	double		*m;
-	size_t		x;
-	size_t		y;
-}				t_mat;
-
 typedef struct s_mat4
 {
 	double		m[16];
