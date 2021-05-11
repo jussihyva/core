@@ -13,17 +13,12 @@
 # include <stdint.h>
 # include <unistd.h>
 
-/**
- * \struct A dynamic array structure
- */
 typedef struct s_array
 {
-	/*@{*/
-	uint8_t		*data; /**< Array memory */
-	size_t		len; /**< Length and amount of elements in the array */
-	size_t		alloc_size; /**< Capacity of the array at current allocation */
-	size_t		elem_size; /**< Size of an element in the array */
-	/*@}*/
+	uint8_t		*data;
+	size_t		len;
+	size_t		alloc_size;
+	size_t		elem_size;
 }				t_array;
 
 t_array			arr_new(size_t len, size_t elem_size);

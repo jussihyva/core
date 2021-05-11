@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
+#    By: jkoskela <jkoskela@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2021/05/11 00:25:00 by jkoskela         ###   ########.fr        #
+#    Updated: 2021/05/11 14:23:08 by jkoskela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ all:
 
 $(NAME): $(OBJ) Makefile
 				@ar -rcs $(NAME) $(OBJ)
-				@echo "\\n\033[32;1mMEMORY FUNCTIONS COMPILED\033[0m \\n"
+				@echo "\\n\033[32;1mLINEAR ALGEBRA FUNCTIONS COMPILED\033[0m \\n"
 
 $(DIR):
 				@mkdir -p $@

@@ -16,7 +16,7 @@
 # include <sys/types.h>
 
 int				print(const char *format, ...);
-int				fd_print(int fd, const char *format, ...);
+int				print_fd(int fd, const char *format, ...);
 char			*format(const char *format, ...);
 
 #endif

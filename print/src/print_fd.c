@@ -9,7 +9,7 @@
 #include "../../inc/core.h"
 #include "../inc/print_internal.h"
 
-int	fd_print(int fd, const char *format, ...)
+int	print_fd(int fd, const char *format, ...)
 {
 	va_list	ap;
 	char	*result;
