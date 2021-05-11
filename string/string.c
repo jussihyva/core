@@ -2,21 +2,31 @@
 
 typedef char *	t_str;
 
-
-
-
-
 t_str	str_new(size_t len)
 {
 	t_str	new;
 
 	new = (char *)malloc(sizeof(char) * len + 9);
-	memcpy(new, &len, 8);	
+	if (!new)
+	{
+		printf("Allocation failed in function: arr_new!\n");
+		exit(-1);
+	}
+	mem_cpy(new, &len, 8);
 	new[len + 8] = '\0';
 	return (&new[8]);
 }
 
-t_str	str(char *src)
+t_str	str_dup(char *src)
+{
+	t_str	new;
+
+	new = str_new(s_len(src));
+	s_cpy(new, src);
+	return(new);
+}
+
+t_str	str_cpy(char *src)
 {
 	t_str	new;
 
@@ -29,7 +39,7 @@ size_t	str_len(t_str src)
 {
 	size_t	len;
 
-	memcpy(&len, &src[-8], 8);
+	mem_cpy(&len, &src[-8], 8);
 	return (len);
 }
 

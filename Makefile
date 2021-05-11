@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+         #
+#    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/22 22:32:30 by jkoskela          #+#    #+#              #
-#    Updated: 2021/05/10 18:04:40 by skoskine         ###   ########.fr        #
+#    Updated: 2021/05/11 01:47:36 by jkoskela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ CSTR 		=	cstring/
 GRAPH 		=	graph/
 MAP 		=	map/
 MATH 		=	math/
-FT_PRINTF	=	ft_printf/
+PRINT		=	print/
+STRING		=	string/
 
 RM			=	rm -rf
 
@@ -36,7 +37,8 @@ all:
 			+@make -C $(GRAPH)
 			+@make -C $(MAP)
 			+@make -C $(MATH)
-			+@make -C $(FT_PRINTF)
+			+@make -C $(PRINT)
+			+@make -C $(STRING)
 			@mkdir -p $(OBJ)
 			@cp $(MEM)obj/*.o $(OBJ)
 			@cp $(ARR)obj/*.o $(OBJ)
@@ -45,7 +47,8 @@ all:
 			@cp $(CSTR)obj/*.o $(OBJ)
 			@cp $(GRAPH)obj/*.o $(OBJ)
 			@cp $(MAP)obj/*.o $(OBJ)
-			@cp $(FT_PRINTF)obj/*.o $(OBJ)
+			@cp $(PRINT)obj/*.o $(OBJ)
+			@cp $(STRING)obj/*.o $(OBJ)
 			ar -rcs $(NAME) $(OBJ)*.o
 			@echo "\\n\033[32;1mCORE ACTIVATED \033[0m \\n"
 
@@ -58,7 +61,8 @@ clean:
 			@make clean -C $(GRAPH)
 			@make clean -C $(MAP)
 			@make clean -C $(MATH)
-			@make clean -C $(FT_PRINTF)
+			@make clean -C $(PRINT)
+			@make clean -C $(STRING)
 			@echo "\\n\033[32;1mCORE DEACTIVATED \033[0m \\n"
 
 fclean:		clean
@@ -72,7 +76,8 @@ fclean:		clean
 			@make fclean -C $(GRAPH)
 			@make fclean -C $(MAP)
 			@make fclean -C $(MATH)
-			@make fclean -C $(FT_PRINTF)
+			@make fclean -C $(PRINT)
+			@make fclean -C $(STRING)
 
 re:			fclean all
 

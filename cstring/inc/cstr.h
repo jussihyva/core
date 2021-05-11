@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   str.h                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/16 01:16:02 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/06 06:38:27 by julius           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef LIBCSTR_H
 # define LIBCSTR_H
 # include <stdlib.h>
@@ -22,13 +10,6 @@
 # define READLINE_MAX_BUFF 1
 # define READLINE_MAX_FD 2
 
-/*
-**  ----------------------------------------------------------------------------
-**
-**	Strings
-**
-**	Functions for string manipulation and allocations.
-*/
 char				*s_cat(char *dest, const char *src);
 char				*s_ncat(char *dest, const char *src, uint64_t n);
 uint64_t			s_lcat(char *dst, const char *src, uint64_t size);

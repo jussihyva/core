@@ -11,10 +11,10 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	libstr.a
+NAME		=	libcstr.a
 
 CC			=	gcc
-FLAGS 		=	-O3 -Wall -Wextra -Werror -Wpedantic -Wtype-limits -Wswitch-default -Wunreachable-code -Wpadded -Wshadow -fPIC
+FLAGS 		=	-O3 -Wall -Wextra -Werror -Wpedantic -Wtype-limits -Wswitch-default -Wunreachable-code  -Wshadow -fPIC
 
 SRC_DIR		=	src/
 INC_DIR		=	inc/

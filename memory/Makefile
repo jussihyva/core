@@ -6,14 +6,14 @@
 #    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2021/05/07 22:43:20 by julius           ###   ########.fr        #
+#    Updated: 2021/05/11 00:25:00 by jkoskela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	libmem.a
 
 CC			=	gcc
-FLAGS 		=	-O3 -Wall -Wextra -Werror -Wpedantic -Wtype-limits -Wswitch-default -Wunreachable-code -Wpadded -Wshadow -fPIC
+FLAGS 		=	-O3 -Wall -Wextra -Werror -Wpedantic -Wtype-limits -Wswitch-default -Wunreachable-code  -Wshadow -fPIC
 
 SRC_DIR		=	src/
 INC_DIR		=	inc/
