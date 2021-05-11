@@ -17,7 +17,7 @@ void	test_unsigned_long_long_int(int use_ftprintf)
 	printf_ptr("Basic tests for unsigned long long %%llo %%llu %%llx %%llX\n");
 	printf_ptr("------------------------------------------\n");
 
-	unsigned long long unsigned_long_long[3] = { 0, 392082, ULONG_LONG_MAX };
+	unsigned long long unsigned_long_long[3] = { 0, 392082, ULLONG_MAX };
 
 	i = 0;
 	while (i < 3)

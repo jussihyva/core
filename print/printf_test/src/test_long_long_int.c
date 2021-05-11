@@ -17,7 +17,7 @@ void	test_long_long_int(int use_ftprintf)
 	printf_ptr("Basic tests for long long %%lld %%lli\n");
 	printf_ptr("---------------------------------------\n");
 
-	long long	signed_long_long[] = {0, 42, -10, LONG_LONG_MAX, LONG_LONG_MIN};
+	long long	signed_long_long[] = {0, 42, -10, LLONG_MAX, LLONG_MIN};
 
 	i = 0;
 	while (i < 4)
@@ -60,7 +60,7 @@ void	test_long_long_int(int use_ftprintf)
 
 		ret = printf_ptr("20 '%% -1.5' '% -1.5lld' '% -1.5lli'\n", signed_long_long[i], signed_long_long[i]);
 		printf_ptr("ret is %d\n", ret);
-		
+
 		ret = printf_ptr("21 '%% -1.0' '% -1.0lld' '% -1.0lli'\n", signed_long_long[i], signed_long_long[i]);
 		printf_ptr("ret is %d\n", ret);
 

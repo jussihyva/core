@@ -36,7 +36,7 @@ void	test_double(int use_ftprintf)
 		18014398509481985.0,
 		18014398509481986.0,
 		36028797018963968.2433,
-		-1.0/0, 1.0/0, 0.0/0, -0.0/0,
+		-1.0/0.0, 1.0/0.0, 0.0/0.0, -0.0/0.0,
 		};
 
 	if (use_ftprintf)
@@ -79,7 +79,7 @@ void	test_double(int use_ftprintf)
 		printf_ptr("ret is %d\n", ret);
 
 		printf_ptr("\n\n\n\n\n\n\n\n");
-		
+
 		i++;
 	}
 }

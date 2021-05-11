@@ -39,6 +39,7 @@ all:
 			@mv $(MAP)obj/*.o $(OBJ)
 			@mv $(MATH)obj/*.o $(OBJ)
 			@mv $(PRINT)obj/*.o $(OBJ)
+			@mv $(PRINT)obj/sub/*.o $(OBJ)
 			@mv $(STRING)obj/*.o $(OBJ)
 			@mv $(CHECKS)obj/*.o $(OBJ)
 			@ar -rcs $(NAME) $(OBJ)*.o

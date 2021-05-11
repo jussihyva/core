@@ -35,7 +35,7 @@ void	test_long_double(int use_ftprintf)
 		18014398509481985.0l,
 		18014398509481986.0l,
 		36028797018963968.2433l,
-		-1.0/0l, 1.0/0l, 0.0/0l, -0.0/0l
+		-1.0/0.0l, 1.0/0.0l, 0.0/0.0l, -0.0/0.0l
 	};
 
 	if (use_ftprintf)
@@ -46,7 +46,7 @@ void	test_long_double(int use_ftprintf)
 	printf_ptr("---------------------------\n");
 	printf_ptr("Basic tests for long double %%Lf %%LF\n");
 	printf_ptr("---------------------------\n");
-	
+
 	i = 0;
 	while (i < 50)
 	{
@@ -78,7 +78,7 @@ void	test_long_double(int use_ftprintf)
 		printf_ptr("ret is %d\n", ret);
 
 		printf_ptr("\n\n\n\n\n\n\n\n");
-		
+
 		i++;
 	}
 }
