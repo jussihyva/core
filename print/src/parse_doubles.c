@@ -50,7 +50,7 @@ size_t	get_result_length(t_data *specs, double value, char *value_str)
 {
 	size_t	len;
 
-	if (ft_isnan(value) || ft_isposinf(value) || ft_isneginf(value))
+	if (is_nan(value) || is_posinf(value) || is_neginf(value))
 		len = 3;
 	else
 	{
@@ -62,7 +62,7 @@ size_t	get_result_length(t_data *specs, double value, char *value_str)
 	if (specs->is_negative)
 		len++;
 	else if (!specs->is_negative
-		&& (specs->plus_signed || specs->blank_signed) && !ft_isnan(value))
+		&& (specs->plus_signed || specs->blank_signed) && !is_nan(value))
 		len++;
 	return (len);
 }
@@ -71,14 +71,14 @@ static void	update_double_specs(t_data *specs, double value)
 {
 	if (!specs->has_precision)
 		specs->precision = 6;
-	specs->is_negative = ft_isnegative(value);
-	if (ft_isnan(value) || ft_isposinf(value) || ft_isneginf(value))
+	specs->is_negative = is_neg(value);
+	if (is_nan(value) || is_posinf(value) || is_neginf(value))
 	{
 		specs->precision = 0;
 		specs->alt_form = 0;
 		specs->zero_padding = 0;
 	}
-	if (ft_isnan(value))
+	if (is_nan(value))
 	{
 		specs->plus_signed = 0;
 		specs->blank_signed = 0;

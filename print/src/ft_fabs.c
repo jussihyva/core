@@ -19,7 +19,7 @@ long double	ft_fabsl(long double nbr)
 
 double	ft_fabs(double nbr)
 {
-	if (ft_isnegative(nbr))
+	if (is_neg(nbr))
 		return (-nbr);
 	else
 		return (nbr);

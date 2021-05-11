@@ -28,11 +28,11 @@ double	ft_modf(double value, double *iptr)
 	double				sign;
 
 	*iptr = value;
-	if (value == 0.0 || value == -0.0 || ft_isnan(value))
+	if (value == 0.0 || value == -0.0 || is_nan(value))
 		return (value);
-	else if (ft_isposinf(value))
+	else if (is_posinf(value))
 		return (0.0);
-	else if (ft_isneginf(value))
+	else if (is_neginf(value))
 		return (-0.0);
 	mem_cpy_safe(&double_as_int, &value, sizeof(value));
 	sign = get_sign(double_as_int);

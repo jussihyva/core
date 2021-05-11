@@ -6,7 +6,7 @@
  *
  *****************************************************************************/
 
-int	ft_isposinf(double nbr)
+int	is_posinf(double nbr)
 {
 	if (nbr == 1.0 / 0.0)
 		return (1);

@@ -6,7 +6,7 @@
  *
  *****************************************************************************/
 
-int	ft_isnan(double nbr)
+int	is_nan(double nbr)
 {
 	if (nbr != nbr)
 		return (1);

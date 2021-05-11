@@ -31,7 +31,7 @@ static int	add_integral_part(char *result, double int_part, int len)
 	int		int_tmp;
 
 	i = 0;
-	if (ft_isnegative(int_part))
+	if (is_neg(int_part))
 		result[i++] = '-';
 	int_part = ft_fabs(int_part);
 	while (len > 0)
@@ -76,7 +76,7 @@ static int	result_len(double int_part, size_t precision)
 	int	len;
 
 	len = int_part_len(int_part);
-	if (ft_isnegative(int_part))
+	if (is_neg(int_part))
 		len++;
 	len += (int)precision;
 	if (precision > 0)
@@ -90,11 +90,11 @@ char	*ft_dtoa(double nbr, size_t precision)
 	double		int_part;
 	long double	frac_part;
 
-	if (ft_isnan(nbr))
+	if (is_nan(nbr))
 		return (s_dup("nan"));
-	else if (ft_isposinf(nbr))
+	else if (is_posinf(nbr))
 		return (s_dup("inf"));
-	else if (ft_isneginf(nbr))
+	else if (is_neginf(nbr))
 		return (s_dup("-inf"));
 	frac_part = round_double(ft_modf(nbr, &int_part), precision);
 	if (frac_part >= 1.0 || frac_part <= -1)
@@ -104,7 +104,7 @@ char	*ft_dtoa(double nbr, size_t precision)
 	}
 	else if (rounds_half_to_even(nbr, (int)precision)
 		&& (uintmax_t)(ft_fabs(int_part) + 1) % 2 == 0)
-		int_part += ft_isnegative(nbr) * -1.0 + (1 - ft_isnegative(nbr)) * 1.0;
+		int_part += is_neg(nbr) * -1.0 + (1 - is_neg(nbr)) * 1.0;
 	result = (char *)mem_alloc((size_t)result_len(int_part, precision) + 1);
 	if (result == NULL)
 		return (NULL);

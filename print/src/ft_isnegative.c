@@ -9,7 +9,7 @@
 #include "../../inc/core.h"
 #include "../inc/print_internal.h"
 
-int	ft_isnegative(double nbr)
+int	is_neg(double nbr)
 {
 	unsigned long long	double_as_int;
 	unsigned char		sign;

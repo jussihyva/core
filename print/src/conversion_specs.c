@@ -37,7 +37,7 @@ int	get_precision(t_data *specs, const char *format)
 	specs->precision = (size_t)ft_atoi(&format[i]);
 	if (specs->precision == 0)
 		specs->zero_precision = 1;
-	while (ft_isdigit(format[i]))
+	while (is_digit(format[i]))
 		i++;
 	return (i);
 }
@@ -48,7 +48,7 @@ int	get_min_field_width(t_data *specs, const char *format)
 
 	i = 0;
 	specs->min_field_width = (size_t)ft_atoi(&format[i]);
-	while (ft_isdigit(format[i]))
+	while (is_digit(format[i]))
 		i++;
 	return (i);
 }
@@ -82,7 +82,7 @@ int	get_conversion_specs(t_data *specs, const char *format)
 
 	i = 0;
 	i += get_flags(specs, format);
-	if (ft_isdigit(format[i]))
+	if (is_digit(format[i]))
 		i += get_min_field_width(specs, &format[i]);
 	if (format[i] == '.')
 		i += get_precision(specs, &format[i]);

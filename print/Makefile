@@ -8,10 +8,6 @@ MATH_SRC = $(addprefix src/, \
 	ft_dpow.c \
 	ft_abs.c \
 	ft_fabs.c \
-	ft_isnan.c \
-	ft_isnegative.c \
-	ft_isneginf.c \
-	ft_isposinf.c \
 	ft_modf.c \
 	ft_uintmax_pow.c \
 	ft_atoi.c \
@@ -22,8 +18,6 @@ MEM_SRC = $(addprefix src/, \
 )
 
 STR_SRC = $(addprefix src/, \
-	ft_isdigit.c \
-	ft_isspace.c \
 	ft_intmax_itoa_base.c \
 	ft_uintmax_itoa_base.c \
 )

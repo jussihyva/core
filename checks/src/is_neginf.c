@@ -8,9 +8,9 @@
 
 #include "../../inc/core.h"
 
-int	is_neginf(double nbr)
+int	is_neginf(double n)
 {
-	if (nbr == -1.0 / 0.0)
+	if (n == -1.0 / 0.0)
 		return (CR_TRUE);
 	return (CR_FALSE);
 }

@@ -6,7 +6,7 @@
  *
  *****************************************************************************/
 
-int	ft_isneginf(double nbr)
+int	is_neginf(double nbr)
 {
 	if (nbr == -1.0 / 0.0)
 		return (1);

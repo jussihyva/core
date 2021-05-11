@@ -74,7 +74,7 @@ long double	round_double(double nbr, size_t precision)
 		div *= 10;
 	if (rounds_half_to_even(nbr, (int)precision))
 		long_nbr = round_half_to_even(nbr, div, precision);
-	if (ft_isnegative(nbr))
+	if (is_neg(nbr))
 		long_nbr = (long_nbr - 0.5 / div);
 	else
 		long_nbr = (long_nbr + 0.5 / div);
