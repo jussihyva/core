@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
+#    By: jkoskela <jkoskela@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2021/05/07 22:42:43 by julius           ###   ########.fr        #
+#    Updated: 2021/05/11 14:30:32 by jkoskela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	libarr.a
+NAME		=	libmath.a
 
 CC			=	gcc
 CFLAGS 		=	-O3 -Wall -Wextra -Werror -fPIC
@@ -51,7 +51,7 @@ all:
 
 $(NAME): $(OBJ)
 				@ar -rcs $(NAME) $(OBJ)
-				@echo "\\n\033[32;1mARRAY FUNCTIONS COMPILED\033[0m \\n"
+				@echo "\\n\033[32;1mMATH FUNCTIONS COMPILED\033[0m \\n"
 
 $(OBJ_DIR):
 				@mkdir -p $@
