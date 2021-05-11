@@ -13,7 +13,7 @@
 #
 ###############################################################################
 
-NAME		=	libarr.a
+NAME		=	libstr.a
 
 SRC_DIR		=	src/
 INC_DIR		=	inc/
@@ -27,35 +27,10 @@ CPPFLAGS	=	-I $(INC_DIR)
 DEPFLAGS	=	-MT $@ -MMD -MP -MF $(DEP_DIR)$*.d
 COMPILE.c	=	$(CC) $(DEPFLAGS) $(CFLAGS) $(CPPFLAGS) -c
 
-SRC_BASE	=	arr_add.c \
-				arr_add_first.c \
-				arr_add_last.c \
-				arr_add_mult.c \
-				arr_new.c \
-				arr_put.c \
-				arr_free.c \
-				arr_del.c \
-				arr_del_first.c \
-				arr_del_last.c \
-				arr_get.c \
-				arr_get_first.c \
-				arr_get_last.c \
-				arr_iter.c \
-				arr_iter_range.c \
-				arr_join.c \
-				arr_join_mult.c \
-				arr_take.c \
-				arr_take_first.c \
-				arr_take_last.c \
-				arr_search.c \
-				arr_find.c \
-				arr_find_by.c \
-				arr_parse.c \
-				arr_null.c \
-				arr_grow.c \
-				arr_copy.c \
-				arr_rotate.c \
-				arr_assign.c \
+SRC_BASE	=	str_new.c \
+				str_dup.c \
+				str_len.c \
+				str_cmp.c \
 
 SRC			=	$(addprefix $(SRC_DIR), $(SRC_BASE))
 OBJ			=	$(addprefix $(OBJ_DIR), $(SRC_BASE:.c=.o))

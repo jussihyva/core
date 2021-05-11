@@ -60,7 +60,7 @@
 # include "../map/inc/map.h"
 # include "../graph/inc/graph.h"
 # include "../math/inc/math.h"
-
-# include "../ft_printf/inc/ft_printf.h"
+# include "../print/inc/print.h"
+# include "../string/inc/string.h"
 
 #endif
