@@ -16,7 +16,7 @@ static int	parse_conversion(t_data *specs, va_list *ap, char **result)
 	if (specs->conversion == '%')
 		ret = parse_char(specs, '%', result);
 	else if (specs->conversion == 'c')
-		ret = parse_char(specs, va_arg(*ap, int), result);
+		ret = parse_char(specs, (char)va_arg(*ap, int), result);
 	else if (specs->conversion == 's')
 		ret = parse_string(specs, va_arg(*ap, char *), result);
 	else if (specs->conversion == 'p')
@@ -32,9 +32,9 @@ static int	parse_conversion(t_data *specs, va_list *ap, char **result)
 	return (ret);
 }
 
-static int	append_to_result(char **result, int ret, int len, const char *str)
+static int	append_to_result(char **result, int len, int ret, const char *str)
 {
-	static int	arr_size = 100;
+	static size_t	arr_size = 100;
 
 	if (*result == NULL)
 	{
@@ -42,15 +42,16 @@ static int	append_to_result(char **result, int ret, int len, const char *str)
 		if (*result == NULL)
 			return (-1);
 	}
-	if (ret + len > arr_size)
+
+	if ((size_t)(ret + len) > arr_size)
 	{
-		*result = ft_realloc(*result, arr_size, arr_size * 2 + len + 1);
+		*result = ft_realloc(*result, arr_size, arr_size * 2 + (size_t)ret + 1);
 		if (*result == NULL)
 			return (-1);
-		arr_size = arr_size * 2 + len;
+		arr_size = arr_size * 2 + (size_t)ret;
 	}
-	mem_cpy(&(*result)[ret], str, len);
-	return (len);
+	mem_cpy_safe(&(*result)[len], str, (size_t)ret);
+	return (ret);
 }
 
 int	parse_next_item(const char *format, va_list *ap, char **result, int len)

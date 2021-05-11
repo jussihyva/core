@@ -9,9 +9,9 @@
 #include "../../inc/core.h"
 #include "../inc/print_internal.h"
 
-static int	get_int_part_len(char *value_str)
+static size_t	get_int_part_len(char *value_str)
 {
-	int	len;
+	size_t	len;
 
 	len = 0;
 	while (value_str[len] != '.' && value_str[len] != '\0')
@@ -46,7 +46,7 @@ char	*parse_double_result(t_data *specs, char *value_str, size_t len)
 	return (result);
 }
 
-int	get_result_length(t_data *specs, double value, char *value_str)
+size_t	get_result_length(t_data *specs, double value, char *value_str)
 {
 	size_t	len;
 
@@ -110,5 +110,5 @@ int	parse_doubles(t_data *specs, va_list *ap, char **result)
 	free(value_str);
 	if (*result == NULL)
 		return (-1);
-	return (len);
+	return ((int)len);
 }

@@ -1,15 +1,15 @@
-/******************************************************************************
+/*******************************************************************************
  *
  * \authors Satu Koskinen
  *
  * \brief
  *
- *****************************************************************************/
+ ******************************************************************************/
 
 #include "../../inc/core.h"
 #include "../inc/print_internal.h"
 
-int	print(const char *format, ...)
+int	fd_print(int fd, const char *format, ...)
 {
 	va_list	ap;
 	char	*result;
@@ -20,7 +20,7 @@ int	print(const char *format, ...)
 	ret = ft_vasprintf(&result, format, ap);
 	va_end(ap);
 	if (ret != -1)
-		ret = write(1, result, (size_t)ret);
+		ret = write(fd, result, (size_t)ret);
 	free(result);
 	return (ret);
 }

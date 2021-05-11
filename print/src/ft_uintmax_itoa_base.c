@@ -14,7 +14,7 @@ char	*ft_uintmax_itoa_base(uintmax_t value, int base, int uppercase)
 	char	*result;
 	char	*digits;
 	char	temp[64 + 1];
-	int		i;
+	size_t	i;
 
 	if (base < 2 || base > 16)
 		return (NULL);
@@ -28,8 +28,8 @@ char	*ft_uintmax_itoa_base(uintmax_t value, int base, int uppercase)
 		temp[i--] = '0';
 	while (value != 0)
 	{
-		temp[i--] = digits[value % base];
-		value = value / base;
+		temp[i--] = digits[value % (uintmax_t)base];
+		value = value / (uintmax_t)base;
 	}
 	result = (char *)malloc(64 - i + 1);
 	if (result == NULL)
