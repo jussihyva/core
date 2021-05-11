@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   s_cat.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:27:51 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/24 23:21:02 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/11 09:03:12 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cstr.h"
 
-char		*s_cat(char *s1, const char *s2)
+char	*s_cat(char *s1, const char *s2)
 {
 	char	*dst;
 	char	*src;

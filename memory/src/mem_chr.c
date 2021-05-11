@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mem_chr.c                                            :+:      :+:    :+:   */
+/*   mem_chr.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:31:19 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/12 15:31:13 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/11 09:39:21 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/mem.h"
 
-void		*mem_chr(const void *s, int c, size_t n)
+void	*mem_chr(const void *s, int c, size_t n)
 {
-	unsigned int i;
+	unsigned int	i;
 
 	i = 0;
 	while (i < n)

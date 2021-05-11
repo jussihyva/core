@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   s_dup.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:28:35 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/24 23:21:02 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/11 09:03:43 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cstr.h"
 
-char			*s_dup(const char *s1)
+char	*s_dup(const char *s1)
 {
 	char		*out;
 	uint64_t	i;

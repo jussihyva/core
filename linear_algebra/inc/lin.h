@@ -3,48 +3,48 @@
 /*                                                        :::      ::::::::   */
 /*   lin.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 06:09:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/25 01:12:32 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/11 09:19:08 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBLIN_H
-# define LIBLIN_H
+#ifndef LIN_H
+# define LIN_H
 # include "../../inc/core.h"
 
-typedef struct	s_vec4
+typedef struct s_vec4
 {
 	double		v[4];
 }				t_vec4;
 
-typedef struct	s_vec3
+typedef struct s_vec3
 {
 	double		v[3];
 }				t_vec3;
 
-typedef struct	s_vec2
+typedef struct s_vec2
 {
 	double		v[2];
 }				t_vec2;
 
-typedef struct	s_mat4
+typedef struct s_mat4
 {
 	double		m[16];
 }				t_mat4;
 
-typedef struct	s_mat3
+typedef struct s_mat3
 {
 	double		m[9];
 }				t_mat3;
 
-typedef struct	s_mat2
+typedef struct s_mat2
 {
 	double		m[4];
 }				t_mat2;
 
-typedef t_vec4 t_quat;
+typedef t_vec4	t_quat;
 
 /*
 **-----------------------------------------------------------------------------

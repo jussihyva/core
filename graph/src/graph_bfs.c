@@ -1,4 +1,4 @@
-/*******************************************************************************
+/******************************************************************************
  *
  * \authors Julius Koskela
  *
@@ -15,11 +15,11 @@
  *
  * \return An array containing a list of edges.
  *
- ******************************************************************************/
+ *****************************************************************************/
 
 #include "../inc/graph.h"
 
-static ssize_t graph_bfs_loop(
+static ssize_t	graph_bfs_loop(
 		t_array *bfs_queue,
 		t_array *res_edges,
 		t_graph_node *sink,
@@ -51,7 +51,7 @@ static ssize_t graph_bfs_loop(
 	return (graph_bfs_loop(bfs_queue, res_edges, sink, queue_index + 1));
 }
 
-t_array graph_bfs(
+t_array	graph_bfs(
 		t_graph *g,
 		const char *src_key,
 		const char *dst_key)

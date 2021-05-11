@@ -1,7 +1,7 @@
 #ifndef STRING_H
 # define STRING_H
 
-#include <unistd.h>
+# include <unistd.h>
 
 typedef char *	t_str;
 

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parr_add.c                                            :+:      :+:    :+:   */
+/*   parr_add.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/14 16:16:25 by julius           ###   ########.fr       */
+/*   Updated: 2021/05/11 09:49:38 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 ssize_t	parr_add(t_parray *arr, void *data, size_t index)
 {
 	t_parray	newarr;
-	void	*tmp;
-	size_t	i;
+	void		*tmp;
+	size_t		i;
 
 	if (index > arr->len)
 		return (CR_FAIL);

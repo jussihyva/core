@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   s_split.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:30:32 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/24 23:21:02 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/11 09:05:34 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cstr.h"
 
-static int			ft_cntwrd(char const *s, char c)
+static int	ft_cntwrd(char const *s, char c)
 {
 	unsigned int	i;
 	int				cntr;
@@ -31,7 +31,7 @@ static int			ft_cntwrd(char const *s, char c)
 	return (cntr);
 }
 
-static char			**ft_splitaux(char const *s, char c, char **tab)
+static char	**ft_splitaux(char const *s, char c, char **tab)
 {
 	int				i;
 	int				j;
@@ -58,7 +58,7 @@ static char			**ft_splitaux(char const *s, char c, char **tab)
 	return (tab);
 }
 
-char				**s_split(char const *s, char c)
+char	**s_split(char const *s, char c)
 {
 	char			**tab;
 

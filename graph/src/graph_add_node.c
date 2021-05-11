@@ -1,4 +1,4 @@
-/*******************************************************************************
+/******************************************************************************
  * \brief Add a node n to graph g.
  *
  * New adjacency lists in and out are created for the node, after which the
@@ -7,7 +7,7 @@
  * \param g Source graph.
  * \param n Node to be added.
  * \return Total amount of nodes in the graph on success or -1 on failure.
- ******************************************************************************/
+ *****************************************************************************/
 
 #include "../inc/graph.h"
 

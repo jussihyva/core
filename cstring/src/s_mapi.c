@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   s_mapi.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:29:34 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/24 23:21:02 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/11 09:04:52 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cstr.h"
 
-char		*s_mapi(char const *s, char (*f)(unsigned int, char))
+char	*s_mapi(char const *s, char (*f)(unsigned int, char))
 {
 	unsigned int	n;
 	char			*d;

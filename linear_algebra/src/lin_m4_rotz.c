@@ -25,4 +25,3 @@ t_mat4	lin_m4_rotz(double angle)
 	out.m[5] = cos(rad);
 	return (out);
 }
-

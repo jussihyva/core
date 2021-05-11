@@ -1,4 +1,4 @@
-/*******************************************************************************
+/******************************************************************************
  *
  * \authors Julius Koskela
  *
@@ -16,7 +16,7 @@
  *
  * \return Amount of elements iterated on success or 0 on failure.
  *
- ******************************************************************************/
+ *****************************************************************************/
 
 #include "../inc/arr.h"
 #include "../../inc/core.h"
@@ -29,9 +29,9 @@ ssize_t	arr_iter_range(t_array *src, size_t start, size_t end,
 
 	i = start;
 	if (arr_null(src)
-	|| start > src->len
-	|| end > src->len
-	|| start < end)
+		|| start > src->len
+		|| end > src->len
+		|| start < end)
 		return (CR_FAIL);
 	while (i < end)
 	{

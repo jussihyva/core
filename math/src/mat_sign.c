@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   math_sign.c                                           :+:      :+:    :+:   */
+/*   mat_sign.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 01:14:31 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/07 20:57:56 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/11 09:30:56 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/core.h"
 
-int					math_sign(int64_t n)
+int	math_sign(int64_t n)
 {
 	if (n != 0)
-		return (n > 0 ? 1 : -1);
+	{
+		if (n > 0)
+			return (1);
+		else
+			return (-1);
+	}
 	else
 		return (0);
 }

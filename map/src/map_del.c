@@ -1,4 +1,4 @@
-/*******************************************************************************
+/******************************************************************************
  *
  * \authors Julius Koskela
  *
@@ -9,7 +9,7 @@
  *
  * \return 1 on success 0 on failure.
  *
- ******************************************************************************/
+ *****************************************************************************/
 
 #include "../inc/map.h"
 #include "../../inc/core.h"
@@ -28,7 +28,7 @@ ssize_t	map_del(t_map *src, const char *key)
 		if (src->node[(hash_key + probe)
 				% src->capacity].key
 			&& s_cmp(src->node[(hash_key + probe)
-				% src->capacity].key, key) == 0)
+					% src->capacity].key, key) == 0)
 		{
 			src->node[(hash_key + probe) % src->capacity]
 				= CR_MAP_NULL_NODE;
@@ -39,4 +39,3 @@ ssize_t	map_del(t_map *src, const char *key)
 	}
 	return (0);
 }
-

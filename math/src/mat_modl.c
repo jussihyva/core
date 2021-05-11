@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   math_modl.c                                           :+:      :+:    :+:   */
+/*   mat_modl.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 16:50:28 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/07 20:57:56 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/11 09:32:08 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/core.h"
 
-typedef union		u_ldshape
+typedef union u_ldshape
 {
 	long double		f;
 	uint64_t		m;
 	uint16_t		se;
 }					t_ldshape;
 
-typedef struct		s_modl
+typedef struct s_modl
 {
 	t_ldshape		u;
 	int				e;
@@ -29,7 +29,7 @@ typedef struct		s_modl
 	long double		toint;
 }					t_modl;
 
-long double		math_modl(long double x, long double *iptr)
+long double	math_modl(long double x, long double *iptr)
 {
 	t_modl		vars;
 
@@ -40,11 +40,17 @@ long double		math_modl(long double x, long double *iptr)
 	if (vars.e >= LDBL_MANT_DIG - 1)
 	{
 		*iptr = x;
-		return (vars.s ? -0.0 : 0.0);
+		if (vars.s)
+			return (-0.0);
+		else
+			return (0.0);
 	}
 	if (vars.e < 0)
 	{
-		*iptr = vars.s ? -0.0 : 0.0;
+		if (vars.s)
+			*iptr = -0.0;
+		else
+			*iptr = 0.0;
 		return (x);
 	}
 	return (-vars.y);

@@ -12,7 +12,7 @@
 
 #include "../inc/cstr.h"
 
-int			s_cmp(const char *s1, const char *s2)
+int	s_cmp(const char *s1, const char *s2)
 {
 	unsigned int	i;
 

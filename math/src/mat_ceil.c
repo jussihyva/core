@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   math_ceil.c                                           :+:      :+:    :+:   */
+/*   mat_ceil.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 21:53:22 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/07 20:57:56 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/11 09:30:11 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/core.h"
 
-double			math_ceil(double f)
+double	math_ceil(double f)
 {
 	uint64_t	input;
 	int			exponent;

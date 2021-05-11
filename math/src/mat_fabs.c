@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   math_fabs.c                                           :+:      :+:    :+:   */
+/*   mat_fabs.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 01:47:47 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/01/23 17:14:32 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/11 09:30:11 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-double			math_fabs(double n)
+double	math_fabs(double n)
 {
 	if (n < 0)
 		return (n * -1);

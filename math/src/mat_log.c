@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   math_log.c                                            :+:      :+:    :+:   */
+/*   mat_log.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/02 16:26:55 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/07 20:57:56 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/11 09:30:11 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/core.h"
 
-int64_t					math_log(int64_t n)
+int64_t	math_log(int64_t n)
 {
 	static uint64_t	x = 0x07EDD5E59A4E28C2;
 	static int		tab64[64] = {

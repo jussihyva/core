@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   s_lenc.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 03:01:24 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/24 23:21:02 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/11 09:04:47 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cstr.h"
 
-int				s_lenc(char *s, char c)
+int	s_lenc(char *s, char c)
 {
 	uint64_t	i;
 

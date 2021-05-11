@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   math_abs.c                                            :+:      :+:    :+:   */
+/*   mat_abs.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 01:17:05 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/07 20:57:56 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/11 09:30:11 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/core.h"
 
-int64_t				math_abs(int64_t n)
+int64_t	math_abs(int64_t n)
 {
 	return (n * math_sign(n));
 }

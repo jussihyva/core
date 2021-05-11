@@ -7,4 +7,3 @@ ssize_t	map_free(t_map *src)
 	*src = CR_MAP_NULL;
 	return (CR_SUCCESS);
 }
-

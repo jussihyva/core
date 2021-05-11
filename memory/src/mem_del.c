@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mem_del.c                                            :+:      :+:    :+:   */
+/*   mem_del.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:31:48 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/12 15:29:34 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/11 09:38:57 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/mem.h"
 
-void		mem_del(void **ap)
+void	mem_del(void **ap)
 {
 	if (ap && *ap)
 	{

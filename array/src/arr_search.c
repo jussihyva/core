@@ -1,4 +1,4 @@
-/*******************************************************************************
+/******************************************************************************
  *
  * \authors Julius Koskela
  *
@@ -12,7 +12,7 @@
  *
  * \return Index of the fisrt matching element on success, -1 on failure.
  *
- ******************************************************************************/
+ *****************************************************************************/
 
 #include "../inc/arr.h"
 #include "../../inc/core.h"
@@ -31,7 +31,7 @@ ssize_t	arr_search(t_array *src, t_array *key)
 	while (i < src->len)
 	{
 		if (mem_cmp(&mem_src[key->elem_size * i],
-		mem_key, key->len * key->elem_size) == 0)
+				mem_key, key->len * key->elem_size) == 0)
 			return ((ssize_t)i);
 		i++;
 	}

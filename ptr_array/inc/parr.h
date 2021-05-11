@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parr.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 06:09:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/07 16:10:50 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/11 09:49:04 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define PARR_H
 # include "../../inc/core.h"
 
-typedef struct	s_parray
+typedef struct s_parray
 {
 	void		**data;
 	size_t		len;
@@ -27,7 +27,7 @@ typedef struct	s_parray
 **	General
 */
 
-t_parray			parr_new(size_t size);
+t_parray		parr_new(size_t size);
 ssize_t			parr_free(t_parray *arr);
 ssize_t			parr_grow(t_parray *arr, size_t new_size);
 ssize_t			parr_null(t_parray *arr);
@@ -80,16 +80,16 @@ ssize_t			parr_rotate(t_parray *arr, ssize_t steps);
 ssize_t			parr_dup(t_parray *dst, t_parray *src, size_t size);
 ssize_t			parr_read_file(t_parray *dst, char *filename);
 ssize_t			parr_write_file(char *dst, t_parray *src, ssize_t flag,
-				ssize_t (*f)(void *, void *));
+					ssize_t (*f)(void *, void *));
 ssize_t			parr_write(t_parray *dst, t_parray *src,
-				ssize_t (*f)(void *, void *));
+					ssize_t (*f)(void *, void *));
 ssize_t			parr_search(t_parray *dst, t_parray *src, void *key,
-				void *(*f)(void *, void *));
+					void *(*f)(void *, void *));
 void			*parr_find(t_parray *src, void *key,
-				void *(*f)(void *, void *));
+					void *(*f)(void *, void *));
 ssize_t			parr_iter(t_parray *arr,
-				ssize_t (*f)(void *, size_t));
+					ssize_t (*f)(void *, size_t));
 ssize_t			parr_parse(t_parray *dst, t_parray *src,
-				ssize_t (*f)(t_parray *, void *));
+					ssize_t (*f)(t_parray *, void *));
 
 #endif

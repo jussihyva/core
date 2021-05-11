@@ -1,4 +1,4 @@
-/*******************************************************************************
+/******************************************************************************
  *
  * \authors Julius Koskela
  *
@@ -13,7 +13,7 @@
  *
  * \return 1 on success and 0 on failure.
  *
- ******************************************************************************/
+ *****************************************************************************/
 
 #include "../inc/arr.h"
 #include "../../inc/core.h"
@@ -32,5 +32,5 @@ ssize_t	arr_join(t_array *dst, t_array *src)
 	mem_start = &mem_start[dst->len * dst->elem_size];
 	memcpy(mem_start, src->data, (newsize - dst->len) * dst->elem_size);
 	dst->len = newsize;
-	return(CR_SUCCESS);
+	return (CR_SUCCESS);
 }
