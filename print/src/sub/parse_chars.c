@@ -23,15 +23,15 @@ static char	*parse_str_result(t_data *specs, char *str, size_t str_len)
 	i = 0;
 	if (specs->min_field_width > 0 && !specs->zero_padding
 		&& !specs->neg_field_width)
-		i += add_padding(specs->min_field_width, ' ', &result[i]);
+		i += _add_padding(specs->min_field_width, ' ', &result[i]);
 	else if (specs->min_field_width > 0 && specs->zero_padding
 		&& !specs->neg_field_width)
-		i += add_padding(specs->min_field_width, '0', &result[i]);
+		i += _add_padding(specs->min_field_width, '0', &result[i]);
 	j = 0;
 	while (j < str_len)
 		result[i++] = str[j++];
 	if (specs->min_field_width > 0 && specs->neg_field_width)
-		i += add_padding(specs->min_field_width, ' ', &result[i]);
+		i += _add_padding(specs->min_field_width, ' ', &result[i]);
 	result[i] = '\0';
 	return (result);
 }
@@ -60,7 +60,7 @@ static size_t	update_str_specs(t_data *specs, char *str)
 	return (len);
 }
 
-int	parse_string(t_data *specs, char *str, char **result)
+int	_parse_string(t_data *specs, char *str, char **result)
 {
 	size_t	str_len;
 
@@ -75,7 +75,7 @@ int	parse_string(t_data *specs, char *str, char **result)
 		return ((int)s_len(*result));
 }
 
-int	parse_char(t_data *specs, char c, char **result)
+int	_parse_char(t_data *specs, char c, char **result)
 {
 	if (specs->min_field_width >= 1)
 		specs->min_field_width--;

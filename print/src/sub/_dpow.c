@@ -6,7 +6,7 @@
  *
  *****************************************************************************/
 
-double	ft_dpow(double base, int power)
+double	_dpow(double base, int power)
 {
 	double	result;
 

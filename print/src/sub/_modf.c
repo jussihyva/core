@@ -20,7 +20,7 @@ static double	get_sign(unsigned long long double_as_int)
 		return (1.0);
 }
 
-double	ft_modf(double value, double *iptr)
+double	_modf(double value, double *iptr)
 {
 	unsigned long long	double_as_int;
 	int					exponent;

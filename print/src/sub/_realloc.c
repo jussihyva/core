@@ -9,7 +9,7 @@
 #include "../../inc/core.h"
 #include "../inc/print_internal.h"
 
-void	*ft_realloc(void *ptr, size_t old_size, size_t new_size)
+void	*_realloc(void *ptr, size_t old_size, size_t new_size)
 {
 	void	*new;
 	size_t	copy_size;

@@ -15,20 +15,20 @@ static int	has_exact_fraction(double nbr, int precision, double div)
 	double		frac_part;
 	uintmax_t	integral_frac;
 
-	frac_part = ft_modf(ft_fabs(nbr), &int_part);
+	frac_part = _modf(_fabs(nbr), &int_part);
 	integral_frac = (uintmax_t)(frac_part * div * 10);
-	if (integral_frac % ft_uintmax_pow(5, precision + 1) == 0)
+	if (integral_frac % _uintmax_pow(5, precision + 1) == 0)
 		return (1);
 	else
 		return (0);
 }
 
-int	rounds_half_to_even(double nbr, int precision)
+int	_rounds_half_to_even(double nbr, int precision)
 {
 	double	div;
 
-	div = ft_dpow(10.0, precision);
-	if (ft_fabs(nbr * div) - (uintmax_t)ft_fabs(nbr * div) != 0.5)
+	div = _dpow(10.0, precision);
+	if (_fabs(nbr * div) - (uintmax_t)_fabs(nbr * div) != 0.5)
 		return (0);
 	if (has_exact_fraction(nbr, precision, div))
 		return (1);
@@ -48,7 +48,7 @@ static double	round_half_to_even(double nbr, double div, size_t precision)
 		tmp /= 10;
 		precision = 1;
 	}
-	frac_part = ft_modf(tmp, &int_part);
+	frac_part = _modf(tmp, &int_part);
 	while (precision-- > 0)
 		frac_part *= 10;
 	if ((uintmax_t)frac_part % 2 == 0 && nbr < 0.0)
@@ -61,7 +61,7 @@ static double	round_half_to_even(double nbr, double div, size_t precision)
 		return (nbr + 0.5 / div);
 }
 
-long double	round_double(double nbr, size_t precision)
+long double	_round_double(double nbr, size_t precision)
 {
 	size_t		i;
 	double		div;
@@ -72,7 +72,7 @@ long double	round_double(double nbr, size_t precision)
 	long_nbr = nbr;
 	while (i++ < precision)
 		div *= 10;
-	if (rounds_half_to_even(nbr, (int)precision))
+	if (_rounds_half_to_even(nbr, (int)precision))
 		long_nbr = round_half_to_even(nbr, div, precision);
 	if (is_neg(nbr))
 		long_nbr = (long_nbr - 0.5 / div);
