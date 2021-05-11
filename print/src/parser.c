@@ -42,6 +42,7 @@ static int	append_to_result(char **result, int len, int ret, const char *str)
 		if (*result == NULL)
 			return (-1);
 	}
+
 	if ((size_t)(ret + len) > arr_size)
 	{
 		*result = ft_realloc(*result, arr_size, arr_size * 2 + (size_t)ret + 1);

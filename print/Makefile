@@ -52,7 +52,7 @@ SRC = $(MATH_SRC) \
 	$(PRINTF_SRC)
 
 CC = gcc
-CFLAGS = -O3 -Wall -Wextra -Werror #-fsanitize=address
+CFLAGS = -O3 -Wall -Wextra -Werror  #-fsanitize=address
 CPPFLAGS = -I . -I ../inc -I inc
 DEPFLAGS = -MT $@ -MMD -MP -MF $(DEP_DIR)/$*.d
 COMPILE.c = $(CC) $(DEPFLAGS) $(CFLAGS) $(CPPFLAGS) -c
