@@ -1,8 +1,10 @@
-/******************************************************************************
+/**
+ *
+ * \authors Julius Koskela
  *
  * \brief Backtrack edges and store nodes in a path.
  *
- * Traverses a list of edges from the node to the first node assuming that
+ * Traverses a list of edges from the sink node to the first node assuming that
  * the sink node is the destination node of the last edge in the list. If `f`
  * is not NULL, will execute f on each traversed edge. This can be used to
  * update edge validity or attributes. Can also stop the backtracking by
@@ -12,7 +14,7 @@
  *
  * \return A node path.
  *
- *****************************************************************************/
+ */
 
 #include "../inc/graph.h"
 

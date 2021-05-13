@@ -4,6 +4,11 @@
  *
  * \brief Depth first search on a directed graph.
  *
+ * Performs a depth first search on a graph saving the result as edges
+ * put into an array. If NULL is passed as destination, will search the
+ * whole graph. Checks of edges are valid as well and won't traverse edges
+ * that are marked as invalid. This is helpful with max flow for example.
+ *
  * \param g Source graph.
  * \param s_key Source node key.
  * \param t_key Sink node key.
