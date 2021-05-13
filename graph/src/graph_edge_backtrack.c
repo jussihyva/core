@@ -37,7 +37,7 @@ t_nodes	graph_edge_backtrack(
 		e = arr_get(edges, i);
 		if (s_cmp(e->v->key, v->key) == 0)
 		{
-			if (f && !(f(e)))
+			if (f && (f(e) < 0))
 				return (path);
 			arr_add_first(&path, e->u);
 			v = e->u;

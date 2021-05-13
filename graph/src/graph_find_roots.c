@@ -4,6 +4,7 @@
  * \param roots An array to store the root nodes.
  * \return 1 on success 0 on failure.
  *****************************************************************************/
+
 #include "../inc/graph.h"
 
 t_nodes	graph_find_roots(t_graph *g)

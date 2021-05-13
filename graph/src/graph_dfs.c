@@ -14,29 +14,29 @@
 
 #include "../inc/graph.h"
 
-static ssize_t	graph_dfs_loop(
+static void	graph_dfs_loop(
 	t_edges *res,
 	t_graph_node *v,
 	t_graph_node *t)
 {
-	t_graph_edge	*curr_edge;
+	t_graph_edge	*e;
 	size_t			i;
 
 	v->valid = 0;
 	i = false;
 	while (i < v->out.len)
 	{
-		curr_edge = arr_get(&v->out, i);
-		if (curr_edge->valid && curr_edge->v->valid)
+		e = arr_get(&v->out, i);
+		if (e->valid && e->v->valid)
 		{
-			arr_add_last(res, curr_edge);
-			graph_dfs_loop(res, curr_edge->v, t);
+			arr_add_last(res, e);
+			graph_dfs_loop(res, e->v, t);
 		}
 		if (t && s_cmp(v->key, t->key) == 0)
-			return (CR_SUCCESS);
+			return ;
 		i++;
 	}
-	return (CR_SUCCESS);
+	return ;
 }
 
 t_edges	graph_dfs(t_graph *g, const char *s_key, const char *t_key)

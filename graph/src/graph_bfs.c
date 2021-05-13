@@ -20,7 +20,7 @@
 
 #include "../inc/graph.h"
 
-static ssize_t	graph_iter_edges(
+static bool	graph_iter_edges(
 	t_edges *res,
 	t_nodes *queue,
 	t_graph_node *v,
@@ -38,14 +38,14 @@ static ssize_t	graph_iter_edges(
 			arr_add_last(res, curr_edge);
 			arr_add_last(queue, curr_edge->v);
 			if (t && s_cmp(curr_edge->v->key, t->key) == 0)
-				return (CR_SUCCESS);
+				return (true);
 		}
 		i++;
 	}
-	return (CR_FAIL);
+	return (false);
 }
 
-static ssize_t	graph_bfs_loop(
+static void	graph_bfs_loop(
 	t_edges *res,
 	t_graph_node *s,
 	t_graph_node *t)
@@ -63,11 +63,11 @@ static ssize_t	graph_bfs_loop(
 		v = arr_get(&queue, i);
 		v->valid = false;
 		if (graph_iter_edges(res, &queue, v, t))
-			return (CR_SUCCESS);
+			return ;
 		i++;
 	}
 	arr_free(&queue);
-	return (CR_SUCCESS);
+	return ;
 }
 
 t_edges	graph_bfs(t_graph *g, const char *s_key, const char *t_key)
