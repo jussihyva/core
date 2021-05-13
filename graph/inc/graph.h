@@ -1,25 +1,18 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   graph.h                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/11 06:09:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/13 04:22:36 by jkoskela         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+/**
+ *
+ * \authors Julius Koskela
+ *
+ * \brief A graph implementation.
+ *
+ */
 
 #ifndef GRAPH_H
 # define GRAPH_H
 # include "../../inc/core.h"
-# include "../../array/inc/arr.h"
-# define SOURCE -1
-# define SINK -2
 
+typedef t_map		t_graph;
 typedef t_array		t_edges;
 typedef t_array		t_nodes;
-typedef t_map		t_graph;
 
 typedef struct		s_graph_node
 {
@@ -53,5 +46,6 @@ ssize_t			graph_edge_backtrack(t_array *breadcrumbs, t_array *edge_list);
 ssize_t			graph_null(t_graph *g);
 t_graph_edge	*graph_find_edge(t_graph *g,
 					const char *s_key, const char *t_key);
+ssize_t			graph_node_valid(void *data, size_t i);
 
 #endif

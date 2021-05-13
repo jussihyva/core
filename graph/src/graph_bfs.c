@@ -1,4 +1,4 @@
-/******************************************************************************
+/**
  *
  * \authors Julius Koskela
  *
@@ -16,13 +16,13 @@
  *
  * \return An array containing a list of edges.
  *
- *****************************************************************************/
+ */
 
 #include "../inc/graph.h"
 
 static ssize_t	graph_iter_edges(
-	t_nodes *queue,
 	t_edges *res,
+	t_nodes *queue,
 	t_graph_node *v,
 	t_graph_node *t)
 {
@@ -62,7 +62,7 @@ static ssize_t	graph_bfs_loop(
 	{
 		v = arr_get(&queue, i);
 		v->valid = 0;
-		if (graph_iter_edges(&queue, res, v, t))
+		if (graph_iter_edges(res, &queue, v, t))
 			return (CR_SUCCESS);
 		i++;
 	}
@@ -82,5 +82,6 @@ t_edges	graph_bfs(t_graph *g, const char *s_key, const char *t_key)
 		return (CR_ARR_NULL);
 	res = arr_new(1, sizeof(t_graph_edge));
 	graph_bfs_loop(&res, s, t);
+	map_iter(g, graph_node_valid);
 	return (res);
 }

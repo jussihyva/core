@@ -1,4 +1,4 @@
-/******************************************************************************
+/**
  *
  * \authors Julius Koskela
  *
@@ -10,12 +10,20 @@
  *
  * \return A list of edges.
  *
- *****************************************************************************/
+ */
 
 #include "../inc/graph.h"
 
-ssize_t	graph_dfs_loop(
-	t_nodes *queue,
+static ssize_t	graph_reset_valid(void *data, size_t i)
+{
+	t_graph_node *n;
+
+	n = data;
+	n->valid = 1;
+	return ((ssize_t)i);
+}
+
+static ssize_t	graph_dfs_loop(
 	t_edges *res,
 	t_graph_node *v,
 	t_graph_node *t)
@@ -23,16 +31,15 @@ ssize_t	graph_dfs_loop(
 	t_graph_edge	*curr_edge;
 	size_t			i;
 
+	v->valid = 0;
 	i = 0;
 	while (i < v->out.len)
 	{
 		curr_edge = arr_get(&v->out, i);
-		v = curr_edge->v;
 		if (curr_edge->valid && curr_edge->v->valid)
 		{
-			arr_add_last(queue, curr_edge->v);
 			arr_add_last(res, curr_edge);
-			graph_dfs_loop(queue, res, v, t);
+			graph_dfs_loop(res, curr_edge->v, t);
 		}
 		if (t && s_cmp(v->key, t->key) == 0)
 			return (CR_SUCCESS);
@@ -41,10 +48,7 @@ ssize_t	graph_dfs_loop(
 	return (CR_SUCCESS);
 }
 
-t_edges	graph_dfs(
-	t_graph *g,
-	const char *s_key,
-	const char *t_key)
+t_edges	graph_dfs(t_graph *g, const char *s_key, const char *t_key)
 {
 	t_nodes			queue;
 	t_edges			res;
@@ -58,7 +62,8 @@ t_edges	graph_dfs(
 	res = arr_new(1, sizeof(t_graph_edge));
 	queue = arr_new(1, sizeof(t_graph_node));
 	arr_add_last(&queue, s);
-	graph_dfs_loop(&queue, &res, s, t);
+	graph_dfs_loop(&res, s, t);
 	arr_free(&queue);
+	map_iter(g, graph_reset_valid);
 	return (res);
 }
