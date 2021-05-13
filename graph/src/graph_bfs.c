@@ -21,7 +21,7 @@
 #include "../inc/graph.h"
 
 static bool	graph_iter_edges(
-	t_edges *res,
+	t_parray *res,
 	t_nodes *queue,
 	t_graph_node *v,
 	t_graph_node *t)
@@ -35,7 +35,7 @@ static bool	graph_iter_edges(
 		e = arr_get(&v->out, i);
 		if (e->valid && e->v->valid)
 		{
-			arr_add_last(res, e);
+			parr_add_last(res, e);
 			arr_add_last(queue, e->v);
 			if (t && s_cmp(e->v->key, t->key) == 0)
 				return (true);
@@ -46,7 +46,7 @@ static bool	graph_iter_edges(
 }
 
 static void	graph_bfs_loop(
-	t_edges *res,
+	t_parray *res,
 	t_graph_node *s,
 	t_graph_node *t)
 {
@@ -70,17 +70,17 @@ static void	graph_bfs_loop(
 	return ;
 }
 
-t_edges	graph_bfs(t_graph *g, const char *s_key, const char *t_key)
+t_parray	graph_bfs(t_graph *g, const char *s_key, const char *t_key)
 {
-	t_edges			res;
+	t_parray		res;
 	t_graph_node	*s;
 	t_graph_node	*t;
 
 	s = graph_find_node(g, s_key);
 	t = graph_find_node(g, t_key);
 	if (!s)
-		return (CR_ARR_NULL);
-	res = arr_new(1, sizeof(t_graph_edge));
+		return (CR_PARR_NULL);
+	res = parr_new(1);
 	graph_bfs_loop(&res, s, t);
 	map_iter(g, graph_node_valid);
 	return (res);

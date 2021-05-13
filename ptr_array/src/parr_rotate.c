@@ -6,11 +6,12 @@
 /*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/11 09:54:17 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/13 21:29:35 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/parr.h"
+# include "../../inc/core.h"
 
 ssize_t	parr_rotate(t_parray *arr, ssize_t steps)
 {

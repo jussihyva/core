@@ -6,13 +6,15 @@
 /*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 06:09:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/11 09:49:04 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/13 21:30:32 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PARR_H
 # define PARR_H
-# include "../../inc/core.h"
+
+# include <string.h>
+
 
 typedef struct s_parray
 {

@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../inc/parr.h"
+# include "../../inc/core.h"
 
 ssize_t	parr_iter(t_parray *arr, ssize_t (*f)(void *, size_t))
 {

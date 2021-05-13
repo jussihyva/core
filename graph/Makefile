@@ -1,7 +1,7 @@
 NAME		=	libgraph.a
 
 CC			=	gcc
-CFLAGS 		=	-O3 -Wall -Wextra -Werror -Wpedantic -Wtype-limits \
+CFLAGS 		=	-g -Wall -Wextra -Werror -Wpedantic -Wtype-limits \
 				-Wunreachable-code  -Wshadow -fPIC -Wconversion
 SRC_DIR		=	src/
 INC_DIR		=	inc/
