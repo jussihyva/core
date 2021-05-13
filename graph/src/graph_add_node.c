@@ -21,11 +21,10 @@ ssize_t	graph_add_node(t_graph *g, const char *key, void *attr)
 		printf("Allocation failed in function: graph_add_node!\n");
 		exit(-1);
 	}
-	n->id = g->next_id;
-	g->next_id = g->next_id + 1;
 	n->key = key;
+	n->valid = 1;
 	n->in = arr_new(1, sizeof(t_graph_edge));
 	n->out = arr_new(1, sizeof(t_graph_edge));
 	n->attr = attr;
-	return (map_add(&g->data, n, n->key));
+	return (map_add(g, n, n->key));
 }

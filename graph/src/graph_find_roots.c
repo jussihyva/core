@@ -13,9 +13,9 @@ ssize_t	graph_find_roots(t_graph *g, t_array *roots)
 	size_t			i;
 
 	i = 0;
-	while (i < g->data.count)
+	while (i < g->count)
 	{
-		m_node = g->data.node[i];
+		m_node = g->node[i];
 		if (!map_null_node(&m_node))
 		{
 			g_node = (t_graph_node *)m_node.data;

@@ -27,7 +27,7 @@ t_graph_edge	*graph_find_edge(t_graph *g,
 	while (i < node->out.len)
 	{
 		out = arr_get(&node->out, i);
-		if (s_cmp(out->dst->key, dst_key) == 0)
+		if (s_cmp(out->v->key, dst_key) == 0)
 			return (out);
 		i++;
 	}

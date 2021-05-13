@@ -27,8 +27,8 @@ ssize_t print_edge(void *data, size_t i)
 	t_node_attr		*dst_attr;
 
 	tmp = data;
-	src_attr = tmp->src->attr;
-	dst_attr = tmp->dst->attr;
+	src_attr = tmp->u->attr;
+	dst_attr = tmp->v->attr;
 	printf("%-30s=>    %-30s\n", src_attr->name, dst_attr->name);
 	return ((ssize_t)i);
 }
@@ -103,6 +103,10 @@ int main(void)
 	depth_first_search = graph_dfs(&g, "00", NULL);
 	printf("\nDepth First Search\n\n");
 	arr_iter(&depth_first_search, print_edge);
+
+	breadth_first_search = graph_bfs(&g, "00", "csw02");
+	printf("\nBreadth First Search\n\n");
+	arr_iter(&breadth_first_search, print_edge);
 
 	breadth_first_search = graph_bfs(&g, "00", "csw02");
 	printf("\nBreadth First Search\n\n");

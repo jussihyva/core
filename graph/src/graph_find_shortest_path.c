@@ -11,14 +11,14 @@
 
 t_array	graph_find_shortest_path(
 		t_graph *g,
-		const char *src_key,
-		const char *dst_key)
+		const char *s_key,
+		const char *t_key)
 {
 	t_array	edge_list;
 	t_array	spath;
 
 	spath = arr_new(1, sizeof(t_graph_node));
-	edge_list = graph_bfs(g, src_key, dst_key);
+	edge_list = graph_bfs(g, s_key, t_key);
 	graph_edge_backtrack(&spath, &edge_list);
 	arr_free(&edge_list);
 	return (spath);
