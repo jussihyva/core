@@ -14,15 +14,6 @@
 
 #include "../inc/graph.h"
 
-static ssize_t	graph_reset_valid(void *data, size_t i)
-{
-	t_graph_node *n;
-
-	n = data;
-	n->valid = 1;
-	return ((ssize_t)i);
-}
-
 static ssize_t	graph_dfs_loop(
 	t_edges *res,
 	t_graph_node *v,
@@ -64,6 +55,6 @@ t_edges	graph_dfs(t_graph *g, const char *s_key, const char *t_key)
 	arr_add_last(&queue, s);
 	graph_dfs_loop(&res, s, t);
 	arr_free(&queue);
-	map_iter(g, graph_reset_valid);
+	map_iter(g, graph_node_valid);
 	return (res);
 }
