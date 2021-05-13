@@ -42,7 +42,9 @@ t_edges			graph_bfs(t_graph *g, const char *s_key, const char *t_key);
 t_edges			graph_dfs(t_graph *g, const char *s_key, const char *t_key);
 t_nodes			graph_find_shortest_path(t_graph *g,
 					const char *s_key, const char *t_key);
-t_nodes			graph_edge_backtrack(t_edges *edges,
+t_nodes			graph_edge_backtrack(
+					t_edges *edges,
+					const char *s_key,
 					ssize_t (*f)(t_graph_edge *));
 t_graph_edge	*graph_find_edge(t_graph *g,
 					const char *s_key, const char *t_key);

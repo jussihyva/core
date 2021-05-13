@@ -22,7 +22,7 @@ t_array	graph_find_shortest_path(
 	t_nodes	path;
 
 	edges = graph_bfs(g, s_key, t_key);
-	path = graph_edge_backtrack(&edges, NULL);
+	path = graph_edge_backtrack(&edges, t_key, NULL);
 	arr_free(&edges);
 	return (path);
 }

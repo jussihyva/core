@@ -18,17 +18,22 @@
 
 #include "../inc/graph.h"
 
-t_nodes	graph_edge_backtrack(t_edges *edges, ssize_t (*f)(t_graph_edge *))
+t_nodes	graph_edge_backtrack(
+	t_edges *edges,
+	const char *t_key,
+	ssize_t (*f)(t_graph_edge *))
 {
 	t_nodes			path;
 	t_graph_node	*v;
 	t_graph_edge	*e;
 	size_t			i;
 
-	path = arr_new(1, sizeof(t_graph_node));
 	e = arr_get_last(edges);
+	if (t_key && s_cmp(t_key, e->v->key))
+		return (CR_ARR_NULL);
 	if (f && !(f(e)))
-		return (path);
+		return (CR_ARR_NULL);
+	path = arr_new(1, sizeof(t_graph_node));
 	v = e->u;
 	arr_add_mult(&path, 2, e->u, e->v);
 	i = edges->len;
