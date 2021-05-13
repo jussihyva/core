@@ -26,18 +26,18 @@ static bool	graph_iter_edges(
 	t_graph_node *v,
 	t_graph_node *t)
 {
-	t_graph_edge	*curr_edge;
+	t_graph_edge	*e;
 	size_t			i;
 
 	i = 0;
 	while (i < v->out.len)
 	{
-		curr_edge = arr_get(&v->out, i);
-		if (curr_edge->valid && curr_edge->v->valid)
+		e = arr_get(&v->out, i);
+		if (e->valid && e->v->valid)
 		{
-			arr_add_last(res, curr_edge);
-			arr_add_last(queue, curr_edge->v);
-			if (t && s_cmp(curr_edge->v->key, t->key) == 0)
+			arr_add_last(res, e);
+			arr_add_last(queue, e->v);
+			if (t && s_cmp(e->v->key, t->key) == 0)
 				return (true);
 		}
 		i++;

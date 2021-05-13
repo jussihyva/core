@@ -16,9 +16,7 @@
 
 #include "../inc/graph.h"
 
-t_nodes	graph_edge_backtrack(
-	t_edges *edges,
-	ssize_t (*f)(t_graph_edge *))
+t_nodes	graph_edge_backtrack(t_edges *edges, ssize_t (*f)(t_graph_edge *))
 {
 	t_nodes			path;
 	t_graph_node	*v;
