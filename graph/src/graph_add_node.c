@@ -22,7 +22,7 @@ ssize_t	graph_add_node(t_graph *g, const char *key, void *attr)
 		exit(-1);
 	}
 	n->key = key;
-	n->valid = 1;
+	n->valid = true;
 	n->in = arr_new(1, sizeof(t_graph_edge));
 	n->out = arr_new(1, sizeof(t_graph_edge));
 	n->attr = attr;

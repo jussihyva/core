@@ -23,7 +23,7 @@ static ssize_t	graph_dfs_loop(
 	size_t			i;
 
 	v->valid = 0;
-	i = 0;
+	i = false;
 	while (i < v->out.len)
 	{
 		curr_edge = arr_get(&v->out, i);

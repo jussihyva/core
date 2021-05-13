@@ -52,6 +52,7 @@
 # include <limits.h>
 # include <stdbool.h>
 # include <inttypes.h>
+# include <stdbool.h>
 
 # include "../memory/inc/mem.h"
 # include "../array/inc/arr.h"

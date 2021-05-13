@@ -56,12 +56,12 @@ static ssize_t	graph_bfs_loop(
 
 	queue = arr_new(1, sizeof(t_graph_node));
 	arr_add_last(&queue, s);
-	s->valid = 0;
+	s->valid = false;
 	i = 0;
 	while (i < queue.len)
 	{
 		v = arr_get(&queue, i);
-		v->valid = 0;
+		v->valid = false;
 		if (graph_iter_edges(res, &queue, v, t))
 			return (CR_SUCCESS);
 		i++;

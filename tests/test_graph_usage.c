@@ -67,7 +67,7 @@ int main(void)
 	t_array	depth_first_search;
 	t_array	shortest_path;
 
-	g = graph_new(NULL);
+	g = graph_new();
 	if (graph_null(&g))
 		return (0);
 
@@ -108,7 +108,7 @@ int main(void)
 	printf("\nBreadth First Search\n\n");
 	arr_iter(&breadth_first_search, print_edge);
 
-	breadth_first_search = graph_bfs(&g, "00", "csw02");
+	breadth_first_search = graph_bfs(&g, "00", NULL);
 	printf("\nBreadth First Search\n\n");
 	arr_iter(&breadth_first_search, print_edge);
 

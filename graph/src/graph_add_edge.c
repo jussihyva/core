@@ -26,7 +26,7 @@ ssize_t	graph_add_edge(
 	}
 	e.u = u;
 	e.v = v;
-	e.valid = 1;
+	e.valid = true;
 	e.attr = attr;
 	arr_add_last(&u->out, &e);
 	arr_add_last(&v->in, &e);

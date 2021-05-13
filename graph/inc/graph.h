@@ -19,7 +19,7 @@ typedef struct		s_graph_node
 	const char		*key;
 	t_edges			in;
 	t_edges			out;
-	uint8_t			valid : 1;
+	bool			valid;
 	void			*attr;
 }					t_graph_node;
 
@@ -27,7 +27,7 @@ typedef struct		s_graph_edge
 {
 	t_graph_node	*u;
 	t_graph_node	*v;
-	uint8_t			valid : 1;
+	bool			valid;
 	void			*attr;
 }					t_graph_edge;
 
@@ -42,7 +42,8 @@ t_edges			graph_bfs(t_graph *g, const char *s_key, const char *t_key);
 t_edges			graph_dfs(t_graph *g, const char *s_key, const char *t_key);
 t_nodes			graph_find_shortest_path(t_graph *g,
 					const char *s_key, const char *t_key);
-ssize_t			graph_edge_backtrack(t_array *breadcrumbs, t_array *edge_list);
+t_nodes			graph_edge_backtrack(t_edges *edges,
+				ssize_t (*f)(t_graph_edge *));
 ssize_t			graph_null(t_graph *g);
 t_graph_edge	*graph_find_edge(t_graph *g,
 					const char *s_key, const char *t_key);
