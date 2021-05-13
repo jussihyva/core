@@ -9,25 +9,26 @@
 
 ssize_t	graph_add_edge(
 		t_graph *g,
-		const char *src_key,
-		const char *dst_key,
+		const char *u_key,
+		const char *v_key,
 		void *attr)
 {
 	t_graph_edge	e;
-	t_graph_node	*src;
-	t_graph_node	*dst;
+	t_graph_node	*u;
+	t_graph_node	*v;
 
-	src = graph_find_node(g, src_key);
-	dst = graph_find_node(g, dst_key);
-	if (!src || !dst)
+	u = graph_find_node(g, u_key);
+	v = graph_find_node(g, v_key);
+	if (!u || !v)
 	{
 		printf("Trying to connect an edge with a non-existing node!\n");
 		return (-1);
 	}
-	e.src = src;
-	e.dst = dst;
+	e.u = u;
+	e.v = v;
+	e.valid = true;
 	e.attr = attr;
-	arr_add_last(&src->out, &e);
-	arr_add_last(&dst->in, &e);
+	arr_add_last(&u->out, &e);
+	arr_add_last(&v->in, &e);
 	return (CR_SUCCESS);
 }

@@ -19,6 +19,7 @@ SRC_BASE	=	graph_new.c \
 				graph_dfs.c \
 				graph_find_shortest_path.c \
 				graph_edge_backtrack.c \
+				graph_node_valid.c \
 
 SRC			=	$(addprefix $(SRC_DIR), $(SRC_BASE))
 OBJ			=	$(addprefix $(OBJ_DIR), $(SRC_BASE:.c=.o))

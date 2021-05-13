@@ -1,60 +1,65 @@
-/******************************************************************************
- * \authors
- * \brief
- * \param
- * \return
- *****************************************************************************/
+/**
+ *
+ * \authors Julius Koskela
+ *
+ * \brief Depth first search on a directed graph.
+ *
+ * Performs a depth first search on a graph saving the result as edges
+ * put into an array. If NULL is passed as destination, will search the
+ * whole graph. Checks of edges are valid as well and won't traverse edges
+ * that are marked as invalid. This is helpful with max flow for example.
+ *
+ * \param g Source graph.
+ * \param s_key Source node key.
+ * \param t_key Sink node key.
+ *
+ * \return A list of edges.
+ *
+ */
 
 #include "../inc/graph.h"
 
-ssize_t	graph_dfs_loop(
-		t_array *res_edges,
-		t_array *dfs_queue,
-		t_graph_node *curr,
-		t_graph_node *sink)
+static void	graph_dfs_loop(
+	t_edges *res,
+	t_graph_node *v,
+	t_graph_node *t)
 {
-	t_graph_edge	*curr_edge;
-	t_graph_node	*dst_node;
+	t_graph_edge	*e;
 	size_t			i;
 
-	i = 0;
-	while (i < curr->out.len)
+	v->valid = 0;
+	i = false;
+	while (i < v->out.len)
 	{
-		curr_edge = arr_get(&curr->out, i);
-		dst_node = curr_edge->dst;
-		if (arr_find_by(dfs_queue, dst_node, graph_cmp_nodes) == -1)
+		e = arr_get(&v->out, i);
+		if (e->valid && e->v->valid)
 		{
-			arr_add_last(dfs_queue, dst_node);
-			arr_add_last(res_edges, curr_edge);
-			graph_dfs_loop(res_edges, dfs_queue, dst_node, sink);
+			arr_add_last(res, e);
+			graph_dfs_loop(res, e->v, t);
 		}
-		if (sink && s_cmp(dst_node->key, sink->key) == 0)
-			return (CR_SUCCESS);
+		if (t && s_cmp(v->key, t->key) == 0)
+			return ;
 		i++;
 	}
-	return (CR_SUCCESS);
+	return ;
 }
 
-t_array	graph_dfs(
-		t_graph *g,
-		const char *src_key,
-		const char *dst_key)
+t_edges	graph_dfs(t_graph *g, const char *s_key, const char *t_key)
 {
-	t_array			dfs_queue;
-	t_array			res_edges;
-	t_graph_node	*src;
-	t_graph_node	*dst;
+	t_nodes			queue;
+	t_edges			res;
+	t_graph_node	*s;
+	t_graph_node	*t;
 
-	src = graph_find_node(g, src_key);
-	dst = NULL;
-	if (dst_key)
-		dst = graph_find_node(g, dst_key);
-	res_edges = arr_new(1, sizeof(t_graph_edge));
-	dfs_queue = arr_new(1, sizeof(t_graph_node));
-	if (!(arr_add_last(&dfs_queue, src)))
+	s = graph_find_node(g, s_key);
+	t = graph_find_node(g, t_key);
+	if (!s)
 		return (CR_ARR_NULL);
-	if (!(graph_dfs_loop(&res_edges, &dfs_queue, src, dst)))
-		return (CR_ARR_NULL);
-	arr_free(&dfs_queue);
-	return (res_edges);
+	res = arr_new(1, sizeof(t_graph_edge));
+	queue = arr_new(1, sizeof(t_graph_node));
+	arr_add_last(&queue, s);
+	graph_dfs_loop(&res, s, t);
+	arr_free(&queue);
+	map_iter(g, graph_node_valid);
+	return (res);
 }
