@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parr.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 06:09:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/13 21:30:32 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/13 22:23:02 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define PARR_H
 
 # include <string.h>
-
+# include <unistd.h>
 
 typedef struct s_parray
 {
