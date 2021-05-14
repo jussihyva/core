@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "../inc/parr.h"
-# include "../../inc/core.h"
+#include "../../inc/core.h"
 
 ssize_t	parr_parse(t_parray *dst, t_parray *src,
 		ssize_t (*f)(t_parray *, void *))
