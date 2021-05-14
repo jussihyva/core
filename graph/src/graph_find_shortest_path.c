@@ -18,11 +18,11 @@ t_array	graph_find_shortest_path(
 		const char *s_key,
 		const char *t_key)
 {
-	t_edges	edges;
+	t_parray	edges;
 	t_nodes	path;
 
 	edges = graph_bfs(g, s_key, t_key);
 	path = graph_edge_backtrack(&edges, t_key, NULL);
-	arr_free(&edges);
+	parr_free(&edges);
 	return (path);
 }

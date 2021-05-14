@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../inc/parr.h"
+# include "../../inc/core.h"
 
 static
 ssize_t	deallocate_str(void *data, size_t i)

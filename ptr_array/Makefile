@@ -1,7 +1,7 @@
 NAME		=	libparr.a
 
 CC			=	gcc
-CFLAGS 		=	-O3 -Wall -Wextra -Werror -Wpedantic -Wtype-limits -Wswitch-default -Wunreachable-code  -Wshadow -fPIC
+CFLAGS 		=	-g -Wall -Wextra -Werror -Wpedantic -Wtype-limits -Wswitch-default -Wunreachable-code  -Wshadow -fPIC
 
 SRC_DIR		=	src/
 INC_DIR		=	inc/

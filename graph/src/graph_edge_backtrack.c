@@ -19,7 +19,7 @@
 #include "../inc/graph.h"
 
 t_nodes	graph_edge_backtrack(
-	t_edges *edges,
+	t_parray *edges,
 	const char *t_key,
 	ssize_t (*f)(t_graph_edge *))
 {
@@ -28,7 +28,7 @@ t_nodes	graph_edge_backtrack(
 	t_graph_edge	*e;
 	size_t			i;
 
-	e = arr_get_last(edges);
+	e = parr_get_last(edges);
 	if (t_key && s_cmp(t_key, e->v->key))
 		return (CR_ARR_NULL);
 	if (f && !(f(e)))
@@ -39,7 +39,7 @@ t_nodes	graph_edge_backtrack(
 	i = edges->len;
 	while (i--)
 	{
-		e = arr_get(edges, i);
+		e = parr_get(edges, i);
 		if (s_cmp(e->v->key, v->key) == 0)
 		{
 			if (f && (f(e) < 0))
