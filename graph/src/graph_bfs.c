@@ -69,7 +69,10 @@ static void	graph_bfs_loop(
 		v = arr_get(&queue, i);
 		v->valid = false;
 		if (graph_iter_edges(res, &queue, t, i))
+		{
+			arr_free(&queue);
 			return ;
+		}
 		i++;
 	}
 	arr_free(&queue);
