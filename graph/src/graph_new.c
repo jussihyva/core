@@ -5,7 +5,7 @@
 
 #include "../inc/graph.h"
 
-t_graph	graph_new()
+t_graph	graph_new(void)
 {
 	return (map_new());
 }

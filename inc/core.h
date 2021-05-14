@@ -1,5 +1,5 @@
-#ifndef LIBCORE_H
-# define LIBCORE_H
+#ifndef CORE_H
+# define CORE_H
 
 # define CR_PI 3.14159265358979323846
 # define CR_STOP -1

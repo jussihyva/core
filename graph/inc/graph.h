@@ -14,7 +14,7 @@ typedef t_map		t_graph;
 typedef t_array		t_edges;
 typedef t_array		t_nodes;
 
-typedef struct		s_graph_node
+typedef struct s_graph_node
 {
 	const char		*key;
 	t_edges			in;
@@ -23,7 +23,7 @@ typedef struct		s_graph_node
 	void			*attr;
 }					t_graph_node;
 
-typedef struct		s_graph_edge
+typedef struct s_graph_edge
 {
 	t_graph_node	*u;
 	t_graph_node	*v;
@@ -31,7 +31,7 @@ typedef struct		s_graph_edge
 	void			*attr;
 }					t_graph_edge;
 
-t_graph			graph_new();
+t_graph			graph_new(void);
 ssize_t			graph_add_node(t_graph *g, const char *key, void *attr);
 t_graph_node	*graph_find_node(t_graph *g, const char *key);
 ssize_t			graph_add_edge(t_graph *g, const char *s_key,

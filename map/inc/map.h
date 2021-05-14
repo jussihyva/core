@@ -6,19 +6,19 @@
  *
  *****************************************************************************/
 
-#ifndef LIBMAP_H
-# define LIBMAP_H
+#ifndef MAP_H
+# define MAP_H
 # include <string.h>
 # include <unistd.h>
 # include <stdint.h>
 
-typedef struct		s_map_node
+typedef struct s_map_node
 {
 	const char		*key;
 	void			*data;
 }					t_map_node;
 
-typedef struct		s_map
+typedef struct s_map
 {
 	t_map_node		*node;
 	size_t			capacity;
@@ -43,9 +43,8 @@ uint64_t	map_resize_pow2(uint64_t capacity);
 uint64_t	map_probe_linear(uint64_t x);
 uint64_t	map_resize_linear(uint64_t capacity);
 void		map_print(t_map *m);
-void    	map_iter(t_map *src,
-			ssize_t (*f)(void *, size_t));
+void		map_iter(t_map *src, ssize_t (*f)(void *, size_t));
 char		*map_parse(t_map *src, void *dst,
-			char *(*f)(void *, void *, const char *key));
+				char *(*f)(void *, void *, const char *key));
 
 #endif

@@ -18,10 +18,14 @@
 #include "../inc/map.h"
 #include "../../inc/core.h"
 
+static uint64_t	map_threshold(t_map *map)
+{
+	return ((uint64_t)(map->load_factor * (double)map->capacity - 1));
+}
+
 ssize_t	map_add(t_map *dst, void *val, const char *key)
 {
 	uint64_t	hash_key;
-	double		treshold;
 	t_map_node	new_node;
 	uint64_t	probe;
 	size_t		i;
@@ -30,8 +34,7 @@ ssize_t	map_add(t_map *dst, void *val, const char *key)
 		return (CR_FAIL);
 	new_node.data = val;
 	new_node.key = key;
-	treshold = dst->load_factor * (double)dst->capacity - 1;
-	if (dst->count >= (uint64_t)treshold)
+	if (dst->count >= map_threshold(dst))
 		map_grow(dst);
 	hash_key = dst->hash(key);
 	probe = 0;

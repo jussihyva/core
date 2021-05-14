@@ -19,7 +19,7 @@ t_array	graph_find_shortest_path(
 		const char *t_key)
 {
 	t_parray	edges;
-	t_nodes	path;
+	t_nodes		path;
 
 	edges = graph_bfs(g, s_key, t_key);
 	path = graph_edge_backtrack(&edges, t_key, NULL);
