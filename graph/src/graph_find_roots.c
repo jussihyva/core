@@ -14,7 +14,7 @@ t_nodes	graph_find_roots(t_graph *g)
 	t_graph_node	*g_node;
 	size_t			i;
 
-	roots = arr_new(1, sizeof(t_graph_node));
+	roots = parr_new(1);
 	i = 0;
 	while (i < g->count)
 	{
@@ -23,7 +23,7 @@ t_nodes	graph_find_roots(t_graph *g)
 		{
 			g_node = (t_graph_node *)m_node.data;
 			if (g_node->in.len == 0)
-				arr_add_last(&roots, g_node);
+				parr_add_last(&roots, g_node);
 		}
 		i++;
 	}

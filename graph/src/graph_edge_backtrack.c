@@ -30,12 +30,12 @@ t_nodes	graph_edge_backtrack(
 
 	e = parr_get_last(edges);
 	if (t_key && s_cmp(t_key, e->v->key))
-		return (CR_ARR_NULL);
+		return (CR_PARR_NULL);
 	if (f && !(f(e)))
-		return (CR_ARR_NULL);
-	path = arr_new(1, sizeof(t_graph_node));
+		return (CR_PARR_NULL);
+	path = parr_new(edges->len);
 	v = e->u;
-	arr_add_mult(&path, 2, e->u, e->v);
+	parr_add_mult(&path, 2, e->u, e->v);
 	i = edges->len;
 	while (i--)
 	{
@@ -44,7 +44,7 @@ t_nodes	graph_edge_backtrack(
 		{
 			if (f && (f(e) < 0))
 				return (path);
-			arr_add_first(&path, e->u);
+			parr_add_first(&path, e->u);
 			v = e->u;
 		}
 	}
