@@ -6,7 +6,7 @@
 /*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/17 00:32:25 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/11 09:13:33 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/15 12:36:45 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static int	readbuf(char **mem, char **line, int fd)
 	int				r;
 
 	r = read(fd, buff, READLINE_MAX_BUFF);
-	while (r)
+	while (r > 0)
 	{
 		buff[r] = '\0';
 		tmp = s_join(*mem, buff);
