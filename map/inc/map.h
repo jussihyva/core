@@ -11,6 +11,8 @@
 # include <string.h>
 # include <unistd.h>
 # include <stdint.h>
+# define CR_MAP_LINEAR 0
+# define CR_MAP_QUAD 1
 
 typedef struct		s_map_node
 {

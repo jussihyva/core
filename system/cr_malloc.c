@@ -23,9 +23,10 @@ typedef struct	s_core
 {
 	uint8_t		*set;
 	t_parray	*errors;
+	t_parray	*allocs;
 }				t_core;
 
-const static t_core	*g_core;
+const static t_core	g_core;
 
 void	core_print_help()
 {
@@ -38,7 +39,7 @@ void	core_error(t_file_pos *err_pos, char *message)
 {
 	char	*error;
 
-	if (g_core->set == 0)
+	if (g_core.set == 0)
 		core_print_help();
 	error = format(
 			"\033[1;31m%s\033[0m, \033[1;31m%s\033[0m, \033[1;31m%d\033[0m\n%s",
@@ -46,7 +47,7 @@ void	core_error(t_file_pos *err_pos, char *message)
 			err_pos->func,
 			err_pos->line,
 			message);
-	parr_add_last(g_core->errors, error);
+	parr_add_last(g_core.errors, error);
 }
 
 char	*core_debug(t_file_pos *file_pos, size_t count, ...)
@@ -80,8 +81,8 @@ char	*core_debug(t_file_pos *file_pos, size_t count, ...)
 
 void	core_activate()
 {
-	*g_core->errors = parr_new(1);
-	*g_core->set = 1;
+	*g_core.errors = parr_new(1);
+	*g_core.set = 1;
 }
 
 void	core_deactivate()
@@ -89,12 +90,12 @@ void	core_deactivate()
 	size_t	i;
 
 	i = 0;
-	while (i < g_core->errors->len)
+	while (i < g_core.errors->len)
 	{
-		free(parr_get(g_core->errors, i));
+		free(parr_get(g_core.errors, i));
 		i++;
 	}
-	parr_free(g_core->errors);
+	parr_free(g_core.errors);
 }
 
 void	core_log()
@@ -102,10 +103,10 @@ void	core_log()
 	size_t	i;
 
 	i = 0;
-	while (i < g_core->errors->len)
+	while (i < g_core.errors->len)
 	{
 		print("ERROR ");
-		printf("%s\n", (char *)parr_get(g_core->errors, i));
+		printf("%s\n", (char *)parr_get(g_core.errors, i));
 		i++;
 	}
 }
@@ -152,10 +153,10 @@ void	test_debug()
 
 void	test_error()
 {
-	ERROR(CR_FILE_POS, "A terrible error has occured!\n");	
-	ERROR(CR_FILE_POS, "Another terrible error has occured!\n");	
-	ERROR(CR_FILE_POS, "Yet another terrible error has occured!\n");	
-	ERROR(CR_FILE_POS, "Please throw your computer in the bathtub!\n");	
+	ERROR(CR_FILE_POS, "A terrible error has occured!\n");
+	ERROR(CR_FILE_POS, "Another terrible error has occured!\n");
+	ERROR(CR_FILE_POS, "Yet another terrible error has occured!\n");
+	ERROR(CR_FILE_POS, "Please throw your computer in the bathtub!\n");
 }
 
 int main(void)
