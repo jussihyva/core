@@ -18,6 +18,8 @@ ssize_t	graph_add_edge(
 	t_graph_node	*v;
 
 	e = (t_graph_edge *)malloc(sizeof(t_graph_edge));
+	if (!e)
+		return (CR_FAIL);
 	u = graph_find_node(g, u_key);
 	v = graph_find_node(g, v_key);
 	if (!u || !v)
