@@ -11,8 +11,8 @@
 # include "../../inc/core.h"
 
 typedef t_map		t_graph;
-typedef t_array		t_edges;
-typedef t_array		t_nodes;
+typedef t_parray	t_edges;
+typedef t_parray	t_nodes;
 
 typedef struct		s_graph_node
 {
@@ -38,7 +38,7 @@ ssize_t			graph_add_edge(t_graph *g, const char *s_key,
 					const char *t_key, void *attr);
 ssize_t			graph_cmp_nodes(const void *n1, const void *n2);
 t_nodes			graph_find_roots(t_graph *g);
-t_parray		graph_bfs(t_graph *g, const char *s_key, const char *t_key);
+t_edges			graph_bfs(t_graph *g, const char *s_key, const char *t_key);
 t_edges			graph_dfs(t_graph *g, const char *s_key, const char *t_key);
 t_nodes			graph_find_shortest_path(t_graph *g,
 					const char *s_key, const char *t_key);

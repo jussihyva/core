@@ -30,19 +30,19 @@ static ssize_t	graph_iter_edges(
 	t_graph_node	*v;
 	size_t			i;
 
-	v = arr_get(queue, queue_index);
+	v = parr_get(queue, queue_index);
 	i = 0;
 	while (i < v->out.len)
 	{
-		e = arr_get(&v->out, i);
+		e = parr_get(&v->out, i);
 		if (!e)
 			return (-1);
 		if (e->valid && e->v->valid)
 		{
 			e->v->valid = false;
 			parr_add_last(res, e);
-			arr_add_last(queue, e->v);
-			v = arr_get(queue, queue_index);
+			parr_add_last(queue, e->v);
+			v = parr_get(queue, queue_index);
 			if (t && s_cmp(e->v->key, t->key) == 0)
 				return (true);
 		}
@@ -60,19 +60,19 @@ static void	graph_bfs_loop(
 	t_graph_node	*v;
 	size_t			i;
 
-	queue = arr_new(1, sizeof(t_graph_node));
+	queue = parr_new(1);
 	s->valid = false;
-	arr_add_last(&queue, s);
+	parr_add_last(&queue, s);
 	i = 0;
 	while (i < queue.len)
 	{
-		v = arr_get(&queue, i);
+		v = parr_get(&queue, i);
 		v->valid = false;
 		if (graph_iter_edges(res, &queue, t, i))
 			return ;
 		i++;
 	}
-	arr_free(&queue);
+	parr_free(&queue);
 	return ;
 }
 

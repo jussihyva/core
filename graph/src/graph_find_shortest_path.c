@@ -13,13 +13,13 @@
 
 #include "../inc/graph.h"
 
-t_array	graph_find_shortest_path(
-		t_graph *g,
-		const char *s_key,
-		const char *t_key)
+t_nodes graph_find_shortest_path(
+	t_graph *g,
+	const char *s_key,
+	const char *t_key)
 {
 	t_parray	edges;
-	t_nodes	path;
+	t_nodes		path;
 
 	edges = graph_bfs(g, s_key, t_key);
 	path = graph_edge_backtrack(&edges, t_key, NULL);
