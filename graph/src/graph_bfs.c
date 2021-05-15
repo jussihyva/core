@@ -70,7 +70,7 @@ static void	graph_bfs_loop(
 		v->valid = false;
 		if (graph_iter_edges(res, &queue, t, i))
 		{
-			arr_free(&queue);
+			parr_free(&queue);
 			return ;
 		}
 		i++;
