@@ -6,11 +6,10 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/16 02:43:21 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/17 02:28:23 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/parr.h"
 # include "../../inc/core.h"
 
 ssize_t	parr_del(t_parray *arr, size_t index)

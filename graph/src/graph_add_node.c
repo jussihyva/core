@@ -9,7 +9,7 @@
  * \return Total amount of nodes in the graph on success or -1 on failure.
  *****************************************************************************/
 
-#include "../inc/graph.h"
+#include "../../inc/core.h"
 
 ssize_t	graph_add_node(t_graph *g, const char *key, void *attr)
 {

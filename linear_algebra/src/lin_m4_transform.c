@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/lin.h"
+#include "../../inc/core.h"
 
 t_mat4	lin_m4_transform(double scale)
 {

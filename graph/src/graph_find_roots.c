@@ -5,7 +5,7 @@
  * \return 1 on success 0 on failure.
  *****************************************************************************/
 
-#include "../inc/graph.h"
+#include "../../inc/core.h"
 
 t_nodes	graph_find_roots(t_graph *g)
 {

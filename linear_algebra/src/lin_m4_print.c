@@ -6,11 +6,11 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 00:30:42 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/11 22:32:36 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/17 02:24:53 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/lin.h"
+#include "../../inc/core.h"
 
 void	lin_m4_print(const t_mat4 *src)
 {

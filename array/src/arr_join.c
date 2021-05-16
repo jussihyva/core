@@ -15,7 +15,6 @@
  *
  *****************************************************************************/
 
-#include "../inc/arr.h"
 #include "../../inc/core.h"
 
 ssize_t	arr_join(t_array *dst, t_array *src)

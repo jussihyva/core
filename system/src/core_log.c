@@ -1,5 +1,4 @@
 #include "../../inc/core.h"
-#include "../inc/system.h"
 #include "../inc/system_internal.h"
 
 ssize_t	print_line(void *data, size_t i)

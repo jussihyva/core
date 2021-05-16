@@ -5,7 +5,7 @@
  * \return
  *****************************************************************************/
 
-#include "../inc/graph.h"
+#include "../../inc/core.h"
 
 ssize_t	graph_add_edge(
 		t_graph *g,

@@ -15,7 +15,6 @@
  *
  *****************************************************************************/
 
-#include "../inc/arr.h"
 #include "../../inc/core.h"
 
 ssize_t	arr_assign(t_array *dst, void *data, size_t len)

@@ -1,9 +1,7 @@
 #ifndef SYSTEM_H
 # define SYSTEM_H
-#include "../../inc/core.h"
-#include <execinfo.h>
 # define CR_FILE_POS &(t_file_pos){__FUNCTION__, __FILE__, __LINE__}
-
+# include "../../ptr_array/inc/parr.h"
 typedef t_parray t_page;
 
 typedef struct	s_file_pos

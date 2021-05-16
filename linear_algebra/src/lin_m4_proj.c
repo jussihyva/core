@@ -6,11 +6,11 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 00:30:42 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/25 12:39:54 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/17 02:24:53 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/lin.h"
+#include "../../inc/core.h"
 
 t_mat4	lin_m4_proj(double fov, double ratio, int near, int far)
 {

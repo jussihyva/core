@@ -71,7 +71,7 @@ int			tests2()
 
 	// Add 1 element to the middle of the array.
 	struc = (t_test){malloc(1), 2, 3.5, 4.5};
-	arr_add(&test, &struc, 3); // Problem here, creates a leak!!!
+	arr_add(&test, &struc, 3);
 	ptr = arr_get(&test, 3);
 	assert(memcmp(&struc, ptr, sizeof(t_test)) == 0);
 	assert(test.len == 6);
@@ -92,13 +92,12 @@ int			tests2()
 	ptr2 = arr_get_last(&test);
 	assert(ptr2->x == ptr->x);
 	assert(ptr2->y == ptr->y);
-	assert(ptr2->z == ptr->z);
 	arr_iter(&test, test_dealloc);
 	arr_free(&test);
 	return (1);
 }
 
-ssize_t		print(void *data, size_t i)
+ssize_t		print_data(void *data, size_t i)
 {
 	char	*ptr;
 
@@ -116,11 +115,11 @@ int			tests3()
 
 	test = arr_new(1, sizeof(char));
 	arr_put(&test, "0123456789", 10);
-	arr_iter(&test, print);
+	arr_iter(&test, print_data);
 	printf("\n");
 	assert(memcmp((char *)test.data, "0123456789", 10) == 0);
 	arr_del(&test, arr_find(&test, &c));
-	arr_iter(&test, print);
+	arr_iter(&test, print_data);
 	printf("\n");
 	assert(memcmp((char *)test.data, "012345789", 9) == 0);
 
@@ -128,12 +127,12 @@ int			tests3()
 	arr_put(&comp, "345", 3);
 	pos = arr_search(&test, &comp);
 	arr_del(&test, pos);
-	arr_iter(&test, print);
+	arr_iter(&test, print_data);
 	printf("\n");
 	assert(memcmp((char *)test.data, "01245789", 8) == 0);
 	arr_take_last(&c, &test);
 	arr_rotate(&test, 3);
-	arr_iter(&test, print);
+	arr_iter(&test, print_data);
 	printf("\n");
 	assert(memcmp((char *)test.data, "5780124", 7) == 0);
 	arr_free(&test);

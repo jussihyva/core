@@ -1,5 +1,4 @@
 #include "../../inc/core.h"
-#include "../inc/system.h"
 #include "../inc/system_internal.h"
 
 void	core_error(t_file_pos *err_pos, char *message)

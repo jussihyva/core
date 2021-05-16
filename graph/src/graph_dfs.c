@@ -17,7 +17,7 @@
  *
  */
 
-#include "../inc/graph.h"
+#include "../../inc/core.h"
 
 static void	graph_dfs_loop(
 	t_edges *res,
