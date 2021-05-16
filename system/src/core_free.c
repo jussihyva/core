@@ -1,18 +1,21 @@
 #include "../../inc/core.h"
 #include "../inc/system.h"
+#include "../inc/system_internal.h"
 
 static ssize_t	deactivate_tracker(t_mem *mem)
 {
 	t_tracker	*tracker;
 	size_t		i;
+	t_core	*core;
 
+	core = core_static();
 	i = 0;
-	while (i < g_core.allocs.len)
+	while (i < core->allocs.len)
 	{
-		tracker = parr_get(&g_core.allocs, i);
+		tracker = parr_get(&core->allocs, i);
 		if (tracker->mem.data == mem->data)
 		{
-			parr_del(&g_core.allocs, i);
+			parr_del(&core->allocs, i);
 			parr_free(&tracker->trace);
 			free(tracker);
 			return (true);
@@ -24,7 +27,10 @@ static ssize_t	deactivate_tracker(t_mem *mem)
 
 void	core_free(t_mem *mem)
 {
-	if (g_core.active && g_core.track_allocs)
+	t_core	*core;
+
+	core = core_static();
+	if (core->active && core->track_allocs)
 		deactivate_tracker(mem);
 	free(mem->data);
 	mem->data = NULL;

@@ -13,6 +13,7 @@ DEPFLAGS	=	-MT $@ -MMD -MP -MF $(DEP_DIR)$*.d
 COMPILE.c	=	$(CC) $(DEPFLAGS) $(CFLAGS) $(CPPFLAGS) -c
 
 SRC_BASE	=	core_activate.c \
+				core_static.c \
 				core_deactivate.c \
 				core_debug.c \
 				core_error.c \

@@ -6,7 +6,7 @@
 
 typedef t_parray t_page;
 
-typedef struct	s_error_pos
+typedef struct	s_file_pos
 {
 	const char	*func;
 	char		*file;
@@ -18,31 +18,6 @@ typedef struct	s_mem
 	size_t		size;
 	void		*data;
 }				t_mem;
-
-typedef struct	s_core
-{
-	uint8_t		active : 1;
-	uint8_t		track_errors : 1;
-	uint8_t		track_errors_backtrace : 1;
-	uint8_t		track_allocs : 1;
-	uint8_t		track_allocs_backtrace : 1;
-	t_parray	errors;
-	t_parray	allocs;
-}				t_core;
-
-typedef struct	s_tracker
-{
-	t_mem		mem;
-	t_page		trace;
-}				t_tracker;
-
-typedef struct	s_error
-{
-	char		*message;
-	t_page		trace;
-}				t_error;
-
-t_core	g_core;
 
 void	core_error(t_file_pos *err_pos, char *message);
 void	core_debug(t_file_pos *file_pos, size_t count, ...);

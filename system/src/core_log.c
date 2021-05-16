@@ -1,5 +1,6 @@
 #include "../../inc/core.h"
 #include "../inc/system.h"
+#include "../inc/system_internal.h"
 
 ssize_t	print_line(void *data, size_t i)
 {
@@ -22,6 +23,7 @@ ssize_t	print_tracker(void *data, size_t i)
 	}
 	if (!(parr_null(&tracker->trace)))
 		parr_iter(&tracker->trace, print_line);
+	print("\n");
 	return (i);
 }
 
@@ -34,13 +36,17 @@ ssize_t	print_error(void *data, size_t i)
 		printf("%s\n", error->message);
 	if (!(parr_null(&error->trace)))
 		parr_iter(&error->trace, print_line);
+	print("\n");
 	return (i);
 }
 
 void	core_log()
 {
-	if (g_core.track_errors == true)
-		parr_iter(&g_core.errors, print_error);
-	if (g_core.track_allocs == true)
-		parr_iter(&g_core.allocs, print_tracker);
+	t_core	*core;
+
+	core = core_static();
+	if (core->track_errors == true)
+		parr_iter(&core->errors, print_error);
+	if (core->track_allocs == true)
+		parr_iter(&core->allocs, print_tracker);
 }

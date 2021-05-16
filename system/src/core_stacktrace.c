@@ -1,4 +1,5 @@
 #include "../inc/system.h"
+#include "../inc/system_internal.h"
 
 t_page	core_stacktrace(size_t offset)
 {
