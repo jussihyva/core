@@ -1,5 +1,15 @@
 #include "../../inc/core.h"
 #include "../inc/system.h"
+#include "../inc/system_internal.h"
+
+ssize_t	print_line(void *data, size_t i)
+{
+	char	*str;
+
+	str = data;
+	print("%s\n", str);
+	return (i);
+}
 
 ssize_t	print_tracker(void *data, size_t i)
 {
@@ -11,8 +21,9 @@ ssize_t	print_tracker(void *data, size_t i)
 		printf("memptr: \033[1;31m%p\033[0m\n", tracker->mem.data);
 		printf("memsize: \033[1;31m%lu\033[0m\n", tracker->mem.size);
 	}
-	if (tracker->trace)
-		printf("%s\n", tracker->trace);
+	if (!(parr_null(&tracker->trace)))
+		parr_iter(&tracker->trace, print_line);
+	print("\n");
 	return (i);
 }
 
@@ -23,15 +34,19 @@ ssize_t	print_error(void *data, size_t i)
 	error = data;
 	if (error->message)
 		printf("%s\n", error->message);
-	if (error->trace)
-		printf("%s\n", error->trace);
+	if (!(parr_null(&error->trace)))
+		parr_iter(&error->trace, print_line);
+	print("\n");
 	return (i);
 }
 
 void	core_log()
 {
-	if (g_core.track_errors == true)
-		parr_iter(&g_core.errors, print_error);
-	if (g_core.track_allocs == true)
-		parr_iter(&g_core.allocs, print_tracker);
+	t_core	*core;
+
+	core = core_static();
+	if (core->track_errors == true)
+		parr_iter(&core->errors, print_error);
+	if (core->track_allocs == true)
+		parr_iter(&core->allocs, print_tracker);
 }

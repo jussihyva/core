@@ -1,5 +1,6 @@
 #include "../../inc/core.h"
 #include "../inc/system.h"
+#include "../inc/system_internal.h"
 
 void	core_debug(t_file_pos *file_pos, size_t count, ...)
 {
@@ -9,14 +10,15 @@ void	core_debug(t_file_pos *file_pos, size_t count, ...)
 	size_t	i;
 
 	header = format(
-			"\033[1;31m%s\033[0m, \033[1;31m%s\033[0m, \033[1;31m%d\033[0m",
-			file_pos->file,
-			file_pos->func,
-			file_pos->line);
+	"\033[1;31m%s\033[0m, \033[1;31m%s\033[0m, \033[1;31m%d\033[0m",
+	file_pos->file,
+	file_pos->func,
+	file_pos->line);
 	print("DEBUG ");
 	printf("%s\n", header);
 	free(header);
 	va_start(ap, count);
+	ret = NULL;
 	i = 0;
 	while (i < count)
 	{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mem_cpy.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:31:35 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/11 09:41:23 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/16 06:44:24 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,7 @@ void	*mem_cpy(void *restrict dst, const void *restrict src, size_t n)
 	src8 = (const uint8_t *)src;
 	qwords = n >> 3;
 	if (n > 8)
-	{
 		copy512((uint64_t *)dst, (const uint64_t *)src, qwords);
-		return (dst);
-	}
 	aligned_size = qwords << 3;
 	n -= aligned_size;
 	dst8 += aligned_size;
