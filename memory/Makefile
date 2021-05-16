@@ -12,8 +12,8 @@ OBJ_DIR		=	obj/
 DEP_DIR		=	.deps/
 
 CC			=	gcc
-CFLAGS 		=	-O3 -Wall -Wextra -Werror # -Wpedantic -Wtype-limits \
-				-Wunreachable-code -Wshadow -fPIC # -Wconversion
+CFLAGS 		=	-O3 -Wall -Wextra -Werror -fPIC
+DFLAGS		==	-Wunreachable-code -Wconversion -Wpedantic -Wtype-limits
 CPPFLAGS	=	-I $(INC_DIR)
 DEPFLAGS	=	-MT $@ -MMD -MP -MF $(DEP_DIR)$*.d
 COMPILE.c	=	$(CC) $(DEPFLAGS) $(CFLAGS) $(CPPFLAGS) -c
