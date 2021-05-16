@@ -19,7 +19,6 @@
  *
  *****************************************************************************/
 
-#include "../inc/arr.h"
 #include "../../inc/core.h"
 
 ssize_t	arr_find_by(t_array *src, const void *key,

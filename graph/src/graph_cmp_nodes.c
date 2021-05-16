@@ -5,7 +5,7 @@
  * \return
  *****************************************************************************/
 
-#include "../inc/graph.h"
+#include "../../inc/core.h"
 
 ssize_t	graph_cmp_nodes(const void *n1, const void *n2)
 {

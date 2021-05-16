@@ -18,7 +18,7 @@
  *
  */
 
-#include "../inc/graph.h"
+#include "../../inc/core.h"
 
 static ssize_t	graph_iter_edges(
 	t_parray *res,

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   mem_cpy_safe.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:31:35 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/11 09:37:35 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/17 02:26:42 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/mem.h"
+#include "../../inc/core.h"
 
 void	*mem_cpy_safe(void *dst, const void *src, size_t n)
 {

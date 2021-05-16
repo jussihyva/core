@@ -15,7 +15,6 @@
  *
  *****************************************************************************/
 
-#include "../inc/map.h"
 #include "../../inc/core.h"
 
 ssize_t	map_add(t_map *dst, void *val, const char *key)

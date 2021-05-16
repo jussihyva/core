@@ -9,8 +9,7 @@
 #ifndef MATH_H
 # define MATH_H
 
-# include "../../inc/core.h"
-# include "../../array/inc/arr.h"
+# include "../../array/inc/array.h"
 
 double				math_rad(double dgr);
 double				math_dgr(double rad);

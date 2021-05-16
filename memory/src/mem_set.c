@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   mem_set.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:31:58 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/11 09:37:46 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/17 02:26:42 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/mem.h"
+#include "../../inc/core.h"
 
 static void	copy_words(uint64_t *dst, const int c, size_t words)
 {

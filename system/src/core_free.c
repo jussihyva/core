@@ -1,5 +1,4 @@
 #include "../../inc/core.h"
-#include "../inc/system.h"
 #include "../inc/system_internal.h"
 
 static ssize_t	deactivate_tracker(t_mem *mem)

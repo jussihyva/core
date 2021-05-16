@@ -10,7 +10,6 @@
  *
  *****************************************************************************/
 
-#include "../inc/map.h"
 #include "../../inc/core.h"
 
 static inline int64_t	m_ipow(int64_t base, int64_t exp)

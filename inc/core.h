@@ -14,9 +14,10 @@
 # include <stdbool.h>
 # include <inttypes.h>
 # include <stdbool.h>
+# include <execinfo.h>
 
 # include "../memory/inc/mem.h"
-# include "../array/inc/arr.h"
+# include "../array/inc/array.h"
 # include "../ptr_array/inc/parr.h"
 # include "../linear_algebra/inc/lin.h"
 # include "../cstring/inc/cstr.h"

@@ -12,7 +12,7 @@
  *
  *****************************************************************************/
 
-#include "../inc/graph.h"
+#include "../../inc/core.h"
 
 t_graph_edge	*graph_find_edge(t_graph *g,
 				const char *src_key,

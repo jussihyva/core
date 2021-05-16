@@ -13,7 +13,6 @@
  *
  *****************************************************************************/
 
-#include "../inc/arr.h"
 #include "../../inc/core.h"
 
 ssize_t	arr_add_first(t_array *dst, void *elem)

@@ -18,7 +18,6 @@
  *
  *****************************************************************************/
 
-#include "../inc/arr.h"
 #include "../../inc/core.h"
 
 ssize_t	arr_iter_range(t_array *src, size_t start, size_t end,

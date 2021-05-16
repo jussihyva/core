@@ -16,7 +16,7 @@
  *
  */
 
-#include "../inc/graph.h"
+#include "../../inc/core.h"
 
 t_nodes	graph_edge_backtrack(
 	t_parray *edges,

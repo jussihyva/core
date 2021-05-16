@@ -5,7 +5,6 @@
  * \return
  *****************************************************************************/
 
-#include "../inc/map.h"
 #include "../../inc/core.h"
 
 static inline uint64_t	shift(uint64_t x, uint64_t n)

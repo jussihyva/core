@@ -18,7 +18,6 @@
  *
  *****************************************************************************/
 
-#include "../inc/arr.h"
 #include "../../inc/core.h"
 
 t_array	arr_new(size_t alloc_size, size_t elem_size)

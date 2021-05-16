@@ -6,11 +6,11 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:31:35 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/16 06:44:24 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/17 02:26:42 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/mem.h"
+#include "../../inc/core.h"
 
 static inline
 void	copy_small(uint8_t *restrict dst, const uint8_t *restrict src, size_t n)
