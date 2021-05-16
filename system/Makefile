@@ -1,10 +1,4 @@
-###############################################################################
-#
-#	Makefile
-#
-###############################################################################
-
-NAME		=	libgraph.a
+NAME		=	libsys.a
 
 SRC_DIR		=	src/
 INC_DIR		=	inc/
@@ -18,19 +12,14 @@ CPPFLAGS	=	-I $(INC_DIR)
 DEPFLAGS	=	-MT $@ -MMD -MP -MF $(DEP_DIR)$*.d
 COMPILE.c	=	$(CC) $(DEPFLAGS) $(CFLAGS) $(CPPFLAGS) -c
 
-SRC_BASE	=	graph_new.c \
-				graph_null.c \
-				graph_add_node.c \
-				graph_add_edge.c \
-				graph_cmp_nodes.c \
-				graph_find_node.c \
-				graph_find_edge.c \
-				graph_find_roots.c \
-				graph_bfs.c \
-				graph_dfs.c \
-				graph_find_shortest_path.c \
-				graph_edge_backtrack.c \
-				graph_node_valid.c \
+SRC_BASE	=	core_activate.c \
+				core_deactivate.c \
+				core_debug.c \
+				core_error.c \
+				core_free.c \
+				core_log.c \
+				core_malloc.c \
+				core_stacktrace.c \
 
 SRC			=	$(addprefix $(SRC_DIR), $(SRC_BASE))
 OBJ			=	$(addprefix $(OBJ_DIR), $(SRC_BASE:.c=.o))
@@ -40,7 +29,7 @@ all:
 
 $(NAME): $(OBJ)
 
-				@echo "\\n\033[32;1mGRAPH FUNCTIONS COMPILED\033[0m \\n"
+				@echo "\\n\033[32;1mSYSTEM FUNCTIONS COMPILED\033[0m \\n"
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(DEP_DIR)%.d | $(OBJ_DIR) $(DEP_DIR)
 				@$(COMPILE.c) $< -o $@

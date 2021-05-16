@@ -3,5 +3,5 @@
 
 uint64_t	map_resize_linear(uint64_t capacity)
 {
-	return (capacity * 2);
+	return (math_nextprime(capacity));
 }

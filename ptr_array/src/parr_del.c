@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parr_del.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/13 21:29:35 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/16 02:43:21 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ ssize_t	parr_del(t_parray *arr, size_t index)
 {
 	size_t	i;
 
-	if (parr_null(arr))
-		return (CR_FAIL);
+	// if (parr_null(arr))
+	// 	return (CR_FAIL);
 	if (index > arr->len)
 		return (CR_FAIL);
 	i = index;

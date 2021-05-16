@@ -1,23 +1,22 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2021/05/11 22:52:49 by jkoskela         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+###############################################################################
+#
+#	Makefile
+#
+###############################################################################
 
-NAME		=	libmap.a
-
-CC			=	gcc
-FLAGS 		=	-O3 -Wall -Wextra -Werror -Wpedantic -Wtype-limits -Wswitch-default -Wunreachable-code  -Wshadow -fPIC
+NAME		=	libgraph.a
 
 SRC_DIR		=	src/
 INC_DIR		=	inc/
 OBJ_DIR		=	obj/
+DEP_DIR		=	.deps/
+
+CC			=	gcc
+CFLAGS 		=	-O3 -Wall -Wextra -Werror -fPIC
+DFLAGS		=	-Wunreachable-code -Wconversion -Wpedantic -Wtype-limits
+CPPFLAGS	=	-I $(INC_DIR)
+DEPFLAGS	=	-MT $@ -MMD -MP -MF $(DEP_DIR)$*.d
+COMPILE.c	=	$(CC) $(DEPFLAGS) $(CFLAGS) $(CPPFLAGS) -c
 
 SRC_BASE	=	map_add.c \
 				map_free.c \
@@ -34,35 +33,39 @@ SRC_BASE	=	map_add.c \
 				map_probe_quad_pow2.c \
 				map_resize_pow2.c \
 				map_probe_linear.c \
-				map_resize_linear.c
+				map_resize_linear.c \
 
 SRC			=	$(addprefix $(SRC_DIR), $(SRC_BASE))
 OBJ			=	$(addprefix $(OBJ_DIR), $(SRC_BASE:.c=.o))
-DIR			=	$(sort $(dir $(OBJ)))
 
 all:
 				@$(MAKE) -j $(NAME)
 
-$(NAME): $(OBJ) Makefile
+$(NAME): $(OBJ)
 
 				@echo "\\n\033[32;1mMAP FUNCTIONS COMPILED\033[0m \\n"
 
-$(DIR):
-				@mkdir -p $@
-
-$(OBJ_DIR)%.o: $(SRC_DIR)%.c Makefile | $(DIR)
-				@$(CC) $(CFLAGS) -c $< -o $@ -I $(INC_DIR)
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c $(DEP_DIR)%.d | $(OBJ_DIR) $(DEP_DIR)
+				@$(COMPILE.c) $< -o $@
 				@echo $@
 
-clean:
-				@rm -rf $(OBJ_DIR);
+$(OBJ_DIR):
+				@mkdir -p $@
 
+$(DEP_DIR):
+				@mkdir -p $@
+
+DEPFILES = $(addprefix $(DEP_DIR), $(SRC_BASE:.c=.d))
+$(DEPFILES):
+
+clean:
+				@rm -rf $(OBJ_DIR) $(DEP_DIR)
 
 fclean: clean
 				@rm -rf $(NAME);
 
-re: fclean
-				@$(MAKE) -j $(NAME)
+re: fclean all
 
-.PHONY: fclean clean re
+.PHONY: all fclean clean re
 
+include $(wildcard $(DEPFILES))

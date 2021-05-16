@@ -1,15 +1,6 @@
 ###############################################################################
 #
-# \authors Satu Koskinen
-#
-# \brief Add a new element to the beginning of a dynamic array.
-#
-# If the array is not sufficiently big a new memory area double the
-# alloc_size of the previous one is allocated.
-#
-# \param dst Destination array.
-# \param elem Element to be added.
-# \return 1 on success 0 on failure.
+#	Makefile
 #
 ###############################################################################
 
@@ -21,8 +12,8 @@ OBJ_DIR		=	obj/
 DEP_DIR		=	.deps/
 
 CC			=	gcc
-CFLAGS 		=	-O3 -Wall -Wextra -Werror -Wpedantic -Wtype-limits \
-				-Wunreachable-code -Wshadow -fPIC -Wconversion
+CFLAGS 		=	-O3 -Wall -Wextra -Werror -fPIC
+DFLAGS		=	-Wunreachable-code -Wconversion -Wpedantic -Wtype-limits
 CPPFLAGS	=	-I $(INC_DIR)
 DEPFLAGS	=	-MT $@ -MMD -MP -MF $(DEP_DIR)$*.d
 COMPILE.c	=	$(CC) $(DEPFLAGS) $(CFLAGS) $(CPPFLAGS) -c

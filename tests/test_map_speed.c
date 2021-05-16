@@ -2,7 +2,7 @@
 #include "../inc/core.h"
 #include "assert.h"
 
-size_t	iters = 800000;
+size_t	iters = 100000;
 
 void rand_str(char *dest, size_t length)
 {
