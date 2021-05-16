@@ -6,9 +6,9 @@ void	create_tracker(t_mem mem)
 
 	tracker = malloc(sizeof(t_tracker));
 	if (g_core.track_allocs_backtrace == true)
-		tracker->trace = core_stacktrace(1);
+		tracker->trace = core_stacktrace(3);
 	else
-		tracker->trace = NULL;
+		tracker->trace = CR_PARR_NULL;
 	tracker->mem = mem;
 	parr_add_last(&g_core.allocs, tracker);
 }
@@ -37,7 +37,6 @@ t_mem	core_malloc(size_t bytes)
 
 	out.data = malloc(bytes);
 	out.size = bytes;
-	g_core.alloc_index++;
 	if (g_core.active == true)
 		if (!(core_malloc_setup(out)))
 			return (CR_MEM_NULL);

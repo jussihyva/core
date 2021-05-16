@@ -1,4 +1,6 @@
 #include "../inc/core.h"
+# define DEBUG core_debug
+# define ERROR core_error
 
 void	test_debug()
 {

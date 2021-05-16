@@ -10,7 +10,8 @@ void	cr_free_trackers()
 	while (i < g_core.allocs.len)
 	{
 		t = parr_get(&g_core.allocs, i);
-		free(t->trace);
+		parr_free(&t->trace);
+		free(t);
 		i++;
 	}
 }
@@ -24,8 +25,9 @@ void	cr_free_errors()
 	while (i < g_core.errors.len)
 	{
 		t = parr_get(&g_core.errors, i);
-		free(t->trace);
+		parr_free(&t->trace);
 		free(t->message);
+		free(t);
 		i++;
 	}
 }

@@ -8,7 +8,6 @@ void	core_activate()
 	g_core.track_errors_backtrace = CR_TRACK_ERROR_BACKTRACE;
 	g_core.track_allocs = CR_TRACK_ALLOC;
 	g_core.track_allocs_backtrace = CR_TRACK_ALLOC_BACKTRACE;
-	g_core.alloc_index = 0;
 	if (g_core.track_errors == true)
 		g_core.errors = parr_new(1);
 	if (g_core.track_allocs == true)

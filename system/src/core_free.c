@@ -13,6 +13,7 @@ static ssize_t	deactivate_tracker(t_mem *mem)
 		if (tracker->mem.data == mem->data)
 		{
 			parr_del(&g_core.allocs, i);
+			parr_free(&tracker->trace);
 			free(tracker);
 			return (true);
 		}

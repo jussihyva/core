@@ -1,32 +1,6 @@
-#ifndef LIBCORE_H
-# define LIBCORE_H
+#ifndef CORE_H
+# define CORE_H
 
-# define CR_PI 3.14159265358979323846
-# define CR_STOP -1
-# define CR_CONTINUE 1
-# define CR_SUCCESS 1
-# define CR_FAIL 0
-# define CR_TRUE 1
-# define CR_FALSE 0
-# define CR_NOALLOC 0
-# define CR_EMPTY -1
-# define CR_WRITE 0
-# define CR_APPEND 1
-# define CR_PREPEND -1
-# define CR_STRING NULL
-# define CR_PARR_NULL (t_parray) {NULL, 0, 0}
-# define CR_ARR_NULL (t_array) {NULL, 0, 0, 0}
-# define CR_GRAPH_NULL (t_graph) {CR_MAP_NULL, 0, NULL}
-# define CR_GRAPH_NULL_NODE (t_graph_node) {NULL, CR_ARR_NULL, CR_ARR_NULL, 0, NULL, NULL}
-# define CR_GRAPH_EDGE_NULL (t_graph_edge) {NULL, NULL, 0, NULL}
-# define CR_MAP_NULL_NODE (t_map_node) {NULL, NULL}
-# define CR_MAP_NULL (t_map) {NULL, 0, 0, 0.0, NULL, NULL, NULL}
-# define CR_MAP_START_CAPACITY 128
-# define CR_MAP_LOAD_FACTOR 1
-# define CR_MAP_HASH map_hash_1
-# define CR_MAP_PROBE map_probe_linear
-# define CR_MAP_RESIZE map_resize_linear
-# define CR_PI 3.14159265358979323846
 # include <stdlib.h>
 # include <stdint.h>
 # include <string.h>
@@ -53,5 +27,7 @@
 # include "../string/inc/string.h"
 # include "../checks/inc/checks.h"
 # include "../system/inc/system.h"
+# include "const.h"
+# include "config.h"
 
 #endif
