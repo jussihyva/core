@@ -9,7 +9,7 @@
  * \return Total amount of nodes in the graph on success or -1 on failure.
  *****************************************************************************/
 
-#include "../inc/graph.h"
+#include "../../inc/core.h"
 
 ssize_t	graph_add_node(t_graph *g, const char *key, void *attr)
 {
@@ -23,8 +23,8 @@ ssize_t	graph_add_node(t_graph *g, const char *key, void *attr)
 	}
 	n->key = key;
 	n->valid = true;
-	n->in = arr_new(1, sizeof(t_graph_edge));
-	n->out = arr_new(1, sizeof(t_graph_edge));
+	n->in = parr_new(1);
+	n->out = parr_new(1);
 	n->attr = attr;
 	return (map_add(g, n, n->key));
 }

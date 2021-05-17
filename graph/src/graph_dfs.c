@@ -17,7 +17,7 @@
  *
  */
 
-#include "../inc/graph.h"
+#include "../../inc/core.h"
 
 static void	graph_dfs_loop(
 	t_edges *res,
@@ -31,10 +31,10 @@ static void	graph_dfs_loop(
 	i = false;
 	while (i < v->out.len)
 	{
-		e = arr_get(&v->out, i);
+		e = parr_get(&v->out, i);
 		if (e->valid && e->v->valid)
 		{
-			arr_add_last(res, e);
+			parr_add_last(res, e);
 			graph_dfs_loop(res, e->v, t);
 		}
 		if (t && s_cmp(v->key, t->key) == 0)
@@ -54,12 +54,12 @@ t_edges	graph_dfs(t_graph *g, const char *s_key, const char *t_key)
 	s = graph_find_node(g, s_key);
 	t = graph_find_node(g, t_key);
 	if (!s)
-		return (CR_ARR_NULL);
-	res = arr_new(1, sizeof(t_graph_edge));
-	queue = arr_new(1, sizeof(t_graph_node));
-	arr_add_last(&queue, s);
+		return (CR_PARR_NULL);
+	res = parr_new(1);
+	queue = parr_new(1);
+	parr_add_last(&queue, s);
 	graph_dfs_loop(&res, s, t);
-	arr_free(&queue);
+	parr_free(&queue);
 	map_iter(g, graph_node_valid);
 	return (res);
 }

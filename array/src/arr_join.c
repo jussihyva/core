@@ -15,7 +15,6 @@
  *
  *****************************************************************************/
 
-#include "../inc/arr.h"
 #include "../../inc/core.h"
 
 ssize_t	arr_join(t_array *dst, t_array *src)
@@ -26,11 +25,11 @@ ssize_t	arr_join(t_array *dst, t_array *src)
 	if (dst->elem_size != src->elem_size)
 		return (CR_FAIL);
 	newsize = src->len + dst->len;
-	if (dst->alloc_size < newsize)
-		arr_grow(dst, dst->len + src->len);
-	mem_start = dst->data;
+	if (dst->len == dst->mem.size / dst->elem_size)
+		core_realloc(&dst->mem, dst->mem.size * 2);
+	mem_start = dst->mem.data;
 	mem_start = &mem_start[dst->len * dst->elem_size];
-	memcpy(mem_start, src->data, (newsize - dst->len) * dst->elem_size);
+	mem_cpy(mem_start, src->mem.data, (newsize - dst->len) * dst->elem_size);
 	dst->len = newsize;
 	return (CR_SUCCESS);
 }

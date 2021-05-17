@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   mem_cmp.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:31:25 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/11 09:47:37 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/17 02:26:42 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/mem.h"
+#include "../../inc/core.h"
 
 static inline
 int	cmp_small(uint8_t *restrict dst, const uint8_t *restrict src, size_t n)

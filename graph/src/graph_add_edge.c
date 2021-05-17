@@ -5,7 +5,7 @@
  * \return
  *****************************************************************************/
 
-#include "../inc/graph.h"
+#include "../../inc/core.h"
 
 ssize_t	graph_add_edge(
 		t_graph *g,
@@ -13,22 +13,25 @@ ssize_t	graph_add_edge(
 		const char *v_key,
 		void *attr)
 {
-	t_graph_edge	e;
+	t_graph_edge	*e;
 	t_graph_node	*u;
 	t_graph_node	*v;
 
+	e = (t_graph_edge *)malloc(sizeof(t_graph_edge));
+	if (!e)
+		return (CR_FAIL);
 	u = graph_find_node(g, u_key);
 	v = graph_find_node(g, v_key);
 	if (!u || !v)
 	{
-		printf("Trying to connect an edge with a non-existing node!\n");
+		print("Trying to connect an edge with a non-existing node!\n");
 		return (-1);
 	}
-	e.u = u;
-	e.v = v;
-	e.valid = true;
-	e.attr = attr;
-	arr_add_last(&u->out, &e);
-	arr_add_last(&v->in, &e);
+	e->u = u;
+	e->v = v;
+	e->valid = true;
+	e->attr = attr;
+	parr_add_last(&u->out, e);
+	parr_add_last(&v->in, e);
 	return (CR_SUCCESS);
 }

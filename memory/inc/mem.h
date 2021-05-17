@@ -6,13 +6,14 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 06:09:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/24 19:45:29 by julius           ###   ########.fr       */
+/*   Updated: 2021/05/17 02:26:20 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MEM_H
 # define MEM_H
-# include "../../inc/core.h"
+
+# include <stdint.h>
 
 void				*mem_cpy(void *dst, const void *src, const size_t size);
 void				*mem_cpy_safe(void *dst, const void *src, size_t size);

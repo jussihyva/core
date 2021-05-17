@@ -11,12 +11,12 @@
  *
  */
 
-#include "../inc/graph.h"
+#include "../../inc/core.h"
 
-t_array	graph_find_shortest_path(
-		t_graph *g,
-		const char *s_key,
-		const char *t_key)
+t_nodes graph_find_shortest_path(
+	t_graph *g,
+	const char *s_key,
+	const char *t_key)
 {
 	t_parray	edges;
 	t_nodes		path;

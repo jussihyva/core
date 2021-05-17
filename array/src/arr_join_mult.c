@@ -10,7 +10,6 @@
  *
  *****************************************************************************/
 
-#include "../inc/arr.h"
 #include "../../inc/core.h"
 
 ssize_t	arr_join_mult(t_array *dst, size_t len, ...)
@@ -30,13 +29,3 @@ ssize_t	arr_join_mult(t_array *dst, size_t len, ...)
 	va_end(ap);
 	return ((ssize_t)dst->len);
 }
-
-/*
-**  ----------------------------------------------------------------------------
-**
-**	ARR_JOIN_MULT
-**
-**	Join `len` amount of arrays to the source array `dst`.
-**
-**  ----------------------------------------------------------------------------
-*/

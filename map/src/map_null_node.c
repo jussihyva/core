@@ -5,7 +5,6 @@
  * \return
  *****************************************************************************/
 
-#include "../inc/map.h"
 #include "../../inc/core.h"
 
 ssize_t	map_null_node(t_map_node *n)

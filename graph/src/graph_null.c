@@ -3,7 +3,7 @@
  * \return 1 on success 0 on failure.
  *****************************************************************************/
 
-#include "../inc/graph.h"
+#include "../../inc/core.h"
 
 ssize_t	graph_null(t_graph *g)
 {

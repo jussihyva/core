@@ -15,7 +15,6 @@
  *
  *****************************************************************************/
 
-#include "../inc/map.h"
 #include "../../inc/core.h"
 
 static uint64_t	map_threshold(t_map *map)

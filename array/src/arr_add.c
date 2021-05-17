@@ -14,7 +14,6 @@
  *
  *****************************************************************************/
 
-#include "../inc/arr.h"
 #include "../../inc/core.h"
 
 ssize_t	arr_add(t_array *dst, void *elem, size_t index)
@@ -24,17 +23,14 @@ ssize_t	arr_add(t_array *dst, void *elem, size_t index)
 
 	if (index >= dst->len)
 		return (CR_FAIL);
-	if (dst->len == dst->alloc_size)
-	{
-		if (!(arr_grow(dst, dst->alloc_size * 2)))
-			return (CR_FAIL);
-	}
-	mem_pos = dst->data;
+	if (dst->len == dst->mem.size / dst->elem_size)
+		core_realloc(&dst->mem, dst->mem.size * 2);
+	mem_pos = dst->mem.data;
 	mem_pos += index * dst->elem_size;
-	mem_tmp = dst->data;
+	mem_tmp = dst->mem.data;
 	mem_tmp += (index + 1) * dst->elem_size;
 	mem_move(mem_tmp, mem_pos, dst->elem_size * (dst->len - index));
-	memcpy(mem_pos, elem, dst->elem_size);
+	mem_cpy(mem_pos, elem, dst->elem_size);
 	dst->len++;
 	return (CR_SUCCESS);
 }

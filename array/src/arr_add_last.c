@@ -13,21 +13,17 @@
  *
  *****************************************************************************/
 
-#include "../inc/arr.h"
 #include "../../inc/core.h"
 
 ssize_t	arr_add_last(t_array *dst, void *elem)
 {
 	uint8_t	*mem_pos;
 
-	if (dst->len == dst->alloc_size)
-	{
-		if (!(arr_grow(dst, dst->alloc_size * 2)))
-			return (CR_FAIL);
-	}
-	mem_pos = dst->data;
+	if (dst->len == dst->mem.size / dst->elem_size)
+		core_realloc(&dst->mem, dst->mem.size * 2);
+	mem_pos = dst->mem.data;
 	mem_pos += dst->len * dst->elem_size;
-	mem_pos = memcpy(mem_pos, elem, dst->elem_size);
+	mem_pos = mem_cpy(mem_pos, elem, dst->elem_size);
 	dst->len++;
 	return (CR_SUCCESS);
 }

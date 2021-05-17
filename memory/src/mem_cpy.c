@@ -3,32 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   mem_cpy.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:31:35 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/11 09:41:23 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/17 03:15:21 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/mem.h"
+#include "../../inc/core.h"
 
 static inline
-void	copy_small(uint8_t *restrict dst, const uint8_t *restrict src, size_t n)
+void	copy_small(uint8_t *dst, const uint8_t *restrict src, size_t n)
 {
 	if (n >= 8)
 	{
-		*(uint64_t *restrict)dst = *(const uint64_t *restrict)src;
+		*(uint64_t *)dst = *(const uint64_t *restrict)src;
 		return ;
 	}
 	if (n >= 4)
 	{
-		*(uint32_t *restrict)dst = *(const uint32_t *restrict)src;
+		*(uint32_t *)dst = *(const uint32_t *restrict)src;
 		dst += 4;
 		src += 4;
 	}
 	if (n & 2)
 	{
-		*(uint16_t *restrict)dst = *(const uint16_t *restrict)src;
+		*(uint16_t *)dst = *(const uint16_t *restrict)src;
 		dst += 2;
 		src += 2;
 	}
@@ -37,7 +37,7 @@ void	copy_small(uint8_t *restrict dst, const uint8_t *restrict src, size_t n)
 }
 
 static inline
-void	copy512(uint64_t *restrict dst, const uint64_t *restrict src, size_t n)
+void	copy512(uint64_t *dst, const uint64_t *restrict src, size_t n)
 {
 	size_t	chunks;
 	size_t	offset;
@@ -59,7 +59,7 @@ void	copy512(uint64_t *restrict dst, const uint64_t *restrict src, size_t n)
 		*dst++ = *src++;
 }
 
-void	*mem_cpy(void *restrict dst, const void *restrict src, size_t n)
+void	*mem_cpy(void *dst, const void *restrict src, size_t n)
 {
 	uint8_t			*dst8;
 	const uint8_t	*src8;
@@ -68,12 +68,11 @@ void	*mem_cpy(void *restrict dst, const void *restrict src, size_t n)
 
 	dst8 = (uint8_t *)dst;
 	src8 = (const uint8_t *)src;
+	if (dst8 >= src8)
+		return (mem_move(dst, src, n));
 	qwords = n >> 3;
 	if (n > 8)
-	{
 		copy512((uint64_t *)dst, (const uint64_t *)src, qwords);
-		return (dst);
-	}
 	aligned_size = qwords << 3;
 	n -= aligned_size;
 	dst8 += aligned_size;

@@ -10,7 +10,6 @@
  *
  *****************************************************************************/
 
-#include "../inc/map.h"
 #include "../../inc/core.h"
 
 uint64_t	map_probe_quad_pow2(uint64_t x)

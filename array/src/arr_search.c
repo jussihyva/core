@@ -14,7 +14,6 @@
  *
  *****************************************************************************/
 
-#include "../inc/arr.h"
 #include "../../inc/core.h"
 
 ssize_t	arr_search(t_array *src, t_array *key)
@@ -25,8 +24,8 @@ ssize_t	arr_search(t_array *src, t_array *key)
 
 	if (src->elem_size != key->elem_size)
 		return (CR_FAIL);
-	mem_src = (uint8_t *)src->data;
-	mem_key = (uint8_t *)key->data;
+	mem_src = (uint8_t *)src->mem.data;
+	mem_key = (uint8_t *)key->mem.data;
 	i = 0;
 	while (i < src->len)
 	{

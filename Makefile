@@ -11,6 +11,7 @@ MATH 		=	math/
 PRINT		=	print/
 STRING		=	string/
 CHECKS		=	checks/
+SYSTEM		=	system/
 
 RM			=	rm -rf
 
@@ -29,19 +30,21 @@ all:
 			+@make -C $(PRINT)
 			+@make -C $(STRING)
 			+@make -C $(CHECKS)
+			+@make -C $(SYSTEM)
 			@mkdir -p $(OBJ)
-			@cp $(MEM)obj/*.o $(OBJ)
-			@cp $(ARR)obj/*.o $(OBJ)
-			@cp $(LIN)obj/*.o $(OBJ)
-			@cp $(PARR)obj/*.o $(OBJ)
-			@cp $(CSTR)obj/*.o $(OBJ)
-			@cp $(GRAPH)obj/*.o $(OBJ)
-			@cp $(MAP)obj/*.o $(OBJ)
-			@cp $(MATH)obj/*.o $(OBJ)
-			@cp $(PRINT)obj/*.o $(OBJ)
-			@cp $(PRINT)obj/sub/*.o $(OBJ)
-			@cp $(STRING)obj/*.o $(OBJ)
-			@cp $(CHECKS)obj/*.o $(OBJ)
+			@mv $(MEM)obj/*.o $(OBJ)
+			@mv $(ARR)obj/*.o $(OBJ)
+			@mv $(LIN)obj/*.o $(OBJ)
+			@mv $(PARR)obj/*.o $(OBJ)
+			@mv $(CSTR)obj/*.o $(OBJ)
+			@mv $(GRAPH)obj/*.o $(OBJ)
+			@mv $(MAP)obj/*.o $(OBJ)
+			@mv $(MATH)obj/*.o $(OBJ)
+			@mv $(PRINT)obj/*.o $(OBJ)
+			@mv $(PRINT)obj/sub/*.o $(OBJ)
+			@mv $(STRING)obj/*.o $(OBJ)
+			@mv $(CHECKS)obj/*.o $(OBJ)
+			@mv $(SYSTEM)obj/*.o $(OBJ)
 			@ar -rcs $(NAME) $(OBJ)*.o
 			@echo "\\n\033[32;1mCORE ACTIVATED \033[0m \\n"
 
@@ -57,6 +60,7 @@ clean:
 			@make clean -C $(PRINT)
 			@make clean -C $(STRING)
 			@make clean -C $(CHECKS)
+			@make clean -C $(SYSTEM)
 			@echo "\\n\033[32;1mCORE DEACTIVATED \033[0m \\n"
 
 fclean:		clean
@@ -73,6 +77,7 @@ fclean:		clean
 			@make fclean -C $(PRINT)
 			@make fclean -C $(STRING)
 			@make fclean -C $(CHECKS)
+			@make fclean -C $(SYSTEM)
 
 re:			fclean all
 

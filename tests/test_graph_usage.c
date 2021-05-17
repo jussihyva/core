@@ -53,8 +53,8 @@ ssize_t	free_node(void *data, size_t i)
 	t_graph_node	*tmp;
 
 	tmp = data;
-	arr_free(&tmp->in);
-	arr_free(&tmp->out);
+	parr_free(&tmp->in);
+	parr_free(&tmp->out);
 	return (i);
 }
 
@@ -63,9 +63,9 @@ ssize_t	free_node(void *data, size_t i)
 int main(void)
 {
 	t_graph	g;
-	t_array	breadth_first_search;
-	t_array	depth_first_search;
-	t_array	shortest_path;
+	t_edges	breadth_first_search;
+	t_edges	depth_first_search;
+	t_nodes	shortest_path;
 
 	g = graph_new();
 	if (graph_null(&g))
@@ -102,21 +102,21 @@ int main(void)
 
 	depth_first_search = graph_dfs(&g, "00", NULL);
 	printf("\nDepth First Search\n\n");
-	arr_iter(&depth_first_search, print_edge);
+	parr_iter(&depth_first_search, print_edge);
 
 	breadth_first_search = graph_bfs(&g, "00", "csw02");
 	printf("\nBreadth First Search\n\n");
-	arr_iter(&breadth_first_search, print_edge);
+	parr_iter(&breadth_first_search, print_edge);
 
 	breadth_first_search = graph_bfs(&g, "00", NULL);
 	printf("\nBreadth First Search\n\n");
-	arr_iter(&breadth_first_search, print_edge);
+	parr_iter(&breadth_first_search, print_edge);
 
 	shortest_path = graph_find_shortest_path(&g, "00", "csw02");
 	printf("\nFind shortest path [00] => [csw02]\n");
-	arr_iter(&shortest_path, print_node);
+	parr_iter(&shortest_path, print_node);
 
-	arr_free(&breadth_first_search);
-	arr_free(&depth_first_search);
-	arr_free(&shortest_path);
+	parr_free(&breadth_first_search);
+	parr_free(&depth_first_search);
+	parr_free(&shortest_path);
 }

@@ -18,7 +18,6 @@
  *
  *****************************************************************************/
 
-#include "../inc/arr.h"
 #include "../../inc/core.h"
 
 t_array	arr_new(size_t alloc_size, size_t elem_size)
@@ -27,9 +26,8 @@ t_array	arr_new(size_t alloc_size, size_t elem_size)
 
 	out.len = 0;
 	out.elem_size = elem_size;
-	out.alloc_size = alloc_size;
-	out.data = (uint8_t *)malloc(sizeof(uint8_t) * elem_size * alloc_size);
-	if (!out.data)
+	out.mem = core_malloc(alloc_size * elem_size);
+	if (!out.mem.data)
 	{
 		printf("Allocation failed in function: arr_new!\n");
 		exit(-1);

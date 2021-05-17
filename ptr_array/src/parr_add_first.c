@@ -6,12 +6,12 @@
 /*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/14 18:43:58 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/17 17:49:41 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/parr.h"
-#include "../../inc/core.h"
+# include "../../inc/core.h"
+
 
 ssize_t	parr_add_first(t_parray *arr, void *data)
 {

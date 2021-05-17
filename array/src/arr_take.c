@@ -14,7 +14,6 @@
  *
  *****************************************************************************/
 
-#include "../inc/arr.h"
 #include "../../inc/core.h"
 
 void	*arr_take(void *dst, t_array *src, size_t index)
@@ -24,7 +23,7 @@ void	*arr_take(void *dst, t_array *src, size_t index)
 	if (index >= src->len)
 		return (NULL);
 	tmp = arr_get(src, index);
-	dst = memcpy(dst, tmp, src->elem_size);
+	dst = mem_cpy(dst, tmp, src->elem_size);
 	if (!(arr_del(src, index)))
 		return (NULL);
 	return (dst);

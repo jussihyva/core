@@ -48,8 +48,7 @@ int			main(void)
 	t_array	test1_param;
 	size_t	*test2_param;
 
-	test1_param = arr_new(sizeof(size_t));
-	arr_alloc(&test1_param, iters);
+	test1_param = arr_new(iters, sizeof(size_t));
 	test2_param = (size_t *)malloc(sizeof(size_t) * iters);
 	test_clock("Add elements to t_array", &test1_param, test1);
 	test_clock("Assign elements to preallocated c-array", test2_param, test2);

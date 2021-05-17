@@ -13,7 +13,6 @@
  *
  *****************************************************************************/
 
-#include "../inc/arr.h"
 #include "../../inc/core.h"
 
 void	*arr_get_first(t_array *arr)

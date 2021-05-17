@@ -12,7 +12,7 @@
  *
  *****************************************************************************/
 
-#include "../inc/graph.h"
+#include "../../inc/core.h"
 
 t_graph_edge	*graph_find_edge(t_graph *g,
 				const char *src_key,
@@ -26,7 +26,7 @@ t_graph_edge	*graph_find_edge(t_graph *g,
 	i = 0;
 	while (i < node->out.len)
 	{
-		out = arr_get(&node->out, i);
+		out = parr_get(&node->out, i);
 		if (s_cmp(out->v->key, dst_key) == 0)
 			return (out);
 		i++;

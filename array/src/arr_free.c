@@ -10,12 +10,11 @@
  *
  *****************************************************************************/
 
-#include "../inc/arr.h"
 #include "../../inc/core.h"
 
 ssize_t	arr_free(t_array *src)
 {
-	free(src->data);
+	core_free(&src->mem);
 	*src = CR_ARR_NULL;
 	return (CR_SUCCESS);
 }

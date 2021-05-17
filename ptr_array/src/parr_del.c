@@ -6,19 +6,18 @@
 /*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/14 18:43:44 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/17 17:50:03 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/parr.h"
-#include "../../inc/core.h"
+# include "../../inc/core.h"
 
 ssize_t	parr_del(t_parray *arr, size_t index)
 {
 	size_t	i;
 
-	if (parr_null(arr))
-		return (CR_FAIL);
+	// if (parr_null(arr))
+	// 	return (CR_FAIL);
 	if (index > arr->len)
 		return (CR_FAIL);
 	i = index;
