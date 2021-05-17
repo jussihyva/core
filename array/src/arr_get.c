@@ -21,7 +21,7 @@ void	*arr_get(t_array *src, size_t index)
 
 	if (index >= src->len || src->len == 0)
 		return (NULL);
-	mem_pos = src->data;
+	mem_pos = src->mem.data;
 	mem_pos += index * src->elem_size;
 	return (mem_pos);
 }

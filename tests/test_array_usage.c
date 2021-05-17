@@ -38,7 +38,7 @@ int			tests1()
 	t_array	test;
 
 	test = arr_new(1, sizeof(int));
-	assert(test.alloc_size == 1);
+	assert(test.mem.size == sizeof(int));
 	assert(test.elem_size == sizeof(int));
 	assert(test.len == 0);
 	assert(arr_grow(&test, 2) > 0);
@@ -117,11 +117,11 @@ int			tests3()
 	arr_put(&test, "0123456789", 10);
 	arr_iter(&test, print_data);
 	printf("\n");
-	assert(memcmp((char *)test.data, "0123456789", 10) == 0);
+	assert(memcmp((char *)test.mem.data, "0123456789", 10) == 0);
 	arr_del(&test, arr_find(&test, &c));
 	arr_iter(&test, print_data);
 	printf("\n");
-	assert(memcmp((char *)test.data, "012345789", 9) == 0);
+	assert(memcmp((char *)test.mem.data, "012345789", 9) == 0);
 
 	comp = arr_new(1, sizeof(char));
 	arr_put(&comp, "345", 3);
@@ -129,12 +129,12 @@ int			tests3()
 	arr_del(&test, pos);
 	arr_iter(&test, print_data);
 	printf("\n");
-	assert(memcmp((char *)test.data, "01245789", 8) == 0);
+	assert(memcmp((char *)test.mem.data, "01245789", 8) == 0);
 	arr_take_last(&c, &test);
 	arr_rotate(&test, 3);
 	arr_iter(&test, print_data);
 	printf("\n");
-	assert(memcmp((char *)test.data, "5780124", 7) == 0);
+	assert(memcmp((char *)test.mem.data, "5780124", 7) == 0);
 	arr_free(&test);
 	arr_free(&comp);
 	return (1);
