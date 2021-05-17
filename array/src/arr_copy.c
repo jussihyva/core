@@ -21,10 +21,13 @@ ssize_t	arr_copy(t_array *dst, t_array *src)
 
 	if (arr_null(src))
 		return (CR_FAIL);
-	if (dst->alloc_size < src->len)
-		arr_grow(dst, src->alloc_size);
-	mem_start = dst->data;
-	dst->data = mem_cpy(mem_start, src->data, src->len * src->elem_size);
+	if (dst->mem.size / dst->elem_size < src->len)
+		core_realloc(&dst->mem, dst->mem.size * 2);
+	mem_start = dst->mem.data;
+	dst->mem.data = mem_cpy(
+		mem_start,
+		src->mem.data,
+		src->len * src->elem_size);
 	dst->len = src->len;
 	return (CR_SUCCESS);
 }

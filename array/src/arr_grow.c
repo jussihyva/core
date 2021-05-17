@@ -23,5 +23,5 @@ ssize_t	arr_grow(t_array *arr, size_t new_size)
 	arr_copy(&out, arr);
 	arr_free(arr);
 	*arr = out;
-	return ((ssize_t)out.alloc_size);
+	return ((ssize_t)out.mem.size / out.elem_size);
 }
