@@ -27,7 +27,7 @@ uint64_t	map_hash_1(const char *str)
 	{
 		cycles = ((wrdlen - 1) >> 4) + 1;
 		ndhead = wrdlen - (cycles << 3);
-		while(cycles--)
+		while (cycles--)
 		{
 			hash64 = (hash64 ^ (*(uint64_t *)(str))) * prime;
 			hash64 = (hash64 ^ (*(uint64_t *)(str + ndhead))) * prime;
@@ -36,6 +36,6 @@ uint64_t	map_hash_1(const char *str)
 	}
 	else
 		hash64 = (hash64 ^ shift(*(uint64_t *)(str + 0),
-		(8 - wrdlen) << 3)) * prime;
+					(8 - wrdlen) << 3)) * prime;
 	return (hash64 ^ (hash64 >> 32));
 }

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parr_take_first.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 06:09:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/17 02:28:23 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/17 17:55:34 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../inc/core.h"
+#include "../../inc/core.h"
 
 void	*parr_take_first(t_parray *arr)
 {

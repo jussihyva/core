@@ -25,9 +25,9 @@ ssize_t	arr_copy(t_array *dst, t_array *src)
 		core_realloc(&dst->mem, dst->mem.size * 2);
 	mem_start = dst->mem.data;
 	dst->mem.data = mem_cpy(
-		mem_start,
-		src->mem.data,
-		src->len * src->elem_size);
+			mem_start,
+			src->mem.data,
+			src->len * src->elem_size);
 	dst->len = src->len;
 	return (CR_SUCCESS);
 }

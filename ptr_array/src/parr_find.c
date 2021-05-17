@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parr_find.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/17 02:28:23 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/17 17:55:34 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../inc/core.h"
+#include "../../inc/core.h"
 
 void	*parr_find(t_parray *src, void *key, void *(*f)(void *, void *))
 {

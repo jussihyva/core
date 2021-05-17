@@ -29,9 +29,7 @@ t_nodes	graph_edge_backtrack(
 	size_t			i;
 
 	e = parr_get_last(edges);
-	if (t_key && s_cmp(t_key, e->v->key))
-		return (CR_PARR_NULL);
-	if (f && !(f(e)))
+	if ((t_key && s_cmp(t_key, e->v->key)) || (f && !f(e)))
 		return (CR_PARR_NULL);
 	path = parr_new(edges->len);
 	v = e->u;
