@@ -6,11 +6,11 @@
 /*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 06:09:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/17 17:50:50 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/17 17:55:34 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../inc/core.h"
+#include "../../inc/core.h"
 
 void	*parr_take(t_parray *arr, size_t index)
 {

@@ -45,12 +45,12 @@ ssize_t		arr_join(t_array *dst, t_array *src);
 ssize_t		arr_join_mult(t_array *dst, size_t count, ...);
 ssize_t		arr_rotate(t_array *arr, ssize_t steps);
 ssize_t		arr_iter(t_array *src,
-			ssize_t (*f)(void *, size_t));
+				ssize_t (*f)(void *, size_t));
 ssize_t		arr_iter_range(t_array *src, size_t start, size_t end,
-			ssize_t (*f)(void *, size_t));
+				ssize_t (*f)(void *, size_t));
 ssize_t		arr_find_by(t_array *arr, const void *key,
-			ssize_t (*f)(const void *, const void *));
+				ssize_t (*f)(const void *, const void *));
 ssize_t		arr_parse(t_array *dst, t_array *src,
-			ssize_t (*f)(t_array *, void *));
+				ssize_t (*f)(t_array *, void *));
 
 #endif
