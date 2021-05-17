@@ -24,7 +24,7 @@ ssize_t	arr_copy(t_array *dst, t_array *src)
 	if (dst->alloc_size < src->len)
 		arr_grow(dst, src->alloc_size);
 	mem_start = dst->data;
-	dst->data = memcpy(mem_start, src->data, src->len * src->elem_size);
+	dst->data = mem_cpy(mem_start, src->data, src->len * src->elem_size);
 	dst->len = src->len;
 	return (CR_SUCCESS);
 }

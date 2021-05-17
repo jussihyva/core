@@ -33,7 +33,7 @@ ssize_t	arr_add(t_array *dst, void *elem, size_t index)
 	mem_tmp = dst->data;
 	mem_tmp += (index + 1) * dst->elem_size;
 	mem_move(mem_tmp, mem_pos, dst->elem_size * (dst->len - index));
-	memcpy(mem_pos, elem, dst->elem_size);
+	mem_cpy(mem_pos, elem, dst->elem_size);
 	dst->len++;
 	return (CR_SUCCESS);
 }

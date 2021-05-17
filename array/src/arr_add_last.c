@@ -26,7 +26,7 @@ ssize_t	arr_add_last(t_array *dst, void *elem)
 	}
 	mem_pos = dst->data;
 	mem_pos += dst->len * dst->elem_size;
-	mem_pos = memcpy(mem_pos, elem, dst->elem_size);
+	mem_pos = mem_cpy(mem_pos, elem, dst->elem_size);
 	dst->len++;
 	return (CR_SUCCESS);
 }
