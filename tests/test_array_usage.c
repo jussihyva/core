@@ -41,7 +41,6 @@ int			tests1()
 	assert(test.mem.size == sizeof(int));
 	assert(test.elem_size == sizeof(int));
 	assert(test.len == 0);
-	assert(arr_grow(&test, 2) > 0);
 	arr_free(&test);
 	assert(arr_null(&test));
 	return (1);

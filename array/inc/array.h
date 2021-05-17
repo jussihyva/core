@@ -30,7 +30,6 @@ void		*arr_get_last(t_array *src);
 void		*arr_take(void *dst, t_array *src, size_t index);
 void		*arr_take_first(void *dst, t_array *src);
 void		*arr_take_last(void *dst, t_array *src);
-ssize_t		arr_grow(t_array *src, size_t new_size);
 ssize_t		arr_add(t_array *src, void *node, size_t index);
 ssize_t		arr_add_first(t_array *src, void *node);
 ssize_t		arr_add_last(t_array *src, void *node);

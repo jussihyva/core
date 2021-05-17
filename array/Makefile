@@ -43,7 +43,6 @@ SRC_BASE	=	arr_add.c \
 				arr_find_by.c \
 				arr_parse.c \
 				arr_null.c \
-				arr_grow.c \
 				arr_copy.c \
 				arr_rotate.c \
 
