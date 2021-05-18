@@ -14,7 +14,7 @@ void	core_debug(t_file_pos *file_pos, size_t count, ...)
 	file_pos->func,
 	file_pos->line);
 	print("DEBUG ");
-	printf("%s\n", header);
+	print("%s\n", header);
 	free(header);
 	va_start(ap, count);
 	ret = NULL;

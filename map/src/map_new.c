@@ -20,7 +20,7 @@ t_map	map_new(void)
 	m.node = (t_map_node *)mem_alloc(sizeof(t_map_node) * m.capacity);
 	if (!m.node)
 	{
-		printf("Allocation failed in function: map_new!\n");
+		print("Allocation failed in function: map_new!\n");
 		exit(-1);
 	}
 	i = 0;

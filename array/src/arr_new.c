@@ -29,7 +29,7 @@ t_array	arr_new(size_t alloc_size, size_t elem_size)
 	out.mem = core_malloc(alloc_size * elem_size);
 	if (!out.mem.data)
 	{
-		printf("Allocation failed in function: arr_new!\n");
+		print("Allocation failed in function: arr_new!\n");
 		exit(-1);
 	}
 	return (out);

@@ -25,6 +25,7 @@ ssize_t	graph_add_edge(
 	if (!u || !v)
 	{
 		print("Trying to connect an edge with a non-existing node!\n");
+		free(e);
 		return (-1);
 	}
 	e->u = u;
