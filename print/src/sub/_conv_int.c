@@ -54,13 +54,13 @@ static size_t	update_int_specs(t_data *specs, intmax_t value, char *value_str)
 	return (len);
 }
 
-int	_parse_signed_ints(t_data *specs, va_list *ap, char **result)
+int	_conv_int(t_data *specs, char **result)
 {
 	intmax_t	value;
 	char		*value_str;
 	size_t		len;
 
-	value = get_signed_arg(specs, ap);
+	value = get_signed_arg(specs, specs->ap);
 	value_str = _intmax_itoa_base(value, 10);
 	if (value_str == NULL)
 		return (-1);

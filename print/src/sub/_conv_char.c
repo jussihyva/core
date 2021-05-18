@@ -60,10 +60,12 @@ static size_t	update_str_specs(t_data *specs, char *str)
 	return (len);
 }
 
-int	_parse_string(t_data *specs, char *str, char **result)
+int	_conv_string(t_data *specs, char **result)
 {
+	char	*str;
 	size_t	str_len;
 
+	str = (char *)va_arg(*specs->ap, char *);
 	str_len = update_str_specs(specs, str);
 	if (str == NULL)
 		*result = parse_str_result(specs, "(null)", str_len);
@@ -75,8 +77,14 @@ int	_parse_string(t_data *specs, char *str, char **result)
 		return ((int)s_len(*result));
 }
 
-int	_parse_char(t_data *specs, char c, char **result)
+int	_conv_char(t_data *specs, char **result)
 {
+	char	c;
+
+	if (specs->conversion == '%')
+		c = '%';
+	else
+		c = (char)va_arg(*specs->ap, int);
 	if (specs->min_field_width >= 1)
 		specs->min_field_width--;
 	*result = parse_str_result(specs, &c, 1);

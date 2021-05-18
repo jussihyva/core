@@ -71,13 +71,13 @@ static size_t	update_uint_specs(t_data *specs,
 	return (len + specs->min_field_width);
 }
 
-int	_parse_unsigned_ints(t_data *specs, va_list *ap, char **result)
+int	_conv_uint(t_data *specs, char **result)
 {
 	uintmax_t	value;
 	char		*value_str;
 	size_t		len;
 
-	value = get_unsigned_arg(specs, ap);
+	value = get_unsigned_arg(specs, specs->ap);
 	value_str = get_value_string(specs, value);
 	if (value_str == NULL)
 		return (-1);

@@ -25,16 +25,17 @@ STR_SRC = $(addprefix sub/, \
 OTHER_SRC = $(addprefix sub/, \
 	_vasprint.c \
 	_get_conversion_specs.c \
-	parse_chars.c \
-	_parse_doubles.c \
-	_parse_pointer.c \
-	_parse_signed_ints.c \
-	_parse_unsigned_ints.c \
+	_conv_char.c \
+	_conv_double.c \
+	_conv_pointer.c \
+	_conv_int.c \
+	_conv_uint.c \
 	parse_helpers.c \
 	_parse.c \
 	_dtoa.c \
 	_round_double.c \
 	_rounds_half_to_even.c \
+	_failure.c \
 )
 
 PRINT_SRC = \

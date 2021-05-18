@@ -30,19 +30,47 @@ typedef struct s_data
 	char	conversion;
 	int		is_negative;
 	int		is_zero;
+	va_list	*ap;
+	int		error;
 }			t_data;
+
+static const char types [] = "%cdiouxXbeEfFsSp";
+
+typedef int (*fptr)(t_data *, char **);
+
+int				_conv_string(t_data *specs, char **result);
+int				_conv_char(t_data *specs, char **result);
+int				_conv_pointer(t_data *specs, char **result);
+int				_conv_uint(t_data *specs, char **result);
+int				_conv_int(t_data *specs, char **result);
+int				_conv_double(t_data *specs, char **result);
+int				_failure(t_data *specs, char **result);
+
+static const fptr conv[17] =
+{
+	_conv_char,
+	_conv_char,
+	_conv_int,
+	_conv_int,
+	_conv_uint,
+	_conv_uint,
+	_conv_uint,
+	_conv_uint,
+	_conv_uint,
+	_conv_double,
+	_conv_double,
+	_conv_double,
+	_conv_double,
+	_conv_string,
+	_conv_string,
+	_conv_pointer,
+	_failure
+};
 
 int				_vasprint(char **ret, const char *format, va_list ap);
 int				_parse(const char *format, va_list *ap, char **result);
 int				_get_conversion_specs(t_data *specs, const char *format);
 int				_parse_percentage(t_data *specs, char **result);
-int				_parse_string(t_data *specs, char *str, char **result);
-int				_parse_char(t_data *specs, char c, char **result);
-int				_parse_pointer(t_data *specs, void *ptr, char **result);
-int				_parse_ints(t_data *specs, va_list *ap, char **result);
-int				_parse_unsigned_ints(t_data *specs, va_list *ap, char **result);
-int				_parse_signed_ints(t_data *specs, va_list *ap, char **result);
-int				_parse_doubles(t_data *specs, va_list *ap, char **result);
 int				_parse_double(t_data *specs, double value, char **result);
 int				_parse_long_double(t_data *specs, long double value,
 					char **result);
@@ -65,5 +93,6 @@ double			_fabs(double nbr);
 long double		_fabsl(long double nbr);
 uintmax_t		_uintmax_pow(int base, int power);
 double			_sqrt(double value);
+
 
 #endif

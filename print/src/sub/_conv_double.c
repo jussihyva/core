@@ -86,16 +86,16 @@ static void	update_double_specs(t_data *specs, double value)
 	}
 }
 
-int	_parse_doubles(t_data *specs, va_list *ap, char **result)
+int	_conv_double(t_data *specs, char **result)
 {
 	double		value;
 	char		*value_str;
 	size_t		len;
 
 	if (specs->length_modifier[0] == '\0' || specs->length_modifier[0] == 'l')
-		value = va_arg(*ap, double);
+		value = va_arg(*specs->ap, double);
 	else
-		value = (double)va_arg(*ap, long double);
+		value = (double)va_arg(*specs->ap, long double);
 	update_double_specs(specs, value);
 	value_str = _dtoa(value, specs->precision);
 	if (value_str == NULL)

@@ -9,12 +9,14 @@
 #include "../../inc/core.h"
 #include "../inc/print_internal.h"
 
-int	_parse_pointer(t_data *specs, void *ptr, char **result)
+int	_conv_pointer(t_data *specs, char **result)
 {
+	void		*ptr;
 	uintmax_t	value;
 	char		*value_str;
 	size_t		result_len;
 
+	ptr = va_arg(*specs->ap, void *);
 	value = (uintmax_t)ptr;
 	value_str = _uintmax_itoa_base(value, 16, 0);
 	if (value_str == NULL)

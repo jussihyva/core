@@ -9,27 +9,14 @@
 #include "../../inc/core.h"
 #include "../inc/print_internal.h"
 
-static int	parse_conversion(t_data *specs, va_list *ap, char **result)
+static int	_index(char c)
 {
-	int	ret;
+	size_t	i;
 
-	if (specs->conversion == '%')
-		ret = _parse_char(specs, '%', result);
-	else if (specs->conversion == 'c')
-		ret = _parse_char(specs, (char)va_arg(*ap, int), result);
-	else if (specs->conversion == 's')
-		ret = _parse_string(specs, va_arg(*ap, char *), result);
-	else if (specs->conversion == 'p')
-		ret = _parse_pointer(specs, va_arg(*ap, void *), result);
-	else if (s_chr("di", specs->conversion))
-		ret = _parse_signed_ints(specs, ap, result);
-	else if (s_chr("ouxX", specs->conversion))
-		ret = _parse_unsigned_ints(specs, ap, result);
-	else if (s_chr("fF", specs->conversion))
-		ret = _parse_doubles(specs, ap, result);
-	else
-		ret = -1;
-	return (ret);
+	i = 0;
+	while (types[i] && types[i] != c)
+		i++;
+	return (i);
 }
 
 static int	append_to_result(char **result, int len, int ret, const char *str)
@@ -59,20 +46,22 @@ static int	parse_next_item(
 	char **result,
 	int len)
 {
-	t_data	conversion_specs;
-	char	*conversion;
+	t_data	specs;
+	char	*container;
+
 	int		ret;
 
-	conversion = NULL;
+	container = NULL;
 	if (*format == '%')
 	{
-		mem_set((void *)&conversion_specs, 0, sizeof(t_data));
-		_get_conversion_specs(&conversion_specs, format + 1);
-		ret = parse_conversion(&conversion_specs, ap, &conversion);
+		mem_set((void *)&specs, 0, sizeof(t_data));
+		_get_conversion_specs(&specs, format + 1);
+		specs.ap = ap;
+		ret = conv[_index(specs.conversion)](&specs, &container);
 		if (ret == -1)
 			return (-1);
-		ret = append_to_result(result, len, ret, conversion);
-		s_del(&conversion);
+		ret = append_to_result(result, len, ret, container);
+		s_del(&container);
 	}
 	else
 		ret = append_to_result(result, len, 1, format);
