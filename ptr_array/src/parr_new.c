@@ -6,7 +6,7 @@
 /*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/17 17:55:34 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/18 10:21:56 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_parray	parr_new(size_t size)
 	out.data = (void **)malloc(sizeof(void *) * size);
 	if (!out.data)
 	{
-		printf("Allocation failed in function: map_new!\n");
+		print("Allocation failed in function: map_new!\n");
 		return ((t_parray){NULL, 0, 0});
 	}
 	return (out);

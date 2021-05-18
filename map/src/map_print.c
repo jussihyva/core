@@ -9,9 +9,9 @@ void	map_print(t_map *m)
 	while (i < m->capacity)
 	{
 		if (map_null_node(&m->node[i]))
-			printf("[EMPTY]\n");
+			print("[EMPTY]\n");
 		else
-			printf("%s\n", m->node[i].key);
+			print("%s\n", m->node[i].key);
 		i++;
 	}
 }

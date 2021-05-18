@@ -7,13 +7,11 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include <errno.h>
-# include <stdio.h>
 # include <fcntl.h>
 # include <math.h>
 # include <limits.h>
 # include <stdbool.h>
 # include <inttypes.h>
-# include <stdbool.h>
 # include <execinfo.h>
 
 # include "../memory/inc/mem.h"

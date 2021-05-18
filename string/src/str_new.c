@@ -8,7 +8,7 @@ t_str	str_new(size_t len)
 	new = (char *)malloc(sizeof(char) * len + sizeof(uint64_t) + 1);
 	if (!new)
 	{
-		printf("Allocation failed in function: arr_new!\n");
+		print("Allocation failed in function: arr_new!\n");
 		exit(-1);
 	}
 	mem_set(new, 0, sizeof(uint64_t));

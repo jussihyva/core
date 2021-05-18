@@ -17,8 +17,8 @@ ssize_t	print_tracker(void *data, size_t i)
 	tracker = data;
 	if (tracker->mem.data)
 	{
-		printf("memptr: \033[1;31m%p\033[0m\n", tracker->mem.data);
-		printf("memsize: \033[1;31m%lu\033[0m\n", tracker->mem.size);
+		print("memptr: \033[1;31m%p\033[0m\n", tracker->mem.data);
+		print("memsize: \033[1;31m%lu\033[0m\n", tracker->mem.size);
 	}
 	if (!(parr_null(&tracker->trace)))
 		parr_iter(&tracker->trace, print_line);
@@ -32,7 +32,7 @@ ssize_t	print_error(void *data, size_t i)
 
 	error = data;
 	if (error->message)
-		printf("%s\n", error->message);
+		print("%s\n", error->message);
 	if (!(parr_null(&error->trace)))
 		parr_iter(&error->trace, print_line);
 	print("\n");

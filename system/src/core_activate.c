@@ -15,6 +15,6 @@ void	core_activate()
 		core->errors = parr_new(1);
 	if (core->track_allocs == true)
 		core->allocs = parr_new(1);
-	printf("\n\033[32;1mCORE SYSTEM\033[0m\n\n");
+	print("\n\033[32;1mCORE SYSTEM\033[0m\n\n");
 	print("You have activated the core system for memory management and debugging.\n\n");
 }
