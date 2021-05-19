@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 06:09:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/19 05:08:28 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/19 12:29:45 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,24 @@
 
 # include "../../inc/types.h"
 
-void				*mem_cpy(void *dst, const void *src, const t_size size);
-void				*mem_cpy_safe(void *dst, const void *src, t_size size);
-void				*mem_ccpy(void *dst, const void *src, int c, t_size size);
-void				*mem_chr(const void *src, int c, t_size size);
-void				*mem_move(void *dst, const void *src, t_size size);
-void				*mem_set(void *src, int c, t_size size);
-void				*mem_alloc(t_size size);
-void				*mem_calloc(t_size nmemb, t_size size);
-void				mem_del(void **ap);
-void				mem_zero(void *src, t_size size);
-int					mem_cmp(const void *s1, const void *s2, t_size size);
+void		*mcpy(void *dst, const void *restrict src, t_size n);
+void		*mcpy_safe(void *dst, const void *src, t_size size);
+void		*mccpy(void *dst, const void *src, int c, t_size size);
+void		*mchr(const void *src, int c, t_size size);
+void		*mmove(void *dst, const void *src, t_size size);
+void		*mset(void *src, int c, t_size size);
+void		*minit(t_size size);
+void		*mcalloc(t_size nmemb, t_size size);
+void		mdel(void **ap);
+void		mzero(void *src, t_size size);
+int			mcmp(const void *s1, const void *s2, t_size size);
+t_mem		mem_new(t_size bytes);
+t_ssize		mem_grow(t_mem *mem, t_size new_size);
+void		mem_free(t_mem *mem);
+t_mem		mem_cpy(t_mem dst, t_mem src, size_t size);
+t_pmem		pmem(t_mem src, size_t s, size_t t);
+t_mem		mem_assign(void *src, size_t size);
+t_pmem		mem_chr(t_mem src, t_mem b);
+void		mem_print(t_mem src);
 
 #endif

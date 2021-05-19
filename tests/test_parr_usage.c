@@ -6,10 +6,11 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/19 04:25:36 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/19 08:56:37 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../inc/core.h"
 
 //-----------------------------------------------------------------------------
 // An example user type which has a mix of different type of data including

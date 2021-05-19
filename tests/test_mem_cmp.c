@@ -20,6 +20,6 @@ int main(void)
 
 	s1 = "KKKKKKKKKKKKKKKKK";
 	s2 = "KKKKKKKKKKKKKKKKK";
-	if (mem_cmp(s1, s2, s_len(s1)) == 0)
+	if (mcmp(s1, s2, s_len(s1)) == 0)
 		printf("yes");
 }

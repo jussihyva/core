@@ -105,7 +105,7 @@ char	*_dtoa(double nbr, t_size precision)
 	else if (_rounds_half_to_even(nbr, (int)precision)
 		&& (t_uint64)(_fabs(int_part) + 1) % 2 == 0)
 		int_part += is_neg(nbr) * -1.0 + (1 - is_neg(nbr)) * 1.0;
-	result = (char *)mem_alloc((t_size)result_len(int_part, precision) + 1);
+	result = (char *)minit((t_size)result_len(int_part, precision) + 1);
 	if (result == NULL)
 		return (NULL);
 	add_integral_part(result, int_part, int_part_len(int_part));

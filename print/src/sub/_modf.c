@@ -34,7 +34,7 @@ double	_modf(double value, double *iptr)
 		return (0.0);
 	else if (is_neginf(value))
 		return (-0.0);
-	mem_cpy_safe(&double_as_int, &value, sizeof(value));
+	mcpy_safe(&double_as_int, &value, sizeof(value));
 	sign = get_sign(double_as_int);
 	exponent = (short)(double_as_int >> 52 & 0x7FF) - 1023;
 	significand = (double_as_int & 0x0000FFFFFFFFFFFFFULL) | (1ULL << 52);

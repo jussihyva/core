@@ -61,7 +61,7 @@ copy512(t_uint64 *restrict dst, const t_uint64 *restrict src, t_size n)
 }
 
 void __attribute__((nonnull))
-*mem_cpy(void *restrict dst, const void *restrict src, t_size n)
+*mcpy(void *restrict dst, const void *restrict src, t_size n)
 {
 	t_byte			*dst8;
 	const t_byte	*src8;
@@ -122,7 +122,7 @@ int			test_usr(char *dst, char *src, t_size bytes)
 	i = 0;
 	while (i < iters)
 	{
-		mem_cpy(dst, src, bytes);
+		mcpy(dst, src, bytes);
 		/*assert(memcmp(dst, src, bytes) == 0);*/
 		i++;
 	}

@@ -14,7 +14,7 @@
 
 t_ssize	arr_free(t_array *src)
 {
-	core_free(&src->mem);
+	mem_free(&src->mem);
 	*src = CR_ARR_NULL;
 	return (CR_SUCCESS);
 }

@@ -1,11 +1,11 @@
 #include "../../inc/core.h"
 #include "../inc/system_internal.h"
 
-void	core_activate()
+void	cr_activate()
 {
 	t_core	*core;
 
-	core = core_static();
+	core = cr_static();
 	core->active = true;
 	core->track_errors = CR_TRACK_ERROR;
 	core->track_errors_backtrace = CR_TRACK_ERROR_BACKTRACE;

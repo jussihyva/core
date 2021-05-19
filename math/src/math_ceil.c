@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 21:53:22 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/19 04:38:35 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/19 11:36:40 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ double	math_ceil(double f)
 	t_uint64	integral_mask;
 	t_uint64	output;
 
-	mem_cpy(&input, &f, 4);
+	mcpy(&input, &f, 4);
 	exponent = ((input >> 23) & 255) - 127;
 	if (exponent < 0)
 		return (f > 0);
@@ -29,7 +29,7 @@ double	math_ceil(double f)
 		return (f);
 	integral_mask = 0xffffffff << fractional_bits;
 	output = input & integral_mask;
-	mem_cpy(&f, &output, 4);
+	mcpy(&f, &output, 4);
 	if (f > 0 && output != input)
 		++f;
 	return (f);

@@ -1,5 +1,5 @@
 #include "../../inc/core.h"
-#include <assert.h> 
+#include <assert.h>
 
 
 
@@ -22,16 +22,16 @@ typedef struct	s_test
 	void		*mem;
 }				t_test;
 
-int		test_mem_set()
+int		test_mset()
 {
 	char	s[11] = "aaaaaaaaaa";
 
-	mem_set(s, 'b', 10);
-	assert(mem_cmp(s, "bbbbbbbbbb", 10) == 0);
+	mset(s, 'b', 10);
+	assert(mcmp(s, "bbbbbbbbbb", 10) == 0);
 	return (1);
 }
 
-int		test_mem_cmp()
+int		test_mcmp()
 {
 	t_test	obj;
 	char	*str;
@@ -39,7 +39,7 @@ int		test_mem_cmp()
 	float	y;
 
 	// Null
-	/*assert(mem_cmp(NULL, NULL, 1) == 0);*/
+	/*assert(mcmp(NULL, NULL, 1) == 0);*/
 	// Chars
 	// Ints
 	// Struct
@@ -52,6 +52,6 @@ int		test_mem_cmp()
 
 int		main(void)
 {
-	test_mem_set();
-	test_mem_cmp();
+	test_mset();
+	test_mcmp();
 }

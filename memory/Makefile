@@ -18,17 +18,25 @@ CPPFLAGS	=	-I $(INC_DIR)
 DEPFLAGS	=	-MT $@ -MMD -MP -MF $(DEP_DIR)$*.d
 COMPILE.c	=	$(CC) $(DEPFLAGS) $(CFLAGS) $(CPPFLAGS) -c
 
-SRC_BASE	=	mem_alloc.c \
-				mem_zero.c \
-				mem_calloc.c \
-				mem_ccpy.c \
+SRC_BASE	=	mcalloc.c \
+				mccpy.c \
+				mchr.c \
+				mcmp.c \
+				mcpy.c \
+				mcpy_safe.c \
+				mdel.c \
+				mem_assign.c \
 				mem_chr.c \
-				mem_cmp.c \
 				mem_cpy.c \
-				mem_cpy_safe.c \
-				mem_del.c \
-				mem_move.c \
-				mem_set.c \
+				mem_free.c \
+				mem_grow.c \
+				mem_new.c \
+				mem_print.c \
+				minit.c \
+				mmove.c \
+				mset.c \
+				mzero.c \
+				pmem.c \
 
 SRC			=	$(addprefix $(SRC_DIR), $(SRC_BASE))
 OBJ			=	$(addprefix $(OBJ_DIR), $(SRC_BASE:.c=.o))

@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mem_del.c                                          :+:      :+:    :+:   */
+/*   mcpy_safe.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/16 01:31:48 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/17 02:26:42 by jkoskela         ###   ########.fr       */
+/*   Created: 2020/10/16 01:31:35 by jkoskela          #+#    #+#             */
+/*   Updated: 2021/05/19 07:26:08 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/core.h"
 
-void	mem_del(void **ap)
+void	*mcpy_safe(void *dst, const void *src, t_size n)
 {
-	if (ap && *ap)
-	{
-		free(*ap);
-		*ap = NULL;
-	}
-}
+	const t_byte	*src8;
+	t_byte			*dst8;
 
-/*
-**  ----------------------------------------------------------------------------
-**
-**	MEM_del
-**
-**	Void memory delete; frees the pointer `ap` passed by reference and
-**	and sets it to `NULL`.
-**
-**  ----------------------------------------------------------------------------
-*/
+	if (src == NULL)
+		return (NULL);
+	src8 = (const t_byte *restrict )src;
+	dst8 = (t_byte *)dst;
+	while (n--)
+		*dst8++ = *src8++;
+	return (dst);
+}

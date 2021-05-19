@@ -40,7 +40,7 @@ t_ssize	map_grow(t_map *src)
 	new.load_factor = src->load_factor;
 	new.probe = src->probe;
 	new.resize = src->resize;
-	new.node = (t_map_node *)mem_alloc(sizeof(t_map_node) * new.capacity);
+	new.node = (t_map_node *)minit(sizeof(t_map_node) * new.capacity);
 	if (!new.node)
 	{
 		print("Allocation failed in function: map_grow!\n");

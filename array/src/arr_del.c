@@ -31,7 +31,7 @@ t_ssize	arr_del(t_array *src, t_size index)
 	mem_start += index * src->elem_size;
 	mem_end = src->mem.data;
 	mem_end += (index + 1) * src->elem_size;
-	mem_move(mem_start, mem_end, src->elem_size * (src->len - index));
+	mmove(mem_start, mem_end, src->elem_size * (src->len - index));
 	src->len--;
 	return (CR_SUCCESS);
 }

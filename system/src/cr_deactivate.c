@@ -1,12 +1,12 @@
 #include "../../inc/core.h"
 #include "../inc/system_internal.h"
 
-void	cr_free_trackers()
+static void	free_trackers(void)
 {
 	t_size	i;
 	t_tracker	*t;
 	t_core	*core;
-	core = core_static();
+	core = cr_static();
 
 	i = 0;
 	while (i < core->allocs.len)
@@ -18,13 +18,13 @@ void	cr_free_trackers()
 	}
 }
 
-void	cr_free_errors()
+static void	free_errors(void)
 {
 	t_size	i;
 	t_error	*t;
 	t_core	*core;
 
-	core = core_static();
+	core = cr_static();
 	i = 0;
 	while (i < core->errors.len)
 	{
@@ -36,19 +36,19 @@ void	cr_free_errors()
 	}
 }
 
-void	core_deactivate()
+void	cr_deactivate(void)
 {
 	t_core	*core;
 
-	core = core_static();
+	core = cr_static();
 	if (core->track_errors == true)
 	{
-		cr_free_errors();
+		free_errors();
 		parr_free(&core->errors);
 	}
 	if (core->track_allocs == true)
 	{
-		cr_free_trackers();
+		free_trackers();
 		parr_free(&core->allocs);
 	}
 }

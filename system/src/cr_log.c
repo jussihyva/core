@@ -1,7 +1,7 @@
 #include "../../inc/core.h"
 #include "../inc/system_internal.h"
 
-t_ssize	print_line(void *data, t_size i)
+static t_ssize	print_line(void *data, t_size i)
 {
 	char	*str;
 
@@ -10,7 +10,7 @@ t_ssize	print_line(void *data, t_size i)
 	return (i);
 }
 
-t_ssize	print_tracker(void *data, t_size i)
+static t_ssize	print_tracker(void *data, t_size i)
 {
 	t_tracker *tracker;
 
@@ -26,7 +26,7 @@ t_ssize	print_tracker(void *data, t_size i)
 	return (i);
 }
 
-t_ssize	print_error(void *data, t_size i)
+static t_ssize	print_error(void *data, t_size i)
 {
 	t_error *error;
 
@@ -39,11 +39,11 @@ t_ssize	print_error(void *data, t_size i)
 	return (i);
 }
 
-void	core_log()
+void	cr_log(void)
 {
 	t_core	*core;
 
-	core = core_static();
+	core = cr_static();
 	if (core->track_errors == true)
 		parr_iter(&core->errors, print_error);
 	if (core->track_allocs == true)

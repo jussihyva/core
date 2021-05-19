@@ -27,10 +27,17 @@ CPPFLAGS	=	-I $(INC_DIR)
 DEPFLAGS	=	-MT $@ -MMD -MP -MF $(DEP_DIR)$*.d
 COMPILE.c	=	$(CC) $(DEPFLAGS) $(CFLAGS) $(CPPFLAGS) -c
 
-SRC_BASE	=	str_new.c \
-				str_dup.c \
-				str_len.c \
-				str_cmp.c \
+SRC_BASE	=	pstr_assign.c \
+				pstr.c \
+				pstr_write.c \
+				str_append.c \
+				str.c \
+				str_chr.c \
+				str_cpy.c \
+				str_ncpy.c \
+				str_new.c \
+				str_write.c \
+
 
 SRC			=	$(addprefix $(SRC_DIR), $(SRC_BASE))
 OBJ			=	$(addprefix $(OBJ_DIR), $(SRC_BASE:.c=.o))

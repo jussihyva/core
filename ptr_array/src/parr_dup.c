@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/19 04:40:05 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/19 11:36:40 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_ssize	parr_dup(t_parray *dst, t_parray *src, t_size size)
 		return (CR_FAIL);
 	while (i < src->len)
 	{
-		elem = mem_cpy_safe(elem, parr_get(src, i), size);
+		elem = mcpy_safe(elem, parr_get(src, i), size);
 		if (!(parr_add_last(dst, elem)))
 			return (CR_FAIL);
 		i++;

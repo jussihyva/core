@@ -25,7 +25,7 @@ static int	append_to_result(char **result, int len, int ret, const char *str)
 
 	if (*result == NULL)
 	{
-		*result = mem_alloc(arr_size + 1);
+		*result = minit(arr_size + 1);
 		if (*result == NULL)
 			return (-1);
 	}
@@ -36,7 +36,7 @@ static int	append_to_result(char **result, int len, int ret, const char *str)
 			return (-1);
 		arr_size = arr_size * 2 + (t_size)ret;
 	}
-	mem_cpy_safe(&(*result)[len], str, (t_size)ret);
+	mcpy_safe(&(*result)[len], str, (t_size)ret);
 	return (ret);
 }
 
@@ -54,7 +54,7 @@ static int	parse_next_item(
 	container = NULL;
 	if (*format == '%')
 	{
-		mem_set((void *)&specs, 0, sizeof(t_data));
+		mset((void *)&specs, 0, sizeof(t_data));
 		_get_conversion_specs(&specs, format + 1);
 		specs.ap = ap;
 		ret = CONVERT[_index(specs.conversion)](&specs, &container);

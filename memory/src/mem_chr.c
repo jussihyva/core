@@ -1,41 +1,21 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   mem_chr.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/16 01:31:19 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/19 04:25:36 by jkoskela         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../../inc/core.h"
 
-void	*mem_chr(const void *s, int c, t_size n)
+t_pmem	mem_chr(t_mem src, t_mem b)
 {
-	unsigned int	i;
+	t_pmem	res;
+	size_t	i;
 
+	res.data = NULL;
+	res.size = 0;
 	i = 0;
-	while (i < n)
+	while (i < src.size)
 	{
-		if (((unsigned const char *)s)[i] == (unsigned char)c)
-			return ((void *)&((unsigned const char *)s)[i]);
+		if (memcmp(&src.data[i], b.data, b.size) == 0)
+		{
+			res = pmem(src, i, src.size);
+			return (res);
+		}
 		i++;
 	}
-	return (NULL);
+	return (res);
 }
-
-/*
-**  ----------------------------------------------------------------------------
-**
-**	MEM_chr
-**
-**	Void memory search; function locates the first occurrence of `c`
-**	(converted to an unsigned char) in string `s`.
-**
-**	The `mem_chr` function returns a pointer to the byte located, or NULL if
-**	no such byte exists within `n` bytes.
-**
-**  ----------------------------------------------------------------------------
-*/

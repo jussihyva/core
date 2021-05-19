@@ -1,7 +1,7 @@
 #include "../../inc/core.h"
 #include "../inc/system_internal.h"
 
-void	core_debug(t_file_pos *file_pos, t_size count, ...)
+void	cr_debug(t_file_pos *file_pos, t_size count, ...)
 {
 	char	*ret;
 	char	*header;

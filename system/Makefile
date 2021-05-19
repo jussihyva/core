@@ -12,16 +12,13 @@ CPPFLAGS	=	-I $(INC_DIR)
 DEPFLAGS	=	-MT $@ -MMD -MP -MF $(DEP_DIR)$*.d
 COMPILE.c	=	$(CC) $(DEPFLAGS) $(CFLAGS) $(CPPFLAGS) -c
 
-SRC_BASE	=	core_activate.c \
-				core_static.c \
-				core_deactivate.c \
-				core_debug.c \
-				core_error.c \
-				core_log.c \
-				core_malloc.c \
-				core_realloc.c \
-				core_free.c \
-				core_stacktrace.c \
+SRC_BASE	=	cr_activate.c \
+				cr_static.c \
+				cr_deactivate.c \
+				cr_debug.c \
+				cr_error.c \
+				cr_log.c \
+				cr_stacktrace.c \
 
 SRC			=	$(addprefix $(SRC_DIR), $(SRC_BASE))
 OBJ			=	$(addprefix $(OBJ_DIR), $(SRC_BASE:.c=.o))

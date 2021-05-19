@@ -1,5 +1,5 @@
 #include "../../inc/core.h"
-#include "../inc/system_internal.h"
+#include "../../system/inc/system_internal.h"
 
 static t_ssize	deactivate_tracker(t_mem *mem)
 {
@@ -7,7 +7,7 @@ static t_ssize	deactivate_tracker(t_mem *mem)
 	t_size		i;
 	t_core	*core;
 
-	core = core_static();
+	core = cr_static();
 	i = 0;
 	while (i < core->allocs.len)
 	{
@@ -24,11 +24,11 @@ static t_ssize	deactivate_tracker(t_mem *mem)
 	return (false);
 }
 
-void	core_free(t_mem *mem)
+void	mem_free(t_mem *mem)
 {
 	t_core	*core;
 
-	core = core_static();
+	core = cr_static();
 	if (core->active && core->track_allocs)
 		deactivate_tracker(mem);
 	free(mem->data);

@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mem_zero.c                                         :+:      :+:    :+:   */
+/*   minit.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/20 03:25:38 by jkoskela          #+#    #+#             */
+/*   Created: 2020/10/16 01:30:56 by jkoskela          #+#    #+#             */
 /*   Updated: 2021/05/19 04:25:36 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/core.h"
 
-void	mem_zero(void *s, t_size n)
+void	*minit(t_size size)
 {
-	mem_set(s, 0, n);
+	void	*p;
+
+	p = malloc(size);
+	if (p)
+		mzero(p, size);
+	return (p);
 }
 
 /*
 **  ----------------------------------------------------------------------------
 **
-**	MEM_zero
+**	minit
 **
-**	Void memory formatting; formats `n` bytes of memory pointed to by `s`.
+**	Void memory allocation; allocates `size` bytes of memory and initializes
+**	the memory.
 **
 **  ----------------------------------------------------------------------------
 */

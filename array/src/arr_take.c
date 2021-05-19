@@ -23,7 +23,7 @@ void	*arr_take(void *dst, t_array *src, t_size index)
 	if (index >= src->len)
 		return (NULL);
 	tmp = arr_get(src, index);
-	dst = mem_cpy(dst, tmp, src->elem_size);
+	dst = mcpy(dst, tmp, src->elem_size);
 	if (!(arr_del(src, index)))
 		return (NULL);
 	return (dst);

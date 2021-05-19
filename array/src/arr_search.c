@@ -29,7 +29,7 @@ t_ssize	arr_search(t_array *src, t_array *key)
 	i = 0;
 	while (i < src->len)
 	{
-		if (mem_cmp(&mem_src[key->elem_size * i],
+		if (mcmp(&mem_src[key->elem_size * i],
 				mem_key, key->len * key->elem_size) == 0)
 			return ((t_ssize)i);
 		i++;

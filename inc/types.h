@@ -33,6 +33,8 @@ typedef struct	s_mem
 	t_size		size;
 }				t_mem;
 
+typedef t_mem	t_pmem;
+
 /// Array
 
 typedef struct	s_array
@@ -52,6 +54,14 @@ typedef struct	s_parray
 }				t_parray;
 
 /// String
+
+typedef struct	s_str
+{
+	t_mem	mem;
+	t_size	len;
+}				t_str;
+
+typedef t_pmem	t_pstr;
 
 typedef t_parray t_page;
 

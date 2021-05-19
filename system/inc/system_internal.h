@@ -25,6 +25,6 @@ typedef struct	s_error
 	t_page		trace;
 }				t_error;
 
-t_core	*core_static();
+t_core	*cr_static();
 
 #endif

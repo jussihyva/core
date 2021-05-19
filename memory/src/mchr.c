@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mem_ccpy.c                                         :+:      :+:    :+:   */
+/*   mchr.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/16 01:31:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/19 04:29:48 by jkoskela         ###   ########.fr       */
+/*   Created: 2020/10/16 01:31:19 by jkoskela          #+#    #+#             */
+/*   Updated: 2021/05/19 04:25:36 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/core.h"
 
-void	*mem_ccpy(void *dst, const void *src, int c, t_size n)
+void	*mchr(const void *s, int c, t_size n)
 {
-	t_byte	*dst8;
-	t_byte	*src8;
+	unsigned int	i;
 
-	dst8 = (t_byte *)dst;
-	src8 = (t_byte *)src;
-	while (n--)
+	i = 0;
+	while (i < n)
 	{
-		*dst8 = *src8;
-		if (*src8 == (t_byte)c)
-			return (dst8 + 1);
-		dst8++;
-		src8++;
+		if (((unsigned const char *)s)[i] == (unsigned char)c)
+			return ((void *)&((unsigned const char *)s)[i]);
+		i++;
 	}
 	return (NULL);
 }
@@ -33,13 +29,13 @@ void	*mem_ccpy(void *dst, const void *src, int c, t_size n)
 /*
 **  ----------------------------------------------------------------------------
 **
-**	MEM_CCPY
+**	mchr
 **
-**	Void memory copy (c); copies bytes from string src to string dst.  If
-**	the character c (as converted to an t_byte) occurs in the string
-**	src, the copy stops and a pointer to the byte after the copy of c in the
-**	memory dst is returned.  Otherwise, n bytes are copied, and a NULL
-**	pointer is returned.
+**	Void memory search; function locates the first occurrence of `c`
+**	(converted to an unsigned char) in string `s`.
+**
+**	The `mchr` function returns a pointer to the byte located, or NULL if
+**	no such byte exists within `n` bytes.
 **
 **  ----------------------------------------------------------------------------
 */

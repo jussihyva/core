@@ -16,7 +16,7 @@ t_mat4	lin_m4_id(void)
 {
 	t_mat4	out;
 
-	mem_zero(&out, sizeof(t_mat4));
+	mzero(&out, sizeof(t_mat4));
 	out.m[0] = 1;
 	out.m[5] = 1;
 	out.m[10] = 1;

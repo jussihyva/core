@@ -27,9 +27,9 @@ void	*_realloc(void *ptr, t_size old_size, t_size new_size)
 			copy_size = new_size;
 		else
 			copy_size = old_size;
-		mem_cpy(new, ptr, copy_size);
+		mcpy(new, ptr, copy_size);
 		if (new_size > old_size)
-			mem_set((void *)(&((char *)new)[old_size]),
+			mset((void *)(&((char *)new)[old_size]),
 				0, new_size - old_size);
 		free(ptr);
 	}

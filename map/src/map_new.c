@@ -17,7 +17,7 @@ t_map	map_new(void)
 	m.hash = CR_MAP_HASH;
 	m.probe = CR_MAP_PROBE;
 	m.resize = CR_MAP_RESIZE;
-	m.node = (t_map_node *)mem_alloc(sizeof(t_map_node) * m.capacity);
+	m.node = (t_map_node *)minit(sizeof(t_map_node) * m.capacity);
 	if (!m.node)
 	{
 		print("Allocation failed in function: map_new!\n");

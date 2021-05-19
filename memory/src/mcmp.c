@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mem_cmp.c                                          :+:      :+:    :+:   */
+/*   mcmp.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -86,7 +86,7 @@ int	cmp512(t_uint64 *restrict dst, const t_uint64 *restrict src, t_size n)
 // 	return (0);
 // }
 
-int	mem_cmp(const void *dst, const void *src, t_size n)
+int	mcmp(const void *dst, const void *src, t_size n)
 {
 	t_byte			*dst8;
 	const t_byte	*src8;
@@ -108,7 +108,7 @@ int	mem_cmp(const void *dst, const void *src, t_size n)
 	return (cmp_small(dst8, src8, n));
 }
 
-/*int		mem_cmp(const void *src, const void *cmp, t_size size)*/
+/*int		mcmp(const void *src, const void *cmp, t_size size)*/
 /*{*/
 
 	/*const t_byte	*src8;*/
@@ -129,12 +129,12 @@ int	mem_cmp(const void *dst, const void *src, t_size n)
 /*
 **  ----------------------------------------------------------------------------
 **
-**	MEM_CMP
+**	mcmp
 **
 **	Void memory compare; compares byte string `s1` against byte string `s2`.
 **	Both strings are assumed to be n bytes long.
 **
-**	The `mem_chr` function returns zero if the two strings are identical, oth-
+**	The `mchr` function returns zero if the two strings are identical, oth-
 **	erwise returns the difference between the first two differing bytes
 **	(treated as unsigned char values, so that `\200' is greater than `\0',
 **	for example). Zero-length strings are always identical.

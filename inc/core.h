@@ -1,5 +1,5 @@
-#ifndef CORE_H
-# define CORE_H
+#ifndef cr_H
+# define cr_H
 
 # include <stdlib.h>
 

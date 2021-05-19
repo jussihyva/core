@@ -20,10 +20,10 @@ t_ssize	arr_add_last(t_array *dst, void *elem)
 	t_byte	*mem_pos;
 
 	if (dst->len == dst->mem.size / dst->elem_size)
-		core_realloc(&dst->mem, dst->mem.size * 2);
+		mem_grow(&dst->mem, dst->mem.size * 2);
 	mem_pos = dst->mem.data;
 	mem_pos += dst->len * dst->elem_size;
-	mem_pos = mem_cpy(mem_pos, elem, dst->elem_size);
+	mem_pos = mcpy(mem_pos, elem, dst->elem_size);
 	dst->len++;
 	return (CR_SUCCESS);
 }

@@ -25,7 +25,7 @@ t_ssize	arr_find(t_array *src, void *key)
 		if (i == src->len)
 			break ;
 		value = arr_get(src, i);
-		if (mem_cmp(key, value, src->elem_size) == 0)
+		if (mcmp(key, value, src->elem_size) == 0)
 			return ((t_ssize)i);
 		i++;
 	}

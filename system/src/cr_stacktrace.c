@@ -1,7 +1,7 @@
 #include "../inc/system.h"
 #include "../inc/system_internal.h"
 
-t_page	core_stacktrace(t_size offset)
+t_page	cr_stacktrace(t_size offset)
 {
 	t_page		trace;
 	char		**strings;

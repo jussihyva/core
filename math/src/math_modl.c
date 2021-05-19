@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 16:50:28 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/19 04:39:15 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/19 11:42:12 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ long double	math_modl(long double x, long double *iptr)
 {
 	t_modl		vars;
 
-	mem_zero(&vars, sizeof(t_modl));
+	mzero(&vars, sizeof(t_modl));
 	vars.u = (t_ldshape)x;
 	vars.e = (vars.u.se & 0x7fff) - 0x3fff;
 	vars.s = vars.u.se >> 15;

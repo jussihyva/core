@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mem_set.c                                          :+:      :+:    :+:   */
+/*   mset.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -30,7 +30,7 @@ static void	copy_words(t_uint64 *dst, const int c, t_size words)
 		*dst++ = c;
 }
 
-void	*mem_set(void *dst, int c, t_size size)
+void	*mset(void *dst, int c, t_size size)
 {
 	t_byte		*dst8;
 	t_size		offset;
@@ -56,7 +56,7 @@ void	*mem_set(void *dst, int c, t_size size)
 /*
 **  ----------------------------------------------------------------------------
 **
-**	mem_set
+**	mset
 **
 **	Sets `size` bytes of memory pointed to by `dst` with value `c`.
 **
