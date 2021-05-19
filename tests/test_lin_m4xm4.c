@@ -1,6 +1,6 @@
 #include "../inc/core.h"
 
-ssize_t	lin_m4_cmp(t_mat4 a, t_mat4 b)
+t_ssize	lin_m4_cmp(t_mat4 a, t_mat4 b)
 {
 	if (memcmp(a.m, b.m, sizeof(double) * 16) == 0)
 		return (1);

@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mat_ipow.c                                         :+:      :+:    :+:   */
+/*   math_ipow.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 00:34:10 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/11 09:30:11 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/19 04:39:48 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/core.h"
 
-int64_t	math_ipow(int64_t base, int64_t exp)
+t_int64	math_ipow(t_int64 base, t_int64 exp)
 {
-	int64_t			tmp;
-	int64_t			i;
+	t_int64			tmp;
+	t_int64			i;
 
 	i = 0;
 	tmp = base;

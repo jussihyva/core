@@ -6,13 +6,13 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 00:30:42 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/17 02:24:53 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/19 04:40:05 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/core.h"
 
-ssize_t	lin_v4_print(void *elem, size_t i)
+t_ssize	lin_v4_print(void *elem, t_size i)
 {
 	t_vec4	*src;
 

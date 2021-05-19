@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   parr_new.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/18 10:21:56 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/19 04:25:36 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/core.h"
 
-t_parray	parr_new(size_t size)
+t_parray	parr_new(t_size size)
 {
 	t_parray	out;
 

@@ -15,7 +15,7 @@
 
 #include "../../inc/core.h"
 
-ssize_t	arr_add_mult(t_array *dst, size_t count, ...)
+t_ssize	arr_add_mult(t_array *dst, t_size count, ...)
 {
 	va_list	ap;
 
@@ -26,5 +26,5 @@ ssize_t	arr_add_mult(t_array *dst, size_t count, ...)
 			return (CR_FAIL);
 	}
 	va_end(ap);
-	return ((ssize_t)dst->len);
+	return ((t_ssize)dst->len);
 }

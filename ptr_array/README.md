@@ -26,8 +26,8 @@ A multi-purpose dynamic array implementation for the C language.
 typedef struct  s_parray
 {
     void        **data;
-    size_t      len;
-    size_t      size;
+    t_size      len;
+    t_size      size;
 }               t_parray;
 
 ```
@@ -67,10 +67,10 @@ of each function.
 
 ```c
 
-t_parray           parr_new(size_t size);
-ssize_t             parr_free(t_parray *arr);
-ssize_t             parr_grow(t_parray *arr, size_t new_size);
-ssize_t             parr_null(t_parray *arr);
+t_parray           parr_new(t_size size);
+t_ssize             parr_free(t_parray *arr);
+t_ssize             parr_grow(t_parray *arr, t_size new_size);
+t_ssize             parr_null(t_parray *arr);
 
 ```
 
@@ -84,14 +84,14 @@ might be assigned. To check if an array is null, function `parr_null` can be use
 
 ```c
 
-ssize_t             parr_add(t_parray *arr, void *data, size_t index);
-ssize_t             parr_add_first(t_parray *arr, void *data);
-ssize_t             parr_add_last(t_parray *arr, void *data);
-ssize_t             parr_add_mult(t_parray *arr, size_t len, ...);
-ssize_t             parr_assign(t_parray *dst, void **src, size_t size);
-ssize_t             parr_del(t_parray *arr, size_t index);
-ssize_t             parr_del_first(t_parray *arr);
-ssize_t             parr_del_last(t_parray *arr);
+t_ssize             parr_add(t_parray *arr, void *data, t_size index);
+t_ssize             parr_add_first(t_parray *arr, void *data);
+t_ssize             parr_add_last(t_parray *arr, void *data);
+t_ssize             parr_add_mult(t_parray *arr, t_size len, ...);
+t_ssize             parr_assign(t_parray *dst, void **src, t_size size);
+t_ssize             parr_del(t_parray *arr, t_size index);
+t_ssize             parr_del_first(t_parray *arr);
+t_ssize             parr_del_last(t_parray *arr);
 
 ```
 
@@ -104,10 +104,10 @@ things into an array or to add a normal array to an array.
 
 ```c
 
-void            *parr_get(t_parray *arr, size_t index);
+void            *parr_get(t_parray *arr, t_size index);
 void            *parr_get_first(t_parray *arr);
 void            *parr_get_last(t_parray *arr);
-void            *parr_take(t_parray *arr, size_t index);
+void            *parr_take(t_parray *arr, t_size index);
 void            *parr_take_first(t_parray *arr);
 void            *parr_take_last(t_parray *arr);
 
@@ -121,9 +121,9 @@ removes the fetched member from the list.
 
 ```c
 
-ssize_t             parr_copy(t_parray *dst, t_parray *src);
-ssize_t             parr_join(t_parray *dst, size_t len, ...);
-ssize_t             parr_split(t_parray *dst, t_parray *src);
+t_ssize             parr_copy(t_parray *dst, t_parray *src);
+t_ssize             parr_join(t_parray *dst, t_size len, ...);
+t_ssize             parr_split(t_parray *dst, t_parray *src);
 
 ```
 
@@ -134,20 +134,20 @@ different ways. These functions don't touch the actual data, only the pointers.
 
 ```c
 
-ssize_t             parr_dup(t_parray *dst, t_parray *src, size_t size);
-ssize_t             parr_read_file(t_parray *dst, char *filename);
-ssize_t             parr_write_file(char *dst, t_parray *src, ssize_t flag,
-                ssize_t (*f)(void **, void *));
-ssize_t             parr_write(t_parray *dst, t_parray *src,
-                ssize_t (*f)(void **, void *));
-ssize_t             parr_search(t_parray *dst, t_parray *src, void *key,
+t_ssize             parr_dup(t_parray *dst, t_parray *src, t_size size);
+t_ssize             parr_read_file(t_parray *dst, char *filename);
+t_ssize             parr_write_file(char *dst, t_parray *src, t_ssize flag,
+                t_ssize (*f)(void **, void *));
+t_ssize             parr_write(t_parray *dst, t_parray *src,
+                t_ssize (*f)(void **, void *));
+t_ssize             parr_search(t_parray *dst, t_parray *src, void *key,
                 void *(*f)(void *, void *));
 void            *parr_find(t_parray *src, void *key,
                 void *(*f)(void *, void *));
-ssize_t             parr_iter(t_parray *arr,
-                ssize_t (*f)(void **, size_t));
-ssize_t             parr_parse(t_parray *dst, t_parray *src,
-                ssize_t (*f)(t_parray *, void *));
+t_ssize             parr_iter(t_parray *arr,
+                t_ssize (*f)(void **, t_size));
+t_ssize             parr_parse(t_parray *dst, t_parray *src,
+                t_ssize (*f)(t_parray *, void *));
 
 ```
 
@@ -166,10 +166,10 @@ This lambda expression is used in `parr_iter`.
 ```c
 
 // Lamda expression.
-ssize_t (*f)(void **, size_t);
+t_ssize (*f)(void **, t_size);
 
 // Example defintion.
-ssize_t             print_string(void **data, size_t i)
+t_ssize             print_string(void **data, t_size i)
 {
     char        *ptr;
 
@@ -185,10 +185,10 @@ This lambda expression is used in `parr_write` and `write_file`.
 ```c
 
 // Lambda expression.
-ssize_t (*f)(void **, void *);
+t_ssize (*f)(void **, void *);
 
 // Example defintion.
-ssize_t             serialize(void **dst, void *src)
+t_ssize             serialize(void **dst, void *src)
 {
     char        *dst_cast;
     t_person    *src_cast;
@@ -210,10 +210,10 @@ This is the lambda expression for `parr_parse`.
 ```c
 
 // Lambda expression.
-ssize_t (*f)(t_parray *, void *);
+t_ssize (*f)(t_parray *, void *);
 
 // Example defintion.
-ssize_t             deserialize(t_parray *dst, void *data)
+t_ssize             deserialize(t_parray *dst, void *data)
 {
     t_person    *person;
     char        **words;

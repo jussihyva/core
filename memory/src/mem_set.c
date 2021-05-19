@@ -6,16 +6,16 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:31:58 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/17 02:26:42 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/19 04:38:35 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/core.h"
 
-static void	copy_words(uint64_t *dst, const int c, size_t words)
+static void	copy_words(t_uint64 *dst, const int c, t_size words)
 {
-	uint64_t	pages;
-	uint64_t	offset;
+	t_uint64	pages;
+	t_uint64	offset;
 
 	pages = words / 4;
 	offset = words - pages * 4;
@@ -30,12 +30,12 @@ static void	copy_words(uint64_t *dst, const int c, size_t words)
 		*dst++ = c;
 }
 
-void	*mem_set(void *dst, int c, size_t size)
+void	*mem_set(void *dst, int c, t_size size)
 {
-	uint8_t		*dst8;
-	size_t		offset;
-	size_t		words;
-	size_t		aligned_size;
+	t_byte		*dst8;
+	t_size		offset;
+	t_size		words;
+	t_size		aligned_size;
 
 	if (!dst)
 		return (NULL);
@@ -45,7 +45,7 @@ void	*mem_set(void *dst, int c, size_t size)
 	copy_words(dst, c, words);
 	if (offset)
 	{
-		dst8 = (uint8_t *)dst;
+		dst8 = (t_byte *)dst;
 		dst8 = &dst8[aligned_size];
 		while (offset--)
 			*dst8++ = c;

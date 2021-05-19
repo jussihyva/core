@@ -6,13 +6,13 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:31:08 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/17 02:26:42 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/19 04:25:36 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/core.h"
 
-void	*mem_calloc(size_t nmemb, size_t size)
+void	*mem_calloc(t_size nmemb, t_size size)
 {
 	void		*addr;
 

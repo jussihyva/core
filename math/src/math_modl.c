@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mat_modl.c                                         :+:      :+:    :+:   */
+/*   math_modl.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 16:50:28 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/11 09:32:08 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/19 04:39:15 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 typedef union u_ldshape
 {
 	long double		f;
-	uint64_t		m;
-	uint16_t		se;
+	t_uint64		m;
+	t_uint16		se;
 }					t_ldshape;
 
 typedef struct s_modl

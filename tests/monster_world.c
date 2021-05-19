@@ -17,7 +17,7 @@ typedef struct		s_node_attr
 
 typedef struct		s_edge_attr
 {
-	size_t			attributes;
+	t_size			attributes;
 }					t_edge_attr;
 
 typedef struct s_monster_land
@@ -29,10 +29,10 @@ typedef struct s_monster_land
 typedef struct	s_monster
 {
 	char		*name;
-	size_t		index;
+	t_size		index;
 }				t_monster;
 
-ssize_t print_edge(void *data, size_t i)
+t_ssize print_edge(void *data, t_size i)
 {
 	t_graph_edge	*tmp;
 	t_monster		*m1;
@@ -42,10 +42,10 @@ ssize_t print_edge(void *data, size_t i)
 	m1 = tmp->u->attr;
 	m2 = tmp->v->attr;
 	printf("%-30s=>    %-30s\n", m1->name, m2->name);
-	return ((ssize_t)i);
+	return ((t_ssize)i);
 }
 
-ssize_t print_node(void *data, size_t i)
+t_ssize print_node(void *data, t_size i)
 {
 	t_graph_node	*tmp;
 	t_monster		*monster;
@@ -60,7 +60,7 @@ ssize_t print_node(void *data, size_t i)
 	return (i);
 }
 
-ssize_t	free_node(void *data, size_t i)
+t_ssize	free_node(void *data, t_size i)
 {
 	t_graph_node	*tmp;
 
@@ -70,7 +70,7 @@ ssize_t	free_node(void *data, size_t i)
 	return (i);
 }
 
-char	*str_rand(size_t len)
+char	*str_rand(t_size len)
 {
 	char	*dest;
 
@@ -81,14 +81,14 @@ char	*str_rand(size_t len)
 
 	while (len-- > 0)
 	{
-		size_t index = (double) rand() / RAND_MAX * (sizeof charset - 1);
+		t_size index = (double) rand() / RAND_MAX * (sizeof charset - 1);
 		*dest++ = charset[index];
 	}
 	*dest = '\0';
 	return (dest);
 }
 
-t_monster	*new_monster(size_t i)
+t_monster	*new_monster(t_size i)
 {
 	t_monster	*new;
 
@@ -101,14 +101,14 @@ t_monster	*new_monster(size_t i)
 void
 create_friendships(
 	t_monster_land *monsters,
-	size_t friendsip_ratio)
+	t_size friendsip_ratio)
 {
 	t_monster	*monster;
 	t_monster	*friend;
 	char		*monster_name;
 	char		*friend_name;
-	size_t		i;
-	size_t		j;
+	t_size		i;
+	t_size		j;
 
 	i = 0;
 	while (i < monsters->names.len)
@@ -131,12 +131,12 @@ create_friendships(
 
 t_monster_land
 create_monster_land(
-	size_t monster_count,
-	size_t friendship_ratio)
+	t_size monster_count,
+	t_size friendship_ratio)
 {
 	t_monster_land	monsters;
 	t_monster		*monster;
-	size_t			i;
+	t_size			i;
 
 	monsters.land = graph_new();
 	monsters.names = parr_new(1);

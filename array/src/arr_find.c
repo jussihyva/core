@@ -14,10 +14,10 @@
 
 #include "../../inc/core.h"
 
-ssize_t	arr_find(t_array *src, void *key)
+t_ssize	arr_find(t_array *src, void *key)
 {
 	void	*value;
-	size_t	i;
+	t_size	i;
 
 	i = 0;
 	while (1)
@@ -26,7 +26,7 @@ ssize_t	arr_find(t_array *src, void *key)
 			break ;
 		value = arr_get(src, i);
 		if (mem_cmp(key, value, src->elem_size) == 0)
-			return ((ssize_t)i);
+			return ((t_ssize)i);
 		i++;
 	}
 	return (CR_EMPTY);

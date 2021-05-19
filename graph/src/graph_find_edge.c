@@ -20,7 +20,7 @@ t_graph_edge	*graph_find_edge(t_graph *g,
 {
 	t_graph_node	*node;
 	t_graph_edge	*out;
-	size_t			i;
+	t_size			i;
 
 	node = graph_find_node(g, src_key);
 	i = 0;

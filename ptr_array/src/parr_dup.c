@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   parr_dup.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/17 17:55:34 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/19 04:40:05 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/core.h"
 
-ssize_t	parr_dup(t_parray *dst, t_parray *src, size_t size)
+t_ssize	parr_dup(t_parray *dst, t_parray *src, t_size size)
 {
 	void	*elem;
-	size_t	i;
+	t_size	i;
 
 	elem = NULL;
 	i = 0;

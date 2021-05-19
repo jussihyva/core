@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mat_cos.c                                          :+:      :+:    :+:   */
+/*   math_cos.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 02:01:22 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/11 09:30:11 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/19 04:39:48 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/core.h"
 
-double	math_cos(double x, int64_t p)
+double	math_cos(double x, t_int64 p)
 {
 	return (math_sin(CR_PI / 2 - x, p));
 }

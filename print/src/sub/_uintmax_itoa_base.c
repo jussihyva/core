@@ -9,12 +9,12 @@
 #include "../../inc/core.h"
 #include "../inc/print_internal.h"
 
-char	*_uintmax_itoa_base(uintmax_t value, int base, int uppercase)
+char	*_uintmax_itoa_base(t_uint64 value, int base, int uppercase)
 {
 	char	*result;
 	char	*digits;
 	char	temp[64 + 1];
-	size_t	i;
+	t_size	i;
 
 	if (base < 2 || base > 16)
 		return (NULL);
@@ -28,8 +28,8 @@ char	*_uintmax_itoa_base(uintmax_t value, int base, int uppercase)
 		temp[i--] = '0';
 	while (value != 0)
 	{
-		temp[i--] = digits[value % (uintmax_t)base];
-		value = value / (uintmax_t)base;
+		temp[i--] = digits[value % (t_uint64)base];
+		value = value / (t_uint64)base;
 	}
 	result = (char *)malloc(64 - i + 1);
 	if (result == NULL)

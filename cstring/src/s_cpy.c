@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   s_cpy.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:28:18 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/11 09:03:29 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/19 04:38:35 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*s_cpy(char *dst, const char *src)
 {
-	uint64_t	i;
+	t_uint64	i;
 
 	i = 0;
 	while (src[i] != '\0')

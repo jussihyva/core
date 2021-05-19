@@ -9,31 +9,28 @@
 #ifndef PRINT_INTERNAL_H
 # define PRINT_INTERNAL_H
 
-# include <stdarg.h>
-# include <stddef.h>
-# include <inttypes.h>
-# include <stdint.h>
-# include <sys/types.h>
+# include "../../inc/stdinc.h"
+
 # define CONVERT type_conversions
 
-typedef struct s_data
+typedef struct	s_data
 {
-	int		alt_form;
-	int		zero_padding;
-	int		neg_field_width;
-	int		blank_signed;
-	int		plus_signed;
-	size_t	min_field_width;
-	int		has_precision;
-	size_t	precision;
-	int		zero_precision;
-	char	length_modifier[3];
-	char	conversion;
-	int		is_negative;
-	int		is_zero;
-	va_list	*ap;
-	int		error;
-}			t_data;
+	t_uint8		alt_form : 1;
+	t_uint8		zero_padding : 1;
+	t_uint8		neg_field_width : 1;
+	t_uint8		blank_signed : 1;
+	t_uint8		plus_signed : 1;
+	t_uint8		has_precision : 1;
+	t_uint8		zero_precision : 1;
+	t_uint8		is_negative : 1;
+	t_uint8		is_zero : 1;
+	t_uint8		error : 1;
+	char		conversion;
+	char		length_modifier[3];
+	t_size		precision;
+	t_size		min_field_width;
+	va_list		*ap;
+}				t_data;
 
 static const char types [] = "%cdiouxXbeEfFsSp";
 
@@ -76,23 +73,23 @@ int				_parse_double(t_data *specs, double value, char **result);
 int				_parse_long_double(t_data *specs, long double value,
 					char **result);
 char			*_parse_int_result(t_data *specs, char *number,
-					size_t result_len);
-size_t			_add_padding(size_t len, char c, char *result);
-size_t			_add_prefix(t_data *specs, char *result);
-size_t			_add_number(t_data *specs, char *number, char *result);
-char			*_dtoa(double nbr, size_t precision);
-long double		_round_double(double nbr, size_t precision);
+					t_size result_len);
+t_size			_add_padding(t_size len, char c, char *result);
+t_size			_add_prefix(t_data *specs, char *result);
+t_size			_add_number(t_data *specs, char *number, char *result);
+char			*_dtoa(double nbr, t_size precision);
+long double		_round_double(double nbr, t_size precision);
 int				_rounds_half_to_even(double nbr, int precision);
 int				_atoi(const char *str);
-void			*_realloc(void *ptr, size_t ptr_size, size_t size);
-char			*_uintmax_itoa_base(uintmax_t n, int base, int uppercase);
-char			*_intmax_itoa_base(intmax_t n, int base);
+void			*_realloc(void *ptr, t_size ptr_size, t_size size);
+char			*_uintmax_itoa_base(t_uint64 n, int base, int uppercase);
+char			*_intmax_itoa_base(t_int64 n, int base);
 double			_dpow(double base, int power);
 double			_modf(double value, double *iptr);
 int				_abs(int n);
 double			_fabs(double nbr);
 long double		_fabsl(long double nbr);
-uintmax_t		_uintmax_pow(int base, int power);
+t_uint64		_uintmax_pow(int base, int power);
 double			_sqrt(double value);
 
 

@@ -13,11 +13,11 @@
 
 #include "../../inc/core.h"
 
-ssize_t	map_del(t_map *src, const char *key)
+t_ssize	map_del(t_map *src, const char *key)
 {
-	uint64_t	hash_key;
-	uint64_t	probe;
-	size_t		i;
+	t_uint64	hash_key;
+	t_uint64	probe;
+	t_size		i;
 
 	hash_key = src->hash(key);
 	probe = 0;

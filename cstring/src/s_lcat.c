@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   s_lcat.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:29:04 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/11 09:04:39 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/19 04:38:35 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cstr.h"
 
-uint64_t	s_lcat(char *dst, const char *src, uint64_t size)
+t_uint64	s_lcat(char *dst, const char *src, t_uint64 size)
 {
-	uint64_t	j;
-	uint64_t	k;
+	t_uint64	j;
+	t_uint64	k;
 
 	j = 0;
 	k = 0;

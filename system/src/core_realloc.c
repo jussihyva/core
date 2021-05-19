@@ -1,7 +1,7 @@
 #include "../../inc/core.h"
 #include "../inc/system_internal.h"
 
-ssize_t	core_realloc(t_mem *mem, size_t new_size)
+t_ssize	core_realloc(t_mem *mem, t_size new_size)
 {
 	t_mem	new;
 

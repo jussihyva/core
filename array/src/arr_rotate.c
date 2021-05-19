@@ -16,10 +16,10 @@
 
 #include "../../inc/core.h"
 
-static ssize_t	rot(t_array *src, ssize_t steps)
+static t_ssize	rot(t_array *src, t_ssize steps)
 {
 	void	*tmp;
-	ssize_t	i;
+	t_ssize	i;
 
 	steps = steps * -1LL;
 	i = 0;
@@ -33,10 +33,10 @@ static ssize_t	rot(t_array *src, ssize_t steps)
 	return (i);
 }
 
-static ssize_t	rrot(t_array *src, ssize_t steps)
+static t_ssize	rrot(t_array *src, t_ssize steps)
 {
 	void	*tmp;
-	ssize_t	i;
+	t_ssize	i;
 
 	tmp = malloc(src->elem_size);
 	i = 0;
@@ -50,7 +50,7 @@ static ssize_t	rrot(t_array *src, ssize_t steps)
 	return (i);
 }
 
-ssize_t	arr_rotate(t_array *src, ssize_t steps)
+t_ssize	arr_rotate(t_array *src, t_ssize steps)
 {
 	if (src->len < 2 || steps == 0)
 		return (0);

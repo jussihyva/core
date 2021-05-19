@@ -1,7 +1,7 @@
 #include "../inc/core.h"
 #include <assert.h>
 
-ssize_t	print_char(void *data, size_t i)
+t_ssize	print_char(void *data, t_size i)
 {
 	char	*ptr;
 

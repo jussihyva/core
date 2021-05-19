@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mat_nextprime.c                                    :+:      :+:    :+:   */
+/*   math_nextprime.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 03:54:56 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/11 09:30:11 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/19 04:38:35 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/core.h"
 
-uint64_t	math_nextprime(uint64_t n)
+t_uint64	math_nextprime(t_uint64 n)
 {
 	if (math_prime(n))
 		n++;

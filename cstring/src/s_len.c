@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   s_len.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:29:17 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/11 09:06:23 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/19 04:38:35 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cstr.h"
 
-uint64_t	s_len(const char *s)
+t_uint64	s_len(const char *s)
 {
-	uint64_t	i;
+	t_uint64	i;
 
 	i = 0;
 	if (!s)

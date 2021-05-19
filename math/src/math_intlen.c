@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mat_intlen.c                                       :+:      :+:    :+:   */
+/*   math_intlen.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/03 04:22:26 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/11 09:30:11 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/19 04:39:48 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/core.h"
 
-int	math_intlen(int64_t n)
+int	math_intlen(t_int64 n)
 {
 	int		res;
 

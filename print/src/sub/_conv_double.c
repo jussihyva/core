@@ -9,9 +9,9 @@
 #include "../../inc/core.h"
 #include "../inc/print_internal.h"
 
-static size_t	get_int_part_len(char *value_str)
+static t_size	get_int_part_len(char *value_str)
 {
-	size_t	len;
+	t_size	len;
 
 	len = 0;
 	while (value_str[len] != '.' && value_str[len] != '\0')
@@ -21,10 +21,10 @@ static size_t	get_int_part_len(char *value_str)
 	return (len);
 }
 
-char	*parse_double_result(t_data *specs, char *value_str, size_t len)
+char	*parse_double_result(t_data *specs, char *value_str, t_size len)
 {
 	char	*result;
-	size_t	i;
+	t_size	i;
 
 	result = (char *)malloc(sizeof(char) * (len + 1));
 	if (result == NULL)
@@ -46,9 +46,9 @@ char	*parse_double_result(t_data *specs, char *value_str, size_t len)
 	return (result);
 }
 
-size_t	get_result_length(t_data *specs, double value, char *value_str)
+t_size	get_result_length(t_data *specs, double value, char *value_str)
 {
-	size_t	len;
+	t_size	len;
 
 	if (is_nan(value) || is_posinf(value) || is_neginf(value))
 		len = 3;
@@ -90,7 +90,7 @@ int	_conv_double(t_data *specs, char **result)
 {
 	double		value;
 	char		*value_str;
-	size_t		len;
+	t_size		len;
 
 	if (specs->length_modifier[0] == '\0' || specs->length_modifier[0] == 'l')
 		value = va_arg(*specs->ap, double);

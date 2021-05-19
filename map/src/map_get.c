@@ -9,9 +9,9 @@
 
 void	*map_get(t_map *src, const char *key)
 {
-	uint64_t	hash_key;
-	uint64_t	probe;
-	size_t		i;
+	t_uint64	hash_key;
+	t_uint64	probe;
+	t_size		i;
 
 	if (!key)
 		return (NULL);

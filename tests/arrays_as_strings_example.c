@@ -20,7 +20,7 @@ t_str	str_cpy(t_str dst, t_str src)
 t_str	str_new(char *src)
 {
 	t_str	out;
-	size_t	len;
+	t_size	len;
 
 	len = 0;
 	if (!src)

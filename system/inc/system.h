@@ -1,24 +1,24 @@
 #ifndef SYSTEM_H
 # define SYSTEM_H
-# define CR_FILE_POS &(t_file_pos){__FUNCTION__, __FILE__, __LINE__}
+
 # include "../../ptr_array/inc/parr.h"
-# include <stdint.h>
+# include "../../inc/types.h"
 
 typedef struct	s_file_pos
 {
 	const char	*func;
 	char		*file;
-	size_t		line;
+	t_size		line;
 }				t_file_pos;
 
 void	core_error(t_file_pos *err_pos, char *message);
-void	core_debug(t_file_pos *file_pos, size_t count, ...);
+void	core_debug(t_file_pos *file_pos, t_size count, ...);
 void	core_activate();
 void	core_deactivate();
 void	core_log();
-t_mem	core_malloc(size_t bytes);
-ssize_t	core_realloc(t_mem *mem, size_t new_size);
+t_mem	core_malloc(t_size bytes);
+t_ssize	core_realloc(t_mem *mem, t_size new_size);
 void	core_free(t_mem *mem);
-t_page	core_stacktrace(size_t offset);
+t_page	core_stacktrace(t_size offset);
 
 #endif

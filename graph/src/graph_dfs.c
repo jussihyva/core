@@ -25,7 +25,7 @@ static void	graph_dfs_loop(
 	t_graph_node *t)
 {
 	t_graph_edge	*e;
-	size_t			i;
+	t_size			i;
 
 	v->valid = 0;
 	i = false;

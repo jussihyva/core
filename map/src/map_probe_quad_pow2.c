@@ -12,7 +12,7 @@
 
 #include "../../inc/core.h"
 
-uint64_t	map_probe_quad_pow2(uint64_t x)
+t_uint64	map_probe_quad_pow2(t_uint64 x)
 {
 	return ((pow(x, 2) + x) / 2);
 }

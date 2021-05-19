@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   s_ndup.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:29:59 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/11 09:05:02 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/19 04:38:35 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cstr.h"
 
-char	*s_ndup(const char *s, uint64_t n)
+char	*s_ndup(const char *s, t_uint64 n)
 {
 	char	*out;
 

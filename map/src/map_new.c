@@ -10,7 +10,7 @@
 t_map	map_new(void)
 {
 	t_map	m;
-	size_t	i;
+	t_size	i;
 
 	m.capacity = CR_MAP_START_CAPACITY;
 	m.load_factor = CR_MAP_LOAD_FACTOR;

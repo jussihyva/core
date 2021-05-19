@@ -5,7 +5,7 @@
 
 #include "../../inc/core.h"
 
-ssize_t	graph_null(t_graph *g)
+t_ssize	graph_null(t_graph *g)
 {
 	if (memcmp(g, &CR_MAP_NULL, sizeof(t_graph)) == 0)
 		return (CR_SUCCESS);

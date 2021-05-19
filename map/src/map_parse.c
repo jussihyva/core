@@ -7,7 +7,7 @@ char	*map_parse(
 	char *(*f)(void *, void *, const char *key))
 {
 	t_map_node	node;
-	size_t		i;
+	t_size		i;
 
 	node = CR_MAP_NULL_NODE;
 	i = 0;

@@ -2,7 +2,7 @@
 # define TYPES_H
 # include <string.h>
 # include <unistd.h>
-# include <stdint.h>
+
 
 /// Standard redef
 
@@ -29,8 +29,8 @@ typedef enum	e_bool
 
 typedef struct	s_mem
 {
-	uint8_t		*data;
-	size_t		size;
+	t_byte		*data;
+	t_size		size;
 }				t_mem;
 
 /// Array
@@ -38,8 +38,8 @@ typedef struct	s_mem
 typedef struct	s_array
 {
 	t_mem		mem;
-	size_t		len;
-	size_t		elem_size;
+	t_size		len;
+	t_size		elem_size;
 }				t_array;
 
 /// Pointer Array
@@ -47,8 +47,8 @@ typedef struct	s_array
 typedef struct	s_parray
 {
 	void		**data;
-	size_t		len;
-	size_t		size;
+	t_size		len;
+	t_size		size;
 }				t_parray;
 
 /// String
@@ -66,12 +66,12 @@ typedef struct	s_map_node
 typedef struct	s_map
 {
 	t_map_node	*node;
-	size_t		capacity;
-	size_t		count;
+	t_size		capacity;
+	t_size		count;
 	double		load_factor;
-	uint64_t	(*hash)(const char *);
-	uint64_t	(*probe)(uint64_t);
-	uint64_t	(*resize)(uint64_t);
+	t_uint64	(*hash)(const char *);
+	t_uint64	(*probe)(t_uint64);
+	t_uint64	(*resize)(t_uint64);
 }				t_map;
 
 /// Graph

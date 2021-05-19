@@ -9,7 +9,7 @@
 #include "../../inc/core.h"
 #include "../inc/print_internal.h"
 
-char	*_intmax_itoa_base(intmax_t value, int base)
+char	*_intmax_itoa_base(t_int64 value, int base)
 {
 	char	*result;
 	char	*digits;

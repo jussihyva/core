@@ -17,10 +17,10 @@
 
 #include "../../inc/core.h"
 
-ssize_t	arr_join(t_array *dst, t_array *src)
+t_ssize	arr_join(t_array *dst, t_array *src)
 {
-	uint8_t	*mem_start;
-	size_t	newsize;
+	t_byte	*mem_start;
+	t_size	newsize;
 
 	if (dst->elem_size != src->elem_size)
 		return (CR_FAIL);

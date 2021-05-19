@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mat_log.c                                          :+:      :+:    :+:   */
+/*   math_log.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/02 16:26:55 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/11 09:30:11 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/19 04:39:48 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/core.h"
 
-int64_t	math_log(int64_t n)
+t_int64	math_log(t_int64 n)
 {
-	static uint64_t	x = 0x07EDD5E59A4E28C2;
+	static t_uint64	x = 0x07EDD5E59A4E28C2;
 	static int		tab64[64] = {
 	63, 0, 58, 1, 59, 47, 53, 2,
 	60, 39, 48, 27, 54, 33, 42, 3,
@@ -31,7 +31,7 @@ int64_t	math_log(int64_t n)
 	n |= n >> 8;
 	n |= n >> 16;
 	n |= n >> 32;
-	return (tab64[((uint64_t)((n - (n >> 1)) * x)) >> 58]);
+	return (tab64[((t_uint64)((n - (n >> 1)) * x)) >> 58]);
 }
 
 /*

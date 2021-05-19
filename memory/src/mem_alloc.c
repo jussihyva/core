@@ -6,13 +6,13 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:30:56 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/17 02:26:42 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/19 04:25:36 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/core.h"
 
-void	*mem_alloc(size_t size)
+void	*mem_alloc(t_size size)
 {
 	void	*p;
 

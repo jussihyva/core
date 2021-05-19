@@ -12,7 +12,7 @@ t_nodes	graph_find_roots(t_graph *g)
 	t_nodes			roots;
 	t_map_node		m_node;
 	t_graph_node	*g_node;
-	size_t			i;
+	t_size			i;
 
 	roots = parr_new(1);
 	i = 0;

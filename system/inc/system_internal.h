@@ -4,11 +4,11 @@
 
 typedef struct	s_core
 {
-	uint8_t		active : 1;
-	uint8_t		track_errors : 1;
-	uint8_t		track_errors_backtrace : 1;
-	uint8_t		track_allocs : 1;
-	uint8_t		track_allocs_backtrace : 1;
+	t_uint8		active : 1;
+	t_uint8		track_errors : 1;
+	t_uint8		track_errors_backtrace : 1;
+	t_uint8		track_allocs : 1;
+	t_uint8		track_allocs_backtrace : 1;
 	t_parray	errors;
 	t_parray	allocs;
 }				t_core;

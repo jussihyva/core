@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   s_chr.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:28:01 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/11 09:03:17 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/19 04:38:35 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*s_chr(const char *s, int c)
 {
-	uint64_t	i;
+	t_uint64	i;
 
 	i = 0;
 	if (!s)

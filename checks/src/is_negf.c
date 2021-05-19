@@ -10,11 +10,11 @@
 
 int	is_negf(double n)
 {
-	uint64_t	double_as_int;
-	uint8_t		sign;
+	t_uint64	double_as_int;
+	t_byte		sign;
 
 	mem_cpy_safe(&double_as_int, &n, sizeof(n));
-	sign = (uint8_t)(double_as_int >> 63);
+	sign = (t_byte)(double_as_int >> 63);
 	if (sign == 0)
 		return (CR_FALSE);
 	return (CR_TRUE);

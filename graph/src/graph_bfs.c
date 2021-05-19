@@ -20,15 +20,15 @@
 
 #include "../../inc/core.h"
 
-static ssize_t	graph_iter_edges(
+static t_ssize	graph_iter_edges(
 	t_parray *res,
 	t_nodes *queue,
 	t_graph_node *t,
-	size_t queue_index)
+	t_size queue_index)
 {
 	t_graph_edge	*e;
 	t_graph_node	*v;
-	size_t			i;
+	t_size			i;
 
 	v = parr_get(queue, queue_index);
 	i = 0;
@@ -58,7 +58,7 @@ static void	graph_bfs_loop(
 {
 	t_nodes			queue;
 	t_graph_node	*v;
-	size_t			i;
+	t_size			i;
 
 	queue = parr_new(1);
 	s->valid = false;

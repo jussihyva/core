@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mat_dcnt.c                                         :+:      :+:    :+:   */
+/*   math_dcnt.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 19:59:53 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/11 09:30:11 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/19 04:38:35 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/core.h"
 
-size_t	math_dcnt(uint64_t nb, uint64_t base)
+t_size	math_dcnt(t_uint64 nb, t_uint64 base)
 {
-	return ((uint64_t)((math_log(nb) / math_log(base)) + 1));
+	return ((t_uint64)((math_log(nb) / math_log(base)) + 1));
 }
 
 /*

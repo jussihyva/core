@@ -7,12 +7,12 @@
 
 #include "../../inc/core.h"
 
-static ssize_t	map_grow_add(t_map *dst, void *src, const char *key)
+static t_ssize	map_grow_add(t_map *dst, void *src, const char *key)
 {
-	uint64_t	hash_key;
+	t_uint64	hash_key;
 	t_map_node	new_node;
-	uint64_t	probe;
-	size_t		i;
+	t_uint64	probe;
+	t_size		i;
 
 	new_node.data = src;
 	new_node.key = key;
@@ -29,10 +29,10 @@ static ssize_t	map_grow_add(t_map *dst, void *src, const char *key)
 	return (CR_SUCCESS);
 }
 
-ssize_t	map_grow(t_map *src)
+t_ssize	map_grow(t_map *src)
 {
 	t_map	new;
-	size_t	i;
+	t_size	i;
 
 	new.capacity = src->resize(src->capacity + 1);
 	new.count = 0;

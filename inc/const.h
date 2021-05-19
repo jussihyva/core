@@ -22,5 +22,6 @@
 # define CR_GRAPH_EDGE_NULL (t_graph_edge) {NULL, NULL, 0, NULL}
 # define CR_MAP_NULL_NODE (t_map_node) {NULL, NULL}
 # define CR_MAP_NULL (t_map) {NULL, 0, 0, 0.0, NULL, NULL, NULL}
+# define CR_FILE_POS &(t_file_pos){__FUNCTION__, __FILE__, __LINE__}
 
 #endif

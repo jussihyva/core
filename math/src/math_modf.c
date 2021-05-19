@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mat_modf.c                                         :+:      :+:    :+:   */
+/*   math_modf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 00:50:32 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/11 09:32:32 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/19 04:38:35 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 typedef union u_double
 {
 	double			f;
-	uint64_t		i;
+	t_uint64		i;
 }					t_double;
 
 static double	aux(double x, double *iptr, t_double u, int e)
@@ -40,7 +40,7 @@ static double	aux(double x, double *iptr, t_double u, int e)
 double	math_modf(double x, double *iptr)
 {
 	t_double	u;
-	uint64_t	mask;
+	t_uint64	mask;
 	int			e;
 	double		ret;
 

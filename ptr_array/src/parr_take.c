@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   parr_take.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 06:09:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/17 17:55:34 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/19 04:25:36 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/core.h"
 
-void	*parr_take(t_parray *arr, size_t index)
+void	*parr_take(t_parray *arr, t_size index)
 {
 	void	*out;
 

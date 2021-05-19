@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   s_ncmp.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:29:46 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/11 09:04:58 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/19 04:38:35 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cstr.h"
 
-int	s_ncmp(const char *s1, const char *s2, uint64_t n)
+int	s_ncmp(const char *s1, const char *s2, t_uint64 n)
 {
-	uint64_t	i;
+	t_uint64	i;
 
 	i = 0;
 	if (n == 0)

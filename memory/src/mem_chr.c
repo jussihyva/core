@@ -6,13 +6,13 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:31:19 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/17 02:26:42 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/19 04:25:36 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/core.h"
 
-void	*mem_chr(const void *s, int c, size_t n)
+void	*mem_chr(const void *s, int c, t_size n)
 {
 	unsigned int	i;
 

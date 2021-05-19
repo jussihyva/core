@@ -9,7 +9,7 @@
 #include "../../inc/core.h"
 #include "../inc/print_internal.h"
 
-static char	*get_value_string(t_data *specs, uintmax_t value)
+static char	*get_value_string(t_data *specs, t_uint64 value)
 {
 	char	*result;
 
@@ -24,9 +24,9 @@ static char	*get_value_string(t_data *specs, uintmax_t value)
 	return (result);
 }
 
-static uintmax_t	get_unsigned_arg(t_data *specs, va_list *ap)
+static t_uint64	get_unsigned_arg(t_data *specs, va_list *ap)
 {
-	uintmax_t	value;
+	t_uint64	value;
 
 	if (s_cmp(specs->length_modifier, "hh") == 0)
 		value = (unsigned char)va_arg(*ap, unsigned int);
@@ -37,14 +37,14 @@ static uintmax_t	get_unsigned_arg(t_data *specs, va_list *ap)
 	else if (s_cmp(specs->length_modifier, "l") == 0)
 		value = va_arg(*ap, unsigned long);
 	else
-		value = (uintmax_t)va_arg(*ap, unsigned int);
+		value = (t_uint64)va_arg(*ap, unsigned int);
 	return (value);
 }
 
-static size_t	update_uint_specs(t_data *specs,
-	uintmax_t value, char *value_str)
+static t_size	update_uint_specs(t_data *specs,
+	t_uint64 value, char *value_str)
 {
-	size_t	len;
+	t_size	len;
 
 	if (value == 0)
 		specs->is_zero = 1;
@@ -73,9 +73,9 @@ static size_t	update_uint_specs(t_data *specs,
 
 int	_conv_uint(t_data *specs, char **result)
 {
-	uintmax_t	value;
+	t_uint64	value;
 	char		*value_str;
-	size_t		len;
+	t_size		len;
 
 	value = get_unsigned_arg(specs, specs->ap);
 	value_str = get_value_string(specs, value);

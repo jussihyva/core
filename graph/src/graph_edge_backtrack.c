@@ -21,12 +21,12 @@
 t_nodes	graph_edge_backtrack(
 	t_parray *edges,
 	const char *t_key,
-	ssize_t (*f)(t_graph_edge *))
+	t_ssize (*f)(t_graph_edge *))
 {
 	t_nodes			path;
 	t_graph_node	*v;
 	t_graph_edge	*e;
-	size_t			i;
+	t_size			i;
 
 	e = parr_get_last(edges);
 	if ((t_key && s_cmp(t_key, e->v->key)) || (f && !f(e)))

@@ -7,10 +7,10 @@
 
 #include "../../inc/core.h"
 
-ssize_t	arr_put(t_array *arr, void *src, size_t size)
+t_ssize	arr_put(t_array *arr, void *src, t_size size)
 {
-	size_t	i;
-	uint8_t	*mem;
+	t_size	i;
+	t_byte	*mem;
 
 	if (!src)
 		return (CR_FAIL);
@@ -22,5 +22,5 @@ ssize_t	arr_put(t_array *arr, void *src, size_t size)
 		mem += arr->elem_size;
 		i++;
 	}
-	return ((ssize_t)arr->len);
+	return ((t_ssize)arr->len);
 }

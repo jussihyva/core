@@ -16,22 +16,22 @@
 
 #include "../../inc/core.h"
 
-ssize_t	arr_search(t_array *src, t_array *key)
+t_ssize	arr_search(t_array *src, t_array *key)
 {
-	uint8_t	*mem_key;
-	uint8_t	*mem_src;
-	size_t	i;
+	t_byte	*mem_key;
+	t_byte	*mem_src;
+	t_size	i;
 
 	if (src->elem_size != key->elem_size)
 		return (CR_FAIL);
-	mem_src = (uint8_t *)src->mem.data;
-	mem_key = (uint8_t *)key->mem.data;
+	mem_src = (t_byte *)src->mem.data;
+	mem_key = (t_byte *)key->mem.data;
 	i = 0;
 	while (i < src->len)
 	{
 		if (mem_cmp(&mem_src[key->elem_size * i],
 				mem_key, key->len * key->elem_size) == 0)
-			return ((ssize_t)i);
+			return ((t_ssize)i);
 		i++;
 	}
 	return (CR_EMPTY);

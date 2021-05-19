@@ -20,7 +20,7 @@ int	print(const char *format, ...)
 	ret = _vasprint(&result, format, ap);
 	va_end(ap);
 	if (ret != -1)
-		ret = write(1, result, (size_t)ret);
+		ret = write(1, result, (t_size)ret);
 	free(result);
 	return (ret);
 }

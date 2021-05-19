@@ -1,12 +1,12 @@
 #include "../../inc/core.h"
 #include "../inc/system_internal.h"
 
-void	core_debug(t_file_pos *file_pos, size_t count, ...)
+void	core_debug(t_file_pos *file_pos, t_size count, ...)
 {
 	char	*ret;
 	char	*header;
 	va_list	ap;
-	size_t	i;
+	t_size	i;
 
 	header = format(
 	"\033[1;31m%s\033[0m, \033[1;31m%s\033[0m, \033[1;31m%d\033[0m",

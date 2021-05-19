@@ -15,10 +15,10 @@
 
 #include "../../inc/core.h"
 
-ssize_t	arr_del(t_array *src, size_t index)
+t_ssize	arr_del(t_array *src, t_size index)
 {
-	uint8_t	*mem_start;
-	uint8_t	*mem_end;
+	t_byte	*mem_start;
+	t_byte	*mem_end;
 
 	if (index >= src->len)
 		return (CR_FAIL);

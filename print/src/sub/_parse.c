@@ -11,7 +11,7 @@
 
 static int	_index(char c)
 {
-	size_t	i;
+	t_size	i;
 
 	i = 0;
 	while (types[i] && types[i] != c)
@@ -21,7 +21,7 @@ static int	_index(char c)
 
 static int	append_to_result(char **result, int len, int ret, const char *str)
 {
-	static size_t	arr_size = 100;
+	static t_size	arr_size = 100;
 
 	if (*result == NULL)
 	{
@@ -29,14 +29,14 @@ static int	append_to_result(char **result, int len, int ret, const char *str)
 		if (*result == NULL)
 			return (-1);
 	}
-	if ((size_t)(ret + len) > arr_size)
+	if ((t_size)(ret + len) > arr_size)
 	{
-		*result = _realloc(*result, arr_size, arr_size * 2 + (size_t)ret + 1);
+		*result = _realloc(*result, arr_size, arr_size * 2 + (t_size)ret + 1);
 		if (*result == NULL)
 			return (-1);
-		arr_size = arr_size * 2 + (size_t)ret;
+		arr_size = arr_size * 2 + (t_size)ret;
 	}
-	mem_cpy_safe(&(*result)[len], str, (size_t)ret);
+	mem_cpy_safe(&(*result)[len], str, (t_size)ret);
 	return (ret);
 }
 

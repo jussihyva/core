@@ -6,16 +6,16 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:30:41 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/04/24 23:21:02 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/19 04:38:35 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cstr.h"
 
-char	*s_sub(char const *s, unsigned int start, uint64_t len)
+char	*s_sub(char const *s, unsigned int start, t_uint64 len)
 {
 	char		*out;
-	uint64_t	i;
+	t_uint64	i;
 
 	i = 0;
 	if (!s)

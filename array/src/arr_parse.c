@@ -20,10 +20,10 @@
 
 #include "../../inc/core.h"
 
-ssize_t	arr_parse(t_array *dst, t_array *src,
-		ssize_t (*f)(t_array *, void *))
+t_ssize	arr_parse(t_array *dst, t_array *src,
+		t_ssize (*f)(t_array *, void *))
 {
-	size_t	i;
+	t_size	i;
 	void	*data;
 
 	if (arr_null(src) || arr_null(dst))
@@ -33,8 +33,8 @@ ssize_t	arr_parse(t_array *dst, t_array *src,
 	{
 		data = arr_get(src, i);
 		if (!(f(dst, data)))
-			return ((ssize_t)i);
+			return ((t_ssize)i);
 		i++;
 	}
-	return ((ssize_t)i);
+	return ((t_ssize)i);
 }

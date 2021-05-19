@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   parr_add_first.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/17 17:55:47 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/19 04:40:05 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/core.h"
 
-ssize_t	parr_add_first(t_parray *arr, void *data)
+t_ssize	parr_add_first(t_parray *arr, void *data)
 {
 	if (!(parr_add(arr, data, 0)))
 		return (CR_FAIL);

@@ -9,9 +9,9 @@
 #include "../../inc/core.h"
 #include "../inc/print_internal.h"
 
-size_t	_add_number(t_data *specs, char *number, char *result)
+t_size	_add_number(t_data *specs, char *number, char *result)
 {
-	size_t	i;
+	t_size	i;
 
 	i = 0;
 	if (specs->is_negative)
@@ -24,9 +24,9 @@ size_t	_add_number(t_data *specs, char *number, char *result)
 	return (i);
 }
 
-size_t	_add_padding(size_t len, char c, char *result)
+t_size	_add_padding(t_size len, char c, char *result)
 {
-	size_t	i;
+	t_size	i;
 
 	i = 0;
 	while (i < len)
@@ -34,9 +34,9 @@ size_t	_add_padding(size_t len, char c, char *result)
 	return (i);
 }
 
-size_t	_add_prefix(t_data *specs, char *result)
+t_size	_add_prefix(t_data *specs, char *result)
 {
-	size_t	i;
+	t_size	i;
 
 	i = 0;
 	if (specs->is_negative)
@@ -62,10 +62,10 @@ size_t	_add_prefix(t_data *specs, char *result)
 	return (i);
 }
 
-char	*_parse_int_result(t_data *specs, char *number, size_t result_len)
+char	*_parse_int_result(t_data *specs, char *number, t_size result_len)
 {
 	char	*result;
-	size_t	i;
+	t_size	i;
 
 	result = (char *)malloc(sizeof(char) * (result_len + 1));
 	if (result == NULL)

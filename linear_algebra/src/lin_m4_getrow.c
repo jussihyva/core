@@ -12,7 +12,7 @@
 
 #include "../../inc/core.h"
 
-t_vec4	lin_m4_getrow(t_mat4 *src, uint8_t row)
+t_vec4	lin_m4_getrow(t_mat4 *src, t_uint8 row)
 {
 	t_vec4	out;
 

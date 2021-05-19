@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   s_nstr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:30:15 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/11 09:05:13 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/19 04:38:35 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cstr.h"
 
-char	*s_nstr(const char *h, const char *n, uint64_t len)
+char	*s_nstr(const char *h, const char *n, t_uint64 len)
 {
-	uint64_t	i;
-	uint64_t	j;
+	t_uint64	i;
+	t_uint64	j;
 
 	i = 0;
 	if (!s_len(n))

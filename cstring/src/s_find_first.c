@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   s_find_first.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 02:41:42 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/11 09:03:53 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/19 04:25:36 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	s_find_first(char *ref, char *src)
 {
-	size_t			i;
+	t_size			i;
 
 	i = 1;
 	while (!(s_chr(ref, src[i - 1])))

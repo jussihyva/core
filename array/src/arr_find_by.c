@@ -21,10 +21,10 @@
 
 #include "../../inc/core.h"
 
-ssize_t	arr_find_by(t_array *src, const void *key,
-		ssize_t (*f)(const void *, const void *))
+t_ssize	arr_find_by(t_array *src, const void *key,
+		t_ssize (*f)(const void *, const void *))
 {
-	size_t	i;
+	t_size	i;
 	void	*tmp;
 
 	if (arr_null(src))
@@ -34,7 +34,7 @@ ssize_t	arr_find_by(t_array *src, const void *key,
 	{
 		tmp = arr_get(src, i);
 		if ((f(key, tmp)) == CR_SUCCESS)
-			return ((ssize_t)i);
+			return ((t_ssize)i);
 		i++;
 	}
 	return (CR_EMPTY);

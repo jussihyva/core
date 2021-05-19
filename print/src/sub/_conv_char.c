@@ -9,11 +9,11 @@
 #include "../../inc/core.h"
 #include "../inc/print_internal.h"
 
-static char	*parse_str_result(t_data *specs, char *str, size_t str_len)
+static char	*parse_str_result(t_data *specs, char *str, t_size str_len)
 {
-	size_t	result_len;
-	size_t	i;
-	size_t	j;
+	t_size	result_len;
+	t_size	i;
+	t_size	j;
 	char	*result;
 
 	result_len = str_len + specs->min_field_width;
@@ -36,9 +36,9 @@ static char	*parse_str_result(t_data *specs, char *str, size_t str_len)
 	return (result);
 }
 
-static size_t	update_str_specs(t_data *specs, char *str)
+static t_size	update_str_specs(t_data *specs, char *str)
 {
-	size_t	len;
+	t_size	len;
 
 	if (str == NULL)
 	{
@@ -63,7 +63,7 @@ static size_t	update_str_specs(t_data *specs, char *str)
 int	_conv_string(t_data *specs, char **result)
 {
 	char	*str;
-	size_t	str_len;
+	t_size	str_len;
 
 	str = (char *)va_arg(*specs->ap, char *);
 	str_len = update_str_specs(specs, str);

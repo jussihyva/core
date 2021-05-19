@@ -19,14 +19,14 @@ typedef union	s_un
 
 // Create and destroy an array
 
-ssize_t		test_dealloc(void *data, size_t i)
+t_ssize		test_dealloc(void *data, t_size i)
 {
 	t_test	*ptr = data;
 	free(ptr->mem);
 	return(CR_CONTINUE);
 }
 
-ssize_t		test_print(void *data, size_t i)
+t_ssize		test_print(void *data, t_size i)
 {
 	t_test	*ptr = data;
 	printf("%p %d %f %lf\n", ptr->mem, ptr->x, ptr->y, ptr->z);
@@ -52,7 +52,7 @@ int			tests2()
 	t_test *ptr;
 	t_test *ptr2;
 	t_test	struc;
-	size_t	i;
+	t_size	i;
 
 	test = arr_new(1, sizeof(t_test));
 
@@ -96,7 +96,7 @@ int			tests2()
 	return (1);
 }
 
-ssize_t		print_data(void *data, size_t i)
+t_ssize		print_data(void *data, t_size i)
 {
 	char	*ptr;
 

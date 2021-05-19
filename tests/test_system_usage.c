@@ -4,7 +4,7 @@
 
 void	test_debug()
 {
-	size_t	i;
+	t_size	i;
 	char	*str;
 
 	str = s_dup("abcdefg");
@@ -35,7 +35,7 @@ void	test_malloc()
 {
 	t_mem	memory;
 
-	memory = core_malloc(sizeof(uint64_t));
+	memory = core_malloc(sizeof(t_uint64));
 	core_log();
 	core_free(&memory);
 }

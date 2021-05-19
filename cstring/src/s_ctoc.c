@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   s_ctoc.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 05:54:35 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/11 09:03:34 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/19 04:25:36 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	s_ctoc(char *str, int from, int to)
 {
-	size_t		i;
+	t_size		i;
 
 	i = s_len(str);
 	while (i--)

@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   parr_split.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/17 17:55:34 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/19 04:40:05 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/core.h"
 
-ssize_t	parr_split(t_parray *dst, t_parray *src)
+t_ssize	parr_split(t_parray *dst, t_parray *src)
 {
-	size_t	o_size;
-	size_t	i;
+	t_size	o_size;
+	t_size	i;
 
 	if (parr_null(dst) || parr_null(src))
 		return (CR_FAIL);

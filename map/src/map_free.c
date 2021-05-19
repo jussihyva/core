@@ -1,7 +1,7 @@
 #include "../inc/map.h"
 #include "../../inc/core.h"
 
-ssize_t	map_free(t_map *src)
+t_ssize	map_free(t_map *src)
 {
 	free(src->node);
 	*src = CR_MAP_NULL;

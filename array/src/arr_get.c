@@ -15,9 +15,9 @@
 
 #include "../../inc/core.h"
 
-void	*arr_get(t_array *src, size_t index)
+void	*arr_get(t_array *src, t_size index)
 {
-	uint8_t	*mem_pos;
+	t_byte	*mem_pos;
 
 	if (index >= src->len || src->len == 0)
 		return (NULL);

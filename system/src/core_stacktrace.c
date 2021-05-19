@@ -1,13 +1,13 @@
 #include "../inc/system.h"
 #include "../inc/system_internal.h"
 
-t_page	core_stacktrace(size_t offset)
+t_page	core_stacktrace(t_size offset)
 {
 	t_page		trace;
 	char		**strings;
-	size_t		size;
+	t_size		size;
 	void		*array[CR_STACK_TRACE_MAX];
-	size_t		i;
+	t_size		i;
 
 	trace = parr_new(1);;
 	offset++;

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mat_floor.c                                        :+:      :+:    :+:   */
+/*   math_floor.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 22:05:32 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/11 09:34:17 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/19 04:39:48 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/core.h"
 
-static double	aux(double xcopy, int64_t zeros, double n, double x)
+static double	aux(double xcopy, t_int64 zeros, double n, double x)
 {
 	while (xcopy > n * 10)
 	{
@@ -43,7 +43,7 @@ static double	aux(double xcopy, int64_t zeros, double n, double x)
 double	math_floor(double x)
 {
 	double		xcopy;
-	int64_t		zeros;
+	t_int64		zeros;
 	double		n;
 
 	if (x < 0)

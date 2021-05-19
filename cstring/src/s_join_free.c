@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   s_join_free.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 01:05:39 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/11 09:04:03 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/19 04:25:36 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cstr.h"
 
-char	*s_join_free(char *s1, char *s2, size_t flag)
+char	*s_join_free(char *s1, char *s2, t_size flag)
 {
 	char	*out;
 

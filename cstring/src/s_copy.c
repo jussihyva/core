@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   s_copy.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 03:47:58 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/11 09:08:35 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/19 04:25:36 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cstr.h"
 
-char	*s_copy(char *str, size_t start, size_t end, size_t flag)
+char	*s_copy(char *str, t_size start, t_size end, t_size flag)
 {
 	char			*out;
-	size_t			i;
+	t_size			i;
 
 	if (!str || start > end)
 		return (NULL);

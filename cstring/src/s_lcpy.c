@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   s_lcpy.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:29:10 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/11 09:04:41 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/19 04:38:35 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cstr.h"
 
-uint64_t	s_lcpy(char *dst, const char *src, uint64_t size)
+t_uint64	s_lcpy(char *dst, const char *src, t_uint64 size)
 {
-	uint64_t	i;
-	uint64_t	j;
+	t_uint64	i;
+	t_uint64	j;
 
 	i = 0;
 	j = 0;

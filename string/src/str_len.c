@@ -1,9 +1,9 @@
 #include "../../inc/core.h"
 
-size_t	str_len(t_str src)
+t_size	str_len(t_str src)
 {
-	uint64_t	len;
+	t_uint64	len;
 
-	mem_cpy(&len, &src[-sizeof(uint64_t)], sizeof(uint64_t));
+	mem_cpy(&len, &src[-sizeof(t_uint64)], sizeof(t_uint64));
 	return (len);
 }

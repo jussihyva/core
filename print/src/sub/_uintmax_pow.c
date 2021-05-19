@@ -9,9 +9,9 @@
 #include "../../inc/core.h"
 #include "../inc/print_internal.h"
 
-uintmax_t	_uintmax_pow(int base, int power)
+t_uint64	_uintmax_pow(int base, int power)
 {
-	uintmax_t	result;
+	t_uint64	result;
 
 	result = 1;
 	while (power > 0)

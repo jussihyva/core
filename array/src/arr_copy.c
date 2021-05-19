@@ -15,9 +15,9 @@
 
 #include "../../inc/core.h"
 
-ssize_t	arr_copy(t_array *dst, t_array *src)
+t_ssize	arr_copy(t_array *dst, t_array *src)
 {
-	uint8_t	*mem_start;
+	t_byte	*mem_start;
 
 	if (arr_null(src))
 		return (CR_FAIL);

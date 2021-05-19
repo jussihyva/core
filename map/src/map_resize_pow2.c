@@ -12,10 +12,10 @@
 
 #include "../../inc/core.h"
 
-static inline int64_t	m_ipow(int64_t base, int64_t exp)
+static inline t_int64	m_ipow(t_int64 base, t_int64 exp)
 {
-	int64_t			tmp;
-	int64_t			i;
+	t_int64			tmp;
+	t_int64			i;
 
 	i = 0;
 	tmp = base;
@@ -33,7 +33,7 @@ static inline int64_t	m_ipow(int64_t base, int64_t exp)
 	return (tmp);
 }
 
-uint64_t	map_resize_pow2(uint64_t capacity)
+t_uint64	map_resize_pow2(t_uint64 capacity)
 {
 	return (m_ipow(2, ceil(log(capacity) / log(2))));
 }

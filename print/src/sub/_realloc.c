@@ -9,10 +9,10 @@
 #include "../../inc/core.h"
 #include "../inc/print_internal.h"
 
-void	*_realloc(void *ptr, size_t old_size, size_t new_size)
+void	*_realloc(void *ptr, t_size old_size, t_size new_size)
 {
 	void	*new;
-	size_t	copy_size;
+	t_size	copy_size;
 
 	if (new_size == 0 && ptr != NULL)
 	{

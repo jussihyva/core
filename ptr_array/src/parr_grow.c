@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   parr_grow.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/17 17:55:34 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/19 04:40:05 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/core.h"
 
-ssize_t	parr_grow(t_parray *arr, size_t new_size)
+t_ssize	parr_grow(t_parray *arr, t_size new_size)
 {
 	t_parray	out;
-	ssize_t		error;
+	t_ssize		error;
 
 	out = parr_new(new_size);
 	if (parr_null(&out))

@@ -12,7 +12,7 @@
 
 #include "../../inc/core.h"
 
-ssize_t	arr_free(t_array *src)
+t_ssize	arr_free(t_array *src)
 {
 	core_free(&src->mem);
 	*src = CR_ARR_NULL;

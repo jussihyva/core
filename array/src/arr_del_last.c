@@ -14,7 +14,7 @@
 
 #include "../../inc/core.h"
 
-ssize_t	arr_del_last(t_array *arr)
+t_ssize	arr_del_last(t_array *arr)
 {
 	if (!(arr_del(arr, arr->len - 1)))
 		return (CR_FAIL);

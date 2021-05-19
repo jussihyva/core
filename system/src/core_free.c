@@ -1,10 +1,10 @@
 #include "../../inc/core.h"
 #include "../inc/system_internal.h"
 
-static ssize_t	deactivate_tracker(t_mem *mem)
+static t_ssize	deactivate_tracker(t_mem *mem)
 {
 	t_tracker	*tracker;
-	size_t		i;
+	t_size		i;
 	t_core	*core;
 
 	core = core_static();

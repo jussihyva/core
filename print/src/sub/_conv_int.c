@@ -9,9 +9,9 @@
 #include "../../inc/core.h"
 #include "../inc/print_internal.h"
 
-static intmax_t	get_signed_arg(t_data *specs, va_list *ap)
+static t_int64	get_signed_arg(t_data *specs, va_list *ap)
 {
-	intmax_t	value;
+	t_int64	value;
 
 	if (s_cmp(specs->length_modifier, "hh") == 0)
 		value = (signed char)va_arg(*ap, int);
@@ -26,9 +26,9 @@ static intmax_t	get_signed_arg(t_data *specs, va_list *ap)
 	return (value);
 }
 
-static size_t	update_int_specs(t_data *specs, intmax_t value, char *value_str)
+static t_size	update_int_specs(t_data *specs, t_int64 value, char *value_str)
 {
-	size_t	len;
+	t_size	len;
 
 	if (value == 0)
 		specs->is_zero = 1;
@@ -39,8 +39,8 @@ static size_t	update_int_specs(t_data *specs, intmax_t value, char *value_str)
 		len = 0;
 	if (specs->has_precision)
 		specs->zero_padding = 0;
-	if (specs->precision > len - (size_t)specs->is_negative)
-		specs->precision = specs->precision - len + (size_t)specs->is_negative;
+	if (specs->precision > len - (t_size)specs->is_negative)
+		specs->precision = specs->precision - len + (t_size)specs->is_negative;
 	else
 		specs->precision = 0;
 	len += specs->precision;
@@ -56,9 +56,9 @@ static size_t	update_int_specs(t_data *specs, intmax_t value, char *value_str)
 
 int	_conv_int(t_data *specs, char **result)
 {
-	intmax_t	value;
+	t_int64	value;
 	char		*value_str;
-	size_t		len;
+	t_size		len;
 
 	value = get_signed_arg(specs, specs->ap);
 	value_str = _intmax_itoa_base(value, 10);

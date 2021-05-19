@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   parr_join.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/17 17:55:34 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/19 04:40:05 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/core.h"
 
-ssize_t	parr_join(t_parray *dst, size_t len, ...)
+t_ssize	parr_join(t_parray *dst, t_size len, ...)
 {
 	va_list		ap;
 	t_parray	*tmp;
-	size_t		i;
+	t_size		i;
 
 	va_start(ap, len);
 	if (parr_null(dst))

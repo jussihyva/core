@@ -7,7 +7,7 @@
 
 #include "../../inc/core.h"
 
-ssize_t	graph_add_edge(
+t_ssize	graph_add_edge(
 		t_graph *g,
 		const char *u_key,
 		const char *v_key,

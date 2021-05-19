@@ -17,17 +17,17 @@
 
 #include "../../inc/core.h"
 
-static uint64_t	map_threshold(t_map *map)
+static t_uint64	map_threshold(t_map *map)
 {
-	return ((uint64_t)(map->load_factor * (double)map->capacity - 1));
+	return ((t_uint64)(map->load_factor * (double)map->capacity - 1));
 }
 
-ssize_t	map_add(t_map *dst, void *val, const char *key)
+t_ssize	map_add(t_map *dst, void *val, const char *key)
 {
-	uint64_t	hash_key;
+	t_uint64	hash_key;
 	t_map_node	new_node;
-	uint64_t	probe;
-	size_t		i;
+	t_uint64	probe;
+	t_size		i;
 
 	if (!key || !val || map_null(dst))
 		return (CR_FAIL);

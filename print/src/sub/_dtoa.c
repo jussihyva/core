@@ -51,7 +51,7 @@ static int	add_integral_part(char *result, double int_part, int len)
 }
 
 static int	add_fractional_part(char *result, long double frac_part,
-size_t precision)
+t_size precision)
 {
 	int			i;
 
@@ -71,7 +71,7 @@ size_t precision)
 	return (i);
 }
 
-static int	result_len(double int_part, size_t precision)
+static int	result_len(double int_part, t_size precision)
 {
 	int	len;
 
@@ -84,7 +84,7 @@ static int	result_len(double int_part, size_t precision)
 	return (len);
 }
 
-char	*_dtoa(double nbr, size_t precision)
+char	*_dtoa(double nbr, t_size precision)
 {
 	char		*result;
 	double		int_part;
@@ -103,9 +103,9 @@ char	*_dtoa(double nbr, size_t precision)
 		frac_part -= (int)frac_part;
 	}
 	else if (_rounds_half_to_even(nbr, (int)precision)
-		&& (uintmax_t)(_fabs(int_part) + 1) % 2 == 0)
+		&& (t_uint64)(_fabs(int_part) + 1) % 2 == 0)
 		int_part += is_neg(nbr) * -1.0 + (1 - is_neg(nbr)) * 1.0;
-	result = (char *)mem_alloc((size_t)result_len(int_part, precision) + 1);
+	result = (char *)mem_alloc((t_size)result_len(int_part, precision) + 1);
 	if (result == NULL)
 		return (NULL);
 	add_integral_part(result, int_part, int_part_len(int_part));

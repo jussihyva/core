@@ -12,10 +12,10 @@
 
 #include "../../inc/core.h"
 
-ssize_t	parr_parse(t_parray *dst, t_parray *src,
-		ssize_t (*f)(t_parray *, void *))
+t_ssize	parr_parse(t_parray *dst, t_parray *src,
+		t_ssize (*f)(t_parray *, void *))
 {
-	size_t	i;
+	t_size	i;
 	void	*data;
 
 	i = 0;

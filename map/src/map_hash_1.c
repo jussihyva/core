@@ -7,18 +7,18 @@
 
 #include "../../inc/core.h"
 
-static inline uint64_t	shift(uint64_t x, uint64_t n)
+static inline t_uint64	shift(t_uint64 x, t_uint64 n)
 {
 	return ((x << n) >> n);
 }
 
-uint64_t	map_hash_1(const char *str)
+t_uint64	map_hash_1(const char *str)
 {
-	size_t		wrdlen;
-	uint32_t	prime;
-	uint64_t	hash64;
-	size_t		cycles;
-	size_t		ndhead;
+	t_size		wrdlen;
+	t_uint32	prime;
+	t_uint64	hash64;
+	t_size		cycles;
+	t_size		ndhead;
 
 	prime = 591798841;
 	hash64 = 14695981039346656037LLU;
@@ -29,14 +29,14 @@ uint64_t	map_hash_1(const char *str)
 		ndhead = wrdlen - (cycles << 3);
 		while (cycles--)
 		{
-			hash64 = (hash64 ^ (*(uint64_t *)(str))) * prime;
-			hash64 = (hash64 ^ (*(uint64_t *)(str + ndhead))) * prime;
+			hash64 = (hash64 ^ (*(t_uint64 *)(str))) * prime;
+			hash64 = (hash64 ^ (*(t_uint64 *)(str + ndhead))) * prime;
 			str += 8;
 		}
 	}
 	else
 	{
-		hash64 = (uint64_t)str[0];
+		hash64 = (t_uint64)str[0];
 		hash64 = (hash64 ^ shift(hash64, (8 - wrdlen) << 3)) * prime;
 	}
 	return (hash64 ^ (hash64 >> 32));

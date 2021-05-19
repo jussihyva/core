@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   parr_read_file.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/17 17:55:34 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/19 04:40:05 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/core.h"
 
-ssize_t	parr_read_file(t_parray *dst, char *filename)
+t_ssize	parr_read_file(t_parray *dst, char *filename)
 {
 	char	*line;
-	ssize_t	fd;
-	ssize_t	ret;
+	t_ssize	fd;
+	t_ssize	ret;
 
 	if (parr_null(dst))
 		return (CR_FAIL);

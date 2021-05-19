@@ -3,7 +3,7 @@
 
 void	cr_free_trackers()
 {
-	size_t	i;
+	t_size	i;
 	t_tracker	*t;
 	t_core	*core;
 	core = core_static();
@@ -20,7 +20,7 @@ void	cr_free_trackers()
 
 void	cr_free_errors()
 {
-	size_t	i;
+	t_size	i;
 	t_error	*t;
 	t_core	*core;
 

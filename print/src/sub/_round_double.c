@@ -9,7 +9,7 @@
 #include "../../inc/core.h"
 #include "../inc/print_internal.h"
 
-static double	round_half_to_even(double nbr, double div, size_t precision)
+static double	round_half_to_even(double nbr, double div, t_size precision)
 {
 	double	tmp;
 	double	int_part;
@@ -24,9 +24,9 @@ static double	round_half_to_even(double nbr, double div, size_t precision)
 	frac_part = _modf(tmp, &int_part);
 	while (precision-- > 0)
 		frac_part *= 10;
-	if ((uintmax_t)frac_part % 2 == 0 && nbr < 0.0)
+	if ((t_uint64)frac_part % 2 == 0 && nbr < 0.0)
 		return (nbr + 0.5 / div);
-	else if ((uintmax_t)frac_part % 2 == 0 && nbr >= 0.0)
+	else if ((t_uint64)frac_part % 2 == 0 && nbr >= 0.0)
 		return (nbr - 0.5 / div);
 	else if (nbr < 0.0)
 		return (nbr - 0.5 / div);
@@ -34,9 +34,9 @@ static double	round_half_to_even(double nbr, double div, size_t precision)
 		return (nbr + 0.5 / div);
 }
 
-long double	_round_double(double nbr, size_t precision)
+long double	_round_double(double nbr, t_size precision)
 {
-	size_t		i;
+	t_size		i;
 	double		div;
 	long double	long_nbr;
 

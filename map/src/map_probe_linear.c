@@ -1,7 +1,7 @@
 #include "../inc/map.h"
 #include "../../inc/core.h"
 
-uint64_t	map_probe_linear(uint64_t x)
+t_uint64	map_probe_linear(t_uint64 x)
 {
 	return (x + 1);
 }

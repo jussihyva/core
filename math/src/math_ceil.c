@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mat_ceil.c                                         :+:      :+:    :+:   */
+/*   math_ceil.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 21:53:22 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/11 09:30:11 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/19 04:38:35 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 double	math_ceil(double f)
 {
-	uint64_t	input;
+	t_uint64	input;
 	int			exponent;
 	int			fractional_bits;
-	uint64_t	integral_mask;
-	uint64_t	output;
+	t_uint64	integral_mask;
+	t_uint64	output;
 
 	mem_cpy(&input, &f, 4);
 	exponent = ((input >> 23) & 255) - 127;

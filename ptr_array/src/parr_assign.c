@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   parr_assign.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/17 17:55:34 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/19 04:40:05 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/core.h"
 
-ssize_t	parr_assign(t_parray *arr, void **src, size_t size)
+t_ssize	parr_assign(t_parray *arr, void **src, t_size size)
 {
-	size_t	i;
+	t_size	i;
 
 	i = 0;
 	if (parr_null(arr) || !src || size < 1)

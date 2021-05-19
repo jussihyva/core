@@ -15,8 +15,8 @@
 t_mat4	lin_m4xm4_r(t_mat4 *a, t_mat4 *b)
 {
 	t_mat4	c;
-	uint8_t	i;
-	uint8_t	j;
+	t_uint8	i;
+	t_uint8	j;
 
 	i = 0;
 	j = 0;

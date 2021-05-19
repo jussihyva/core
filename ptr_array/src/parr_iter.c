@@ -12,9 +12,9 @@
 
 #include "../../inc/core.h"
 
-ssize_t	parr_iter(t_parray *arr, ssize_t (*f)(void *, size_t))
+t_ssize	parr_iter(t_parray *arr, t_ssize (*f)(void *, t_size))
 {
-	size_t	i;
+	t_size	i;
 
 	if (parr_null(arr))
 		return (CR_FAIL);

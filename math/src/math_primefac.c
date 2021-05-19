@@ -12,11 +12,11 @@
 
 #include "../../inc/core.h"
 
-t_array	math_primefac(uint64_t n)
+t_array	math_primefac(t_uint64 n)
 {
 	t_array		out;
-	uint64_t	i;
-	uint64_t	curr;
+	t_uint64	i;
+	t_uint64	curr;
 
 	while (n % 2 == 0)
 	{

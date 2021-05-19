@@ -16,7 +16,7 @@ void	create_tracker(t_mem mem)
 	parr_add_last(&core->allocs, tracker);
 }
 
-ssize_t	core_malloc_setup(t_mem mem)
+t_ssize	core_malloc_setup(t_mem mem)
 {
 	t_core	*core;
 
@@ -37,7 +37,7 @@ ssize_t	core_malloc_setup(t_mem mem)
 	return (1);
 }
 
-t_mem	core_malloc(size_t bytes)
+t_mem	core_malloc(t_size bytes)
 {
 	t_mem	out;
 	t_core	*core;

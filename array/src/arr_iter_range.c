@@ -20,10 +20,10 @@
 
 #include "../../inc/core.h"
 
-ssize_t	arr_iter_range(t_array *src, size_t start, size_t end,
-		ssize_t (*f)(void *, size_t))
+t_ssize	arr_iter_range(t_array *src, t_size start, t_size end,
+		t_ssize (*f)(void *, t_size))
 {
-	size_t	i;
+	t_size	i;
 	void	*tmp;
 
 	i = start;
@@ -36,8 +36,8 @@ ssize_t	arr_iter_range(t_array *src, size_t start, size_t end,
 	{
 		tmp = arr_get(src, i);
 		if (!(f(tmp, i)))
-			return ((ssize_t)i);
+			return ((t_ssize)i);
 		i++;
 	}
-	return ((ssize_t)i);
+	return ((t_ssize)i);
 }

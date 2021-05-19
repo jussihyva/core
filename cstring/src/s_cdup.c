@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   s_cdup.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:27:56 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/11 09:03:15 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/19 04:38:35 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*s_cdup(const char *s1, char c)
 {
 	char		*out;
-	uint64_t	i;
+	t_uint64	i;
 
 	i = 0;
 	out = (char *)malloc(sizeof(char) * s_lenc((char *)s1, c) + 1);

@@ -3,7 +3,7 @@
 
 void	map_print(t_map *m)
 {
-	size_t	i;
+	t_size	i;
 
 	i = 0;
 	while (i < m->capacity)

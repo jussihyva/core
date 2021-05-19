@@ -6,16 +6,16 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:31:25 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/17 02:26:42 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/19 04:38:35 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/core.h"
 
 static inline
-int	cmp_small(uint8_t *restrict dst, const uint8_t *restrict src, size_t n)
+int	cmp_small(t_byte *restrict dst, const t_byte *restrict src, t_size n)
 {
-	size_t	i;
+	t_size	i;
 
 	i = 0;
 	while (i < n)
@@ -28,11 +28,11 @@ int	cmp_small(uint8_t *restrict dst, const uint8_t *restrict src, size_t n)
 }
 
 static inline
-int	cmp512(uint64_t *restrict dst, const uint64_t *restrict src, size_t n)
+int	cmp512(t_uint64 *restrict dst, const t_uint64 *restrict src, t_size n)
 {
-	size_t	chunks;
-	size_t	offset;
-	size_t	unroll_count;
+	t_size	chunks;
+	t_size	offset;
+	t_size	unroll_count;
 
 	chunks = n >> 3;
 	offset = n - (chunks << 3);
@@ -52,10 +52,10 @@ int	cmp512(uint64_t *restrict dst, const uint64_t *restrict src, size_t n)
 }
 
 // static inline
-// int	cmp512(uint64_t *restrict dst, const uint64_t *restrict src, size_t n)
+// int	cmp512(t_uint64 *restrict dst, const t_uint64 *restrict src, t_size n)
 // {
-// 	size_t	chunks;
-// 	size_t	offset;
+// 	t_size	chunks;
+// 	t_size	offset;
 
 // 	chunks = n >> 3;
 // 	offset = n - (chunks << 3);
@@ -86,19 +86,19 @@ int	cmp512(uint64_t *restrict dst, const uint64_t *restrict src, size_t n)
 // 	return (0);
 // }
 
-int	mem_cmp(const void *dst, const void *src, size_t n)
+int	mem_cmp(const void *dst, const void *src, t_size n)
 {
-	uint8_t			*dst8;
-	const uint8_t	*src8;
-	size_t			qwords;
-	size_t			aligned_size;
+	t_byte			*dst8;
+	const t_byte	*src8;
+	t_size			qwords;
+	t_size			aligned_size;
 
-	dst8 = (uint8_t *)dst;
-	src8 = (const uint8_t *)src;
+	dst8 = (t_byte *)dst;
+	src8 = (const t_byte *)src;
 	qwords = n >> 3;
 	if (n > 8)
 	{
-		if ((cmp512((uint64_t *)dst, (const uint64_t *)src, qwords)) == -1)
+		if ((cmp512((t_uint64 *)dst, (const t_uint64 *)src, qwords)) == -1)
 			return (-1);
 	}
 	aligned_size = qwords << 3;
@@ -108,14 +108,14 @@ int	mem_cmp(const void *dst, const void *src, size_t n)
 	return (cmp_small(dst8, src8, n));
 }
 
-/*int		mem_cmp(const void *src, const void *cmp, size_t size)*/
+/*int		mem_cmp(const void *src, const void *cmp, t_size size)*/
 /*{*/
 
-	/*const uint8_t	*src8;*/
-	/*const uint8_t	*dst8;*/
+	/*const t_byte	*src8;*/
+	/*const t_byte	*dst8;*/
 
-	/*src8 = (const uint8_t *)src;*/
-	/*dst8 = (const uint8_t *)cmp;*/
+	/*src8 = (const t_byte *)src;*/
+	/*dst8 = (const t_byte *)cmp;*/
 	/*while (size--)*/
 	/*{*/
 		/*if (*src8 != *dst8)*/

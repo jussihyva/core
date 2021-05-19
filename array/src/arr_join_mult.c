@@ -12,7 +12,7 @@
 
 #include "../../inc/core.h"
 
-ssize_t	arr_join_mult(t_array *dst, size_t len, ...)
+t_ssize	arr_join_mult(t_array *dst, t_size len, ...)
 {
 	va_list	ap;
 	t_array	*tmp;
@@ -27,5 +27,5 @@ ssize_t	arr_join_mult(t_array *dst, size_t len, ...)
 			return (CR_FAIL);
 	}
 	va_end(ap);
-	return ((ssize_t)dst->len);
+	return ((t_ssize)dst->len);
 }

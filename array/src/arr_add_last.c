@@ -15,9 +15,9 @@
 
 #include "../../inc/core.h"
 
-ssize_t	arr_add_last(t_array *dst, void *elem)
+t_ssize	arr_add_last(t_array *dst, void *elem)
 {
-	uint8_t	*mem_pos;
+	t_byte	*mem_pos;
 
 	if (dst->len == dst->mem.size / dst->elem_size)
 		core_realloc(&dst->mem, dst->mem.size * 2);

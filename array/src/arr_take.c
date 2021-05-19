@@ -16,7 +16,7 @@
 
 #include "../../inc/core.h"
 
-void	*arr_take(void *dst, t_array *src, size_t index)
+void	*arr_take(void *dst, t_array *src, t_size index)
 {
 	void	*tmp;
 

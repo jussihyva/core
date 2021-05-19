@@ -34,7 +34,7 @@ static int	get_precision(t_data *specs, const char *format)
 
 	i = 1;
 	specs->has_precision = 1;
-	specs->precision = (size_t)_atoi(&format[i]);
+	specs->precision = (t_size)_atoi(&format[i]);
 	if (specs->precision == 0)
 		specs->zero_precision = 1;
 	while (is_digit(format[i]))
@@ -47,7 +47,7 @@ static int	get_min_field_width(t_data *specs, const char *format)
 	int	i;
 
 	i = 0;
-	specs->min_field_width = (size_t)_atoi(&format[i]);
+	specs->min_field_width = (t_size)_atoi(&format[i]);
 	while (is_digit(format[i]))
 		i++;
 	return (i);

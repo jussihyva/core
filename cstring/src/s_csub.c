@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   s_csub.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:28:24 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/11 09:03:31 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/19 04:38:35 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 char	*s_csub(char *s, char c)
 {
 	char		*out;
-	uint64_t	i;
-	uint64_t	j;
-	uint64_t	len;
+	t_uint64	i;
+	t_uint64	j;
+	t_uint64	len;
 
 	i = s_lenc(s, c) + 1;
 	j = 0;

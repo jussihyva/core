@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   s_ncpy.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:29:53 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/11 09:05:00 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/19 04:38:35 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cstr.h"
 
-char	*s_ncpy(char *dst, const char *src, uint64_t n)
+char	*s_ncpy(char *dst, const char *src, t_uint64 n)
 {
-	uint64_t	i;
+	t_uint64	i;
 
 	i = 0;
 	while (src[i] && i < n)

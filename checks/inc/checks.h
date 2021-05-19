@@ -15,7 +15,7 @@ int		is_ascii(int c);
 int		is_digit(int c);
 int		is_lower(int c);
 int		is_nan(double n);
-int		is_neg(intmax_t n);
+int		is_neg(t_int64 n);
 int		is_negf(double n);
 int		is_neginf(double n);
 int		is_numeric(int c);

@@ -11,7 +11,7 @@
 
 #include "../../inc/core.h"
 
-ssize_t	graph_add_node(t_graph *g, const char *key, void *attr)
+t_ssize	graph_add_node(t_graph *g, const char *key, void *attr)
 {
 	t_graph_node	*n;
 

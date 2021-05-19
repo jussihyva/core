@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   s_lenc.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 03:01:24 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/11 09:04:47 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/19 04:38:35 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	s_lenc(char *s, char c)
 {
-	uint64_t	i;
+	t_uint64	i;
 
 	i = 0;
 	if (!s[i])

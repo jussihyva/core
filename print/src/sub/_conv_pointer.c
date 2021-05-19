@@ -12,12 +12,12 @@
 int	_conv_pointer(t_data *specs, char **result)
 {
 	void		*ptr;
-	uintmax_t	value;
+	t_uint64	value;
 	char		*value_str;
-	size_t		result_len;
+	t_size		result_len;
 
 	ptr = va_arg(*specs->ap, void *);
-	value = (uintmax_t)ptr;
+	value = (t_uint64)ptr;
 	value_str = _uintmax_itoa_base(value, 16, 0);
 	if (value_str == NULL)
 		return (-1);

@@ -9,11 +9,7 @@
 #ifndef PRINT_H
 # define PRINT_H
 
-# include <stdarg.h>
-# include <stddef.h>
-# include <inttypes.h>
-# include <stdint.h>
-# include <sys/types.h>
+# include "../../inc/stdinc.h"
 
 int		print(const char *format, ...);
 int		print_fd(int fd, const char *format, ...);

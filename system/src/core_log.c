@@ -1,7 +1,7 @@
 #include "../../inc/core.h"
 #include "../inc/system_internal.h"
 
-ssize_t	print_line(void *data, size_t i)
+t_ssize	print_line(void *data, t_size i)
 {
 	char	*str;
 
@@ -10,7 +10,7 @@ ssize_t	print_line(void *data, size_t i)
 	return (i);
 }
 
-ssize_t	print_tracker(void *data, size_t i)
+t_ssize	print_tracker(void *data, t_size i)
 {
 	t_tracker *tracker;
 
@@ -26,7 +26,7 @@ ssize_t	print_tracker(void *data, size_t i)
 	return (i);
 }
 
-ssize_t	print_error(void *data, size_t i)
+t_ssize	print_error(void *data, t_size i)
 {
 	t_error *error;
 

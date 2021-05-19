@@ -13,17 +13,17 @@
 #include "../../inc/core.h"
 
 static
-ssize_t	deallocate_str(void *data, size_t i)
+t_ssize	deallocate_str(void *data, t_size i)
 {
 	free(data);
 	return (i);
 }
 
 static
-ssize_t	write_file(FILE *file, t_parray *prepend,
-		ssize_t (*f)(void *, void *))
+t_ssize	write_file(FILE *file, t_parray *prepend,
+		t_ssize (*f)(void *, void *))
 {
-	size_t	i;
+	t_size	i;
 	char	*line;
 
 	i = 0;
@@ -46,7 +46,7 @@ ssize_t	write_file(FILE *file, t_parray *prepend,
 }
 
 static
-FILE	*open_file(char *filename, ssize_t flag)
+FILE	*open_file(char *filename, t_ssize flag)
 {
 	FILE	*file;
 
@@ -57,8 +57,8 @@ FILE	*open_file(char *filename, ssize_t flag)
 	return (file);
 }
 
-ssize_t	parr_write_file(char *dst, t_parray *src, ssize_t flag,
-		ssize_t (*f)(void *, void *))
+t_ssize	parr_write_file(char *dst, t_parray *src, t_ssize flag,
+		t_ssize (*f)(void *, void *))
 {
 	FILE		*file;
 	t_parray	prepend;

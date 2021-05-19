@@ -16,10 +16,10 @@
 
 #include "../../inc/core.h"
 
-ssize_t	arr_add(t_array *dst, void *elem, size_t index)
+t_ssize	arr_add(t_array *dst, void *elem, t_size index)
 {
-	uint8_t	*mem_pos;
-	uint8_t	*mem_tmp;
+	t_byte	*mem_pos;
+	t_byte	*mem_tmp;
 
 	if (index >= dst->len)
 		return (CR_FAIL);

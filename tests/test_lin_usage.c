@@ -6,16 +6,16 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 00:30:42 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/07 16:10:42 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/19 04:40:05 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/core.h"
 
-static ssize_t	parse_vec(t_array *dst, t_parray *src)
+static t_ssize	parse_vec(t_array *dst, t_parray *src)
 {
 	t_vec4	curr;
-	size_t	i;
+	t_size	i;
 
 	i = 0;
 	while (i < src->len - 10)
@@ -30,7 +30,7 @@ static ssize_t	parse_vec(t_array *dst, t_parray *src)
 	return (i);
 }
 
-static ssize_t	deallocate_str(void *data, size_t i)
+static t_ssize	deallocate_str(void *data, t_size i)
 {
 	free(data);
 	return (i);
@@ -40,7 +40,7 @@ void	transform(t_array *buffer)
 {
 	t_mat4	scale;
 	t_vec4	*cast;
-	size_t	i;
+	t_size	i;
 
 	scale = lin_m4_transform(100);
 	lin_m4_print(&scale);

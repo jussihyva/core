@@ -1,8 +1,8 @@
 #include "../../inc/core.h"
 
-void	map_iter(t_map *src, ssize_t (*f)(void *, size_t))
+void	map_iter(t_map *src, t_ssize (*f)(void *, t_size))
 {
-	size_t	i;
+	t_size	i;
 
 	if (!src || !f)
 		return ;

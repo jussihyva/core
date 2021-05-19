@@ -8,7 +8,7 @@
 
 #include "../../inc/core.h"
 
-int	is_neg(intmax_t n)
+int	is_neg(t_int64 n)
 {
 	if (n < 0)
 		return (1);

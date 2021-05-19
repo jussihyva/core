@@ -1,7 +1,7 @@
 #include "../inc/map.h"
 #include "../../inc/core.h"
 
-uint64_t	map_resize_linear(uint64_t capacity)
+t_uint64	map_resize_linear(t_uint64 capacity)
 {
 	return (capacity * 2);
 }

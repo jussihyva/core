@@ -17,10 +17,10 @@
 
 #include "../../inc/core.h"
 
-ssize_t	arr_iter(t_array *arr,
-		ssize_t (*f)(void *, size_t))
+t_ssize	arr_iter(t_array *arr,
+		t_ssize (*f)(void *, t_size))
 {
-	size_t	i;
+	t_size	i;
 	void	*tmp;
 
 	if (arr_null(arr))
@@ -30,8 +30,8 @@ ssize_t	arr_iter(t_array *arr,
 	{
 		tmp = arr_get(arr, i);
 		if ((f(tmp, i)) == CR_STOP)
-			return ((ssize_t)i);
+			return ((t_ssize)i);
 		i++;
 	}
-	return ((ssize_t)i);
+	return ((t_ssize)i);
 }

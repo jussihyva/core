@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   s_fill.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 21:20:36 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/11 09:07:53 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/19 04:25:36 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cstr.h"
 
-char	*s_fill(char *data, size_t b_size, char *flags)
+char	*s_fill(char *data, t_size b_size, char *flags)
 {
 	char		*out;
-	size_t		i;
-	size_t		j;
-	size_t		d_size;
+	t_size		i;
+	t_size		j;
+	t_size		d_size;
 
 	d_size = s_len(data);
 	j = 0;
