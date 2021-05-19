@@ -14,6 +14,7 @@
 # include <inttypes.h>
 # include <stdint.h>
 # include <sys/types.h>
+# define CONVERT type_conversions
 
 typedef struct s_data
 {
@@ -36,17 +37,17 @@ typedef struct s_data
 
 static const char types [] = "%cdiouxXbeEfFsSp";
 
-typedef int (*fptr)(t_data *, char **);
+typedef int (*t_fptr)(t_data *, char **);
 
-int				_conv_string(t_data *specs, char **result);
-int				_conv_char(t_data *specs, char **result);
-int				_conv_pointer(t_data *specs, char **result);
-int				_conv_uint(t_data *specs, char **result);
-int				_conv_int(t_data *specs, char **result);
-int				_conv_double(t_data *specs, char **result);
-int				_failure(t_data *specs, char **result);
+int		_conv_string(t_data *specs, char **result);
+int		_conv_char(t_data *specs, char **result);
+int		_conv_pointer(t_data *specs, char **result);
+int		_conv_uint(t_data *specs, char **result);
+int		_conv_int(t_data *specs, char **result);
+int		_conv_double(t_data *specs, char **result);
+int		_failure(t_data *specs, char **result);
 
-static const fptr conv[17] =
+static const t_fptr type_conversions[17] =
 {
 	_conv_char,
 	_conv_char,

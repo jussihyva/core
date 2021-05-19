@@ -8,38 +8,7 @@
 
 #ifndef LIN_H
 # define LIN_H
-
-typedef struct s_vec4
-{
-	double		v[4];
-}				t_vec4;
-
-typedef struct s_vec3
-{
-	double		v[3];
-}				t_vec3;
-
-typedef struct s_vec2
-{
-	double		v[2];
-}				t_vec2;
-
-typedef struct s_mat4
-{
-	double		m[16];
-}				t_mat4;
-
-typedef struct s_mat3
-{
-	double		m[9];
-}				t_mat3;
-
-typedef struct s_mat2
-{
-	double		m[4];
-}				t_mat2;
-
-typedef t_vec4	t_quat;
+# include "../../inc/types.h"
 
 double			lin_v4_dot(t_vec4 *a, t_vec4 *b);
 t_vec4			lin_v4_sub(t_vec4 *a, t_vec4 *b);

@@ -2,7 +2,7 @@
 # define SYSTEM_H
 # define CR_FILE_POS &(t_file_pos){__FUNCTION__, __FILE__, __LINE__}
 # include "../../ptr_array/inc/parr.h"
-typedef t_parray t_page;
+# include <stdint.h>
 
 typedef struct	s_file_pos
 {
@@ -10,12 +10,6 @@ typedef struct	s_file_pos
 	char		*file;
 	size_t		line;
 }				t_file_pos;
-
-typedef struct	s_mem
-{
-	size_t		size;
-	void		*data;
-}				t_mem;
 
 void	core_error(t_file_pos *err_pos, char *message);
 void	core_debug(t_file_pos *file_pos, size_t count, ...);

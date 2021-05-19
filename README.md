@@ -30,7 +30,7 @@ and restricts it to 25 lines. This restricion is actually a great tool in order
 to learn how to split logic in managebale chucnks, but in certain rare
 situations it might lead to code that is broken up in a manner that doesn't make
 much sense. This is, however, a ruleset that the library follows in order to be
-compatible with school projects in the 42 school. The Norme can be found in the
+compatible with school projects in the 42 school. The Norme can be found at the
 root of this repo.
 
 We accpet contributions from anyone, especially other 42 students! IF you find

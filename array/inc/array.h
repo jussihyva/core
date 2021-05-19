@@ -13,13 +13,7 @@
 # include <stdint.h>
 # include <unistd.h>
 # include "../../system/inc/system.h"
-
-typedef struct s_array
-{
-	t_mem		mem;
-	size_t		len;
-	size_t		elem_size;
-}				t_array;
+# include "../../inc/types.h"
 
 t_array		arr_new(size_t len, size_t elem_size);
 ssize_t		arr_free(t_array *src);

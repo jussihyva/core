@@ -11,25 +11,7 @@
 # include <string.h>
 # include <unistd.h>
 # include <stdint.h>
-# define CR_MAP_LINEAR 0
-# define CR_MAP_QUAD 1
-
-typedef struct s_map_node
-{
-	const char		*key;
-	void			*data;
-}					t_map_node;
-
-typedef struct s_map
-{
-	t_map_node		*node;
-	size_t			capacity;
-	size_t			count;
-	double			load_factor;
-	uint64_t		(*hash)(const char *);
-	uint64_t		(*probe)(uint64_t);
-	uint64_t		(*resize)(uint64_t);
-}					t_map;
+# include "../../inc/types.h"
 
 t_map		map_new(void);
 ssize_t		map_free(t_map *src);

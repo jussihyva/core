@@ -13,27 +13,7 @@
 # include "../../cstring/inc/cstr.h"
 # include <stdint.h>
 # include <unistd.h>
-
-typedef t_map		t_graph;
-typedef t_parray	t_edges;
-typedef t_parray	t_nodes;
-
-typedef struct s_graph_node
-{
-	const char		*key;
-	t_edges			in;
-	t_edges			out;
-	bool			valid;
-	void			*attr;
-}					t_graph_node;
-
-typedef struct s_graph_edge
-{
-	t_graph_node	*u;
-	t_graph_node	*v;
-	bool			valid;
-	void			*attr;
-}					t_graph_edge;
+# include "../../inc/types.h"
 
 t_graph			graph_new(void);
 ssize_t			graph_add_node(t_graph *g, const char *key, void *attr);

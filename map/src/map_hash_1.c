@@ -35,7 +35,9 @@ uint64_t	map_hash_1(const char *str)
 		}
 	}
 	else
-		hash64 = (hash64 ^ shift(*(uint64_t *)(str + 0),
-					(8 - wrdlen) << 3)) * prime;
+	{
+		hash64 = (uint64_t)str[0];
+		hash64 = (hash64 ^ shift(hash64, (8 - wrdlen) << 3)) * prime;
+	}
 	return (hash64 ^ (hash64 >> 32));
 }

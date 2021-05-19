@@ -57,7 +57,7 @@ static int	parse_next_item(
 		mem_set((void *)&specs, 0, sizeof(t_data));
 		_get_conversion_specs(&specs, format + 1);
 		specs.ap = ap;
-		ret = conv[_index(specs.conversion)](&specs, &container);
+		ret = CONVERT[_index(specs.conversion)](&specs, &container);
 		if (ret == -1)
 			return (-1);
 		ret = append_to_result(result, len, ret, container);

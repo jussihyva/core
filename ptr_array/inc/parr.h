@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 06:09:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/13 22:23:02 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/19 04:03:25 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,7 @@
 
 # include <string.h>
 # include <unistd.h>
-
-typedef struct s_parray
-{
-	void		**data;
-	size_t		len;
-	size_t		size;
-}				t_parray;
+# include "../../inc/types.h"
 
 /*
 **	---------------------------------------------------------------------------
