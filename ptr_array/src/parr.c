@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parr_new.c                                         :+:      :+:    :+:   */
+/*   parr.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "../../inc/core.h"
 
-t_parray	parr_new(t_size size)
+t_parray	parr(t_size size)
 {
 	t_parray	out;
 
@@ -21,7 +21,7 @@ t_parray	parr_new(t_size size)
 	out.data = (void **)malloc(sizeof(void *) * size);
 	if (!out.data)
 	{
-		print("Allocation failed in function: map_new!\n");
+		print("Allocation failed in function: map!\n");
 		return ((t_parray){NULL, 0, 0});
 	}
 	return (out);
@@ -30,7 +30,7 @@ t_parray	parr_new(t_size size)
 /*
 **  ----------------------------------------------------------------------------
 **
-**	PARR_NEW
+**	Parr
 **
 **	Allocate a new dynamic array. You can pass any starting size and resizing
 **	will be hanled automatically. A better initial size approximation leads to

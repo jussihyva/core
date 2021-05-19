@@ -47,14 +47,14 @@ of each function.
 ### General
 
 ```c
-t_array           arr_new(t_size elem_size);
+t_array           arr(t_size elem_size);
 t_ssize         arr_alloc(t_array *src, t_size alloc_size);
 t_ssize         arr_free(t_array *src);
 t_ssize         arr_grow(t_array *src, t_size newsize);
 t_ssize         arr_null(t_array *arr);
 ```
 
-`arr_new` is the only function that creates a new array. After usage that array has
+`arr` is the only function that creates a new array. After usage that array has
 to be freed using arr_free. If the user wants to grow the size of the array
 manually, `arr_grow` can be used. Normally resizing is handled internally though so
 arr_grow should only be used in special cases. In case of an error a null array

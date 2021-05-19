@@ -28,7 +28,7 @@ t_str	str_new(char *src)
 	else
 		while (src[len] != '\0')
 			len++;
-	out = arr_new(len, sizeof(char));
+	out = arr(len, sizeof(char));
 	arr_put(&out, src, len);
 	return (out);
 }

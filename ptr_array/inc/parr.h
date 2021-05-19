@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 06:09:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/19 05:08:46 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/19 12:52:59 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 **	General
 */
 
-t_parray		parr_new(t_size size);
+t_parray		parr(t_size size);
 t_ssize			parr_free(t_parray *arr);
 t_ssize			parr_grow(t_parray *arr, t_size new_size);
 t_ssize			parr_null(t_parray *arr);
@@ -74,16 +74,16 @@ t_ssize			parr_rotate(t_parray *arr, t_ssize steps);
 t_ssize			parr_dup(t_parray *dst, t_parray *src, t_size size);
 t_ssize			parr_read_file(t_parray *dst, char *filename);
 t_ssize			parr_write_file(char *dst, t_parray *src, t_ssize flag,
-					t_ssize (*f)(void *, void *));
+				t_ssize (*f)(void *, void *));
 t_ssize			parr_write(t_parray *dst, t_parray *src,
-					t_ssize (*f)(void *, void *));
+				t_ssize (*f)(void *, void *));
 t_ssize			parr_search(t_parray *dst, t_parray *src, void *key,
-					void *(*f)(void *, void *));
+				void *(*f)(void *, void *));
 void			*parr_find(t_parray *src, void *key,
-					void *(*f)(void *, void *));
+				void *(*f)(void *, void *));
 t_ssize			parr_iter(t_parray *arr,
-					t_ssize (*f)(void *, t_size));
+				t_ssize (*f)(void *, t_size));
 t_ssize			parr_parse(t_parray *dst, t_parray *src,
-					t_ssize (*f)(t_parray *, void *));
+				t_ssize (*f)(t_parray *, void *));
 
 #endif

@@ -8,7 +8,7 @@ A multi-purpose dynamic array implementation for the C language.
     is reached.
 -   Datatype agnostic. Contains only pointers to array members.
 -   Clear allocation and deallocation of the array structure. Only the
-    constructor `parr_new` returns an array to help clarity.
+    constructor `parr` returns an array to help clarity.
 -   All other functions apart from the constructor work by passing
     all parameters (also the destination variable) by reference.
 -   Since most functions are not returning the array or a pointer the
@@ -67,7 +67,7 @@ of each function.
 
 ```c
 
-t_parray           parr_new(t_size size);
+t_parray           parr(t_size size);
 t_ssize             parr_free(t_parray *arr);
 t_ssize             parr_grow(t_parray *arr, t_size new_size);
 t_ssize             parr_null(t_parray *arr);

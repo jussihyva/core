@@ -9,7 +9,7 @@ t_page	cr_stacktrace(t_size offset)
 	void		*array[CR_STACK_TRACE_MAX];
 	t_size		i;
 
-	trace = parr_new(1);;
+	trace = parr(1);;
 	offset++;
 	size = backtrace(array, CR_STACK_TRACE_MAX);
 	strings = backtrace_symbols(array, size);

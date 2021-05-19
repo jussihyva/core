@@ -12,7 +12,7 @@
 # include "../../system/inc/system.h"
 # include "../../inc/types.h"
 
-t_array		arr_new(t_size len, t_size elem_size);
+t_array		arr(t_size len, t_size elem_size);
 void		*arr_get(t_array *src, t_size index);
 void		*arr_get_first(t_array *src);
 void		*arr_get_last(t_array *src);

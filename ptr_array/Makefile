@@ -22,7 +22,7 @@ SRC_BASE	=	parr_add.c \
 				parr_add_first.c \
 				parr_add_last.c \
 				parr_add_mult.c \
-				parr_new.c \
+				parr.c \
 				parr_assign.c \
 				parr_free.c \
 				parr_del.c \

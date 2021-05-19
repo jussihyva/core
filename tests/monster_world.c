@@ -138,8 +138,8 @@ create_monster_land(
 	t_monster		*monster;
 	t_size			i;
 
-	monsters.land = graph_new();
-	monsters.names = parr_new(1);
+	monsters.land = graph();
+	monsters.names = parr(1);
 	i = 0;
 	while (i < monster_count)
 	{

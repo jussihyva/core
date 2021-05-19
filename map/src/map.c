@@ -7,7 +7,7 @@
 
 #include "../../inc/core.h"
 
-t_map	map_new(void)
+t_map	map(void)
 {
 	t_map	m;
 	t_size	i;
@@ -20,7 +20,7 @@ t_map	map_new(void)
 	m.node = (t_map_node *)minit(sizeof(t_map_node) * m.capacity);
 	if (!m.node)
 	{
-		print("Allocation failed in function: map_new!\n");
+		print("Allocation failed in function: map!\n");
 		exit(-1);
 	}
 	i = 0;

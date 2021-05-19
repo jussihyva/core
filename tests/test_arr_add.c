@@ -15,7 +15,7 @@ int	test_arr_add()
 	t_array	arr;
 	char	c;
 
-	arr = arr_new(sizeof(char));
+	arr = arr(sizeof(char));
 	c = 'A';
 	arr_add(&arr, &c, 0);
 	arr_add(&arr, &c, 0);

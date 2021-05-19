@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/19 08:56:37 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/19 12:51:31 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,10 +168,10 @@ int				main(int argc, char **argv)
 		return (-1);
 
 	// Allocate arrays
-	source = parr_new(1);
-	people = parr_new(1);
-	results = parr_new(1);
-	duplicate = parr_new(1);
+	source = parr(1);
+	people = parr(1);
+	results = parr(1);
+	duplicate = parr(1);
 
 	// Read a file to source array
 	parr_read_file(&source, argv[1]);

@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 00:30:42 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/19 04:40:05 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/19 12:51:31 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 		return (0);
-	file = parr_new(1);
-	buffer = arr_new(sizeof(t_vec4));
+	file = parr(1);
+	buffer = arr(sizeof(t_vec4));
 	parr_read_file(&file, argv[1]);
 	parse_vec(&buffer, &file);
 	transform(&buffer);

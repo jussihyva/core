@@ -20,7 +20,7 @@
 
 #include "../../inc/core.h"
 
-t_array	arr_new(t_size alloc_size, t_size elem_size)
+t_array	arr(t_size alloc_size, t_size elem_size)
 {
 	t_array	out;
 
@@ -29,7 +29,7 @@ t_array	arr_new(t_size alloc_size, t_size elem_size)
 	out.mem = mem_new(alloc_size * elem_size);
 	if (!out.mem.data)
 	{
-		print("Allocation failed in function: arr_new!\n");
+		print("Allocation failed in function: arr!\n");
 		exit(-1);
 	}
 	return (out);

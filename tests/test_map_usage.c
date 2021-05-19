@@ -20,7 +20,7 @@ int main(void)
 	t_map	m;
 	char	*course;
 
-	m = map_new();
+	m = map();
 	course = NULL;
 	map_add(&m, "Quantum Physics 1", "qp01");
 	map_add(&m, "Quantum Physics 2", "qp02");

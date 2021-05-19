@@ -24,7 +24,7 @@ void	test_arr_grow()
 {
 	t_array	test_1;
 	t_uint64	x;
-	test_1 = arr_new(1, sizeof(t_uint64));
+	test_1 = arr(1, sizeof(t_uint64));
 	x = 0;
 	t_size i = 0;
 	while (i < 100)

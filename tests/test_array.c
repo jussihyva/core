@@ -26,7 +26,7 @@ int main(void)
 	char	str[10] = "123456789";
 
 	c = 'a';
-	b = arr_new(sizeof(char));
+	b = arr(sizeof(char));
 	arr_assign(&b, str, 10);
 	printf("\nlen: %zu alloc_size: %zu elem_size: %zu\n",
 			b.len, b.alloc_size, b.elem_size);

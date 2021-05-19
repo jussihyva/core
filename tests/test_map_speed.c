@@ -39,7 +39,7 @@ int main(void)
 {
 	t_map	testmap;
 
-	testmap = map_new();
+	testmap = map();
 	test_map_insert_speed(&testmap);
 }
 

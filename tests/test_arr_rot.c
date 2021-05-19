@@ -15,7 +15,7 @@ int	main(void)
 	char	c;
 
 	c = 'A';
-	arr = arr_new(sizeof(char));
+	arr = arr(sizeof(char));
 	arr_assign(&arr, "abcdefg", 3);
 	arr_add_last(&arr, &c);
 	arr_iter(&arr, print_char);

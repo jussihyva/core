@@ -22,7 +22,7 @@ SRC_BASE	=	arr_add.c \
 				arr_add_first.c \
 				arr_add_last.c \
 				arr_add_mult.c \
-				arr_new.c \
+				arr.c \
 				arr_put.c \
 				arr_free.c \
 				arr_del.c \

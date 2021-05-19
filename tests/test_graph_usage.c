@@ -67,7 +67,7 @@ int main(void)
 	t_edges	depth_first_search;
 	t_nodes	shortest_path;
 
-	g = graph_new();
+	g = graph();
 	if (graph_null(&g))
 		return (0);
 
