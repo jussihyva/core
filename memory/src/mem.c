@@ -16,7 +16,7 @@ void	create_tracker(t_mem mem)
 	parr_add_last(&core->allocs, tracker);
 }
 
-t_ssize	mem_new_setup(t_mem mem)
+t_ssize	mem_setup(t_mem mem)
 {
 	t_core	*core;
 
@@ -37,7 +37,7 @@ t_ssize	mem_new_setup(t_mem mem)
 	return (1);
 }
 
-t_mem	mem_new(t_size bytes)
+t_mem	mem(t_size bytes)
 {
 	t_mem	out;
 	t_core	*core;
@@ -46,7 +46,7 @@ t_mem	mem_new(t_size bytes)
 	out.data = malloc(bytes);
 	out.size = bytes;
 	if (core->active == true)
-		if (!(mem_new_setup(out)))
+		if (!(mem_setup(out)))
 			return (CR_MEM_NULL);
 	return (out);
 }

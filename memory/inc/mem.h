@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 06:09:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/19 12:29:45 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/19 13:02:44 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void		*mcalloc(t_size nmemb, t_size size);
 void		mdel(void **ap);
 void		mzero(void *src, t_size size);
 int			mcmp(const void *s1, const void *s2, t_size size);
-t_mem		mem_new(t_size bytes);
-t_ssize		mem_grow(t_mem *mem, t_size new_size);
+t_mem		mem(t_size bytes);
+t_ssize		mem_realloc(t_mem *mem, t_size new_size);
 void		mem_free(t_mem *mem);
 t_mem		mem_cpy(t_mem dst, t_mem src, size_t size);
 t_pmem		pmem(t_mem src, size_t s, size_t t);

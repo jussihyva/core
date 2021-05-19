@@ -24,7 +24,7 @@ t_ssize	arr_add(t_array *dst, void *elem, t_size index)
 	if (index >= dst->len)
 		return (CR_FAIL);
 	if (dst->len == dst->mem.size / dst->elem_size)
-		mem_grow(&dst->mem, dst->mem.size * 2);
+		mem_realloc(&dst->mem, dst->mem.size * 2);
 	mem_pos = dst->mem.data;
 	mem_pos += index * dst->elem_size;
 	mem_tmp = dst->mem.data;

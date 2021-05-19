@@ -26,7 +26,7 @@ t_ssize	arr_join(t_array *dst, t_array *src)
 		return (CR_FAIL);
 	newsize = src->len + dst->len;
 	if (dst->len == dst->mem.size / dst->elem_size)
-		mem_grow(&dst->mem, dst->mem.size * 2);
+		mem_realloc(&dst->mem, dst->mem.size * 2);
 	mem_start = dst->mem.data;
 	mem_start = &mem_start[dst->len * dst->elem_size];
 	mcpy(mem_start, src->mem.data, (newsize - dst->len) * dst->elem_size);

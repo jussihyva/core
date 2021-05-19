@@ -35,7 +35,7 @@ void	test_malloc()
 {
 	t_mem	memory;
 
-	memory = mem_new(sizeof(t_uint64));
+	memory = mem(sizeof(t_uint64));
 	cr_log();
 	mem_free(&memory);
 }

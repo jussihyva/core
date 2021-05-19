@@ -11,7 +11,7 @@ t_fstr	fstr_new(t_size len)
 {
 	t_fstr	new;
 
-	new = mem_new(len);
+	new = mem(len);
 	return (new);
 }
 
@@ -52,7 +52,7 @@ t_fstr	big_string()
 {
 	t_fstr	str;
 	size_t	i;
-	str = mem_new(sizeof(char) * STRINGSIZE);
+	str = mem(sizeof(char) * STRINGSIZE);
 	i = 0;
 	while (i < STRINGSIZE)
 	{

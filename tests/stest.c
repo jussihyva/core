@@ -33,7 +33,7 @@ double	test_cstring_speed(t_str s1, t_str s2)
 		s1 = str_append(s1, s2);
 		i++;
 	}
-	mem_grow(&s1.mem, s1.len);
+	mem_realloc(&s1.mem, s1.len);
 	// str_write(s1);
 	clock_t end = clock();
 	double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
