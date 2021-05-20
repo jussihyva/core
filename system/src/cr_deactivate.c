@@ -41,12 +41,12 @@ void	cr_deactivate(void)
 	t_core	*core;
 
 	core = cr_static();
-	if (core->track_errors == true)
+	if (core->track_errors == TRUE)
 	{
 		free_errors();
 		parr_free(&core->errors);
 	}
-	if (core->track_allocs == true)
+	if (core->track_allocs == TRUE)
 	{
 		free_trackers();
 		parr_free(&core->allocs);

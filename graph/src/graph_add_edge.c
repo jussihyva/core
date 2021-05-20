@@ -30,7 +30,7 @@ t_ssize	graph_add_edge(
 	}
 	e->u = u;
 	e->v = v;
-	e->valid = true;
+	e->valid = TRUE;
 	e->attr = attr;
 	parr_add_last(&u->out, e);
 	parr_add_last(&v->in, e);

@@ -44,8 +44,8 @@ void	cr_log(void)
 	t_core	*core;
 
 	core = cr_static();
-	if (core->track_errors == true)
+	if (core->track_errors == TRUE)
 		parr_iter(&core->errors, print_error);
-	if (core->track_allocs == true)
+	if (core->track_allocs == TRUE)
 		parr_iter(&core->allocs, print_tracker);
 }

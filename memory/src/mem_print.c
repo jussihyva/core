@@ -13,6 +13,6 @@ void	mem_print(t_mem src)
 		i++;
 	}
 	if (i % 8 == 0)
-			print("\n");
+		print("\n");
 	print("%#03x ", src.data[i]);
 }

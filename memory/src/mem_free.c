@@ -17,7 +17,7 @@ static t_ssize	deactivate_tracker(t_mem *mem)
 			parr_del(&core->allocs, i);
 			parr_free(&tracker->trace);
 			free(tracker);
-			return (true);
+			return (TRUE);
 		}
 		i++;
 	}

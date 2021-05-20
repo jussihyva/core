@@ -8,7 +8,7 @@ void	create_tracker(t_mem mem)
 
 	core = cr_static();
 	tracker = malloc(sizeof(t_tracker));
-	if (core->track_allocs_backtrace == true)
+	if (core->track_allocs_backtrace == TRUE)
 		tracker->trace = cr_stacktrace(2);
 	else
 		tracker->trace = CR_PARR_NULL;
@@ -45,7 +45,7 @@ t_mem	mem(t_size bytes)
 	core = cr_static();
 	out.data = malloc(bytes);
 	out.size = bytes;
-	if (core->active == true)
+	if (core->active == TRUE)
 		if (!(mem_setup(out)))
 			return (CR_MEM_NULL);
 	return (out);

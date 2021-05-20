@@ -25,6 +25,7 @@ SRC_BASE	=	mcalloc.c \
 				mcpy.c \
 				mcpy_safe.c \
 				mdel.c \
+				mswap.c \
 				mem_assign.c \
 				mem_chr.c \
 				mem_cpy.c \

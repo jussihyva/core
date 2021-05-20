@@ -44,7 +44,7 @@ static t_ssize	graph_iter_edges(
 			parr_add_last(queue, e->v);
 			v = parr_get(queue, queue_index);
 			if (t && s_cmp(e->v->key, t->key) == 0)
-				return (true);
+				return (TRUE);
 		}
 		i++;
 	}
