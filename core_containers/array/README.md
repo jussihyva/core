@@ -47,7 +47,7 @@ of each function.
 ### General
 
 ```c
-t_array           arr(t_size elem_size);
+t_array         arr(t_size elem_size);
 t_ssize         arr_alloc(t_array *src, t_size alloc_size);
 t_ssize         arr_free(t_array *src);
 t_ssize         arr_grow(t_array *src, t_size newsize);
