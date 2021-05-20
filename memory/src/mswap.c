@@ -65,7 +65,7 @@ void	swap_small(t_byte *a, t_byte *b, t_size n)
 		b += 2;
 	}
 	if (n & 1)
-		*a = *b;
+		swapu8((t_uint8 *)a, (t_uint8 *)b);
 }
 
 static inline
