@@ -109,6 +109,11 @@ typedef struct s_graph_edge
 
 /// Linear Algebra
 
+typedef struct	s_vec
+{
+	double		*v;
+}				t_vec;
+
 typedef struct	s_vec4
 {
 	double		v[4];
@@ -123,6 +128,11 @@ typedef struct	s_vec2
 {
 	double		v[2];
 }				t_vec2;
+
+typedef struct	s_mat
+{
+	double		*m;
+}				t_mat;
 
 typedef struct	s_mat4
 {
