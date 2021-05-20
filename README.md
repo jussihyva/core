@@ -64,46 +64,168 @@ wish!
 	have additional features spesific to the datatypes in this library.
 -	Math, linear algebra, graph etc. functionality.
 
-## Contexts
+## Core Containers
+
+Different container data-structures.
+
+### Mem
+
+A raw memory container. Useful for constructing other data-structures or for raw
+memory manipulation with bounds checking and other tools.
+
+```c
+
+typedef struct	s_mem
+{
+	t_byte		*data;	// Pointer to the start of the memory area.
+	t_size		size;	// Size of the memory area.
+}				t_mem;
+
+typedef t_mem	t_pmem; // An opaque memory handle.
+
+```
 
 ### Array
 
-A dynamic array implementation.
+A dynamic array container. Stores everything in a contiguous block of memory and
+resizes as necessary. Fast, easy to use and great for when the final size of
+data is unknown. May use excess memory.
 
-### Cstring
+```c
 
-String operations for normal c-style strings.
+typedef struct	s_array
+{
+	t_mem		mem;		// A sized t_mem memory block.
+	t_size		len;		// Amount of elements in the array.
+	t_size		elem_size;	// Size of the array element.
+}				t_array;
 
-### Graph
+```
 
-A graph implementation with node and edge abstractions using a hash map
-data-structure.
+### Parray
 
-### Linera Algebra
+A dynamic pointer array container. Manages a dynamic array of pointers and
+offers various tools for manipulating the array.
 
-Linear algebra functions for general use, including types commonly used in
-graphics programming.
+```c
+
+typedef struct	s_parray
+{
+	void		**data;	// Array of stored pointers.
+	t_size		len;	// Amount of elements in the array.
+	t_size		size;	// Amount of allocated pointers in the array.
+}				t_parray;
+
+```
+
+### List
+
+*Not yet implemented*
+
+A linked list structure with the focus on adding to the start and to the end of
+the list, serving both as a queue and a stack.
 
 ### Map
 
-A hash map implementation.
+A hash map implementation. Uses open addressing and resizes automatically. Uses
+linear probing by default, but probing method, load factor, resize function and
+hash function can easily be swapped.
 
-### Math
+```c
 
-Math functions.
+typedef struct	s_map_node				// Key value pair.
+{
+	const char	*key;
+	void		*data;
+}				t_map_node;
 
-### Memory
+typedef struct	s_map
+{
+	t_map_node	*node;					// Memory area for map nodes.
+	t_size		capacity;				// Current capacity of the map.
+	t_size		count;					// Amount of stored elements.
+	double		load_factor;			// Resize if count == capacity * load factor
+	t_uint64	(*hash)(const char *);	// Hash function used.
+	t_uint64	(*probe)(t_uint64);		// Probing function.
+	t_uint64	(*resize)(t_uint64);	// Resizing function.
+}				t_map;
 
-Functions for copying, moving and allocating memory.
+```
+
+## Core Standard
+
+Basic functionality io and memory management and manipulation.
 
 ### Print
 
-Formatted printing and string conversion functions.
+A recreation of the printf function with reduced capabilities, but some
+capabilities spesific to the core library. Also contains different interfaces
+for fromatting string, file i/o etc.
 
-### Ptr Array
+### Memory
 
-A dyncamic pointer array implementation.
+Raw memory manipulation. Re-creations of memcpy family of functions with some
+unique additions.
+
+## Core String
+
+Both standard c-string manipulation akin to string.h from libc, as well as an
+optional string implementation in which the string size is stored in the string
+itself and which uses different methods for much faster string manipulation.
+
+### Cstring
+
+Standard c-style string manipulation.
 
 ### String
 
-Fast string functions.
+A fast string implementation which carries the lenth of the string as well as
+the allocated area separately in order to be more performant and mroe safe at
+the expense of memory used. Also provides a string pointer datatype which allows
+opaque access to a source string.
+
+## Core Math
+
+Mathematical algorithms and routines.
+
+### Basic
+
+Basic mathematical algorithms and functions.
+
+### Linear Algebra
+
+Functions and datatypes related to linear algebra.
+
+## Core Graph
+
+A generic graph implementation.
+
+```c
+
+typedef t_map		t_graph;	// Graph uses a hash map to store nodes.
+typedef t_parray	t_edges;	// Edge array alias.
+typedef t_parray	t_nodes;	// Node array alias.
+
+typedef struct s_graph_node
+{
+	const char	*key;			// Key is also stroed as part of graph node.
+	t_edges		in;				// Inbound edges.
+	t_edges		out;			// Outboudn edges.
+	t_bool		valid;			// Node has valid and invalid states.
+	void		*attr;			// Additional associated data.
+}				t_graph_node;
+
+typedef struct s_graph_edge
+{
+	t_graph_node	*u;			// From node.
+	t_graph_node	*v;			// To node.
+	t_bool			valid;		// State.
+	void			*attr;		// Additional associated data.
+}					t_graph_edge;
+
+```
+
+## Core System
+
+A system for debugging, memory tracking and error messaging.
+
