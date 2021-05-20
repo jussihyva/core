@@ -1,6 +1,6 @@
 #include "../inc/core.h"
 
-ssize_t	print_char(void *data, size_t i)
+t_ssize	print_char(void *data, t_size i)
 {
 	char	*ptr;
 
@@ -11,24 +11,24 @@ ssize_t	print_char(void *data, size_t i)
 
 int	main(void)
 {
-	t_array	arr;
+	t_array	a;
 	char	c;
 
 	c = 'A';
-	arr = arr_new(sizeof(char));
-	arr_assign(&arr, "abcdefg", 3);
-	arr_add_last(&arr, &c);
-	arr_iter(&arr, print_char);
+	a = arr(1, sizeof(char));
+	arr_put(&a, "abcdefg", 3);
+	arr_add_last(&a, &c);
+	arr_iter(&a, print_char);
 	printf("\n");
-	arr_rotate(&arr, 1);
-	arr_iter(&arr, print_char);
+	arr_rotate(&a, 1);
+	arr_iter(&a, print_char);
 	printf("\n");
-	arr_rotate(&arr, 1);
-	arr_iter(&arr, print_char);
+	arr_rotate(&a, 1);
+	arr_iter(&a, print_char);
 	printf("\n");
-	arr_rotate(&arr, 1);
-	arr_iter(&arr, print_char);
+	arr_rotate(&a, 1);
+	arr_iter(&a, print_char);
 	printf("\n");
-	arr_free(&arr);
+	arr_free(&a);
 }
 

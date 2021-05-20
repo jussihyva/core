@@ -1,10 +1,10 @@
 #include "../inc/core.h"
-# define DEBUG core_debug
-# define ERROR core_error
+# define DEBUG cr_debug
+# define ERROR cr_error
 
 void	test_debug()
 {
-	size_t	i;
+	t_size	i;
 	char	*str;
 
 	str = s_dup("abcdefg");
@@ -35,14 +35,14 @@ void	test_malloc()
 {
 	t_mem	memory;
 
-	memory = core_malloc(sizeof(uint64_t));
-	core_log();
-	core_free(&memory);
+	memory = mem(sizeof(t_uint64));
+	cr_log();
+	mem_free(&memory);
 }
 
 int	main(void)
 {
-	core_activate();
+	cr_activate();
 	printf("\n\033[32;1mCORE SYSTEM EXAMPLE\033[0m\n\n");
 	print("Usage examples for core system.\n\n");
 	printf("\n\033[32;1mMEMORY MANAGEMENT\033[0m\n\n");
@@ -53,7 +53,7 @@ int	main(void)
 	print("We can create debug messages which contain file, func, line info.\n\n");
 	test_debug();
 	printf("\n\033[32;1mERROR HANDLING\033[0m\n\n");
-	print("We can create error messages and print them with core_log().\n\n");
-	core_log();
-	core_deactivate();
+	print("We can create error messages and print them with cr_log().\n\n");
+	cr_log();
+	cr_deactivate();
 }

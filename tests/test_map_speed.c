@@ -2,9 +2,9 @@
 #include "../inc/core.h"
 #include "assert.h"
 
-size_t	iters = 100000;
+t_size	iters = 100000;
 
-void rand_str(char *dest, size_t length)
+void rand_str(char *dest, t_size length)
 {
     char charset[] = "0123456789"
                      "abcdefghijklmnopqrstuvwxyz"
@@ -12,18 +12,18 @@ void rand_str(char *dest, size_t length)
 
     while (length-- > 0)
 	{
-        size_t index = (double) rand() / RAND_MAX * (sizeof charset - 1);
+        t_size index = (double) rand() / RAND_MAX * (sizeof charset - 1);
         *dest++ = charset[index];
     }
     *dest = '\0';
 }
 
 
-ssize_t	test_map_insert_speed(t_map *testmap)
+t_ssize	test_map_insert_speed(t_map *testmap)
 {
 	char	key[7];
-	size_t	val = 666;
-	size_t	i;
+	t_size	val = 666;
+	t_size	i;
 
 	i = 0;
 	while (i < iters)
@@ -39,7 +39,7 @@ int main(void)
 {
 	t_map	testmap;
 
-	testmap = map_new();
+	testmap = map();
 	test_map_insert_speed(&testmap);
 }
 

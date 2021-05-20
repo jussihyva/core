@@ -1,8 +1,8 @@
-#ifndef CORE_H
-# define CORE_H
+#ifndef cr_H
+# define cr_H
 
 # include <stdlib.h>
-# include <stdint.h>
+
 # include <string.h>
 # include <stdarg.h>
 # include <unistd.h>
@@ -11,21 +11,21 @@
 # include <math.h>
 # include <limits.h>
 # include <stdbool.h>
-# include <inttypes.h>
+
 # include <execinfo.h>
 
-# include "../memory/inc/mem.h"
-# include "../array/inc/array.h"
-# include "../ptr_array/inc/parr.h"
-# include "../linear_algebra/inc/lin.h"
-# include "../cstring/inc/cstr.h"
-# include "../map/inc/map.h"
-# include "../graph/inc/graph.h"
-# include "../math/inc/math.h"
-# include "../print/inc/print.h"
-# include "../string/inc/string.h"
-# include "../checks/inc/checks.h"
-# include "../system/inc/system.h"
+# include "../core_containers/array/inc/array.h"
+# include "../core_containers/parray/inc/parr.h"
+# include "../core_containers/map/inc/map.h"
+# include "../core_standard/memory/inc/mem.h"
+# include "../core_standard/print/inc/print.h"
+# include "../core_math/linear_algebra/inc/lin.h"
+# include "../core_string/cstring/inc/cstr.h"
+# include "../core_math/graph/inc/graph.h"
+# include "../core_math/math/inc/math.h"
+# include "../core_string/string/inc/string.h"
+# include "../core_standard/checks/inc/checks.h"
+# include "../core_system/inc/system.h"
 # include "const.h"
 # include "config.h"
 

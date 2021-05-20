@@ -6,10 +6,11 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/17 02:28:23 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/19 12:51:31 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../inc/core.h"
 
 //-----------------------------------------------------------------------------
 // An example user type which has a mix of different type of data including
@@ -30,7 +31,7 @@ typedef struct	s_person
 // over the array and executes the function on each array member. We return the
 // iterator, but we could also return -1 or CR_STOP to CR_STOP the loop.
 
-int				print_string(void **data, size_t i)
+int				print_string(void **data, t_size i)
 {
 	char		*ptr;
 
@@ -42,7 +43,7 @@ int				print_string(void **data, size_t i)
 	return (i);
 }
 
-int				print_person(void **data, size_t i)
+int				print_person(void **data, t_size i)
 {
 	t_person	*ptr;
 
@@ -112,7 +113,7 @@ int				deserialize(t_parray *dst, void *data)
 //-----------------------------------------------------------------------------
 // Here are examples of deallocators. these would be passed into parr_iterate.
 
-int				deallocate_string(void **member, size_t i)
+int				deallocate_string(void **member, t_size i)
 {
 	char		*str;
 
@@ -122,7 +123,7 @@ int				deallocate_string(void **member, size_t i)
 	return (i);
 }
 
-int				deallocate_person(void **member, size_t i)
+int				deallocate_person(void **member, t_size i)
 {
 	t_person	*person;
 
@@ -167,10 +168,10 @@ int				main(int argc, char **argv)
 		return (-1);
 
 	// Allocate arrays
-	source = parr_new(1);
-	people = parr_new(1);
-	results = parr_new(1);
-	duplicate = parr_new(1);
+	source = parr(1);
+	people = parr(1);
+	results = parr(1);
+	duplicate = parr(1);
 
 	// Read a file to source array
 	parr_read_file(&source, argv[1]);

@@ -1,7 +1,7 @@
 #include "../inc/core.h"
 #include <assert.h>
 
-ssize_t	print_char(void *data, size_t i)
+t_ssize	print_char(void *data, t_size i)
 {
 	char	*ptr;
 
@@ -15,7 +15,7 @@ int	test_arr_add()
 	t_array	arr;
 	char	c;
 
-	arr = arr_new(sizeof(char));
+	arr = arr(sizeof(char));
 	c = 'A';
 	arr_add(&arr, &c, 0);
 	arr_add(&arr, &c, 0);

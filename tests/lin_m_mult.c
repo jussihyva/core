@@ -5,8 +5,8 @@
 typedef struct	s_mat
 {
 	double		*m;
-	size_t		x;
-	size_t		y;
+	t_size		x;
+	t_size		y;
 }				t_mat;
 
 void mxm_block_reorder_reuse_unroll_16(
@@ -48,7 +48,7 @@ void mxm_block_reorder_reuse_unroll_16(
 					}
 }
 
-t_mat	lin_mat_new(size_t x, size_t y)
+t_mat	lin_mat_new(t_size x, t_size y)
 {
 	t_mat	new;
 
@@ -67,7 +67,7 @@ int main(void)
 	t_mat	res;
 
 	a = lin_mat_new(4, 4);
-	size_t i = 0;
+	t_size i = 0;
 	while (i < 16)
 	{
 		a.m[i] = i + 1;

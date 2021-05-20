@@ -17,10 +17,10 @@ typedef struct		s_node_attr
 
 typedef struct		s_edge_attr
 {
-	size_t			attributes;
+	t_size			attributes;
 }					t_edge_attr;
 
-ssize_t print_edge(void *data, size_t i)
+t_ssize print_edge(void *data, t_size i)
 {
 	t_graph_edge	*tmp;
 	t_node_attr		*src_attr;
@@ -30,10 +30,10 @@ ssize_t print_edge(void *data, size_t i)
 	src_attr = tmp->u->attr;
 	dst_attr = tmp->v->attr;
 	printf("%-30s=>    %-30s\n", src_attr->name, dst_attr->name);
-	return ((ssize_t)i);
+	return ((t_ssize)i);
 }
 
-ssize_t print_node(void *data, size_t i)
+t_ssize print_node(void *data, t_size i)
 {
 	t_graph_node	*tmp;
 	t_node_attr		*attr;
@@ -48,7 +48,7 @@ ssize_t print_node(void *data, size_t i)
 	return (i);
 }
 
-ssize_t	free_node(void *data, size_t i)
+t_ssize	free_node(void *data, t_size i)
 {
 	t_graph_node	*tmp;
 
@@ -67,7 +67,7 @@ int main(void)
 	t_edges	depth_first_search;
 	t_nodes	shortest_path;
 
-	g = graph_new();
+	g = graph();
 	if (graph_null(&g))
 		return (0);
 

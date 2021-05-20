@@ -7,29 +7,29 @@
 #include <stdlib.h>
 /*#include "../inc/core.h"*/
 
-size_t		iters = 0; // 2^36
+t_size		iters = 0; // 2^36
 
 //-----------------------------------------------------------------------------
 // Optimized memcpy
 //
 
 static inline void __attribute__((nonnull))
-copy_small(uint8_t *restrict dst, const uint8_t *restrict src, size_t n)
+copy_small(t_byte *restrict dst, const t_byte *restrict src, t_size n)
 {
 	if (n >= 8)
 	{
-		*(uint64_t *restrict)dst = *(const uint64_t *restrict)src;
+		*(t_uint64 *restrict)dst = *(const t_uint64 *restrict)src;
 		return;
 	}
 	if (n >= 4)
 	{
-		*(uint32_t *restrict)dst = *(const uint32_t *restrict)src;
+		*(t_uint32 *restrict)dst = *(const t_uint32 *restrict)src;
 		dst += 4;
 		src += 4;
 	}
 	if (n & 2)
 	{
-		*(uint16_t *restrict)dst = *(const uint16_t *restrict)src;
+		*(t_uint16 *restrict)dst = *(const t_uint16 *restrict)src;
 		dst += 2;
 		src += 2;
 	}
@@ -38,10 +38,10 @@ copy_small(uint8_t *restrict dst, const uint8_t *restrict src, size_t n)
 }
 
 static inline void __attribute__((nonnull))
-copy512(uint64_t *restrict dst, const uint64_t *restrict src, size_t n)
+copy512(t_uint64 *restrict dst, const t_uint64 *restrict src, t_size n)
 {
-	size_t	chunks;
-	size_t	offset;
+	t_size	chunks;
+	t_size	offset;
 
 	chunks = n >> 3;
 	offset = n - (chunks << 3);
@@ -61,19 +61,19 @@ copy512(uint64_t *restrict dst, const uint64_t *restrict src, size_t n)
 }
 
 void __attribute__((nonnull))
-*mem_cpy(void *restrict dst, const void *restrict src, size_t n)
+*mcpy(void *restrict dst, const void *restrict src, t_size n)
 {
-	uint8_t			*dst8;
-	const uint8_t	*src8;
-	size_t			qwords;
-	size_t			aligned_size;
+	t_byte			*dst8;
+	const t_byte	*src8;
+	t_size			qwords;
+	t_size			aligned_size;
 
-	dst8 = (uint8_t*)dst;
-	src8 = (const uint8_t*)src;
+	dst8 = (t_byte*)dst;
+	src8 = (const t_byte*)src;
 	qwords = n >> 3;
 	if (n > 8)
 	{
-		copy512((uint64_t*)dst, (const uint64_t*)src, qwords);
+		copy512((t_uint64*)dst, (const t_uint64*)src, qwords);
 		return (dst);
 	}
 	aligned_size = qwords << 3;
@@ -87,11 +87,11 @@ void __attribute__((nonnull))
 //-----------------------------------------------------------------------------
 // Tests
 //
-double	test(int (*f)(char *, char *, size_t),
+double	test(int (*f)(char *, char *, t_size),
 		char *test_data,
 		char *test_dst,
 		char *test_name,
-		size_t i)
+		t_size i)
 {
 	clock_t begin = clock();
 	f(test_dst, test_data, i);
@@ -100,10 +100,10 @@ double	test(int (*f)(char *, char *, size_t),
 	return (time_spent);
 }
 
-char		*make_string(size_t size)
+char		*make_string(t_size size)
 {
 	char	*out;
-	size_t	i;
+	t_size	i;
 
 	out = (char *)malloc(sizeof(char) * size);
 	i = 0;
@@ -115,23 +115,23 @@ char		*make_string(size_t size)
 	return (out);
 }
 
-int			test_usr(char *dst, char *src, size_t bytes)
+int			test_usr(char *dst, char *src, t_size bytes)
 {
-	size_t	i;
+	t_size	i;
 
 	i = 0;
 	while (i < iters)
 	{
-		mem_cpy(dst, src, bytes);
+		mcpy(dst, src, bytes);
 		/*assert(memcmp(dst, src, bytes) == 0);*/
 		i++;
 	}
 	return (1);
 }
 
-int			test_lib(char *dst, char *src, size_t bytes)
+int			test_lib(char *dst, char *src, t_size bytes)
 {
-	size_t	i;
+	t_size	i;
 
 	i = 0;
 	while (i < iters)
@@ -145,9 +145,9 @@ int			test_lib(char *dst, char *src, size_t bytes)
 
 int			test_different_sizes()
 {
-	size_t	power;
-	size_t	i;
-	size_t	size;
+	t_size	power;
+	t_size	i;
+	t_size	size;
 	double	lib;
 	double	usr;
 	double	lmbs;
@@ -158,7 +158,7 @@ int			test_different_sizes()
 	i = 0;
 	power = 32;
 	iters = pow(2, power);
-	printf("total bytes per iteration = %zuMB\n", iters / (size_t)pow(10, 6));
+	printf("total bytes per iteration = %zuMB\n", iters / (t_size)pow(10, 6));
 	printf("| bytes / string | lib (s) | usr (s) | lib (MB/s) | usr (MB/s) | lib / usr |\n");
 	printf("|---|---|---|---|---|\n");
 	while (i < power)

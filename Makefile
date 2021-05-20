@@ -1,17 +1,17 @@
 NAME		=	libcore.a
 
-MEM 		=	memory/
-ARR 		=	array/
-LIN 		=	linear_algebra/
-PARR 		=	ptr_array/
-CSTR 		=	cstring/
-GRAPH 		=	graph/
-MAP 		=	map/
-MATH 		=	math/
-PRINT		=	print/
-STRING		=	string/
-CHECKS		=	checks/
-SYSTEM		=	system/
+ARR 		=	core_containers/array/
+PARR 		=	core_containers/parray/
+MAP 		=	core_containers/map/
+MEM 		=	core_standard/memory/
+PRINT		=	core_standard/print/
+CHECKS		=	core_standard/checks/
+LIN 		=	core_math/linear_algebra/
+MATH 		=	core_math/math/
+GRAPH 		=	core_math/graph/
+CSTR 		=	core_string/cstring/
+STRING		=	core_string/string/
+SYSTEM		=	core_system/
 
 RM			=	rm -rf
 

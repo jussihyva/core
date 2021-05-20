@@ -1,7 +1,7 @@
 #include "../inc/core.h"
 #include <time.h>
 
-const size_t	iters = 100000000;
+const t_size	iters = 100000000;
 
 int			test_clock(char *test_name, void *alloc_param, int (*f)(void *))
 {
@@ -16,7 +16,7 @@ int			test_clock(char *test_name, void *alloc_param, int (*f)(void *))
 int			test1(void *param)
 {
 	t_array	*test;
-	size_t	i;
+	t_size	i;
 
 	test = param;
 	i = 0;
@@ -30,8 +30,8 @@ int			test1(void *param)
 
 int			test2(void *param)
 {
-	size_t	*test;
-	size_t	i;
+	t_size	*test;
+	t_size	i;
 
 	i = 0;
 	test = param;
@@ -46,10 +46,10 @@ int			test2(void *param)
 int			main(void)
 {
 	t_array	test1_param;
-	size_t	*test2_param;
+	t_size	*test2_param;
 
-	test1_param = arr_new(iters, sizeof(size_t));
-	test2_param = (size_t *)malloc(sizeof(size_t) * iters);
+	test1_param = arr(iters, sizeof(t_size));
+	test2_param = (t_size *)malloc(sizeof(t_size) * iters);
 	test_clock("Add elements to t_array", &test1_param, test1);
 	test_clock("Assign elements to preallocated c-array", test2_param, test2);
 	arr_free(&test1_param);

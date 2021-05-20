@@ -11,9 +11,9 @@
 
 
 
-ssize_t	print_uint64(void *data, size_t i)
+t_ssize	print_uint64(void *data, t_size i)
 {
-	uint64_t	*ptr;
+	t_uint64	*ptr;
 
 	ptr = data;
 	printf("%zu\n", *ptr);
@@ -23,10 +23,10 @@ ssize_t	print_uint64(void *data, size_t i)
 void	test_arr_grow()
 {
 	t_array	test_1;
-	uint64_t	x;
-	test_1 = arr_new(1, sizeof(uint64_t));
+	t_uint64	x;
+	test_1 = arr(1, sizeof(t_uint64));
 	x = 0;
-	size_t i = 0;
+	t_size i = 0;
 	while (i < 100)
 	{
 		arr_add_last(&test_1, &x);

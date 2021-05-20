@@ -19,14 +19,14 @@ typedef union	s_un
 
 // Create and destroy an array
 
-ssize_t		test_dealloc(void *data, size_t i)
+t_ssize		test_dealloc(void *data, t_size i)
 {
 	t_test	*ptr = data;
 	free(ptr->mem);
 	return(CR_CONTINUE);
 }
 
-ssize_t		test_print(void *data, size_t i)
+t_ssize		test_print(void *data, t_size i)
 {
 	t_test	*ptr = data;
 	printf("%p %d %f %lf\n", ptr->mem, ptr->x, ptr->y, ptr->z);
@@ -37,7 +37,7 @@ int			tests1()
 {
 	t_array	test;
 
-	test = arr_new(1, sizeof(int));
+	test = arr(1, sizeof(int));
 	assert(test.mem.size == sizeof(int));
 	assert(test.elem_size == sizeof(int));
 	assert(test.len == 0);
@@ -52,9 +52,9 @@ int			tests2()
 	t_test *ptr;
 	t_test *ptr2;
 	t_test	struc;
-	size_t	i;
+	t_size	i;
 
-	test = arr_new(1, sizeof(t_test));
+	test = arr(1, sizeof(t_test));
 
 	// Append 5 elements to the array.
 	i= 0;
@@ -96,7 +96,7 @@ int			tests2()
 	return (1);
 }
 
-ssize_t		print_data(void *data, size_t i)
+t_ssize		print_data(void *data, t_size i)
 {
 	char	*ptr;
 
@@ -112,7 +112,7 @@ int			tests3()
 	char	c = '6';
 	int		pos;
 
-	test = arr_new(1, sizeof(char));
+	test = arr(1, sizeof(char));
 	arr_put(&test, "0123456789", 10);
 	arr_iter(&test, print_data);
 	printf("\n");
@@ -122,7 +122,7 @@ int			tests3()
 	printf("\n");
 	assert(memcmp((char *)test.mem.data, "012345789", 9) == 0);
 
-	comp = arr_new(1, sizeof(char));
+	comp = arr(1, sizeof(char));
 	arr_put(&comp, "345", 3);
 	pos = arr_search(&test, &comp);
 	arr_del(&test, pos);
