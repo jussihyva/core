@@ -39,30 +39,30 @@ wish!
 
 ## Objectives
 
--	User friendly interfaces.
--	Fast and reliable.
--	Minimum side effects.
--	Explicitness rather than compactness.
--	Readable and well documented source code.
--	Modular abstractions.
+-   User friendly interfaces.
+-   Fast and reliable.
+-   Minimum side effects.
+-   Explicitness rather than compactness.
+-   Readable and well documented source code.
+-   Modular abstractions.
 
 ## Features
 
--	A system for allocating sized memory blocks ie. blocks of memory that carry
-	their size within the object. These memory blocks are easy to resize and
-	manipulate since user doesn't need to carry the size information.
--	A system for tracking memory allocations (with backtrace of position in
-	the program akin to valgrind or -fsanitize).
--	A system for better error tracking and debug messaging.
--	Different program wide policies for error recovery.
--	Fast and useful containers and data-structures with uniform function naming
-	and conventions.
--	Re-creations of standard libc functions with readable source code which can
-	be beneficial for learning purposes.
--	Standard printf and format functionality (functions `print` and `format`).
-	These functions don't have all the features from the standard printf, but
-	have additional features spesific to the datatypes in this library.
--	Math, linear algebra, graph etc. functionality.
+-   A system for allocating sized memory blocks ie. blocks of memory that carry
+    their size within the object. These memory blocks are easy to resize and
+    manipulate since user doesn't need to carry the size information.
+-   A system for tracking memory allocations (with backtrace of position in
+    the program akin to valgrind or -fsanitize).
+-   A system for better error tracking and debug messaging.
+-   Different program wide policies for error recovery.
+-   Fast and useful containers and data-structures with uniform function naming
+    and conventions.
+-   Re-creations of standard libc functions with readable source code which can
+    be beneficial for learning purposes.
+-   Standard printf and format functionality (functions `print` and `format`).
+    These functions don't have all the features from the standard printf, but
+    have additional features spesific to the datatypes in this library.
+-   Math, linear algebra, graph etc. functionality.
 
 ## Core Containers
 
@@ -75,13 +75,13 @@ memory manipulation with bounds checking and other tools.
 
 ```c
 
-typedef struct	s_mem
+typedef struct  s_mem
 {
-	t_byte		*data;	// Pointer to the start of the memory area.
-	t_size		size;	// Size of the memory area.
-}				t_mem;
+    t_byte      *data;  // Pointer to the start of the memory area.
+    t_size      size;   // Size of the memory area.
+}               t_mem;
 
-typedef t_mem	t_pmem; // An opaque memory handle.
+typedef t_mem   t_pmem; // An opaque memory handle.
 
 ```
 
@@ -93,12 +93,12 @@ data is unknown. May use excess memory.
 
 ```c
 
-typedef struct	s_array
+typedef struct  s_array
 {
-	t_mem		mem;		// A sized t_mem memory block.
-	t_size		len;		// Amount of elements in the array.
-	t_size		elem_size;	// Size of the array element.
-}				t_array;
+    t_mem       mem;        // A sized t_mem memory block.
+    t_size      len;        // Amount of elements in the array.
+    t_size      elem_size;  // Size of the array element.
+}               t_array;
 
 ```
 
@@ -109,12 +109,12 @@ offers various tools for manipulating the array.
 
 ```c
 
-typedef struct	s_parray
+typedef struct  s_parray
 {
-	void		**data;	// Array of stored pointers.
-	t_size		len;	// Amount of elements in the array.
-	t_size		size;	// Amount of allocated pointers in the array.
-}				t_parray;
+    void        **data; // Array of stored pointers.
+    t_size      len;    // Amount of elements in the array.
+    t_size      size;   // Amount of allocated pointers in the array.
+}               t_parray;
 
 ```
 
@@ -133,22 +133,22 @@ hash function can easily be swapped.
 
 ```c
 
-typedef struct	s_map_node				// Key value pair.
+typedef struct  s_map_node              // Key value pair.
 {
-	const char	*key;
-	void		*data;
-}				t_map_node;
+    const char  *key;
+    void        *data;
+}               t_map_node;
 
-typedef struct	s_map
+typedef struct  s_map
 {
-	t_map_node	*node;					// Memory area for map nodes.
-	t_size		capacity;				// Current capacity of the map.
-	t_size		count;					// Amount of stored elements.
-	double		load_factor;			// Resize if count == capacity * load factor
-	t_uint64	(*hash)(const char *);	// Hash function used.
-	t_uint64	(*probe)(t_uint64);		// Probing function.
-	t_uint64	(*resize)(t_uint64);	// Resizing function.
-}				t_map;
+    t_map_node  *node;                  // Memory area for map nodes.
+    t_size      capacity;               // Current capacity of the map.
+    t_size      count;                  // Amount of stored elements.
+    double      load_factor;            // Resize if count == capacity * load factor
+    t_uint64    (*hash)(const char *);  // Hash function used.
+    t_uint64    (*probe)(t_uint64);     // Probing function.
+    t_uint64    (*resize)(t_uint64);    // Resizing function.
+}               t_map;
 
 ```
 
@@ -202,26 +202,26 @@ A generic graph implementation.
 
 ```c
 
-typedef t_map		t_graph;	// Graph uses a hash map to store nodes.
-typedef t_parray	t_edges;	// Edge array alias.
-typedef t_parray	t_nodes;	// Node array alias.
+typedef t_map       t_graph;    // Graph uses a hash map to store nodes.
+typedef t_parray    t_edges;    // Edge array alias.
+typedef t_parray    t_nodes;    // Node array alias.
 
 typedef struct s_graph_node
 {
-	const char	*key;			// Key is also stroed as part of graph node.
-	t_edges		in;				// Inbound edges.
-	t_edges		out;			// Outboudn edges.
-	t_bool		valid;			// Node has valid and invalid states.
-	void		*attr;			// Additional associated data.
-}				t_graph_node;
+    const char  *key;           // Key is also stroed as part of graph node.
+    t_edges     in;             // Inbound edges.
+    t_edges     out;            // Outboudn edges.
+    t_bool      valid;          // Node has valid and invalid states.
+    void        *attr;          // Additional associated data.
+}               t_graph_node;
 
 typedef struct s_graph_edge
 {
-	t_graph_node	*u;			// From node.
-	t_graph_node	*v;			// To node.
-	t_bool			valid;		// State.
-	void			*attr;		// Additional associated data.
-}					t_graph_edge;
+    t_graph_node    *u;         // From node.
+    t_graph_node    *v;         // To node.
+    t_bool          valid;      // State.
+    void            *attr;      // Additional associated data.
+}                   t_graph_edge;
 
 ```
 
