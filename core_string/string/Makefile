@@ -37,6 +37,13 @@ SRC_BASE	=	pstr_assign.c \
 				str_ncpy.c \
 				str_new.c \
 				str_write.c \
+				str_rev.c \
+				str_free.c \
+				page.c \
+				page_read_file.c \
+				page_write_file.c \
+				page_print.c \
+				page_free.c \
 
 
 SRC			=	$(addprefix $(SRC_DIR), $(SRC_BASE))

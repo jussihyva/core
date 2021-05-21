@@ -9,5 +9,6 @@ t_str	str_append(t_str dst, t_str src)
 	mem_ptr = pmem(dst.mem, dst.len, src.len + dst.len);
 	mem_cpy(mem_ptr,  src.mem, src.len);
 	dst.len = dst.len + src.len;
+	dst.mem.data[dst.len] = '\0';
 	return (dst);
 }

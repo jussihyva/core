@@ -1,9 +1,9 @@
 #include "../../inc/core.h"
 #include "../inc/system_internal.h"
 
-t_page	cr_stacktrace(t_size offset)
+t_parray	cr_stacktrace(t_size offset)
 {
-	t_page		trace;
+	t_parray	trace;
 	char		**strings;
 	t_size		size;
 	void		*array[CR_STACK_TRACE_MAX];
