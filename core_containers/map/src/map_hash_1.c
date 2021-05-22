@@ -20,6 +20,7 @@ t_uint64	map_hash_1(const char *str)
 	t_size		cycles;
 	t_size		ndhead;
 
+	ndhead = 0;
 	prime = 591798841;
 	hash64 = 14695981039346656037LLU;
 	wrdlen = s_len(str);
@@ -36,8 +37,8 @@ t_uint64	map_hash_1(const char *str)
 	}
 	else
 	{
-		hash64 = (t_uint64)str[0];
-		hash64 = (hash64 ^ shift(hash64, (8 - wrdlen) << 3)) * prime;
+		mcpy(&ndhead, str, wrdlen);
+		hash64 = (hash64 ^ shift(ndhead, (8 - wrdlen) << 3)) * prime;
 	}
 	return (hash64 ^ (hash64 >> 32));
 }
