@@ -101,7 +101,7 @@ void	mswap(void *a, void *b, t_size n)
 	raw_b = b;
 	qwords = n >> 3;
 	aligned_size = qwords << 3;
-	if (n > 8)
+	if (n >= 8)
 		swap512((t_uint64 *)a, (t_uint64 *)b, qwords);
 	aligned_size = qwords << 3;
 	n -= aligned_size;
