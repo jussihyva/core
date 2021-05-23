@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mcpy.c                                          :+:      :+:    :+:   */
+/*   mcpy.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:31:35 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/19 08:09:05 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/24 01:11:14 by julius           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	*mcpy(void *dst, const void *restrict src, t_size n)
 	if (dst8 >= src8)
 		return (mmove(dst, src, n));
 	qwords = n >> 3;
-	if (n > 8)
+	if (n >= 8)
 		copy512((t_uint64 *)dst, (const t_uint64 *)src, qwords);
 	aligned_size = qwords << 3;
 	n -= aligned_size;

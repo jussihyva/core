@@ -21,7 +21,7 @@ t_ssize	arr_add(t_array *dst, void *elem, t_size index)
 	t_byte	*raw_pos;
 	t_byte	*raw_tmp;
 
-	if (index >= dst->len)
+	if (index > dst->len)
 		return (CR_FAIL);
 	if (dst->len == dst->raw.size / dst->elem_size)
 		raw_realloc(&dst->raw, dst->raw.size * 2);
