@@ -27,10 +27,10 @@ CPPFLAGS	=	-I $(INC_DIR)
 DEPFLAGS	=	-MT $@ -MMD -MP -MF $(DEP_DIR)$*.d
 COMPILE.c	=	$(CC) $(DEPFLAGS) $(CFLAGS) $(CPPFLAGS) -c
 
-SRC_BASE	=	pstr_assign.c \
-				pstr_range.c \
-				pstr_write.c \
-				str_append.c \
+SRC_BASE	=	hstr_assign.c \
+				hstr_range.c \
+				hstr_write.c \
+				str_join.c \
 				str_from_s.c \
 				str_chr.c \
 				str_cpy.c \

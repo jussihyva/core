@@ -37,7 +37,7 @@ SRC_BASE	=	mcalloc.c \
 				mmove.c \
 				mset.c \
 				mzero.c \
-				pmem.c \
+				hmem_range.c \
 
 SRC			=	$(addprefix $(SRC_DIR), $(SRC_BASE))
 OBJ			=	$(addprefix $(OBJ_DIR), $(SRC_BASE:.c=.o))

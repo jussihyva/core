@@ -32,7 +32,7 @@ void	fstr_write(t_fstr str)
 		return ;
 }
 
-t_fstr	fstr_append(t_fstr dst, t_fstr src)
+t_fstr	fstr_join(t_fstr dst, t_fstr src)
 {
 	t_fstr	new;
 	t_byte	*mem_ptr;
@@ -71,7 +71,7 @@ double	test_cstring_speed(t_fstr s1, t_fstr s2)
 	i = 0;
 	while (i < iters)
 	{
-		s1 = fstr_append(s1, s2);
+		s1 = fstr_join(s1, s2);
 		i++;
 	}
 	clock_t end = clock();

@@ -1,6 +1,6 @@
 #include "../../../inc/core.h"
 
-t_hmem	pmem(t_mem src, size_t s, size_t t)
+t_hmem	hmem_range(t_mem src, size_t s, size_t t)
 {
 	t_hmem	new;
 

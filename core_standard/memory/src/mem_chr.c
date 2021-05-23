@@ -12,7 +12,7 @@ t_hmem	mem_chr(t_mem src, t_mem b)
 	{
 		if (memcmp(&src.data[i], b.data, b.size) == 0)
 		{
-			res = pmem(src, i, src.size);
+			res = hmem_range(src, i, src.size);
 			return (res);
 		}
 		i++;

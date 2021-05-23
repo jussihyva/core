@@ -30,7 +30,7 @@ double	test_cstring_speed(t_str s1, t_str s2)
 	i = 0;
 	while (i < iters)
 	{
-		s1 = str_append(s1, s2);
+		s1 = str_join(s1, s2);
 		i++;
 	}
 	mem_realloc(&s1.mem, s1.len);
@@ -53,9 +53,9 @@ int main(void)
 	s2 = big_string();
 	test_cstring_speed(s1, s2);
 	s3 = str("abcdefghijklmnopqrstuvxyz");
-	chr = pstr_assign("diau", 4);
+	chr = hstr_assign("diau", 4);
 	s3p = str_chr(s3, chr);
 	mem_print(s3.mem);
 	print("\n\n");
-	pstr_write(s3p);
+	hstr_write(s3p);
 }
