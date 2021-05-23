@@ -81,7 +81,7 @@ typedef struct  s_mem
     t_size      size;   // Size of the memory area.
 }               t_mem;
 
-typedef t_mem   t_pmem; // An opaque memory handle.
+typedef t_mem   t_hmem; // An opaque memory handle.
 
 ```
 

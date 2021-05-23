@@ -18,7 +18,7 @@ typedef unsigned short int	t_uint16;
 typedef unsigned int		t_uint32;
 typedef unsigned long long	t_uint64;
 
-/// t_bool
+/// Boolean
 
 typedef enum	e_bool
 {
@@ -33,7 +33,7 @@ typedef struct	s_mem
 	t_size		size;
 }				t_mem;
 
-typedef t_mem	t_pmem;
+typedef t_mem	t_hmem;
 
 /// Array
 
@@ -61,7 +61,7 @@ typedef struct	s_str
 	t_size	len;
 }				t_str;
 
-typedef t_pmem	t_pstr;
+typedef t_hmem	t_hstr;
 
 typedef t_array t_page;
 

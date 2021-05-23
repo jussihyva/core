@@ -1,6 +1,6 @@
 #include "../../../inc/core.h"
 
-t_pstr	pstr(t_str src, size_t s, size_t t)
+t_hstr	pstr_range(t_str src, size_t s, size_t t)
 {
 	t_mem	mem;
 

@@ -46,8 +46,8 @@ int main(void)
 	t_str	s1;
 	t_str	s2;
 	t_str	s3;
-	t_pstr	s3p;
-	t_pstr	chr;
+	t_hstr	s3p;
+	t_hstr	chr;
 
 	s1 = big_string();
 	s2 = big_string();

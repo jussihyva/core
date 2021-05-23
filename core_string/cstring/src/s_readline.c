@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/17 00:32:25 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/21 01:50:52 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/23 19:00:14 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@ static int	eof(char **mem, char **line, int r)
 {
 	if (r == 0 && *mem[0] != '\0')
 	{
-		*line = s_dup(*mem);
-		s_del(&*mem);
+		free(*line);
+		*line = *mem;
+		// s_del(&*mem);
 		return (2);
 	}
 	else

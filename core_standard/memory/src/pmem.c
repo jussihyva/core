@@ -1,8 +1,8 @@
 #include "../../../inc/core.h"
 
-t_pmem	pmem(t_mem src, size_t s, size_t t)
+t_hmem	pmem(t_mem src, size_t s, size_t t)
 {
-	t_pmem	new;
+	t_hmem	new;
 
 	new.data = NULL;
 	new.size = 0;

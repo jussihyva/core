@@ -26,7 +26,7 @@ t_array	arr_new(t_size alloc_size, t_size elem_size)
 
 	out.len = 0;
 	out.elem_size = elem_size;
-	out.mem = mem(alloc_size * elem_size);
+	out.mem = mem_new(alloc_size * elem_size);
 	if (!out.mem.data)
 	{
 		print("Allocation failed in function: arr!\n");

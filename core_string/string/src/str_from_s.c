@@ -1,6 +1,6 @@
 #include "../../../inc/core.h"
 
-t_str	str(char *str)
+t_str	str_from_s(char *str)
 {
 	t_str	new;
 	t_size	len;

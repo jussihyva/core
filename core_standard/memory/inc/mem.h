@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 06:09:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/20 22:06:21 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/23 20:25:22 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ void		mdel(void **ap);
 void		mzero(void *src, t_size size);
 int			mcmp(const void *s1, const void *s2, t_size size);
 void		mswap(void *a, void *b, t_size n);
-t_mem		mem(t_size bytes);
-t_pmem		pmem(t_mem src, size_t s, size_t t);
+t_mem		mem_new(t_size bytes);
+t_hmem		pmem(t_mem src, size_t s, size_t t);
 t_ssize		mem_realloc(t_mem *mem, t_size new_size);
 void		mem_free(t_mem *mem);
 t_mem		mem_cpy(t_mem dst, t_mem src, size_t size);
 t_mem		mem_assign(void *src, size_t size);
-t_pmem		mem_chr(t_mem src, t_mem b);
+t_hmem		mem_chr(t_mem src, t_mem b);
 void		mem_print(t_mem src);
 
 #endif

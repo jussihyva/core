@@ -1,8 +1,8 @@
 #include "../../../inc/core.h"
 
-t_pmem	mem_chr(t_mem src, t_mem b)
+t_hmem	mem_chr(t_mem src, t_mem b)
 {
-	t_pmem	res;
+	t_hmem	res;
 	size_t	i;
 
 	res.data = NULL;

@@ -2,7 +2,7 @@
 
 t_str	str_append(t_str dst, t_str src)
 {
-	t_pmem	mem_ptr;
+	t_hmem	mem_ptr;
 
 	if (dst.mem.size < dst.len + src.len)
 		mem_realloc(&dst.mem, (dst.len + src.len) * 3);
