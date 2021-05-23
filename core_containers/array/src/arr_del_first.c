@@ -4,7 +4,7 @@
  *
  * \brief Delete first element in a dynamic array.
  *
- * If the element has pointers to allocated memory, those have to be handled
+ * If the element has pointers to allocated rawory, those have to be handled
  * by the user.
  *
  * \param src Source array.

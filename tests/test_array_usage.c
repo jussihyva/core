@@ -4,7 +4,7 @@
 
 typedef struct	s_test
 {
-	void		*mem;
+	void		*raw;
 	int			x;
 	float		y;
 	double		z;
@@ -22,14 +22,14 @@ typedef union	s_un
 t_ssize		test_dealloc(void *data, t_size i)
 {
 	t_test	*ptr = data;
-	free(ptr->mem);
+	free(ptr->raw);
 	return(CR_CONTINUE);
 }
 
 t_ssize		test_print(void *data, t_size i)
 {
 	t_test	*ptr = data;
-	printf("%p %d %f %lf\n", ptr->mem, ptr->x, ptr->y, ptr->z);
+	printf("%p %d %f %lf\n", ptr->raw, ptr->x, ptr->y, ptr->z);
 	return(CR_CONTINUE);
 }
 
@@ -38,7 +38,7 @@ int			tests1()
 	t_array	test;
 
 	test = arr(1, sizeof(int));
-	assert(test.mem.size == sizeof(int));
+	assert(test.raw.size == sizeof(int));
 	assert(test.elem_size == sizeof(int));
 	assert(test.len == 0);
 	arr_free(&test);
@@ -63,7 +63,7 @@ int			tests2()
 		struc = (t_test){malloc(1), 1, 1.5, 2.5};
 		arr_add_last(&test, &struc);
 		ptr = arr_get(&test, i);
-		assert(memcmp(&struc, ptr, sizeof(t_test)) == 0);
+		assert(mcmp(&struc, ptr, sizeof(t_test)) == 0);
 		i++;
 	}
 	assert(test.len == 5);
@@ -72,22 +72,22 @@ int			tests2()
 	struc = (t_test){malloc(1), 2, 3.5, 4.5};
 	arr_add(&test, &struc, 3);
 	ptr = arr_get(&test, 3);
-	assert(memcmp(&struc, ptr, sizeof(t_test)) == 0);
+	assert(mcmp(&struc, ptr, sizeof(t_test)) == 0);
 	assert(test.len == 6);
 
 	// Prepend one element to the array.
 	struc = (t_test){malloc(1), 1, 0.5, 0.5};
 	arr_add_first(&test, &struc);
 	ptr = arr_get_first(&test);
-	assert(memcmp(&struc, ptr, sizeof(t_test)) == 0);
+	assert(mcmp(&struc, ptr, sizeof(t_test)) == 0);
 	assert(test.len == 7);
 
 	// Delete.
-	free(ptr->mem);
+	free(ptr->raw);
 	arr_del_first(&test);
 	assert(test.len == 6);
 	ptr = arr_get_first(&test);
-	assert(memcmp(&struc, ptr, sizeof(t_test)) != 0);
+	assert(mcmp(&struc, ptr, sizeof(t_test)) != 0);
 	ptr2 = arr_get_last(&test);
 	assert(ptr2->x == ptr->x);
 	assert(ptr2->y == ptr->y);
@@ -116,11 +116,11 @@ int			tests3()
 	arr_put(&test, "0123456789", 10);
 	arr_iter(&test, print_data);
 	printf("\n");
-	assert(memcmp((char *)test.mem.data, "0123456789", 10) == 0);
+	assert(mcmp((char *)test.raw.data, "0123456789", 10) == 0);
 	arr_del(&test, arr_find(&test, &c));
 	arr_iter(&test, print_data);
 	printf("\n");
-	assert(memcmp((char *)test.mem.data, "012345789", 9) == 0);
+	assert(mcmp((char *)test.raw.data, "012345789", 9) == 0);
 
 	comp = arr(1, sizeof(char));
 	arr_put(&comp, "345", 3);
@@ -128,12 +128,12 @@ int			tests3()
 	arr_del(&test, pos);
 	arr_iter(&test, print_data);
 	printf("\n");
-	assert(memcmp((char *)test.mem.data, "01245789", 8) == 0);
+	assert(mcmp((char *)test.raw.data, "01245789", 8) == 0);
 	arr_take_last(&c, &test);
 	arr_rotate(&test, 3);
 	arr_iter(&test, print_data);
 	printf("\n");
-	assert(memcmp((char *)test.mem.data, "5780124", 7) == 0);
+	assert(mcmp((char *)test.raw.data, "5780124", 7) == 0);
 	arr_free(&test);
 	arr_free(&comp);
 	return (1);
@@ -146,5 +146,5 @@ int		main(void)
 	tests3();
 }
 
-// printf("%p %d %f %lf\n", ptr2->mem, ptr2->x, ptr2->y, ptr2->z);
+// printf("%p %d %f %lf\n", ptr2->raw, ptr2->x, ptr2->y, ptr2->z);
 /*arr_iter(&test, test_print);*/

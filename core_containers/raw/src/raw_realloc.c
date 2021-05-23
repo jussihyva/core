@@ -1,15 +1,15 @@
 #include "../../../inc/core.h"
 
-t_ssize	mem_realloc(t_mem *m, t_size new_size)
+t_ssize	raw_realloc(t_raw *m, t_size new_size)
 {
-	t_mem	new;
+	t_raw	new;
 
-	new = mem_new(new_size);
+	new = raw_new(new_size);
 	if (new_size < m->size)
 		mcpy(new.data, m->data, new_size);
 	else
 		mcpy(new.data, m->data, m->size);
-	mem_free(m);
+	raw_free(m);
 	*m = new;
 	return (new.size);
 }

@@ -131,7 +131,7 @@ int	mcmp(const void *dst, const void *src, t_size n)
 **
 **	mcmp
 **
-**	Void memory compare; compares byte string `s1` against byte string `s2`.
+**	Void rawory compare; compares byte string `s1` against byte string `s2`.
 **	Both strings are assumed to be n bytes long.
 **
 **	The `mchr` function returns zero if the two strings are identical, oth-

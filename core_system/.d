@@ -1,6 +1,6 @@
-all: src/mem_free.c src/../../inc/core.h \
- src/../../inc/../memory/inc/mem.h \
- src/../../inc/../memory/inc/../../inc/types.h \
+all: src/raw_free.c src/../../inc/core.h \
+ src/../../inc/../rawory/inc/raw.h \
+ src/../../inc/../rawory/inc/../../inc/types.h \
  src/../../inc/../array/inc/array.h \
  src/../../inc/../array/inc/../../system/inc/system.h \
  src/../../inc/../array/inc/../../system/inc/../../parray/inc/parr.h \
@@ -18,7 +18,7 @@ all: src/mem_free.c src/../../inc/core.h \
  src/../../inc/../graph/inc/graph.h \
  src/../../inc/../graph/inc/../../parray/inc/parr.h \
  src/../../inc/../graph/inc/../../map/inc/map.h \
- src/../../inc/../graph/inc/../../memory/inc/mem.h \
+ src/../../inc/../graph/inc/../../rawory/inc/raw.h \
  src/../../inc/../graph/inc/../../cstring/inc/cstr.h \
  src/../../inc/../graph/inc/../../inc/types.h \
  src/../../inc/../math/inc/math.h \
@@ -35,9 +35,9 @@ all: src/mem_free.c src/../../inc/core.h \
 
 src/../../inc/core.h:
 
-src/../../inc/../memory/inc/mem.h:
+src/../../inc/../rawory/inc/raw.h:
 
-src/../../inc/../memory/inc/../../inc/types.h:
+src/../../inc/../rawory/inc/../../inc/types.h:
 
 src/../../inc/../array/inc/array.h:
 
@@ -73,7 +73,7 @@ src/../../inc/../graph/inc/../../parray/inc/parr.h:
 
 src/../../inc/../graph/inc/../../map/inc/map.h:
 
-src/../../inc/../graph/inc/../../memory/inc/mem.h:
+src/../../inc/../graph/inc/../../rawory/inc/raw.h:
 
 src/../../inc/../graph/inc/../../cstring/inc/cstr.h:
 

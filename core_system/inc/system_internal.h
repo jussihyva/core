@@ -15,7 +15,7 @@ typedef struct	s_core
 
 typedef struct	s_tracker
 {
-	t_mem		mem;
+	t_raw		raw;
 	t_parray	trace;
 }				t_tracker;
 

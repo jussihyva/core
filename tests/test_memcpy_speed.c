@@ -10,7 +10,7 @@
 t_size		iters = 0; // 2^36
 
 //-----------------------------------------------------------------------------
-// Optimized memcpy
+// Optimized rawcpy
 //
 
 static inline void __attribute__((nonnull))
@@ -123,7 +123,7 @@ int			test_usr(char *dst, char *src, t_size bytes)
 	while (i < iters)
 	{
 		mcpy(dst, src, bytes);
-		/*assert(memcmp(dst, src, bytes) == 0);*/
+		/*assert(mcmp(dst, src, bytes) == 0);*/
 		i++;
 	}
 	return (1);
@@ -136,8 +136,8 @@ int			test_lib(char *dst, char *src, t_size bytes)
 	i = 0;
 	while (i < iters)
 	{
-		memcpy(dst, src, bytes);
-		/*assert(memcmp(dst, src, bytes) == 0);*/
+		rawcpy(dst, src, bytes);
+		/*assert(mcmp(dst, src, bytes) == 0);*/
 		i++;
 	}
 	return (1);

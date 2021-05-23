@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:27:56 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/19 04:38:35 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/23 21:26:54 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char	*s_cdup(const char *s1, char c)
 **	String duplicate (c); duplicate contents from outing `s1` until
 **	delimiting character `c`.
 **
-**	Returns a memory allocated output `out`.
+**	Returns a rawory allocated output `out`.
 **
 **  ----------------------------------------------------------------------------
 */

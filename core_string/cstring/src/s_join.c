@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   s_join.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:28:57 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/11 09:04:36 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/05/23 21:26:54 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char	*s_join(char const *s1, char const *s2)
 **
 **	Join strings `s1` and `s2`.
 **
-**	Returns a memory allocated output `out`.
+**	Returns a rawory allocated output `out`.
 **
 **  ----------------------------------------------------------------------------
 */

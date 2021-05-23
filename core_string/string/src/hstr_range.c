@@ -2,8 +2,8 @@
 
 t_hstr	hstr_range(t_str src, size_t s, size_t t)
 {
-	t_mem	mem;
+	t_raw	raw;
 
-	mem = mem_assign(src.mem.data, src.mem.size);
-	return (hmem_range(mem, s, t));
+	raw = raw_assign(src.raw.data, src.raw.size);
+	return (hraw_range(raw, s, t));
 }

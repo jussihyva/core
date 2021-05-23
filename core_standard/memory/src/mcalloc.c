@@ -12,13 +12,13 @@
 
 #include "../../../inc/core.h"
 
-void	*mcalloc(t_size nmemb, t_size size)
+void	*mcalloc(t_size nrawb, t_size size)
 {
 	void		*addr;
 
-	addr = malloc(nmemb * size);
+	addr = malloc(nrawb * size);
 	if (addr)
-		mset(addr, 0, nmemb * size);
+		mset(addr, 0, nrawb * size);
 	return (addr);
 }
 
@@ -27,7 +27,7 @@ void	*mcalloc(t_size nmemb, t_size size)
 **
 **	mcalloc
 **
-**	Void memory allocation (c); allocates and formats `nmemb` amount of
+**	Void rawory allocation (c); allocates and formats `nrawb` amount of
 **	elements of size `size`.
 **
 **  ----------------------------------------------------------------------------

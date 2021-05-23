@@ -34,7 +34,7 @@ void	*mmove(void *dst, const void *src, t_size size)
 **
 **	mmove
 **
-**	Void memory move; copies `size` bytes from string `src` to string `dst`.
+**	Void rawory move; copies `size` bytes from string `src` to string `dst`.
 **	The two strings may overlap; the copy is always done in a non-destructive
 **	manner.
 **

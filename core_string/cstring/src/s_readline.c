@@ -6,29 +6,29 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/17 00:32:25 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/23 19:00:14 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/23 21:26:54 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cstr.h"
 
-static int	eof(char **mem, char **line, int r)
+static int	eof(char **raw, char **line, int r)
 {
-	if (r == 0 && *mem[0] != '\0')
+	if (r == 0 && *raw[0] != '\0')
 	{
 		free(*line);
-		*line = *mem;
-		// s_del(&*mem);
+		*line = *raw;
+		// s_del(&*raw);
 		return (2);
 	}
 	else
 	{
-		s_del(&*mem);
+		s_del(&*raw);
 		return (0);
 	}
 }
 
-static int	readbuf(char **mem, char **line, int fd)
+static int	readbuf(char **raw, char **line, int fd)
 {
 	char			*tmp;
 	char			buff[READLINE_MAX_BUFF + 1];
@@ -38,14 +38,14 @@ static int	readbuf(char **mem, char **line, int fd)
 	while (r > 0)
 	{
 		buff[r] = '\0';
-		tmp = s_join(*mem, buff);
-		s_del(&*mem);
+		tmp = s_join(*raw, buff);
+		s_del(&*raw);
 		if (!(s_chr(buff, '\n')))
-			*mem = tmp;
+			*raw = tmp;
 		else
 		{
 			*line = s_cdup(tmp, '\n');
-			*mem = s_csub(buff, '\n');
+			*raw = s_csub(buff, '\n');
 			free(tmp);
 			return (1);
 		}
@@ -53,27 +53,27 @@ static int	readbuf(char **mem, char **line, int fd)
 	}
 	if (r == -1)
 		return (-1);
-	return (eof(&*mem, &*line, r));
+	return (eof(&*raw, &*line, r));
 }
 
 int	s_readline(const int fd, char **line)
 {
-	static char		*mem[READLINE_MAX_FD];
+	static char		*raw[READLINE_MAX_FD];
 	char			*tmp;
 
 	if (fd < 0 || line == NULL)
 		return (-1);
-	if (!mem[fd])
-		mem[fd] = s_new(0);
-	if ((s_chr(mem[fd], '\n')))
+	if (!raw[fd])
+		raw[fd] = s_new(0);
+	if ((s_chr(raw[fd], '\n')))
 	{
-		*line = s_cdup(mem[fd], '\n');
-		tmp = s_csub(mem[fd], '\n');
-		s_del(&mem[fd]);
-		mem[fd] = tmp;
+		*line = s_cdup(raw[fd], '\n');
+		tmp = s_csub(raw[fd], '\n');
+		s_del(&raw[fd]);
+		raw[fd] = tmp;
 		return (1);
 	}
-	return (readbuf(&mem[fd], &*line, fd));
+	return (readbuf(&raw[fd], &*line, fd));
 }
 
 /*

@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 01:05:39 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/19 04:25:36 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/23 21:26:54 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	*s_join_free(char *s1, char *s2, t_size flag)
 **	2 = `s2` is freed
 **	3 = both strings are freed
 **
-**	Returns a memory allocated output `out`.
+**	Returns a rawory allocated output `out`.
 **
 **  ----------------------------------------------------------------------------
 */

@@ -5,7 +5,7 @@
 
 # define STRINGSIZE 1000
 
-typedef t_mem	t_fstr;
+typedef t_raw	t_fstr;
 
 
 double	test_cstring_speed(t_fstr s1, t_fstr s2)

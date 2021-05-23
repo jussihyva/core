@@ -2,6 +2,6 @@
 
 void	str_write(t_str str)
 {
-	if (!(write(1, str.mem.data, str.len)))
+	if (!(write(1, str.raw.data, str.len)))
 		return ;
 }

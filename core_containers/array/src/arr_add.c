@@ -18,19 +18,19 @@
 
 t_ssize	arr_add(t_array *dst, void *elem, t_size index)
 {
-	t_byte	*mem_pos;
-	t_byte	*mem_tmp;
+	t_byte	*raw_pos;
+	t_byte	*raw_tmp;
 
 	if (index >= dst->len)
 		return (CR_FAIL);
-	if (dst->len == dst->mem.size / dst->elem_size)
-		mem_realloc(&dst->mem, dst->mem.size * 2);
-	mem_pos = dst->mem.data;
-	mem_pos += index * dst->elem_size;
-	mem_tmp = dst->mem.data;
-	mem_tmp += (index + 1) * dst->elem_size;
-	mmove(mem_tmp, mem_pos, dst->elem_size * (dst->len - index));
-	mcpy(mem_pos, elem, dst->elem_size);
+	if (dst->len == dst->raw.size / dst->elem_size)
+		raw_realloc(&dst->raw, dst->raw.size * 2);
+	raw_pos = dst->raw.data;
+	raw_pos += index * dst->elem_size;
+	raw_tmp = dst->raw.data;
+	raw_tmp += (index + 1) * dst->elem_size;
+	mmove(raw_tmp, raw_pos, dst->elem_size * (dst->len - index));
+	mcpy(raw_pos, elem, dst->elem_size);
 	dst->len++;
 	return (CR_SUCCESS);
 }

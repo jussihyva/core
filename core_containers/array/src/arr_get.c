@@ -4,7 +4,7 @@
  *
  * \brief Get a pointer to an element at a spesific index.
  *
- * Does not copy the element, pointer points directly to the memory in the
+ * Does not copy the element, pointer points directly to the rawory in the
  * array so be careful. Checks for out of bounds index.
  *
  * \param src Source array.
@@ -17,11 +17,11 @@
 
 void	*arr_get(t_array *src, t_size index)
 {
-	t_byte	*mem_pos;
+	t_byte	*raw_pos;
 
 	if (index >= src->len || src->len == 0)
 		return (NULL);
-	mem_pos = src->mem.data;
-	mem_pos += index * src->elem_size;
-	return (mem_pos);
+	raw_pos = src->raw.data;
+	raw_pos += index * src->elem_size;
+	return (raw_pos);
 }

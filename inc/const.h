@@ -13,7 +13,7 @@
 # define CR_APPEND 1
 # define CR_PREPEND -1
 # define CR_STRING NULL
-# define CR_MEM_NULL (t_mem) {NULL, 0}
+# define CR_MEM_NULL (t_raw) {NULL, 0}
 # define CR_PARR_NULL (t_parray) {NULL, 0, 0}
 # define CR_ARR_NULL (t_array) {CR_MEM_NULL, 0, 0}
 # define CR_GRAPH_NULL (t_graph) {CR_MAP_NULL, 0, NULL}

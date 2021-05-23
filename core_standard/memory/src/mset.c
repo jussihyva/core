@@ -58,7 +58,7 @@ void	*mset(void *dst, int c, t_size size)
 **
 **	mset
 **
-**	Sets `size` bytes of memory pointed to by `dst` with value `c`.
+**	Sets `size` bytes of rawory pointed to by `dst` with value `c`.
 **
 **  ----------------------------------------------------------------------------
 */

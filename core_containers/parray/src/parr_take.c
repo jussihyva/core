@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 06:09:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/20 21:57:40 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/23 21:26:54 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void	*parr_take(t_parray *arr, t_size index)
 **
 **	PARR_TAKE
 **
-**	Take a member from a dynamic array at `index`. Contrary to get, take also
-**	removes the member from the array.
+**	Take a rawber from a dynamic array at `index`. Contrary to get, take also
+**	removes the rawber from the array.
 **
 **  ----------------------------------------------------------------------------
 */

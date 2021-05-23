@@ -4,10 +4,10 @@
  *
  * \brief Take an element from specified index in a dynamic array.
  *
- * Take is a combination of get and del. A pointer to an allocated memory dst
+ * Take is a combination of get and del. A pointer to an allocated rawory dst
  * sufficient to hold the results has to be passed as a parameter.
  *
- * \param dst Destination memory.
+ * \param dst Destination rawory.
  * \param src source array.
  *
  * \return Pointer to dst.

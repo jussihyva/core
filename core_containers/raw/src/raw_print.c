@@ -1,6 +1,6 @@
 #include "../../../inc/core.h"
 
-void	mem_print(t_mem src)
+void	raw_print(t_raw src)
 {
 	size_t	i;
 

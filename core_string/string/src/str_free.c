@@ -2,7 +2,7 @@
 
 void	str_free(t_str *str)
 {
-	mem_free(&str->mem);
+	raw_free(&str->raw);
 	str->len = 0;
 }
 

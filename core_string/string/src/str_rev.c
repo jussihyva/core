@@ -11,7 +11,7 @@ void	str_rev(t_str *src)
 	j = src->len - 1;
 	while (i < half)
 	{
-		mswap(&src->mem.data[i], &src->mem.data[j], sizeof(char));
+		mswap(&src->raw.data[i], &src->raw.data[j], sizeof(char));
 		i++;
 		j--;
 	}

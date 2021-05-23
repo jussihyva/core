@@ -6,7 +6,7 @@ t_ssize	deallocate_str(void *data, t_size i)
 	t_str	*string;
 
 	string = data;
-	mem_free(&string->mem);
+	raw_free(&string->raw);
 	return (i);
 }
 
@@ -22,7 +22,7 @@ t_ssize	write_file(FILE *file, t_page *prepend)
 		line = arr_get(prepend, i);
 		if (line)
 		{
-			if (!(fprintf(file, "%s\n", line->mem.data)))
+			if (!(fprintf(file, "%s\n", line->raw.data)))
 				return (CR_FAIL);
 		}
 		i++;

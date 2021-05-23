@@ -1,8 +1,8 @@
 #include "../../../inc/core.h"
 
-t_hmem	hmem_range(t_mem src, size_t s, size_t t)
+t_hraw	hraw_range(t_raw src, size_t s, size_t t)
 {
-	t_hmem	new;
+	t_hraw	new;
 
 	new.data = NULL;
 	new.size = 0;

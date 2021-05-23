@@ -33,11 +33,11 @@ void	test_error()
 
 void	test_malloc()
 {
-	t_mem	memory;
+	t_raw	rawory;
 
-	memory = mem(sizeof(t_uint64));
+	rawory = raw(sizeof(t_uint64));
 	cr_log();
-	mem_free(&memory);
+	raw_free(&rawory);
 }
 
 int	main(void)
@@ -46,7 +46,7 @@ int	main(void)
 	printf("\n\033[32;1mCORE SYSTEM EXAMPLE\033[0m\n\n");
 	print("Usage examples for core system.\n\n");
 	printf("\n\033[32;1mMEMORY MANAGEMENT\033[0m\n\n");
-	print("We can track memory allocationsand get size and allocation backtrace.\n\n");
+	print("We can track rawory allocationsand get size and allocation backtrace.\n\n");
 	test_malloc();
 	test_error();
 	printf("\n\033[32;1mDEBUGGING\033[0m\n\n");

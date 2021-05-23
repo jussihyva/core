@@ -2,5 +2,5 @@
 
 t_hstr	hstr_assign(void *src, size_t size)
 {
-	return (mem_assign(src, size));
+	return (raw_assign(src, size));
 }

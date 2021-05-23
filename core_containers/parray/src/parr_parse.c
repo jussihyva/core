@@ -36,8 +36,8 @@ t_ssize	parr_parse(t_parray *dst, t_parray *src,
 **
 **	PARR_PARSE
 **
-**	iter array `src` so that for each member a parse function is executed
-**	The parse function is user-defined and parses each member so that rersults
+**	iter array `src` so that for each rawber a parse function is executed
+**	The parse function is user-defined and parses each rawber so that rersults
 **	are added in `dst`.
 **
 **  ----------------------------------------------------------------------------

@@ -17,16 +17,16 @@
 
 t_ssize	arr_copy(t_array *dst, t_array *src)
 {
-	t_byte	*mem_start;
+	t_byte	*raw_start;
 
 	if (arr_null(src))
 		return (CR_FAIL);
-	if (dst->mem.size / dst->elem_size < src->len)
-		mem_realloc(&dst->mem, dst->mem.size * 2);
-	mem_start = dst->mem.data;
-	dst->mem.data = mcpy(
-			mem_start,
-			src->mem.data,
+	if (dst->raw.size / dst->elem_size < src->len)
+		raw_realloc(&dst->raw, dst->raw.size * 2);
+	raw_start = dst->raw.data;
+	dst->raw.data = mcpy(
+			raw_start,
+			src->raw.data,
 			src->len * src->elem_size);
 	dst->len = src->len;
 	return (CR_SUCCESS);

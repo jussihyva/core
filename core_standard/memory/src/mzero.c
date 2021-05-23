@@ -22,7 +22,7 @@ void	mzero(void *s, t_size n)
 **
 **	mzero
 **
-**	Void memory formatting; formats `n` bytes of memory pointed to by `s`.
+**	Void rawory formatting; formats `n` bytes of rawory pointed to by `s`.
 **
 **  ----------------------------------------------------------------------------
 */

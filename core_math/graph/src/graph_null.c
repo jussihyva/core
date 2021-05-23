@@ -7,7 +7,7 @@
 
 t_ssize	graph_null(t_graph *g)
 {
-	if (memcmp(g, &CR_MAP_NULL, sizeof(t_graph)) == 0)
+	if (mcmp(g, &CR_MAP_NULL, sizeof(t_graph)) == 0)
 		return (CR_SUCCESS);
 	return (CR_FAIL);
 }

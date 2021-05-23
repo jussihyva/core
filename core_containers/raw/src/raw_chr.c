@@ -1,8 +1,8 @@
 #include "../../../inc/core.h"
 
-t_hmem	mem_chr(t_mem src, t_mem b)
+t_hraw	raw_chr(t_raw src, t_raw b)
 {
-	t_hmem	res;
+	t_hraw	res;
 	size_t	i;
 
 	res.data = NULL;
@@ -10,9 +10,9 @@ t_hmem	mem_chr(t_mem src, t_mem b)
 	i = 0;
 	while (i < src.size)
 	{
-		if (memcmp(&src.data[i], b.data, b.size) == 0)
+		if (mcmp(&src.data[i], b.data, b.size) == 0)
 		{
-			res = hmem_range(src, i, src.size);
+			res = hraw_range(src, i, src.size);
 			return (res);
 		}
 		i++;

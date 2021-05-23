@@ -9,7 +9,7 @@
 
 t_ssize	map_null_node(t_map_node *n)
 {
-	if (memcmp(n, &CR_MAP_NULL_NODE, sizeof(t_map_node)))
+	if (mcmp(n, &CR_MAP_NULL_NODE, sizeof(t_map_node)))
 		return (CR_FAIL);
 	return (CR_SUCCESS);
 }

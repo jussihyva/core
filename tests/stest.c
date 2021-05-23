@@ -15,7 +15,7 @@ t_str	big_string()
 	i = 0;
 	while (i < STRINGSIZE)
 	{
-		str.mem.data[i] = 'a';
+		str.raw.data[i] = 'a';
 		i++;
 	}
 	return (str);
@@ -33,12 +33,12 @@ double	test_cstring_speed(t_str s1, t_str s2)
 		s1 = str_join(s1, s2);
 		i++;
 	}
-	mem_realloc(&s1.mem, s1.len);
+	raw_realloc(&s1.raw, s1.len);
 	// str_write(s1);
 	clock_t end = clock();
 	double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
 	printf("TEST CSTRING\n%f\n", time_spent);
-	printf("SIZE\n%llu\n", s1.mem.size);
+	printf("SIZE\n%llu\n", s1.raw.size);
 }
 
 int main(void)
@@ -55,7 +55,7 @@ int main(void)
 	s3 = str("abcdefghijklmnopqrstuvxyz");
 	chr = hstr_assign("diau", 4);
 	s3p = str_chr(s3, chr);
-	mem_print(s3.mem);
+	raw_print(s3.raw);
 	print("\n\n");
 	hstr_write(s3p);
 }

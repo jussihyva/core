@@ -4,7 +4,7 @@ ARR 		=	core_containers/array/
 PARR 		=	core_containers/parray/
 MAP 		=	core_containers/map/
 MEMORY 		=	core_standard/memory/
-MEM 		=	core_containers/mem/
+RAW 		=	core_containers/raw/
 PRINT		=	core_standard/print/
 CHECKS		=	core_standard/checks/
 LIN 		=	core_math/linear_algebra/
@@ -20,7 +20,7 @@ OBJ			=	obj/
 
 
 all:
-			+@make -C $(MEM)
+			+@make -C $(RAW)
 			+@make -C $(MEMORY)
 			+@make -C $(ARR)
 			+@make -C $(LIN)
@@ -34,7 +34,7 @@ all:
 			+@make -C $(CHECKS)
 			+@make -C $(SYSTEM)
 			@mkdir -p $(OBJ)
-			@mv $(MEM)obj/*.o $(OBJ)
+			@mv $(RAW)obj/*.o $(OBJ)
 			@mv $(MEMORY)obj/*.o $(OBJ)
 			@mv $(ARR)obj/*.o $(OBJ)
 			@mv $(LIN)obj/*.o $(OBJ)
@@ -52,7 +52,7 @@ all:
 			@echo "\\n\033[32;1mCORE ACTIVATED \033[0m \\n"
 
 clean:
-			@make clean -C $(MEM)
+			@make clean -C $(RAW)
 			@make clean -C $(MEMORY)
 			@make clean -C $(ARR)
 			@make clean -C $(LIN)
@@ -70,7 +70,7 @@ clean:
 fclean:		clean
 			@$(RM) $(NAME)
 			@$(RM) $(OBJ)
-			@make fclean -C $(MEM)
+			@make fclean -C $(RAW)
 			@make fclean -C $(MEMORY)
 			@make fclean -C $(ARR)
 			@make fclean -C $(LIN)

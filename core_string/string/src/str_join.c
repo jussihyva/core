@@ -2,13 +2,13 @@
 
 t_str	str_join(t_str dst, t_str src)
 {
-	t_hmem	mem_ptr;
+	t_hraw	raw_ptr;
 
-	if (dst.mem.size < dst.len + src.len)
-		mem_realloc(&dst.mem, (dst.len + src.len) * 3);
-	mem_ptr = hmem_range(dst.mem, dst.len, src.len + dst.len);
-	mem_cpy(mem_ptr,  src.mem, src.len);
+	if (dst.raw.size < dst.len + src.len)
+		raw_realloc(&dst.raw, (dst.len + src.len) * 3);
+	raw_ptr = hraw_range(dst.raw, dst.len, src.len + dst.len);
+	raw_cpy(raw_ptr,  src.raw, src.len);
 	dst.len = dst.len + src.len;
-	dst.mem.data[dst.len] = '\0';
+	dst.raw.data[dst.len] = '\0';
 	return (dst);
 }

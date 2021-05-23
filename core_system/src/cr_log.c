@@ -15,10 +15,10 @@ static t_ssize	print_tracker(void *data, t_size i)
 	t_tracker *tracker;
 
 	tracker = data;
-	if (tracker->mem.data)
+	if (tracker->raw.data)
 	{
-		print("memptr: \033[1;31m%p\033[0m\n", tracker->mem.data);
-		print("memsize: \033[1;31m%lu\033[0m\n", tracker->mem.size);
+		print("rawptr: \033[1;31m%p\033[0m\n", tracker->raw.data);
+		print("rawsize: \033[1;31m%lu\033[0m\n", tracker->raw.size);
 	}
 	if (!(parr_null(&tracker->trace)))
 		parr_iter(&tracker->trace, print_line);

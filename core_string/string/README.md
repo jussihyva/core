@@ -3,24 +3,24 @@
 This string implementation provides an optional string handling workflow for
 the C language. It is based on dynamic resizable strings which carry the
 length of the string with them. With this approach we can gain significant
-speed increases in certain areas at the expense of memory usage. It also
-integrates with the core library memory tracking functionality.
+speed increases in certain areas at the expense of rawory usage. It also
+integrates with the core library rawory tracking functionality.
 
 Normally c-styled strings are char pointers that hold a string of bytes and
 in the end a null terminator which effectively determines the size of the string.
-This approach is very memory efficient and stems from a time when memory
+This approach is very rawory efficient and stems from a time when rawory
 was a bigger bottleneck than today. What we sacrifice is speed and
 usability.
 
 Positives:
 
--	With dynamically resizable memory blocks we gain much better performance
+-	With dynamically resizable rawory blocks we gain much better performance
 	when handling huge amounts of text in methods such as string joining
 
 -	We never have to call strlen to determine the length of the string or
 	create additional temporary variables for passing around lengths.
 
--	We can compare and copy strings much faster by calling memcpy instead
+-	We can compare and copy strings much faster by calling rawcpy instead
 	of iterating untill a null terminator.
 
 -	We provide opaque string handlers which, when used correctly, can vastly
@@ -28,10 +28,10 @@ Positives:
 
 Negatives:
 
--	Will use more memory. Length information is saved in the string struct itself
-	and allocations are dynamic, so one string will use up more memory.
+-	Will use more rawory. Length information is saved in the string struct itself
+	and allocations are dynamic, so one string will use up more rawory.
 
--	Will allocate memory when used with string literals.
+-	Will allocate rawory when used with string literals.
 
 -	For very basic use can be more convoluted and add complexity.
 
@@ -43,16 +43,16 @@ which doesn't try to do everything but rather improve on certain specific domain
 
 ## Strings
 
-The string struct consists of a resizable memory block `mem`
-and a length `len`. A string is stored in `mem` and is NULL terminated.
-The memory block migth have a bigger size, but `len` represents the
+The string struct consists of a resizable rawory block `raw`
+and a length `len`. A string is stored in `raw` and is NULL terminated.
+The rawory block migth have a bigger size, but `len` represents the
 active bytes in the string.
 
 ```c
 
 typedef struct	s_str
 {
-	t_mem	mem;
+	t_raw	raw;
 	t_size	len;
 }				t_str;
 
@@ -62,7 +62,7 @@ typedef struct	s_str
 
 ```c
 
-typedef t_hmem	t_hstr;
+typedef t_hraw	t_hstr;
 
 ```
 

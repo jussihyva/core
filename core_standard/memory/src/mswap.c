@@ -92,20 +92,20 @@ void	swap512(t_uint64 *a, t_uint64 *b, t_size n)
 
 void	mswap(void *a, void *b, t_size n)
 {
-	t_byte	*mem_a;
-	t_byte	*mem_b;
+	t_byte	*raw_a;
+	t_byte	*raw_b;
 	t_size	qwords;
 	t_size	aligned_size;
 
-	mem_a = a;
-	mem_b = b;
+	raw_a = a;
+	raw_b = b;
 	qwords = n >> 3;
 	aligned_size = qwords << 3;
 	if (n > 8)
 		swap512((t_uint64 *)a, (t_uint64 *)b, qwords);
 	aligned_size = qwords << 3;
 	n -= aligned_size;
-	mem_a += aligned_size;
-	mem_b += aligned_size;
-	swap_small(mem_a, mem_b, n);
+	raw_a += aligned_size;
+	raw_b += aligned_size;
+	swap_small(raw_a, raw_b, n);
 }

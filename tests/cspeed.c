@@ -5,13 +5,13 @@
 
 # define STRINGSIZE 100000
 
-typedef t_mem	t_fstr;
+typedef t_raw	t_fstr;
 
 t_fstr	fstr_new(t_size len)
 {
 	t_fstr	new;
 
-	new = mem(len);
+	new = raw(len);
 	return (new);
 }
 
@@ -35,14 +35,14 @@ void	fstr_write(t_fstr str)
 t_fstr	fstr_join(t_fstr dst, t_fstr src)
 {
 	t_fstr	new;
-	t_byte	*mem_ptr;
+	t_byte	*raw_ptr;
 
 	new = fstr_new(dst.size + src.size);
-	mem_ptr = new.data;
-	mem_ptr = mcpy(mem_ptr, dst.data, dst.size);
-	mem_ptr += dst.size;
-	mem_ptr = mcpy(mem_ptr, src.data, src.size);
-	mem_free(&dst);
+	raw_ptr = new.data;
+	raw_ptr = mcpy(raw_ptr, dst.data, dst.size);
+	raw_ptr += dst.size;
+	raw_ptr = mcpy(raw_ptr, src.data, src.size);
+	raw_free(&dst);
 	return (new);
 }
 
@@ -52,7 +52,7 @@ t_fstr	big_string()
 {
 	t_fstr	str;
 	size_t	i;
-	str = mem(sizeof(char) * STRINGSIZE);
+	str = raw(sizeof(char) * STRINGSIZE);
 	i = 0;
 	while (i < STRINGSIZE)
 	{

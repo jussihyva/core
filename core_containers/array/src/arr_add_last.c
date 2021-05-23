@@ -4,7 +4,7 @@
  *
  * \brief Add a new element to the end of a dynamic array.
  *
- * If the array is not sufficiently big a new memory area double the
+ * If the array is not sufficiently big a new rawory area double the
  * alloc_size of the previous one is allocated.
  *
  * \param dst Destination array.
@@ -17,13 +17,13 @@
 
 t_ssize	arr_add_last(t_array *dst, void *elem)
 {
-	t_byte	*mem_pos;
+	t_byte	*raw_pos;
 
-	if (dst->len == dst->mem.size / dst->elem_size)
-		mem_realloc(&dst->mem, dst->mem.size * 2);
-	mem_pos = dst->mem.data;
-	mem_pos += dst->len * dst->elem_size;
-	mem_pos = mcpy(mem_pos, elem, dst->elem_size);
+	if (dst->len == dst->raw.size / dst->elem_size)
+		raw_realloc(&dst->raw, dst->raw.size * 2);
+	raw_pos = dst->raw.data;
+	raw_pos += dst->len * dst->elem_size;
+	raw_pos = mcpy(raw_pos, elem, dst->elem_size);
 	dst->len++;
 	return (CR_SUCCESS);
 }

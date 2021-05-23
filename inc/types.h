@@ -27,19 +27,19 @@ typedef enum	e_bool
 
 /// Memory
 
-typedef struct	s_mem
+typedef struct	s_raw
 {
 	t_byte		*data;
 	t_size		size;
-}				t_mem;
+}				t_raw;
 
-typedef t_mem	t_hmem;
+typedef t_raw	t_hraw;
 
 /// Array
 
 typedef struct	s_array
 {
-	t_mem		mem;
+	t_raw		raw;
 	t_size		len;
 	t_size		elem_size;
 }				t_array;
@@ -57,11 +57,11 @@ typedef struct	s_parray
 
 typedef struct	s_str
 {
-	t_mem	mem;
+	t_raw	raw;
 	t_size	len;
 }				t_str;
 
-typedef t_hmem	t_hstr;
+typedef t_hraw	t_hstr;
 
 typedef t_array t_page;
 

@@ -5,7 +5,7 @@ typedef struct s_test
 {
 	int			x;
 	float		y;
-	void		*mem;
+	void		*raw;
 }				t_test;
 
 int		test_mset()

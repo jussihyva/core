@@ -2,10 +2,10 @@
 
 t_str	str_cpy(t_str dst, t_str src)
 {
-	if (dst.mem.size < src.len)
-		mem_realloc(&dst.mem, src.len);
-	mem_cpy(dst.mem, src.mem, src.len);
+	if (dst.raw.size < src.len)
+		raw_realloc(&dst.raw, src.len);
+	raw_cpy(dst.raw, src.raw, src.len);
 	dst.len = src.len;
-	dst.mem.data[dst.len] = '\0';
+	dst.raw.data[dst.len] = '\0';
 	return (dst);
 }

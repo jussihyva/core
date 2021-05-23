@@ -4,7 +4,7 @@
 #
 ###############################################################################
 
-NAME		=	libmem.a
+NAME		=	libraw.a
 
 SRC_DIR		=	src/
 INC_DIR		=	inc/
@@ -18,14 +18,14 @@ CPPFLAGS	=	-I $(INC_DIR)
 DEPFLAGS	=	-MT $@ -MMD -MP -MF $(DEP_DIR)$*.d
 COMPILE.c	=	$(CC) $(DEPFLAGS) $(CFLAGS) $(CPPFLAGS) -c
 
-SRC_BASE	=	hmem_range.c \
-				mem_assign.c \
-				mem_chr.c \
-				mem_cpy.c \
-				mem_free.c \
-				mem_realloc.c \
-				mem_new.c \
-				mem_print.c \
+SRC_BASE	=	hraw_range.c \
+				raw_assign.c \
+				raw_chr.c \
+				raw_cpy.c \
+				raw_free.c \
+				raw_realloc.c \
+				raw_new.c \
+				raw_print.c \
 
 SRC			=	$(addprefix $(SRC_DIR), $(SRC_BASE))
 OBJ			=	$(addprefix $(OBJ_DIR), $(SRC_BASE:.c=.o))

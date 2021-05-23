@@ -1,6 +1,6 @@
 #include "../../../inc/core.h"
 
-t_mem	mem_cpy(t_mem dst, t_mem src, size_t size)
+t_raw	raw_cpy(t_raw dst, t_raw src, size_t size)
 {
 	if (src.size < size)
 

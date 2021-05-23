@@ -11,15 +11,15 @@ a minimum amount of libc functions because many of these functions are forbidden
 in the school projects. Thus many of these standard functions have been
 re-created for this library. Since all of the functions are written in pure ISO
 compliant C, someof the functions cannot be as efficient as the library
-equivalents. The most important of these functions is memcpy since it underlies
-the performance of most other functions. The memcopy function `mcpy` provided
+equivalents. The most important of these functions is rawcpy since it underlies
+the performance of most other functions. The rawcopy function `mcpy` provided
 in the library and used by the library functions is optimized as much as we were
-able and achieves about 60% of the library memcpy's performance under critical
-load.  Libc memcpy is, however, an intrinsic instruction, meaning it's the
+able and achieves about 60% of the library rawcpy's performance under critical
+load.  Libc rawcpy is, however, an intrinsic instruction, meaning it's the
 fastest possible copying procedure provided by the CPU itself. Thus it's
 unrealistic to presume similar performance can be achieved with C code. However
 there has been great effort put in performance throughout the library, so
-swapping the `mcpy` function to libc `memcpy` project wide will net maximum
+swapping the `mcpy` function to libc `rawcpy` project wide will net maximum
 performance from the library. We might make a separate branch where this swap
 has been made.
 
@@ -48,10 +48,10 @@ wish!
 
 ## Features
 
--   A system for allocating sized memory blocks ie. blocks of memory that carry
-    their size within the object. These memory blocks are easy to resize and
+-   A system for allocating sized rawory blocks ie. blocks of rawory that carry
+    their size within the object. These rawory blocks are easy to resize and
     manipulate since user doesn't need to carry the size information.
--   A system for tracking memory allocations (with backtrace of position in
+-   A system for tracking rawory allocations (with backtrace of position in
     the program akin to valgrind or -fsanitize).
 -   A system for better error tracking and debug messaging.
 -   Different program wide policies for error recovery.
@@ -70,32 +70,32 @@ Different container data-structures.
 
 ### Mem
 
-A raw memory container. Useful for constructing other data-structures or for raw
-memory manipulation with bounds checking and other tools.
+A raw rawory container. Useful for constructing other data-structures or for raw
+rawory manipulation with bounds checking and other tools.
 
 ```c
 
-typedef struct  s_mem
+typedef struct  s_raw
 {
-    t_byte      *data;  // Pointer to the start of the memory area.
-    t_size      size;   // Size of the memory area.
-}               t_mem;
+    t_byte      *data;  // Pointer to the start of the rawory area.
+    t_size      size;   // Size of the rawory area.
+}               t_raw;
 
-typedef t_mem   t_hmem; // An opaque memory handle.
+typedef t_raw   t_hraw; // An opaque rawory handle.
 
 ```
 
 ### Array
 
-A dynamic array container. Stores everything in a contiguous block of memory and
+A dynamic array container. Stores everything in a contiguous block of rawory and
 resizes as necessary. Fast, easy to use and great for when the final size of
-data is unknown. May use excess memory.
+data is unknown. May use excess rawory.
 
 ```c
 
 typedef struct  s_array
 {
-    t_mem       mem;        // A sized t_mem memory block.
+    t_raw       raw;        // A sized t_raw rawory block.
     t_size      len;        // Amount of elements in the array.
     t_size      elem_size;  // Size of the array element.
 }               t_array;
@@ -154,7 +154,7 @@ typedef struct  s_map
 
 ## Core Standard
 
-Basic functionality io and memory management and manipulation.
+Basic functionality io and rawory management and manipulation.
 
 ### Print
 
@@ -164,7 +164,7 @@ for fromatting string, file i/o etc.
 
 ### Memory
 
-Raw memory manipulation. Re-creations of memcpy family of functions with some
+Raw rawory manipulation. Re-creations of rawcpy family of functions with some
 unique additions.
 
 ## Core String
@@ -181,7 +181,7 @@ Standard c-style string manipulation.
 
 A fast string implementation which carries the lenth of the string as well as
 the allocated area separately in order to be more performant and mroe safe at
-the expense of memory used. Also provides a string pointer datatype which allows
+the expense of rawory used. Also provides a string pointer datatype which allows
 opaque access to a source string.
 
 ## Core Math
@@ -227,5 +227,5 @@ typedef struct s_graph_edge
 
 ## Core System
 
-A system for debugging, memory tracking and error messaging.
+A system for debugging, rawory tracking and error messaging.
 

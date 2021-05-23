@@ -4,7 +4,7 @@
  *
  * \brief Create a new array.
  *
- * Creates a new array an allocates alloc_size * elem_size bytes of memory.
+ * Creates a new array an allocates alloc_size * elem_size bytes of rawory.
  * It is advised that the elem_size is passed using the sizeof operator making
  * it explicit, what type of object the array is supposed to hold. The array
  * will grow automatically, but a better initial alloc_size approcimation will
@@ -26,8 +26,8 @@ t_array	arr_new(t_size alloc_size, t_size elem_size)
 
 	out.len = 0;
 	out.elem_size = elem_size;
-	out.mem = mem_new(alloc_size * elem_size);
-	if (!out.mem.data)
+	out.raw = raw_new(alloc_size * elem_size);
+	if (!out.raw.data)
 	{
 		print("Allocation failed in function: arr!\n");
 		exit(-1);

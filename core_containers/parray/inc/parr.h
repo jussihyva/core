@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 06:09:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/23 18:01:47 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/23 21:26:54 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_ssize			parr_null(t_parray *arr);
 /*
 **	---------------------------------------------------------------------------
 **
-**	Add or delete member(s)
+**	Add or delete rawber(s)
 */
 
 t_ssize			parr_add(t_parray *arr, void *node, t_size index);
@@ -44,7 +44,7 @@ t_ssize			parr_del_last(t_parray *arr);
 /*
 **	---------------------------------------------------------------------------
 **
-**	Get or take a member
+**	Get or take a rawber
 */
 
 void			*parr_get(t_parray *arr, t_size index);

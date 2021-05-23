@@ -86,7 +86,7 @@ void	*mcpy(void *dst, const void *restrict src, t_size n)
 **
 **	mcpy
 **
-**	Void memory copy; copies `n` bytes from memory area `src` to memory area
+**	Void rawory copy; copies `n` bytes from rawory area `src` to rawory area
 **	`dst`. If `dst` and `src` overlap, behavior is undefined. Applications in
 **	which `dst` and `src` might overlap should use `mmove` instead.
 **

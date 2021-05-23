@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/23 18:02:19 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/23 21:26:54 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ t_ssize	parr_add(t_parray *arr, void *data, t_size index)
 **
 **	PARR_ADD
 **
-**	Add a new member to any index in an array. If index exceeds member
-**	len, new member is added to the end of the array.
+**	Add a new rawber to any index in an array. If index exceeds rawber
+**	len, new rawber is added to the end of the array.
 **
 **  ----------------------------------------------------------------------------
 */

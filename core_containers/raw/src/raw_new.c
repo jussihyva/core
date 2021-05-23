@@ -1,7 +1,7 @@
 #include "../../../inc/core.h"
 #include "../../../core_system/inc/system_internal.h"
 
-void	create_tracker(t_mem mem)
+void	create_tracker(t_raw raw)
 {
 	t_tracker	*tracker;
 	t_core		*core;
@@ -12,41 +12,41 @@ void	create_tracker(t_mem mem)
 		tracker->trace = cr_stacktrace(2);
 	else
 		tracker->trace = CR_PARR_NULL;
-	tracker->mem = mem;
+	tracker->raw = raw;
 	parr_add_last(&core->allocs, tracker);
 }
 
-t_ssize	mem_setup(t_mem mem)
+t_ssize	raw_setup(t_raw raw)
 {
 	t_core	*core;
 
 	core = cr_static();
-	if (!mem.data && CR_RECOVERY_POLICY == 0)
+	if (!raw.data && CR_RECOVERY_POLICY == 0)
 	{
 		cr_error(CR_FILE_POS, "FAILED ALLOCATION");
 		cr_log();
 		exit(-1);
 	}
-	else if (!mem.data && CR_RECOVERY_POLICY == 1)
+	else if (!raw.data && CR_RECOVERY_POLICY == 1)
 	{
 		cr_error(CR_FILE_POS, "FAILED ALLOCATION");
 		return (0);
 	}
 	if (core->track_allocs == 1)
-		create_tracker(mem);
+		create_tracker(raw);
 	return (1);
 }
 
-t_mem	mem_new(t_size bytes)
+t_raw	raw_new(t_size bytes)
 {
-	t_mem	out;
+	t_raw	out;
 	t_core	*core;
 
 	core = cr_static();
 	out.data = malloc(bytes);
 	out.size = bytes;
 	if (core->active == TRUE)
-		if (!(mem_setup(out)))
+		if (!(raw_setup(out)))
 			return (CR_MEM_NULL);
 	return (out);
 }
