@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 06:09:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/20 22:06:21 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/23 18:01:47 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 **	General
 */
 
-t_parray		parr(t_size size);
+t_parray		parr_new(t_size size);
 t_ssize			parr_free(t_parray *arr);
 t_ssize			parr_grow(t_parray *arr, t_size new_size);
 t_ssize			parr_null(t_parray *arr);

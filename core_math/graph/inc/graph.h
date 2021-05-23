@@ -14,7 +14,7 @@
  *
  */
 
-t_graph			graph(void);
+t_graph			graph_new(void);
 t_ssize			graph_add_node(t_graph *g, const char *key, void *attr);
 t_graph_node	*graph_find_node(t_graph *g, const char *key);
 t_ssize			graph_add_edge(t_graph *g, const char *s_key,

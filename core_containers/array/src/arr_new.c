@@ -20,7 +20,7 @@
 
 #include "../../../inc/core.h"
 
-t_array	arr(t_size alloc_size, t_size elem_size)
+t_array	arr_new(t_size alloc_size, t_size elem_size)
 {
 	t_array	out;
 

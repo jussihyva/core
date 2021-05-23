@@ -63,7 +63,7 @@ typedef struct	s_str
 
 typedef t_pmem	t_pstr;
 
-typedef t_parray t_page;
+typedef t_array t_page;
 
 /// Map
 

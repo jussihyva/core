@@ -18,7 +18,7 @@ CPPFLAGS	=	-I $(INC_DIR)
 DEPFLAGS	=	-MT $@ -MMD -MP -MF $(DEP_DIR)$*.d
 COMPILE.c	=	$(CC) $(DEPFLAGS) $(CFLAGS) $(CPPFLAGS) -c
 
-SRC_BASE	=	graph.c \
+SRC_BASE	=	graph_new.c \
 				graph_null.c \
 				graph_add_node.c \
 				graph_add_edge.c \

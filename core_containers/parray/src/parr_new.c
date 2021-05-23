@@ -12,7 +12,7 @@
 
 #include "../../../inc/core.h"
 
-t_parray	parr(t_size size)
+t_parray	parr_new(t_size size)
 {
 	t_parray	out;
 

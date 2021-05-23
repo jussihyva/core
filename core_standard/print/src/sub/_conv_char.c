@@ -73,8 +73,7 @@ int	_conv_string(t_data *specs, char **result)
 		*result = parse_str_result(specs, str, str_len);
 	if (*result == NULL)
 		return (-1);
-	else
-		return ((int)s_len(*result));
+	return ((int)s_len(*result));
 }
 
 int	_conv_char(t_data *specs, char **result)

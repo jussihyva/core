@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/20 21:57:40 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/23 18:02:19 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_ssize	parr_add(t_parray *arr, void *data, t_size index)
 
 	if (index > arr->len)
 		return (CR_FAIL);
-	newarr = parr(arr->size);
+	newarr = parr_new(arr->size);
 	if (parr_null(&newarr))
 		return (CR_FAIL);
 	i = 0;

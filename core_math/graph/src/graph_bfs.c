@@ -60,7 +60,7 @@ static void	graph_bfs_loop(
 	t_graph_node	*v;
 	t_size			i;
 
-	queue = parr(1);
+	queue = parr_new(1);
 	s->valid = false;
 	parr_add_last(&queue, s);
 	i = 0;
@@ -89,7 +89,7 @@ t_parray	graph_bfs(t_graph *g, const char *s_key, const char *t_key)
 	t = graph_find_node(g, t_key);
 	if (!s)
 		return (CR_PARR_NULL);
-	res = parr(1);
+	res = parr_new(1);
 	graph_bfs_loop(&res, s, t);
 	map_iter(g, graph_node_valid);
 	return (res);

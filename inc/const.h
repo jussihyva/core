@@ -8,7 +8,6 @@
 # define CR_FAIL 0
 # define CR_TRUE 1
 # define CR_FALSE 0
-# define CR_NOALLOC 0
 # define CR_EMPTY -1
 # define CR_WRITE 0
 # define CR_APPEND 1

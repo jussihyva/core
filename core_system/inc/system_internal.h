@@ -16,13 +16,13 @@ typedef struct	s_core
 typedef struct	s_tracker
 {
 	t_mem		mem;
-	t_page		trace;
+	t_parray	trace;
 }				t_tracker;
 
 typedef struct	s_error
 {
 	char		*message;
-	t_page		trace;
+	t_parray	trace;
 }				t_error;
 
 t_core	*cr_static();

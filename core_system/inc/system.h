@@ -16,6 +16,6 @@ void	cr_debug(t_file_pos *file_pos, t_size count, ...);
 void	cr_activate(void);
 void	cr_deactivate(void);
 void	cr_log(void);
-t_page	cr_stacktrace(t_size offset);
+t_parray	cr_stacktrace(t_size offset);
 
 #endif

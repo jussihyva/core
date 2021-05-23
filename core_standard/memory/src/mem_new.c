@@ -37,7 +37,7 @@ t_ssize	mem_setup(t_mem mem)
 	return (1);
 }
 
-t_mem	mem(t_size bytes)
+t_mem	mem_new(t_size bytes)
 {
 	t_mem	out;
 	t_core	*core;

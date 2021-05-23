@@ -32,6 +32,25 @@ typedef struct	s_data
 	va_list		*ap;
 }				t_data;
 
+typedef union	u_ret
+{
+	char		c;
+	char		*cptr;
+	t_str		str;
+	t_int8		i8;
+	t_int16		i16;
+	t_int32		i32;
+	t_int64		i64;
+	t_uint8		u8;
+	t_uint16	u16;
+	t_uint32	u32;
+	t_uint64	u64;
+	float		f;
+	double		d;
+	long double	ld;
+	void		*vptr;
+}				t_ret;
+
 static const char types [] = "%cdiouxXbeEfFsSp";
 
 typedef int (*t_fptr)(t_data *, char **);
