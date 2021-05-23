@@ -3,7 +3,8 @@ NAME		=	libcore.a
 ARR 		=	core_containers/array/
 PARR 		=	core_containers/parray/
 MAP 		=	core_containers/map/
-MEM 		=	core_standard/memory/
+MEMORY 		=	core_standard/memory/
+MEM 		=	core_containers/mem/
 PRINT		=	core_standard/print/
 CHECKS		=	core_standard/checks/
 LIN 		=	core_math/linear_algebra/
@@ -20,6 +21,7 @@ OBJ			=	obj/
 
 all:
 			+@make -C $(MEM)
+			+@make -C $(MEMORY)
 			+@make -C $(ARR)
 			+@make -C $(LIN)
 			+@make -C $(PARR)
@@ -33,6 +35,7 @@ all:
 			+@make -C $(SYSTEM)
 			@mkdir -p $(OBJ)
 			@mv $(MEM)obj/*.o $(OBJ)
+			@mv $(MEMORY)obj/*.o $(OBJ)
 			@mv $(ARR)obj/*.o $(OBJ)
 			@mv $(LIN)obj/*.o $(OBJ)
 			@mv $(PARR)obj/*.o $(OBJ)
@@ -50,6 +53,7 @@ all:
 
 clean:
 			@make clean -C $(MEM)
+			@make clean -C $(MEMORY)
 			@make clean -C $(ARR)
 			@make clean -C $(LIN)
 			@make clean -C $(PARR)
@@ -67,6 +71,7 @@ fclean:		clean
 			@$(RM) $(NAME)
 			@$(RM) $(OBJ)
 			@make fclean -C $(MEM)
+			@make fclean -C $(MEMORY)
 			@make fclean -C $(ARR)
 			@make fclean -C $(LIN)
 			@make fclean -C $(PARR)

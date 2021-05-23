@@ -4,7 +4,7 @@
 #
 ###############################################################################
 
-NAME		=	libmemory.a
+NAME		=	libmem.a
 
 SRC_DIR		=	src/
 INC_DIR		=	inc/
@@ -13,23 +13,19 @@ DEP_DIR		=	.deps/
 
 CC			=	gcc
 CFLAGS 		=	-O3 -Wall -Wextra -Werror -fPIC
-DFLAGS		==	-Wunreachable-code -Wconversion -Wpedantic -Wtype-limits
+DFLAGS		=	-Wunreachable-code -Wconversion -Wpedantic -Wtype-limits
 CPPFLAGS	=	-I $(INC_DIR)
 DEPFLAGS	=	-MT $@ -MMD -MP -MF $(DEP_DIR)$*.d
 COMPILE.c	=	$(CC) $(DEPFLAGS) $(CFLAGS) $(CPPFLAGS) -c
 
-SRC_BASE	=	mcalloc.c \
-				mccpy.c \
-				mchr.c \
-				mcmp.c \
-				mcpy.c \
-				mcpy_safe.c \
-				mdel.c \
-				mswap.c \
-				minit.c \
-				mmove.c \
-				mset.c \
-				mzero.c \
+SRC_BASE	=	hmem_range.c \
+				mem_assign.c \
+				mem_chr.c \
+				mem_cpy.c \
+				mem_free.c \
+				mem_realloc.c \
+				mem_new.c \
+				mem_print.c \
 
 SRC			=	$(addprefix $(SRC_DIR), $(SRC_BASE))
 OBJ			=	$(addprefix $(OBJ_DIR), $(SRC_BASE:.c=.o))
@@ -39,7 +35,7 @@ all:
 
 $(NAME): $(OBJ)
 
-				@echo "\\n\033[32;1mMEMORY FUNCTIONS COMPILED\033[0m \\n"
+				@echo "\\n\033[32;1mMAP FUNCTIONS COMPILED\033[0m \\n"
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(DEP_DIR)%.d | $(OBJ_DIR) $(DEP_DIR)
 				@$(COMPILE.c) $< -o $@

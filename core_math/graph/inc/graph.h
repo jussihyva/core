@@ -2,7 +2,7 @@
 # define GRAPH_H
 # include "../../../core_containers/parray/inc/parr.h"
 # include "../../../core_containers/map/inc/map.h"
-# include "../../../core_standard/memory/inc/mem.h"
+# include "../../../core_standard/memory/inc/memory.h"
 # include "../../../core_string/cstring/inc/cstr.h"
 #include "../../../inc/types.h"
 
