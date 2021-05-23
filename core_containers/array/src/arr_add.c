@@ -1,20 +1,20 @@
-/******************************************************************************
- *
- * \authors Julius Koskela
- *
- * \brief Add element to a specific index in a dynamic dstay.
- *
- * Add an element to an index passed as an argument. If index is out of bounds
- * returns 0.
- *
- * \param dst Destination array.
- * \param elem Element to be added.
- * \param index Index where element will be added.
- * \return 1 on success 0 on failure.
- *
- *****************************************************************************/
+///////////////////////////////////////////////////////////////////////////////
+///
+/// \authors Julius Koskela
+///
+/// \brief Add element to a specific index in a dynamic dstay.
+///
+/// Add an element to an index passed as an argument. If index is out of bounds
+/// returns 0.
+///
+/// \param dst Destination array.
+/// \param elem Element to be added.
+/// \param index Index where element will be added.
+/// \return 1 on success 0 on failure.
+///
+///////////////////////////////////////////////////////////////////////////////
 
-#include "../../../inc/core.h"
+#include "../inc/array.h"
 
 t_ssize	arr_add(t_array *dst, void *elem, t_size index)
 {

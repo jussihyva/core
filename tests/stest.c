@@ -10,7 +10,7 @@ t_size	iters = 5000;
 t_str	big_string()
 {
 	t_str	str;
-	size_t	i;
+	t_size	i;
 	str = str_new(STRINGSIZE);
 	i = 0;
 	while (i < STRINGSIZE)

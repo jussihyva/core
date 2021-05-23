@@ -1,4 +1,4 @@
-#include "../../../inc/core.h"
+#include "../inc/string.h"
 
 t_ssize	page_read_file(t_page *dst, char *filename)
 {

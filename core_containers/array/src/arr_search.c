@@ -1,20 +1,20 @@
-/******************************************************************************
- *
- * \authors Julius Koskela
- *
- * \brief Search array key from src.
- *
- * Searches for data in src that matches the whole data in key and returns the
- * index of the first matching element.
- *
- * \param src Source array.
- * \param key Array data to be matched.
- *
- * \return Index of the fisrt matching element on success, -1 on failure.
- *
- *****************************************************************************/
+///////////////////////////////////////////////////////////////////////////////
+///
+/// \authors Julius Koskela
+///
+/// \brief Search array key from src.
+///
+/// Searches for data in src that matches the whole data in key and returns the
+/// index of the first matching element.
+///
+/// \param src Source array.
+/// \param key Array data to be matched.
+///
+/// \return Index of the fisrt matching element on success, -1 on failure.
+///
+///////////////////////////////////////////////////////////////////////////////
 
-#include "../../../inc/core.h"
+#include "../inc/array.h"
 
 t_ssize	arr_search(t_array *src, t_array *key)
 {

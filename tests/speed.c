@@ -9,7 +9,7 @@ t_size	iters = 500;
 char	*big_string()
 {
 	char	*str;
-	size_t	i;
+	t_size	i;
 	str = malloc(sizeof(char) * STRINGSIZE + 1);
 	i = 0;
 	while (i < STRINGSIZE)

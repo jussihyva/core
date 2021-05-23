@@ -1,6 +1,6 @@
-#include "../../../inc/core.h"
+#include "../inc/string.h"
 
-t_hstr	hstr_range(t_str src, size_t s, size_t t)
+t_hstr	hstr_range(t_str src, t_size s, t_size t)
 {
 	t_raw	raw;
 

@@ -1,4 +1,4 @@
-#include "../../../inc/core.h"
+#include "../inc/string.h"
 
 t_ssize	free_str(void *data, t_size i)
 {

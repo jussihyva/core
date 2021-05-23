@@ -1,16 +1,25 @@
-/******************************************************************************
- *
- * \brief Dynamic array implementation library.
- *
- * \authors Julius Koskela
- *
- *****************************************************************************/
-
 #ifndef ARRAY_H
 # define ARRAY_H
 
-# include "../../../core_system/inc/system.h"
-# include "../../../inc/types.h"
+///////////////////////////////////////////////////////////////////////////////
+///
+/// \brief Dynamic array implementation library.
+///
+/// \authors Julius Koskela
+///
+///////////////////////////////////////////////////////////////////////////////
+
+#include "../../../inc/types.h"
+#include "../../../inc/config.h"
+#include "../../../inc/const.h"
+#include "../../../core_system/inc/system.h"
+#include "../../../core_standard/print/inc/print.h"
+#include "../../../core_containers/raw/inc/raw.h"
+#include "../../../core_standard/memory/inc/memory.h"
+#include "../../../core_containers/array/inc/array.h"
+#include "../../../core_string/cstring/inc/cstr.h"
+
+///////////////////////////////////////////////////////////////////////////////
 
 t_array		arr_new(t_size len, t_size elem_size);
 void		*arr_get(t_array *src, t_size index);
@@ -43,5 +52,7 @@ t_ssize		arr_find_by(t_array *arr, const void *key,
 			t_ssize (*f)(const void *, const void *));
 t_ssize		arr_parse(t_array *dst, t_array *src,
 			t_ssize (*f)(t_array *, void *));
+
+///////////////////////////////////////////////////////////////////////////////
 
 #endif

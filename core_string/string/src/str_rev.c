@@ -1,4 +1,4 @@
-# include "../../../inc/core.h"
+#include "../inc/string.h"
 
 void	str_rev(t_str *src)
 {

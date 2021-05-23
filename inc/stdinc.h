@@ -5,5 +5,8 @@
 # include <stdio.h>
 # include <float.h>
 # include <stdarg.h>
+# include <execinfo.h>
+# include <math.h>
+# include <fcntl.h>
 
 #endif

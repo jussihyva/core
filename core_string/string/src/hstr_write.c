@@ -1,4 +1,4 @@
-#include "../../../inc/core.h"
+#include "../inc/string.h"
 
 void	hstr_write(t_hstr str)
 {

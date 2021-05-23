@@ -1,16 +1,16 @@
-/******************************************************************************
- *
- * \authors Julius Koskela
- *
- * \brief Checks if the array is a null array.
- *
- * \param src The source array.
- *
- * \return 1 on success 0 on failure.
- *
- *****************************************************************************/
+///////////////////////////////////////////////////////////////////////////////
+///
+/// \authors Julius Koskela
+///
+/// \brief Checks if the array is a null array.
+///
+/// \param src The source array.
+///
+/// \return 1 on success 0 on failure.
+///
+///////////////////////////////////////////////////////////////////////////////
 
-#include "../../../inc/core.h"
+#include "../inc/array.h"
 
 t_ssize	arr_null(t_array *src)
 {

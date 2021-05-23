@@ -1,21 +1,21 @@
-/******************************************************************************
- *
- * \authors Julius Koskela
- *
- * \brief Join arrays.
- *
- * Appends elements from src to dst. Arrays need to have identical element
- * sizes or function returns an error. However the function can't know if the
- * elements not are the same if they have the same size.
- *
- * \param dst Destination array.
- * \param src Source array.
- *
- * \return 1 on success and 0 on failure.
- *
- *****************************************************************************/
+///////////////////////////////////////////////////////////////////////////////
+///
+/// \authors Julius Koskela
+///
+/// \brief Join arrays.
+///
+/// Appends elements from src to dst. Arrays need to have identical element
+/// sizes or function returns an error. However the function can't know if the
+/// elements not are the same if they have the same size.
+///
+/// \param dst Destination array.
+/// \param src Source array.
+///
+/// \return 1 on success and 0 on failure.
+///
+///////////////////////////////////////////////////////////////////////////////
 
-#include "../../../inc/core.h"
+#include "../inc/array.h"
 
 t_ssize	arr_join(t_array *dst, t_array *src)
 {

@@ -1,10 +1,18 @@
 #ifndef TYPES_H
 # define TYPES_H
+
+///////////////////////////////////////////////////////////////////////////////
+///
+/// \brief Typedefs for the core library.
+///
+/// \authors Julius Koskela
+///
+///////////////////////////////////////////////////////////////////////////////
+
 # include <string.h>
 # include <unistd.h>
 
-
-/// Standard redef
+/// Standard redef ////////////////////////////////////////////////////////////
 
 typedef unsigned char		t_byte;
 typedef unsigned long long	t_size;
@@ -18,14 +26,14 @@ typedef unsigned short int	t_uint16;
 typedef unsigned int		t_uint32;
 typedef unsigned long long	t_uint64;
 
-/// Boolean
+/// Boolean ///////////////////////////////////////////////////////////////////
 
 typedef enum	e_bool
 {
 	FALSE, TRUE
 }				t_bool;
 
-/// Memory
+/// Memory ////////////////////////////////////////////////////////////////////
 
 typedef struct	s_raw
 {
@@ -35,7 +43,7 @@ typedef struct	s_raw
 
 typedef t_raw	t_hraw;
 
-/// Array
+/// Array /////////////////////////////////////////////////////////////////////
 
 typedef struct	s_array
 {
@@ -44,7 +52,7 @@ typedef struct	s_array
 	t_size		elem_size;
 }				t_array;
 
-/// Pointer Array
+/// Pointer Array /////////////////////////////////////////////////////////////
 
 typedef struct	s_parray
 {
@@ -53,7 +61,7 @@ typedef struct	s_parray
 	t_size		size;
 }				t_parray;
 
-/// String
+/// String ////////////////////////////////////////////////////////////////////
 
 typedef struct	s_str
 {
@@ -65,7 +73,7 @@ typedef t_hraw	t_hstr;
 
 typedef t_array t_page;
 
-/// Map
+/// Map ///////////////////////////////////////////////////////////////////////
 
 typedef struct	s_map_node
 {
@@ -84,7 +92,7 @@ typedef struct	s_map
 	t_uint64	(*resize)(t_uint64);
 }				t_map;
 
-/// Graph
+/// Graph /////////////////////////////////////////////////////////////////////
 
 typedef t_map		t_graph;
 typedef t_parray	t_edges;
@@ -107,7 +115,7 @@ typedef struct s_graph_edge
 	void			*attr;
 }					t_graph_edge;
 
-/// Linear Algebra
+/// Linear Algebra ////////////////////////////////////////////////////////////
 
 typedef struct	s_vec
 {

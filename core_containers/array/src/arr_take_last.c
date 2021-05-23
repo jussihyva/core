@@ -1,20 +1,20 @@
-/******************************************************************************
- *
- * \authors Julius Koskela
- *
- * \brief Take the last element from an array.
- *
- * Take is a combination of get and del. A pointer to an allocated rawory dst
- * sufficient to hold the results has to be passed as a parameter.
- *
- * \param dst Destination rawory.
- * \param src source array.
- *
- * \return Pointer to dst.
- *
- *****************************************************************************/
+///////////////////////////////////////////////////////////////////////////////
+///
+/// \authors Julius Koskela
+///
+/// \brief Take the last element from an array.
+///
+/// Take is a combination of get and del. A pointer to an allocated rawory dst
+/// sufficient to hold the results has to be passed as a parameter.
+///
+/// \param dst Destination rawory.
+/// \param src source array.
+///
+/// \return Pointer to dst.
+///
+///////////////////////////////////////////////////////////////////////////////
 
-#include "../../../inc/core.h"
+#include "../inc/array.h"
 
 void	*arr_take_last(void *dst, t_array *src)
 {

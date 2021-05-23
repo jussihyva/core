@@ -39,7 +39,7 @@ static t_ssize	graph_iter_edges(
 			return (-1);
 		if (e->valid && e->v->valid)
 		{
-			e->v->valid = false;
+			e->v->valid = FALSE;
 			parr_add_last(res, e);
 			parr_add_last(queue, e->v);
 			v = parr_get(queue, queue_index);
@@ -48,7 +48,7 @@ static t_ssize	graph_iter_edges(
 		}
 		i++;
 	}
-	return (false);
+	return (FALSE);
 }
 
 static void	graph_bfs_loop(
@@ -61,13 +61,13 @@ static void	graph_bfs_loop(
 	t_size			i;
 
 	queue = parr_new(1);
-	s->valid = false;
+	s->valid = FALSE;
 	parr_add_last(&queue, s);
 	i = 0;
 	while (i < queue.len)
 	{
 		v = parr_get(&queue, i);
-		v->valid = false;
+		v->valid = FALSE;
 		if (graph_iter_edges(res, &queue, t, i))
 		{
 			parr_free(&queue);

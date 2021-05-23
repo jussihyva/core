@@ -2,7 +2,7 @@
 
 void	raw_print(t_raw src)
 {
-	size_t	i;
+	t_size	i;
 
 	i = 0;
 	while (i < src.size - 1)

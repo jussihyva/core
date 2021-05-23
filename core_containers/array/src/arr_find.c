@@ -1,18 +1,18 @@
-/******************************************************************************
- *
- * \authors Julius Koskela
- *
- * \brief Find an index of an element.
- *
- * Finds the index of an element passed as an argument from the array src.
- *
- * \param src Source array.
- * \param key The element to be searched.
- * \return Index of the element or -1 on failure.
- *
- *****************************************************************************/
+///////////////////////////////////////////////////////////////////////////////
+///
+/// \authors Julius Koskela
+///
+/// \brief Find an index of an element.
+///
+/// Finds the index of an element passed as an argument from the array src.
+///
+/// \param src Source array.
+/// \param key The element to be searched.
+/// \return Index of the element or -1 on failure.
+///
+///////////////////////////////////////////////////////////////////////////////
 
-#include "../../../inc/core.h"
+#include "../inc/array.h"
 
 t_ssize	arr_find(t_array *src, void *key)
 {

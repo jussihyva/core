@@ -1,4 +1,4 @@
-#include "../../../inc/core.h"
+#include "../inc/string.h"
 
 t_str	str_new(t_size len)
 {

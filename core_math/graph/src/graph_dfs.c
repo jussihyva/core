@@ -28,7 +28,7 @@ static void	graph_dfs_loop(
 	t_size			i;
 
 	v->valid = 0;
-	i = false;
+	i = FALSE;
 	while (i < v->out.len)
 	{
 		e = parr_get(&v->out, i);

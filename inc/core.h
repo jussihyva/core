@@ -1,18 +1,21 @@
 #ifndef cr_H
 # define cr_H
 
-# include <stdlib.h>
+// # include <stdlib.h>
 
-# include <string.h>
-# include <stdarg.h>
-# include <unistd.h>
-# include <errno.h>
-# include <fcntl.h>
-# include <math.h>
-# include <limits.h>
-# include <stdbool.h>
+// # include <string.h>
+// # include <stdarg.h>
+// # include <unistd.h>
+// # include <errno.h>
+// # include <fcntl.h>
+// # include <math.h>
+// # include <limits.h>
+// # include <stdbool.h>
 
-# include <execinfo.h>
+// # include <execinfo.h>
+
+# include "const.h"
+# include "config.h"
 
 # include "../core_containers/array/inc/array.h"
 # include "../core_containers/parray/inc/parr.h"
@@ -27,7 +30,5 @@
 # include "../core_string/string/inc/string.h"
 # include "../core_standard/checks/inc/checks.h"
 # include "../core_system/inc/system.h"
-# include "const.h"
-# include "config.h"
 
 #endif

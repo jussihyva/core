@@ -1,18 +1,18 @@
-/******************************************************************************
- *
- * \authors Julius Koskela
- *
- * \brief Delete last element in a dynamic array.
- *
- * If the element has pointers to allocated rawory, those have to be handled
- * by the user.
- *
- * \param src Source array.
- * \return 1 on success 0 on failure.
- *
- *****************************************************************************/
+///////////////////////////////////////////////////////////////////////////////
+///
+/// \authors Julius Koskela
+///
+/// \brief Delete last element in a dynamic array.
+///
+/// If the element has pointers to allocated rawory, those have to be handled
+/// by the user.
+///
+/// \param src Source array.
+/// \return 1 on success 0 on failure.
+///
+///////////////////////////////////////////////////////////////////////////////
 
-#include "../../../inc/core.h"
+#include "../inc/array.h"
 
 t_ssize	arr_del_last(t_array *src)
 {

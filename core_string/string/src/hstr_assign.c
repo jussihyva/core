@@ -1,6 +1,6 @@
-#include "../../../inc/core.h"
+#include "../inc/string.h"
 
-t_hstr	hstr_assign(void *src, size_t size)
+t_hstr	hstr_assign(void *src, t_size size)
 {
 	return (raw_assign(src, size));
 }

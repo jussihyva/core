@@ -1,13 +1,20 @@
-/******************************************************************************
- * \authors Julius Koskela
- * \brief Unfinished!
- * \param
- * \return
- *****************************************************************************/
+///////////////////////////////////////////////////////////////////////////////
+///
+/// \authors Julius Koskela
+///
+/// \brief Transfer elements from a standard array to a dynamic array.
+///
+/// \param dst Destination array.
+/// \param src Source data.
+///	\param len Source data element count
+///
+/// \return Total length of the array after operation.
+///
+///////////////////////////////////////////////////////////////////////////////
 
-#include "../../../inc/core.h"
+#include "../inc/array.h"
 
-t_ssize	arr_put(t_array *dst, void *src, t_size size)
+t_ssize	arr_put(t_array *dst, void *src, t_size len)
 {
 	t_size	i;
 	t_byte	*raw;
@@ -16,7 +23,7 @@ t_ssize	arr_put(t_array *dst, void *src, t_size size)
 		return (CR_FAIL);
 	raw = src;
 	i = 0;
-	while (i < size)
+	while (i < len)
 	{
 		arr_add_last(dst, raw);
 		raw += dst->elem_size;

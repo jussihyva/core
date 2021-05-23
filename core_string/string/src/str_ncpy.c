@@ -1,6 +1,6 @@
-#include "../../../inc/core.h"
+#include "../inc/string.h"
 
-t_str	str_ncpy(t_str dst, t_str src, size_t len)
+t_str	str_ncpy(t_str dst, t_str src, t_size len)
 {
 	if (dst.raw.size < len)
 		raw_realloc(&dst.raw, src.len);

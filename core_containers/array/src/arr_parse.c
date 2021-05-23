@@ -1,24 +1,24 @@
-/******************************************************************************
- *
- * \authors Julius Koskela
- *
- * \brief Iterate the array for each element for parsing.
- *
- * Iterates over each element of the src array. At each iteration a user
- * defined function f is called and dst array as well as current rawber passed
- * as parameters. Intended usage is for parsing each rawber and putting the
- * results in the dst array. Iteration can be stopped by returning a
- * non-positive integer from f.
- *
- * \param dst Destination array.
- * \param src Source array.
- * \param f Function f to be called for each rawber.
- *
- * \return Amount of elements iterated on success 0 on failure.
- *
- *****************************************************************************/
+///////////////////////////////////////////////////////////////////////////////
+///
+/// \authors Julius Koskela
+///
+/// \brief Iterate the array for each element for parsing.
+///
+/// Iterates over each element of the src array. At each iteration a user
+/// defined function f is called and dst array as well as current rawber passed
+/// as parameters. Intended usage is for parsing each rawber and putting the
+/// results in the dst array. Iteration can be stopped by returning a
+/// non-positive integer from f.
+///
+/// \param dst Destination array.
+/// \param src Source array.
+/// \param f Function f to be called for each rawber.
+///
+/// \return Amount of elements iterated on success 0 on failure.
+///
+///////////////////////////////////////////////////////////////////////////////
 
-#include "../../../inc/core.h"
+#include "../inc/array.h"
 
 t_ssize	arr_parse(t_array *dst, t_array *src,
 		t_ssize (*f)(t_array *, void *))

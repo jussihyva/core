@@ -21,7 +21,7 @@ static t_ssize	deactivate_tracker(t_raw *raw)
 		}
 		i++;
 	}
-	return (false);
+	return (FALSE);
 }
 
 void	raw_free(t_raw *raw)

@@ -1,4 +1,4 @@
-# include "../../../inc/core.h"
+#include "../inc/string.h"
 
 static t_ssize	print_str(void *data, t_size i)
 {

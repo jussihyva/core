@@ -1,6 +1,6 @@
 #include "../../../inc/core.h"
 
-t_hraw	hraw_range(t_raw src, size_t s, size_t t)
+t_hraw	hraw_range(t_raw src, t_size s, t_size t)
 {
 	t_hraw	new;
 

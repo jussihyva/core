@@ -51,7 +51,7 @@ t_size	iters = 5000;
 t_fstr	big_string()
 {
 	t_fstr	str;
-	size_t	i;
+	t_size	i;
 	str = raw(sizeof(char) * STRINGSIZE);
 	i = 0;
 	while (i < STRINGSIZE)

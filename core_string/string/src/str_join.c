@@ -1,4 +1,4 @@
-#include "../../../inc/core.h"
+#include "../inc/string.h"
 
 t_str	str_join(t_str dst, t_str src)
 {

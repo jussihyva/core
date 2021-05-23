@@ -1,20 +1,20 @@
-/**
- *
- * \authors Julius Koskela
- *
- * \brief Rotate a dynamic array.
- *
- * Number of rotations passed as a parameter. A negative number rotates the
- * array counter-clockwise, positive clockwise. 0 does nothing.
- *
- * \param src Source array.
- * \param steps Amount of rotations.
- *
- * \return 1 on success 0 on failure.
- *
- */
+///////////////////////////////////////////////////////////////////////////////
+///
+/// \authors Julius Koskela
+///
+/// \brief Rotate a dynamic array.
+///
+/// Number of rotations passed as a parameter. A negative number rotates the
+/// array counter-clockwise, positive clockwise. 0 does nothing.
+///
+/// \param src Source array.
+/// \param steps Amount of rotations.
+///
+/// \return 1 on success 0 on failure.
+///
+///////////////////////////////////////////////////////////////////////////////
 
-#include "../../../inc/core.h"
+#include "../inc/array.h"
 
 static t_ssize	rot(t_array *src, t_ssize steps)
 {

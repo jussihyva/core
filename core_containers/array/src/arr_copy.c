@@ -1,19 +1,19 @@
-/******************************************************************************
- *
- * \authors Julius Koskela
- *
- * \brief Copy elements from src to dst.
- *
- * Checks that element sizes match between the arrays and copies from src to
- * dst. Overrides any data in dst.
- *
- * \param dst Destination array.
- * \param src Source array.
- * \return 1 on success 0 on failure.
- *
- *****************************************************************************/
+///////////////////////////////////////////////////////////////////////////////
+///
+/// \authors Julius Koskela
+///
+/// \brief Copy elements from src to dst.
+///
+/// Checks that element sizes match between the arrays and copies from src to
+/// dst. Overrides any data in dst.
+///
+/// \param dst Destination array.
+/// \param src Source array.
+/// \return 1 on success 0 on failure.
+///
+///////////////////////////////////////////////////////////////////////////////
 
-#include "../../../inc/core.h"
+#include "../inc/array.h"
 
 t_ssize	arr_copy(t_array *dst, t_array *src)
 {

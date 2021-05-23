@@ -1,18 +1,18 @@
-/******************************************************************************
- *
- * \authors Julius Koskela
- *
- * \brief Delete first element in a dynamic array.
- *
- * If the element has pointers to allocated rawory, those have to be handled
- * by the user.
- *
- * \param src Source array.
- * \return 1 on success 0 on failure.
- *
- *****************************************************************************/
+///////////////////////////////////////////////////////////////////////////////
+///
+/// \authors Julius Koskela
+///
+/// \brief Delete first element in a dynamic array.
+///
+/// If the element has pointers to allocated rawory, those have to be handled
+/// by the user.
+///
+/// \param src Source array.
+/// \return 1 on success 0 on failure.
+///
+///////////////////////////////////////////////////////////////////////////////
 
-#include "../../../inc/core.h"
+#include "../inc/array.h"
 
 t_ssize	arr_del_first(t_array *src)
 {

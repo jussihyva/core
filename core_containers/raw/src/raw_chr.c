@@ -3,7 +3,7 @@
 t_hraw	raw_chr(t_raw src, t_raw b)
 {
 	t_hraw	res;
-	size_t	i;
+	t_size	i;
 
 	res.data = NULL;
 	res.size = 0;
