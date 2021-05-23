@@ -55,8 +55,8 @@ t_edges	graph_dfs(t_graph *g, const char *s_key, const char *t_key)
 	t = graph_find_node(g, t_key);
 	if (!s)
 		return (CR_PARR_NULL);
-	res = parr(1);
-	queue = parr(1);
+	res = parr_new(1);
+	queue = parr_new(1);
 	parr_add_last(&queue, s);
 	graph_dfs_loop(&res, s, t);
 	parr_free(&queue);

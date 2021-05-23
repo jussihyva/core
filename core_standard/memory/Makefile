@@ -31,7 +31,7 @@ SRC_BASE	=	mcalloc.c \
 				mem_cpy.c \
 				mem_free.c \
 				mem_realloc.c \
-				mem.c \
+				mem_new.c \
 				mem_print.c \
 				minit.c \
 				mmove.c \

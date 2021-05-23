@@ -15,7 +15,7 @@ t_pstr	pstr_assign(void *src, size_t size);
 void	pstr_write(t_pstr str);
 t_size	str_cmp(t_str s1, t_str s2);
 
-t_page	page(t_size size);
+t_page	page_new(t_size size);
 t_ssize	page_read_file(t_page *dst, char *filename);
 t_ssize	page_write_file(char *dst, t_page *src, t_ssize flag);
 

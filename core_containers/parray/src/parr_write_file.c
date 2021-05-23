@@ -65,7 +65,7 @@ t_ssize	parr_write_file(char *dst, t_parray *src, t_ssize flag,
 
 	if (parr_null(src))
 		return (CR_FAIL);
-	prepend = parr(1);
+	prepend = parr_new(1);
 	if (flag == CR_PREPEND && !(parr_read_file(&prepend, dst)))
 		return (CR_FAIL);
 	file = open_file(dst, flag);

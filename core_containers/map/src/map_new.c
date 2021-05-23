@@ -7,7 +7,7 @@
 
 #include "../../../inc/core.h"
 
-t_map	map(void)
+t_map	map_new(void)
 {
 	t_map	m;
 	t_size	i;

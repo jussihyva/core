@@ -22,7 +22,7 @@ SRC_BASE	=	map_add.c \
 				map_free.c \
 				map_get.c \
 				map_print.c \
-				map.c \
+				map_new.c \
 				map_del.c \
 				map_iter.c \
 				map_null.c \

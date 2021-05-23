@@ -50,7 +50,7 @@ t_ssize	page_write_file(char *dst, t_page *src, t_ssize flag)
 
 	if (arr_null(src))
 		return (CR_FAIL);
-	prepend = arr(src->len, sizeof(t_str));
+	prepend = arr_new(src->len, sizeof(t_str));
 	if (flag == CR_PREPEND && !(page_read_file(&prepend, dst)))
 		return (CR_FAIL);
 	file = open_file(dst, flag);

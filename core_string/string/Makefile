@@ -39,7 +39,7 @@ SRC_BASE	=	pstr_assign.c \
 				str_write.c \
 				str_rev.c \
 				str_free.c \
-				page.c \
+				page_new.c \
 				page_read_file.c \
 				page_write_file.c \
 				page_print.c \
