@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:31:35 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/24 01:11:14 by julius           ###   ########.fr       */
+/*   Updated: 2021/05/24 02:23:45 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void	*mcpy(void *dst, const void *restrict src, t_size n)
 **
 **	mcpy
 **
-**	Void rawory copy; copies `n` bytes from rawory area `src` to rawory area
+**	Void memory copy; copies `n` bytes from memory area `src` to memory area
 **	`dst`. If `dst` and `src` overlap, behavior is undefined. Applications in
 **	which `dst` and `src` might overlap should use `mmove` instead.
 **

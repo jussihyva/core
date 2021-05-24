@@ -13,12 +13,12 @@ manner. This implementation emulates the functionality of a C++ std::vector.
     is reached.
 -   Datatype agnostic. When creating the array user specifies an element size
     for the array (preferrably using the sizeof operator).
--   Data is kept straight in rawory for fast iteration. This is not a pointer
+-   Data is kept straight in memory for fast iteration. This is not a pointer
     array, all the data is in the array itself avoiding fragmentation.
 -   Provides get and add methods, but also let's user typecast the arrays data
     portion and iterate it directly for maximum performance.
--   Alrady allocated rawory can be assigned to the array without copying. Array
-    will use the allocated rawory and manipulate it directly unless it runs out.
+-   Alrady allocated memory can be assigned to the array without copying. Array
+    will use the allocated memory and manipulate it directly unless it runs out.
 
 ## Typedefs
 

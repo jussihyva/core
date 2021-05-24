@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:29:59 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/23 21:26:54 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/24 02:23:45 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	*s_ndup(const char *s, t_uint64 n)
 **
 **	String duplicate (n); duplicate `n` characters from `s1`.
 **
-**	Returns a rawory allocated output `out`.
+**	Returns a memory allocated output `out`.
 **
 **  ----------------------------------------------------------------------------
 */

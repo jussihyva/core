@@ -33,7 +33,7 @@ typedef struct  s_parray
 ```
 
 `Count` refers to the number of rawbers in the array. `Size` is the size of the
-allocated rawory associated with the array. Neither should ever be manipulated
+allocated memory associated with the array. Neither should ever be manipulated
 by the user but they can be accessed and checked easily.
 
 The following macros are provided:

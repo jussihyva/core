@@ -35,10 +35,10 @@ void	*mccpy(void *dst, const void *src, int c, t_size n)
 **
 **	mccpy
 **
-**	Void rawory copy (c); copies bytes from string src to string dst.  If
+**	Void memory copy (c); copies bytes from string src to string dst.  If
 **	the character c (as converted to an t_byte) occurs in the string
 **	src, the copy stops and a pointer to the byte after the copy of c in the
-**	rawory dst is returned.  Otherwise, n bytes are copied, and a NULL
+**	memory dst is returned.  Otherwise, n bytes are copied, and a NULL
 **	pointer is returned.
 **
 **  ----------------------------------------------------------------------------

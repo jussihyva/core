@@ -27,7 +27,7 @@ void	*mcalloc(t_size nrawb, t_size size)
 **
 **	mcalloc
 **
-**	Void rawory allocation (c); allocates and formats `nrawb` amount of
+**	Void memory allocation (c); allocates and formats `nrawb` amount of
 **	elements of size `size`.
 **
 **  ----------------------------------------------------------------------------

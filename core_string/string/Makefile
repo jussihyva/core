@@ -4,7 +4,7 @@
 #
 # \brief Add a new element to the beginning of a dynamic array.
 #
-# If the array is not sufficiently big a new rawory area double the
+# If the array is not sufficiently big a new memory area double the
 # alloc_size of the previous one is allocated.
 #
 # \param dst Destination array.
@@ -39,7 +39,11 @@ SRC_BASE	=	hstr_assign.c \
 				str_write.c \
 				str_rev.c \
 				str_free.c \
+				str_toi.c \
+				str_toi_base.c \
+				str_tof.c \
 				page_new.c \
+				page_get.c \
 				page_read_file.c \
 				page_write_file.c \
 				page_print.c \

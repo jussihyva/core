@@ -26,7 +26,7 @@ void	mdel(void **ap)
 **
 **	mdel
 **
-**	Void rawory delete; frees the pointer `ap` passed by reference and
+**	Void memory delete; frees the pointer `ap` passed by reference and
 **	and sets it to `NULL`.
 **
 **  ----------------------------------------------------------------------------

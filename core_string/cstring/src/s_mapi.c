@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:29:34 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/23 21:26:54 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/24 02:23:45 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char	*s_mapi(char const *s, char (*f)(unsigned int, char))
 **	the results in string `out`. Unlike s_iter it passes the index as
 **	parameter to function `f`.
 **
-**	Returns a rawory allocated output `out`.
+**	Returns a memory allocated output `out`.
 **
 **  ----------------------------------------------------------------------------
 */

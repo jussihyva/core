@@ -48,10 +48,10 @@ wish!
 
 ## Features
 
--   A system for allocating sized rawory blocks ie. blocks of rawory that carry
-    their size within the object. These rawory blocks are easy to resize and
+-   A system for allocating sized memory blocks ie. blocks of memory that carry
+    their size within the object. These memory blocks are easy to resize and
     manipulate since user doesn't need to carry the size information.
--   A system for tracking rawory allocations (with backtrace of position in
+-   A system for tracking memory allocations (with backtrace of position in
     the program akin to valgrind or -fsanitize).
 -   A system for better error tracking and debug messaging.
 -   Different program wide policies for error recovery.
@@ -70,32 +70,32 @@ Different container data-structures.
 
 ### Mem
 
-A raw rawory container. Useful for constructing other data-structures or for raw
-rawory manipulation with bounds checking and other tools.
+A raw memory container. Useful for constructing other data-structures or for raw
+memory manipulation with bounds checking and other tools.
 
 ```c
 
 typedef struct  s_raw
 {
-    t_byte      *data;  // Pointer to the start of the rawory area.
-    t_size      size;   // Size of the rawory area.
+    t_byte      *data;  // Pointer to the start of the memory area.
+    t_size      size;   // Size of the memory area.
 }               t_raw;
 
-typedef t_raw   t_hraw; // An opaque rawory handle.
+typedef t_raw   t_hraw; // An opaque memory handle.
 
 ```
 
 ### Array
 
-A dynamic array container. Stores everything in a contiguous block of rawory and
+A dynamic array container. Stores everything in a contiguous block of memory and
 resizes as necessary. Fast, easy to use and great for when the final size of
-data is unknown. May use excess rawory.
+data is unknown. May use excess memory.
 
 ```c
 
 typedef struct  s_array
 {
-    t_raw       raw;        // A sized t_raw rawory block.
+    t_raw       raw;        // A sized t_raw memory block.
     t_size      len;        // Amount of elements in the array.
     t_size      elem_size;  // Size of the array element.
 }               t_array;
@@ -154,7 +154,7 @@ typedef struct  s_map
 
 ## Core Standard
 
-Basic functionality io and rawory management and manipulation.
+Basic functionality io and memory management and manipulation.
 
 ### Print
 
@@ -164,7 +164,7 @@ for fromatting string, file i/o etc.
 
 ### Memory
 
-Raw rawory manipulation. Re-creations of rawcpy family of functions with some
+Raw memory manipulation. Re-creations of rawcpy family of functions with some
 unique additions.
 
 ## Core String
@@ -181,7 +181,7 @@ Standard c-style string manipulation.
 
 A fast string implementation which carries the lenth of the string as well as
 the allocated area separately in order to be more performant and mroe safe at
-the expense of rawory used. Also provides a string pointer datatype which allows
+the expense of memory used. Also provides a string pointer datatype which allows
 opaque access to a source string.
 
 ## Core Math
@@ -227,5 +227,5 @@ typedef struct s_graph_edge
 
 ## Core System
 
-A system for debugging, rawory tracking and error messaging.
+A system for debugging, memory tracking and error messaging.
 

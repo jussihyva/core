@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:30:41 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/23 21:26:54 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/24 02:23:45 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	*s_sub(char const *s, unsigned int start, t_uint64 len)
 **	Substring duplicate; Duplicate contents of `s` starting from index `start`
 **	for lenght `len`.
 **
-**	Return a rawory allocated output `out`.
+**	Return a memory allocated output `out`.
 **
 **  ----------------------------------------------------------------------------
 */

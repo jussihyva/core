@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:29:29 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/23 21:26:54 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/24 02:23:45 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char	*s_map(char const *s, char (*f)(char))
 **	String map; applies function `f` on all elements of string `out` and stores
 **	the results in string `out`.
 **
-**	Returns a rawory allocated output `out`.
+**	Returns a memory allocated output `out`.
 **
 **  ----------------------------------------------------------------------------
 */

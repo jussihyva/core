@@ -27,8 +27,8 @@ void	*minit(t_size size)
 **
 **	minit
 **
-**	Void rawory allocation; allocates `size` bytes of rawory and initializes
-**	the rawory.
+**	Void memory allocation; allocates `size` bytes of memory and initializes
+**	the memory.
 **
 **  ----------------------------------------------------------------------------
 */

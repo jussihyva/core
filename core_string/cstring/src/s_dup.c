@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:28:35 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/23 21:26:54 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/24 02:23:45 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	*s_dup(const char *s1)
 **
 **	String duplicate (c); duplicate contents from string `s1`.
 **
-**	Returns a rawory allocated output `out`.
+**	Returns a memory allocated output `out`.
 **
 **  ----------------------------------------------------------------------------
 */

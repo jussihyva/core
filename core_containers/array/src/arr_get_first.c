@@ -4,7 +4,7 @@
 ///
 /// \brief Get a pointer to the first element in the array.
 ///
-/// Does not copy the element, pointer points directly to the rawory in the
+/// Does not copy the element, pointer points directly to the memory in the
 /// array so be careful.
 ///
 /// \param src Source array.

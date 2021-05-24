@@ -4,7 +4,7 @@
 ///
 /// \brief Get a pointer to an element at a spesific index.
 ///
-/// Does not copy the element, pointer points directly to the rawory in the
+/// Does not copy the element, pointer points directly to the memory in the
 /// array so be careful. Checks for out of bounds index.
 ///
 /// \param src Source array.

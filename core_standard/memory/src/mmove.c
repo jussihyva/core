@@ -1,14 +1,20 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   mmove.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/16 01:31:53 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/19 11:36:40 by jkoskela         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+///////////////////////////////////////////////////////////////////////////////
+///
+/// \authors Julius Koskela
+///
+/// \brief Move memory
+///
+/// Memory move; copies `size` bytes from location `src` to location `dst`.
+/// The two locations may overlap; the copy is always done in a non
+/// destructive manner.
+///
+/// \param dst Pointer to destination memory.
+/// \param src Pointer to source memory.
+///	\param size Size of memory to be moved.
+///
+/// \return Pointer to destination memory.
+///
+///////////////////////////////////////////////////////////////////////////////
 
 #include "../../../inc/core.h"
 
@@ -28,15 +34,3 @@ void	*mmove(void *dst, const void *src, t_size size)
 			*(dst8 + size) = *(src8 + size);
 	return (dst8);
 }
-
-/*
-**  ----------------------------------------------------------------------------
-**
-**	mmove
-**
-**	Void rawory move; copies `size` bytes from string `src` to string `dst`.
-**	The two strings may overlap; the copy is always done in a non-destructive
-**	manner.
-**
-**  ----------------------------------------------------------------------------
-*/

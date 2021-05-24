@@ -4,7 +4,7 @@
 ///
 /// \brief Create a new array.
 ///
-/// Creates a new array an allocates alloc_size/// elem_size bytes of rawory.
+/// Creates a new array and allocates alloc_size * elem_size bytes of memory.
 /// It is advised that the elem_size is passed using the sizeof operator making
 /// it explicit, what type of object the array is supposed to hold. The array
 /// will grow automatically, but a better initial alloc_size approcimation will

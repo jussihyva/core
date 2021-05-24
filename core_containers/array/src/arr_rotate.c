@@ -21,15 +21,16 @@ static t_ssize	rot(t_array *src, t_ssize steps)
 	void	*tmp;
 	t_ssize	i;
 
-	steps = steps * -1LL;
+	tmp = malloc(src->elem_size);
+	steps = steps * -1LLU;
 	i = 0;
 	while (i < steps)
 	{
-		tmp = arr_get_first(src);
+		tmp = arr_take_first(tmp, src);
 		arr_add_last(src, tmp);
-		arr_del_first(src);
 		i++;
 	}
+	free(tmp);
 	return (i);
 }
 

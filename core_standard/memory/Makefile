@@ -4,7 +4,7 @@
 #
 ###############################################################################
 
-NAME		=	librawory.a
+NAME		=	libmemory.a
 
 SRC_DIR		=	src/
 INC_DIR		=	inc/

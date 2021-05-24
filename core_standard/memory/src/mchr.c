@@ -31,7 +31,7 @@ void	*mchr(const void *s, int c, t_size n)
 **
 **	mchr
 **
-**	Void rawory search; function locates the first occurrence of `c`
+**	Void memory search; function locates the first occurrence of `c`
 **	(converted to an unsigned char) in string `s`.
 **
 **	The `mchr` function returns a pointer to the byte located, or NULL if

@@ -4,7 +4,7 @@
 ///
 /// \brief Delete an element from a specific index.
 ///
-/// If the element has pointers to allocated rawory, those have to be handled
+/// If the element has pointers to allocated memory, those have to be handled
 /// by the user. Checks for out of bounds index.
 ///
 /// \param src Source array.
@@ -31,7 +31,7 @@ t_ssize	arr_del(t_array *src, t_size index)
 	raw_start += index * src->elem_size;
 	raw_end = src->raw.data;
 	raw_end += (index + 1) * src->elem_size;
-	mmove(raw_start, raw_end, src->elem_size * (src->len - index));
+	memmove(raw_start, raw_end, src->elem_size * (src->len - index));
 	src->len--;
 	return (CR_SUCCESS);
 }

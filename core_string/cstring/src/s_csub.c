@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:28:24 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/23 21:26:54 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/24 02:23:45 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	*s_csub(char *s, char c)
 **	Substring duplicate from; Duplicate contents of `s` starting from char `c`
 **	until the end of `s`.
 **
-**	Return a rawory allocated output `out`.
+**	Return a memory allocated output `out`.
 **
 **  ----------------------------------------------------------------------------
 */

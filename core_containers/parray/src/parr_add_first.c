@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/23 21:26:54 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/05/24 02:23:45 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_ssize	parr_add_first(t_parray *arr, void *data)
 **	PARR_ADD_FIRST
 **
 **	Add a new rawber to the beginning of a dynamic string. If the string is not
-**	sufficiently big a new rawory area double the size of the previous one
+**	sufficiently big a new memory area double the size of the previous one
 **	is allocated. One extra rawber is added to the allocation for the case
 **	that the string has size 0.
 **

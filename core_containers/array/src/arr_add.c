@@ -23,7 +23,7 @@ t_ssize	arr_add(t_array *dst, void *elem, t_size index)
 
 	if (index > dst->len)
 		return (CR_FAIL);
-	if (dst->len == dst->raw.size / dst->elem_size)
+	if (dst->len == (dst->raw.size / dst->elem_size) - 1)
 		raw_realloc(&dst->raw, dst->raw.size * 2);
 	raw_pos = dst->raw.data;
 	raw_pos += index * dst->elem_size;
