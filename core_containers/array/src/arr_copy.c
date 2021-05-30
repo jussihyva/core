@@ -21,8 +21,8 @@ t_ssize	arr_copy(t_array *dst, t_array *src)
 
 	if (arr_null(src))
 		return (CR_FAIL);
-	if (dst->raw.size / dst->elem_size < src->len)
-		raw_realloc(&dst->raw, dst->raw.size * 2);
+	if (dst->raw.size <= src->len * src->elem_size)
+		raw_realloc(&dst->raw, src->len * src->elem_size);
 	raw_start = dst->raw.data;
 	dst->raw.data = mcpy(
 			raw_start,
