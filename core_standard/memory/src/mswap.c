@@ -99,6 +99,8 @@ void	mswap(void *a, void *b, t_size n)
 
 	raw_a = a;
 	raw_b = b;
+	if (raw_a == raw_b)
+		return ;
 	qwords = n >> 3;
 	aligned_size = qwords << 3;
 	if (n >= 8)
