@@ -42,6 +42,7 @@ void	swapu512(t_uint64 *a, t_uint64 *b)
 	swapu64(&a[4], &b[4]);
 	swapu64(&a[5], &b[5]);
 	swapu64(&a[6], &b[6]);
+	swapu64(&a[7], &b[7]);
 }
 
 static inline
@@ -69,7 +70,7 @@ void	swap_small(t_byte *a, t_byte *b, t_size n)
 }
 
 static inline
-void	swap512(t_uint64 *a, t_uint64 *b, t_size n)
+void	swap_big(t_uint64 *a, t_uint64 *b, t_size n)
 {
 	t_size	chunks;
 	t_size	offset;
@@ -104,7 +105,7 @@ void	mswap(void *a, void *b, t_size n)
 	qwords = n >> 3;
 	aligned_size = qwords << 3;
 	if (n >= 8)
-		swap512((t_uint64 *)a, (t_uint64 *)b, qwords);
+		swap_big((t_uint64 *)a, (t_uint64 *)b, qwords);
 	aligned_size = qwords << 3;
 	n -= aligned_size;
 	raw_a += aligned_size;
