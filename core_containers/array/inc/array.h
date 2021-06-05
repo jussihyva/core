@@ -44,6 +44,7 @@ t_ssize		arr_copy(t_array *dst, t_array *src);
 t_ssize		arr_join(t_array *dst, t_array *src);
 t_ssize		arr_join_mult(t_array *dst, t_size count, ...);
 t_ssize		arr_rotate(t_array *arr, t_ssize steps);
+void		arr_print(t_array *src, char *format);
 t_ssize		arr_iter(t_array *src,
 			t_ssize (*f)(void *, t_size));
 t_ssize		arr_iter_range(t_array *src, t_size start, t_size end,

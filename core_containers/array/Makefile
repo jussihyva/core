@@ -45,6 +45,7 @@ SRC_BASE	=	arr_add.c \
 				arr_null.c \
 				arr_copy.c \
 				arr_rotate.c \
+				arr_print.c \
 
 SRC			=	$(addprefix $(SRC_DIR), $(SRC_BASE))
 OBJ			=	$(addprefix $(OBJ_DIR), $(SRC_BASE:.c=.o))
