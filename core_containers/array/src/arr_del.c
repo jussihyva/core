@@ -19,6 +19,8 @@ t_ssize	arr_del(t_array *src, t_size index)
 {
 	t_byte	*raw_start;
 	t_byte	*raw_end;
+	t_size	rem;
+	t_size	i;
 
 	if (index >= src->len)
 		return (CR_FAIL);
@@ -27,11 +29,18 @@ t_ssize	arr_del(t_array *src, t_size index)
 		src->len--;
 		return (CR_SUCCESS);
 	}
+	rem = src->len * src->elem_size
+		- (index + 1) * src->elem_size;
 	raw_start = src->raw.data;
 	raw_start += index * src->elem_size;
 	raw_end = src->raw.data;
 	raw_end += (index + 1) * src->elem_size;
-	memmove(raw_start, raw_end, src->elem_size * (src->len - index));
+	i = 0;
+	while (i < rem)
+	{
+		*raw_start++ = *raw_end++;
+		i++;
+	}
 	src->len--;
 	return (CR_SUCCESS);
 }
