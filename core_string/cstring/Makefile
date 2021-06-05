@@ -64,6 +64,7 @@ SRC_BASE	=	s_appendc.c \
 				s_swp.c \
 				s_trim.c \
 				s_readline.c \
+				s_toi.c \
 
 SRC			=	$(addprefix $(SRC_DIR), $(SRC_BASE))
 OBJ			=	$(addprefix $(OBJ_DIR), $(SRC_BASE:.c=.o))

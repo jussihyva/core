@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/17 00:32:25 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/23 21:26:54 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/06/05 01:56:08 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ static int	eof(char **raw, char **line, int r)
 
 static int	readbuf(char **raw, char **line, int fd)
 {
-	char			*tmp;
-	char			buff[READLINE_MAX_BUFF + 1];
-	int				r;
+	char	*tmp;
+	char	buff[READLINE_MAX_BUFF + 1];
+	int		r;
 
 	r = read(fd, buff, READLINE_MAX_BUFF);
 	while (r > 0)
@@ -58,8 +58,8 @@ static int	readbuf(char **raw, char **line, int fd)
 
 int	s_readline(const int fd, char **line)
 {
-	static char		*raw[READLINE_MAX_FD];
-	char			*tmp;
+	static char	*raw[READLINE_MAX_FD];
+	char		*tmp;
 
 	if (fd < 0 || line == NULL)
 		return (-1);

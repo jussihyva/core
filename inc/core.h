@@ -1,5 +1,5 @@
-#ifndef cr_H
-# define cr_H
+#ifndef CORE_H
+# define CORE_H
 
 # include "const.h"
 # include "config.h"
