@@ -17,15 +17,31 @@
 char	*interpert_format(char *format)
 {
 	char types [] = "cdiouxXfFsS";
+	char *type;
+	t_size	len;
 	t_size	i;
 
-	i = s_len(format);
-	while (i--)
+	len = s_len(format);
+	type = NULL;
+	i = 0;
+	while (format[i] && !s_chr("%", format[i]))
+		i++;
+	while (i < len)
 	{
 		if (s_chr(types, format[i]))
-			return (s_chr(types, format[i]));
+		{
+			type = s_chr(types, format[i]);
+			break ;
+		}
+		i++;
 	}
-	return (NULL);
+	while (i < len)
+	{
+		if (format[i] == '%')
+			return (type);
+		i++;
+	}
+	return (type);
 }
 
 void	arr_print(t_array *src, char *format)
@@ -38,7 +54,7 @@ void	arr_print(t_array *src, char *format)
 
 	type_ptr = interpert_format(format);
 	type = *type_ptr;
-	if (!type || *format != '%')
+	if (!type)
 		return ;
 	i = 0;
 	while (i < src->len)
