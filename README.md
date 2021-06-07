@@ -11,15 +11,15 @@ a minimum amount of libc functions because many of these functions are forbidden
 in the school projects. Thus many of these standard functions have been
 re-created for this library. Since all of the functions are written in pure ISO
 compliant C, someof the functions cannot be as efficient as the library
-equivalents. The most important of these functions is rawcpy since it underlies
+equivalents. The most important of these functions is memcpy since it underlies
 the performance of most other functions. The rawcopy function `mcpy` provided
 in the library and used by the library functions is optimized as much as we were
-able and achieves about 60% of the library rawcpy's performance under critical
-load.  Libc rawcpy is, however, an intrinsic instruction, meaning it's the
+able and achieves about 60% of the library memcpy's performance under critical
+load.  Libc memcpy is, however, an intrinsic instruction, meaning it's the
 fastest possible copying procedure provided by the CPU itself. Thus it's
 unrealistic to presume similar performance can be achieved with C code. However
 there has been great effort put in performance throughout the library, so
-swapping the `mcpy` function to libc `rawcpy` project wide will net maximum
+swapping the `mcpy` function to libc `memcpy` project wide will net maximum
 performance from the library. We might make a separate branch where this swap
 has been made.
 
@@ -164,7 +164,7 @@ for fromatting string, file i/o etc.
 
 ### Memory
 
-Raw memory manipulation. Re-creations of rawcpy family of functions with some
+Raw memory manipulation. Re-creations of memcpy family of functions with some
 unique additions.
 
 ## Core String
