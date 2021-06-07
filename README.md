@@ -68,7 +68,7 @@ wish!
 
 Different container data-structures.
 
-### Mem
+### Raw
 
 A raw memory container. Useful for constructing other data-structures or for raw
 memory manipulation with bounds checking and other tools.
