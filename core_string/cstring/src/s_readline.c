@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   s_readline.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/17 00:32:25 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/06/05 01:56:08 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/06/09 15:49:57 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@ static int	eof(char **raw, char **line, int r)
 {
 	if (r == 0 && *raw[0] != '\0')
 	{
-		free(*line);
 		*line = *raw;
-		// s_del(&*raw);
 		return (2);
 	}
 	else
