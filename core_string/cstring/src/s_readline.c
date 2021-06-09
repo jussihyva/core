@@ -6,7 +6,7 @@
 /*   By: skoskine <skoskine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/17 00:32:25 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/06/09 15:41:44 by skoskine         ###   ########.fr       */
+/*   Updated: 2021/06/09 15:49:57 by skoskine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ static int	eof(char **raw, char **line, int r)
 {
 	if (r == 0 && *raw[0] != '\0')
 	{
-		free(*line);
 		*line = *raw;
 		return (2);
 	}
