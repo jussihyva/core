@@ -9,7 +9,7 @@
 ///
 ///////////////////////////////////////////////////////////////////////////////
 
-#include "../../../inc/types.h"
+# include "../../../inc/types.h"
 
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -29,7 +29,7 @@ t_uint64	map_resize_linear(t_uint64 capacity);
 void		map_print(t_map *m);
 void		map_iter(t_map *src, t_ssize (*f)(void *, t_size));
 char		*map_parse(t_map *src, void *dst,
-			char *(*f)(void *, void *, const char *key));
+				char *(*f)(void *, void *, const char *key));
 
 ///////////////////////////////////////////////////////////////////////////////
 

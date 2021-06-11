@@ -5,7 +5,7 @@ static t_ssize	deactivate_tracker(t_raw *raw)
 {
 	t_tracker	*tracker;
 	t_size		i;
-	t_core	*core;
+	t_core		*core;
 
 	core = cr_static();
 	i = 0;

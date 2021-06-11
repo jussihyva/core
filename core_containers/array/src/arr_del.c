@@ -15,16 +15,21 @@
 
 #include "../inc/array.h"
 
+static void	bytecpy(t_byte *a, t_byte *b, t_size len)
+{
+	while (len--)
+		*a++ = *b++;
+}
+
 t_ssize	arr_del(t_array *src, t_size index)
 {
 	t_byte	*raw_start;
 	t_byte	*raw_end;
 	t_size	rem;
-	t_size	i;
 
 	if (index >= src->len)
 		return (CR_FAIL);
-	if (index == src->len -1)
+	if (index == src->len - 1)
 	{
 		src->len--;
 		return (CR_SUCCESS);
@@ -35,12 +40,7 @@ t_ssize	arr_del(t_array *src, t_size index)
 	raw_start += index * src->elem_size;
 	raw_end = src->raw.data;
 	raw_end += (index + 1) * src->elem_size;
-	i = 0;
-	while (i < rem)
-	{
-		*raw_start++ = *raw_end++;
-		i++;
-	}
+	bytecpy(raw_start, raw_end, rem);
 	src->len--;
 	return (CR_SUCCESS);
 }

@@ -34,11 +34,9 @@ t_uint64	map_hash_1(const char *str)
 			hash64 = (hash64 ^ (*(t_uint64 *)(str + ndhead))) * prime;
 			str += 8;
 		}
+		return (hash64 ^ (hash64 >> 32));
 	}
-	else
-	{
-		mcpy(&ndhead, str, wrdlen);
-		hash64 = (hash64 ^ shift(ndhead, (8 - wrdlen) << 3)) * prime;
-	}
+	mcpy(&ndhead, str, wrdlen);
+	hash64 = (hash64 ^ shift(ndhead, (8 - wrdlen) << 3)) * prime;
 	return (hash64 ^ (hash64 >> 32));
 }

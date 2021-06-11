@@ -6,14 +6,14 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 06:09:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/23 21:26:54 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/06/11 16:42:50 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PARR_H
 # define PARR_H
 
-#include "../../../inc/types.h"
+# include "../../../inc/types.h"
 
 /*
 **	---------------------------------------------------------------------------
@@ -74,16 +74,16 @@ t_ssize			parr_rotate(t_parray *arr, t_ssize steps);
 t_ssize			parr_dup(t_parray *dst, t_parray *src, t_size size);
 t_ssize			parr_read_file(t_parray *dst, char *filename);
 t_ssize			parr_write_file(char *dst, t_parray *src, t_ssize flag,
-				t_ssize (*f)(void *, void *));
+					t_ssize (*f)(void *, void *));
 t_ssize			parr_write(t_parray *dst, t_parray *src,
-				t_ssize (*f)(void *, void *));
+					t_ssize (*f)(void *, void *));
 t_ssize			parr_search(t_parray *dst, t_parray *src, void *key,
-				void *(*f)(void *, void *));
+					void *(*f)(void *, void *));
 void			*parr_find(t_parray *src, void *key,
-				void *(*f)(void *, void *));
+					void *(*f)(void *, void *));
 t_ssize			parr_iter(t_parray *arr,
-				t_ssize (*f)(void *, t_size));
+					t_ssize (*f)(void *, t_size));
 t_ssize			parr_parse(t_parray *dst, t_parray *src,
-				t_ssize (*f)(t_parray *, void *));
+					t_ssize (*f)(t_parray *, void *));
 
 #endif

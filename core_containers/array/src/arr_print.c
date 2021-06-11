@@ -14,13 +14,25 @@
 
 #include "../inc/array.h"
 
-char	*interpert_format(char *format)
+static int	check_excess_args(char *format, t_size len, t_size i)
 {
-	char types [] = "cdiouxXfFsS";
-	char *type;
+	while (i < len)
+	{
+		if (format[i] == '%')
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+static char	*interpert_format(char *format)
+{
+	char	*types;
+	char	*type;
 	t_size	len;
 	t_size	i;
 
+	types = "cdiouxXfFsS";
 	len = s_len(format);
 	type = NULL;
 	i = 0;
@@ -35,22 +47,18 @@ char	*interpert_format(char *format)
 		}
 		i++;
 	}
-	while (i < len)
-	{
-		if (format[i] == '%')
-			return (type);
-		i++;
-	}
+	if (!(check_excess_args(format, len, i)))
+		return (NULL);
 	return (type);
 }
 
 void	arr_print(t_array *src, char *format)
 {
-	char	*types [] = {"c", "di", "ouxX", "fF"};
-	char	*type_ptr;
-	int		type;
-	void	*ret;
-	t_size	i;
+	static char	*types[] = {"c", "di", "ouxX", "fF"};
+	char		*type_ptr;
+	int			type;
+	void		*ret;
+	t_size		i;
 
 	type_ptr = interpert_format(format);
 	type = *type_ptr;

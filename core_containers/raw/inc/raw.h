@@ -9,10 +9,9 @@
 #ifndef RAW_H
 # define RAW_H
 
-#include "../../../inc/types.h"
+# include "../../../inc/types.h"
 
 t_hraw		hraw_range(t_raw src, t_size s, t_size t);
-
 t_raw		raw_new(t_size bytes);
 t_ssize		raw_realloc(t_raw *raw, t_size new_size);
 void		raw_free(t_raw *raw);
