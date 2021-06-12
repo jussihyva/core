@@ -13,7 +13,7 @@ void	test_debug()
 	{
 		if (str[i] == 'd' || str[i] == 'a')
 		{
-			DEBUG(CR_FILE_POS, 3,
+			DEBUG(&(t_file_pos){__FUNCTION__, __FILE__, __LINE__}, 3,
 				format("Position: %llu\n", i),
 				format("Character: %c\n", str[i]),
 				format("Pointer: %p\n", &str[i]));
@@ -25,17 +25,17 @@ void	test_debug()
 
 void	test_error()
 {
-	ERROR(CR_FILE_POS, "A terrible error has occured!\n");
-	ERROR(CR_FILE_POS, "Another terrible error has occured!\n");
-	ERROR(CR_FILE_POS, "Yet another terrible error has occured!\n");
-	ERROR(CR_FILE_POS, "Please throw your computer in the bathtub!\n");
+	ERROR(&(t_file_pos){__FUNCTION__, __FILE__, __LINE__}, "A terrible error has occured!\n");
+	ERROR(&(t_file_pos){__FUNCTION__, __FILE__, __LINE__}, "Another terrible error has occured!\n");
+	ERROR(&(t_file_pos){__FUNCTION__, __FILE__, __LINE__}, "Yet another terrible error has occured!\n");
+	ERROR(&(t_file_pos){__FUNCTION__, __FILE__, __LINE__}, "Please throw your computer in the bathtub!\n");
 }
 
 void	test_malloc()
 {
 	t_raw	memory;
 
-	memory = raw(sizeof(t_uint64));
+	memory = raw_new(sizeof(t_uint64));
 	cr_log();
 	raw_free(&memory);
 }

@@ -15,6 +15,7 @@
 t_ssize	arr_free(t_array *src)
 {
 	raw_free(&src->raw);
-	*src = CR_ARR_NULL;
+	src->len = 0;
+	src->elem_size = 0;
 	return (CR_SUCCESS);
 }

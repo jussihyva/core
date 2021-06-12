@@ -26,6 +26,10 @@ SRC_BASE	=	mcalloc.c \
 				mcpy_safe.c \
 				mdel.c \
 				mswap.c \
+				mswap8.c \
+				mswap16.c \
+				mswap32.c \
+				mswap64.c \
 				minit.c \
 				mmove.c \
 				mset.c \

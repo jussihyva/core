@@ -23,9 +23,6 @@
 
 # define CR_MAP_START_CAPACITY 1000
 # define CR_MAP_LOAD_FACTOR 0.4
-# define CR_MAP_HASH map_hash_1
-# define CR_MAP_PROBE map_probe_linear
-# define CR_MAP_RESIZE map_resize_linear
 
 ///////////////////////////////////////////////////////////////////////////////
 

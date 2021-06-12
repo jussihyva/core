@@ -14,7 +14,7 @@
 
 t_ssize	arr_null(t_array *src)
 {
-	if (mcmp(src, &CR_ARR_NULL, sizeof(t_array)) == 0)
+	if (src->raw.data == NULL)
 		return (CR_SUCCESS);
 	return (CR_FAIL);
 }

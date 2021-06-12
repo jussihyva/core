@@ -15,4 +15,3 @@ void	page_print(t_page p)
 {
 	arr_iter(&p, print_str);
 }
-

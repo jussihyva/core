@@ -7,4 +7,3 @@ t_page	page_new(t_size size)
 	new = arr_new(size, sizeof(t_str));
 	return (new);
 }
-

@@ -16,4 +16,3 @@ void	str_rev(t_str *src)
 		j--;
 	}
 }
-

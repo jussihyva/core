@@ -1,7 +1,7 @@
 #include "../../inc/core.h"
 #include "../inc/system_internal.h"
 
-void	cr_activate()
+void	cr_activate(void)
 {
 	t_core	*core;
 
@@ -16,5 +16,5 @@ void	cr_activate()
 	if (core->track_allocs == TRUE)
 		core->allocs = parr_new(1);
 	print("\n\033[32;1mCORE SYSTEM\033[0m\n\n");
-	print("You have activated the core system for memory management and debugging.\n\n");
+	print("Active!.\n\n");
 }

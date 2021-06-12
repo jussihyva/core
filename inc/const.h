@@ -23,15 +23,6 @@
 # define CR_APPEND 1
 # define CR_PREPEND -1
 # define CR_STRING NULL
-# define CR_MEM_NULL (t_raw) {NULL, 0}
-# define CR_PARR_NULL (t_parray) {NULL, 0, 0}
-# define CR_ARR_NULL (t_array) {CR_MEM_NULL, 0, 0}
-# define CR_GRAPH_NULL (t_graph) {CR_MAP_NULL, 0, NULL}
-# define CR_GRAPH_NULL_NODE (t_graph_node) {NULL, CR_ARR_NULL, CR_ARR_NULL, 0, NULL, NULL}
-# define CR_GRAPH_EDGE_NULL (t_graph_edge) {NULL, NULL, 0, NULL}
-# define CR_MAP_NULL_NODE (t_map_node) {NULL, NULL}
-# define CR_MAP_NULL (t_map) {NULL, 0, 0, 0.0, NULL, NULL, NULL}
-# define CR_FILE_POS &(t_file_pos){__FUNCTION__, __FILE__, __LINE__}
 
 ///////////////////////////////////////////////////////////////////////////////
 

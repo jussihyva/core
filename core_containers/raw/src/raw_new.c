@@ -11,7 +11,7 @@ void	create_tracker(t_raw raw)
 	if (core->track_allocs_backtrace == TRUE)
 		tracker->trace = cr_stacktrace(2);
 	else
-		tracker->trace = CR_PARR_NULL;
+		tracker->trace = (t_parray){NULL, 0, 0};
 	tracker->raw = raw;
 	parr_add_last(&core->allocs, tracker);
 }
@@ -23,13 +23,15 @@ t_ssize	raw_setup(t_raw raw)
 	core = cr_static();
 	if (!raw.data && CR_RECOVERY_POLICY == 0)
 	{
-		cr_error(CR_FILE_POS, "FAILED ALLOCATION");
+		cr_error(&(t_file_pos){__FUNCTION__, __FILE__, __LINE__},
+			"FAILED ALLOCATION");
 		cr_log();
 		exit(-1);
 	}
 	else if (!raw.data && CR_RECOVERY_POLICY == 1)
 	{
-		cr_error(CR_FILE_POS, "FAILED ALLOCATION");
+		cr_error(&(t_file_pos){__FUNCTION__, __FILE__, __LINE__},
+			"FAILED ALLOCATION");
 		return (0);
 	}
 	if (core->track_allocs == 1)
@@ -47,6 +49,6 @@ t_raw	raw_new(t_size bytes)
 	out.size = bytes;
 	if (core->active == TRUE)
 		if (!(raw_setup(out)))
-			return (CR_MEM_NULL);
+			return ((t_raw){NULL, 0});
 	return (out);
 }

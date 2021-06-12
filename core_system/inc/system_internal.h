@@ -1,8 +1,8 @@
 #ifndef SYSTEM_INTERNAL_H
 # define SYSTEM_INTERNAL_H
-#include "../../inc/core.h"
+# include "../../inc/core.h"
 
-typedef struct	s_core
+typedef struct s_core
 {
 	t_uint8		active : 1;
 	t_uint8		track_errors : 1;
@@ -13,18 +13,18 @@ typedef struct	s_core
 	t_parray	allocs;
 }				t_core;
 
-typedef struct	s_tracker
+typedef struct s_tracker
 {
 	t_raw		raw;
 	t_parray	trace;
 }				t_tracker;
 
-typedef struct	s_error
+typedef struct s_error
 {
 	char		*message;
 	t_parray	trace;
 }				t_error;
 
-t_core	*cr_static();
+t_core	*cr_static(void);
 
 #endif

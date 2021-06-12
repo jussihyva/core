@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:31:35 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/24 02:23:45 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/06/12 21:44:55 by julius           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,18 @@ void	copy_small(t_byte *restrict dst, const t_byte *restrict src, t_size n)
 {
 	if (n >= 8)
 	{
-		*(t_uint64 *)dst = *(const t_uint64 *restrict)src;
+		*(t_uint64 *)dst = *(const t_uint64 * restrict)src;
 		return ;
 	}
 	if (n >= 4)
 	{
-		*(t_uint32 *)dst = *(const t_uint32 *restrict)src;
+		*(t_uint32 *)dst = *(const t_uint32 * restrict)src;
 		dst += 4;
 		src += 4;
 	}
 	if (n & 2)
 	{
-		*(t_uint16 *)dst = *(const t_uint16 *restrict)src;
+		*(t_uint16 *)dst = *(const t_uint16 * restrict)src;
 		dst += 2;
 		src += 2;
 	}

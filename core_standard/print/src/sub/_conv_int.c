@@ -57,8 +57,8 @@ static t_size	update_int_specs(t_data *specs, t_int64 value, char *value_str)
 int	_conv_int(t_data *specs, char **result)
 {
 	t_int64	value;
-	char		*value_str;
-	t_size		len;
+	char	*value_str;
+	t_size	len;
 
 	value = get_signed_arg(specs, specs->ap);
 	value_str = _intmax_itoa_base(value, 10);

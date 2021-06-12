@@ -13,5 +13,5 @@ int	_failure(t_data *specs, char **result)
 {
 	free(*result);
 	specs->error = 1;
-	return(-1);
+	return (-1);
 }

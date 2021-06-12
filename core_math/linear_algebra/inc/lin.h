@@ -8,7 +8,7 @@
 
 #ifndef LIN_H
 # define LIN_H
-#include "../../../inc/types.h"
+# include "../../../inc/types.h"
 
 double			lin_v4_dot(t_vec4 *a, t_vec4 *b);
 t_vec4			lin_v4_sub(t_vec4 *a, t_vec4 *b);

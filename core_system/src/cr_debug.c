@@ -6,13 +6,11 @@ void	cr_debug(t_file_pos *file_pos, t_size count, ...)
 	char	*ret;
 	char	*header;
 	va_list	ap;
+	char	*fmt;
 	t_size	i;
 
-	header = format(
-	"\033[1;31m%s\033[0m, \033[1;31m%s\033[0m, \033[1;31m%d\033[0m",
-	file_pos->file,
-	file_pos->func,
-	file_pos->line);
+	fmt = "\034[1;31m%s\033[0m, \033[1;31m%s\033[0m, \033[1;31m%d\033[0m";
+	header = format(fmt, file_pos->file, file_pos->func, file_pos->line);
 	print("DEBUG ");
 	print("%s\n", header);
 	free(header);

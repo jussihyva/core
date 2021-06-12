@@ -88,7 +88,7 @@ t_parray	graph_bfs(t_graph *g, const char *s_key, const char *t_key)
 	s = graph_find_node(g, s_key);
 	t = graph_find_node(g, t_key);
 	if (!s)
-		return (CR_PARR_NULL);
+		return ((t_parray){NULL, 0, 0});
 	res = parr_new(1);
 	graph_bfs_loop(&res, s, t);
 	map_iter(g, graph_node_valid);

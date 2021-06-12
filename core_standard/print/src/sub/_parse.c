@@ -14,7 +14,7 @@ static int	_index(char c)
 	t_size	i;
 
 	i = 0;
-	while (types[i] && types[i] != c)
+	while (g_types[i] && g_types[i] != c)
 		i++;
 	return (i);
 }
@@ -48,7 +48,6 @@ static int	parse_next_item(
 {
 	t_data	specs;
 	char	*container;
-
 	int		ret;
 
 	container = NULL;
@@ -57,7 +56,7 @@ static int	parse_next_item(
 		mset((void *)&specs, 0, sizeof(t_data));
 		_get_conversion_specs(&specs, format + 1);
 		specs.ap = ap;
-		ret = CONVERT[_index(specs.conversion)](&specs, &container);
+		ret = g_type_conversions[_index(specs.conversion)](&specs, &container);
 		if (ret == -1)
 			return (-1);
 		ret = append_to_result(result, len, ret, container);

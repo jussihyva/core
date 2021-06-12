@@ -3,11 +3,11 @@
 
 static void	free_trackers(void)
 {
-	t_size	i;
+	t_size		i;
 	t_tracker	*t;
-	t_core	*core;
-	core = cr_static();
+	t_core		*core;
 
+	core = cr_static();
 	i = 0;
 	while (i < core->allocs.len)
 	{

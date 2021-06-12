@@ -9,7 +9,7 @@
 
 t_ssize	map_null(t_map *src)
 {
-	if (mcmp(src, &CR_MAP_NULL, sizeof(t_map)) == 0)
+	if (src->node == NULL)
 		return (1);
 	return (0);
 }

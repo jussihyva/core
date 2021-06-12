@@ -30,7 +30,7 @@ t_nodes	graph_edge_backtrack(
 
 	e = parr_get_last(edges);
 	if ((t_key && s_cmp(t_key, e->v->key)) || (f && !f(e)))
-		return (CR_PARR_NULL);
+		return ((t_parray){NULL, 0, 0});
 	path = parr_new(edges->len);
 	v = e->u;
 	parr_add_mult(&path, 2, e->u, e->v);

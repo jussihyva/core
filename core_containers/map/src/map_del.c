@@ -30,7 +30,7 @@ t_ssize	map_del(t_map *src, const char *key)
 					% src->capacity].key, key) == 0)
 		{
 			src->node[(hash_key + probe) % src->capacity]
-				= CR_MAP_NULL_NODE;
+				= (t_map_node){NULL, NULL};
 			return (i);
 		}
 		probe = src->probe(i);

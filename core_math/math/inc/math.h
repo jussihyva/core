@@ -10,7 +10,7 @@
 # define MATH_H
 
 # include "../../../core_containers/array/inc/array.h"
-#include "../../../inc/stdinc.h"
+# include "../../../inc/stdinc.h"
 
 double				math_rad(double dgr);
 double				math_dgr(double rad);

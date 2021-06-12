@@ -3,8 +3,8 @@
 # define READLINE_MAX_BUFF 1
 # define READLINE_MAX_FD 2
 
-#include "../../../inc/types.h"
-#include "../../../inc/stdinc.h"
+# include "../../../inc/types.h"
+# include "../../../inc/stdinc.h"
 
 t_int64		s_toi(const char *str);
 char		*s_cat(char *dest, const char *src);

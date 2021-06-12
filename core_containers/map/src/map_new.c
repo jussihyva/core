@@ -14,9 +14,9 @@ t_map	map_new(void)
 
 	m.capacity = CR_MAP_START_CAPACITY;
 	m.load_factor = CR_MAP_LOAD_FACTOR;
-	m.hash = CR_MAP_HASH;
-	m.probe = CR_MAP_PROBE;
-	m.resize = CR_MAP_RESIZE;
+	m.hash = map_hash_1;
+	m.probe = map_probe_linear;
+	m.resize = map_resize_linear;
 	m.node = (t_map_node *)minit(sizeof(t_map_node) * m.capacity);
 	if (!m.node)
 	{
@@ -26,7 +26,7 @@ t_map	map_new(void)
 	i = 0;
 	while (i < m.capacity)
 	{
-		m.node[i] = CR_MAP_NULL_NODE;
+		m.node[i] = (t_map_node){NULL, NULL};
 		i++;
 	}
 	m.count = 0;

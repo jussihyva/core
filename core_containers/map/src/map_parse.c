@@ -9,7 +9,7 @@ char	*map_parse(
 	t_map_node	node;
 	t_size		i;
 
-	node = CR_MAP_NULL_NODE;
+	node = (t_map_node){NULL, NULL};
 	i = 0;
 	while (i < src->capacity)
 	{

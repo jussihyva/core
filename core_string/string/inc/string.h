@@ -11,14 +11,14 @@
 
 /// Includes //////////////////////////////////////////////////////////////////
 
-#include "../../../inc/types.h"
-#include "../../../inc/config.h"
-#include "../../../inc/const.h"
-#include "../../../core_containers/raw/inc/raw.h"
-#include "../../../core_standard/memory/inc/memory.h"
-#include "../../../core_containers/array/inc/array.h"
-#include "../../../core_string/cstring/inc/cstr.h"
-#include "../../../core_standard/checks/inc/checks.h"
+# include "../../../inc/types.h"
+# include "../../../inc/config.h"
+# include "../../../inc/const.h"
+# include "../../../core_containers/raw/inc/raw.h"
+# include "../../../core_standard/memory/inc/memory.h"
+# include "../../../core_containers/array/inc/array.h"
+# include "../../../core_string/cstring/inc/cstr.h"
+# include "../../../core_standard/checks/inc/checks.h"
 
 /// String ////////////////////////////////////////////////////////////////////
 

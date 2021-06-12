@@ -12,7 +12,7 @@ static t_ssize	print_line(void *data, t_size i)
 
 static t_ssize	print_tracker(void *data, t_size i)
 {
-	t_tracker *tracker;
+	t_tracker	*tracker;
 
 	tracker = data;
 	if (tracker->raw.data)
@@ -28,7 +28,7 @@ static t_ssize	print_tracker(void *data, t_size i)
 
 static t_ssize	print_error(void *data, t_size i)
 {
-	t_error *error;
+	t_error	*error;
 
 	error = data;
 	if (error->message)

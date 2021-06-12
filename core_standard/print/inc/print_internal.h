@@ -9,11 +9,10 @@
 #ifndef PRINT_INTERNAL_H
 # define PRINT_INTERNAL_H
 
-#include "../../../inc/stdinc.h"
+# include "../../../inc/stdinc.h"
+# include "../../../inc/types.h"
 
-# define CONVERT type_conversions
-
-typedef struct	s_data
+typedef struct s_data
 {
 	t_uint8		alt_form : 1;
 	t_uint8		zero_padding : 1;
@@ -32,7 +31,7 @@ typedef struct	s_data
 	va_list		*ap;
 }				t_data;
 
-typedef union	u_ret
+typedef union u_ret
 {
 	char		c;
 	char		*cptr;
@@ -51,19 +50,19 @@ typedef union	u_ret
 	void		*vptr;
 }				t_ret;
 
-static const char types [] = "%cdiouxXbeEfFsSp";
+static const char	g_types [] = "%cdiouxXbeEfFsSp";
 
-typedef int (*t_fptr)(t_data *, char **);
+typedef int			(*t_fptr)(t_data *, char **);
 
-int		_conv_string(t_data *specs, char **result);
-int		_conv_char(t_data *specs, char **result);
-int		_conv_pointer(t_data *specs, char **result);
-int		_conv_uint(t_data *specs, char **result);
-int		_conv_int(t_data *specs, char **result);
-int		_conv_double(t_data *specs, char **result);
-int		_failure(t_data *specs, char **result);
+int				_conv_string(t_data *specs, char **result);
+int				_conv_char(t_data *specs, char **result);
+int				_conv_pointer(t_data *specs, char **result);
+int				_conv_uint(t_data *specs, char **result);
+int				_conv_int(t_data *specs, char **result);
+int				_conv_double(t_data *specs, char **result);
+int				_failure(t_data *specs, char **result);
 
-static const t_fptr type_conversions[17] =
+static const t_fptr	g_type_conversions[] =
 {
 	_conv_char,
 	_conv_char,
@@ -110,6 +109,5 @@ double			_fabs(double nbr);
 long double		_fabsl(long double nbr);
 t_uint64		_uintmax_pow(int base, int power);
 double			_sqrt(double value);
-
 
 #endif
