@@ -24,10 +24,10 @@ manner. This implementation emulates the functionality of a C++ std::vector.
 
 typedef struct s_array
 {
-	t_raw		raw;
-	t_size		len;
-	t_size		elem_size;
-}				t_array;
+	t_raw  raw;
+	t_size len;
+	t_size elem_size;
+} t_array;
 
 ```
 
