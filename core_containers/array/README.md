@@ -31,9 +31,15 @@ typedef struct s_array
 
 ```
 
-`len` refers to the number of rawbers in the array. `alloc_size` is the amount
-of allocated space for `elem_size` sized objects. These values should never be
-manipulated by the user but they can be accessed and checked easily.
+`raw` is a resizable memory container. `len` refers to the number of active
+elements in the array. Each element is of size `elem_size` defined when creating
+a new array.
+
+```c
+t_array a = arr_new(1, sizeof(int));
+```
+
+Above would create an array of length 1 of elemets the size of `int` (4 bytes).
 
 ## Functions
 
