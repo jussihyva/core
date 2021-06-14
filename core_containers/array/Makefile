@@ -12,7 +12,7 @@ OBJ_DIR		=	obj/
 DEP_DIR		=	.deps/
 
 CC			=	gcc
-CFLAGS 		=	-g -Wall -Wextra -Werror -fPIC
+CFLAGS 		=	-O3 -Wall -Wextra -Werror -fPIC
 DFLAGS		=	-Wunreachable-code -Wconversion -Wpedantic -Wtype-limits
 CPPFLAGS	=	-I $(INC_DIR)
 DEPFLAGS	=	-MT $@ -MMD -MP -MF $(DEP_DIR)$*.d
