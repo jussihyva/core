@@ -53,7 +53,8 @@ t_ssize		arr_find_by(t_array *arr, const void *key,
 				t_ssize (*f)(const void *, const void *));
 t_ssize		arr_parse(t_array *dst, t_array *src,
 				t_ssize (*f)(t_array *, void *));
-
+void		arr_sort(t_array *src,
+				t_ssize (*f)(void *, void *));
 ///////////////////////////////////////////////////////////////////////////////
 
 #endif
