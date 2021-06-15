@@ -76,8 +76,6 @@ void lprint(void **data)
 	print("%s\n", *data);
 }
 
-/* See https:// www.geeksforgeeks.org/?p=3622 for details of this
-function */
 t_list	*list_sort_merge(t_list *a, t_list *b, t_ssize (*f)(void *, void *))
 {
     t_list	*result = NULL;
@@ -127,8 +125,7 @@ void list_sort(t_list **src, t_ssize (*f)(void *, void *))
     t_list *b;
  
     if ((head == NULL) || (head->next == NULL))
-        return ;
- 
+        return ; 
     list_sort_split(head, &a, &b);
     list_sort(&a, f);
     list_sort(&b, f);
