@@ -179,7 +179,7 @@ static void	arr_sort_part(t_array *src,
 
 void	arr_sort(t_array *src, t_ssize (*f)(void *, void *))
 {
-	if (src->len > 1)
+	if (src->len == 0)
 		arr_sort_part(src, 0, src->len - 1, f);
 	else
 		arr_sort_quick(src, 0, src->len - 1, f);
