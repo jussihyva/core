@@ -3,6 +3,7 @@
 
 # include "const.h"
 # include "config.h"
+# include "limits.h"
 
 # include "../core_containers/array/inc/array.h"
 # include "../core_containers/parray/inc/parr.h"
@@ -17,5 +18,6 @@
 # include "../core_string/string/inc/string.h"
 # include "../core_standard/checks/inc/checks.h"
 # include "../core_system/inc/system.h"
+# include "../core_testing/inc/testing.h"
 
 #endif
