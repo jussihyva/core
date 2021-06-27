@@ -4,62 +4,54 @@
 #include <time.h>
 #include "inc/core.h"
 
-void radixSort(int* a, int N)
+int radix = 4;
+
+int getMax(int array[], int n)
 {
-    const int INT_BIT_SIZE = sizeof(int) << 3;
-	const int RADIX = 0x100;
-	const int MASK = RADIX-1;
-	const int MASK_BIT_LENGTH = 8;
-    int *result = malloc(N * sizeof(int));
-	int *buckets = malloc(RADIX * sizeof(int));
-	int *startIndex = malloc(RADIX * sizeof(int));
-    int flag = 0;
-	int key = 0;
-    t_bool hasNeg = FALSE;
+  int max = array[0];
+  for (int i = 1; i < n; i++)
+    if (array[i] > max)
+      max = array[i];
+  return max;
+}
 
+void countingSort(int *array, int size, int place)
+{
+  int output[size + 1];
+  int max = (array[0] / place) % 10;
 
-    while (flag < INT_BIT_SIZE)
-	{
-        for (int i = 0; i < N; ++i)
-		{
-            key = (a[i] & (MASK << flag)) >> flag;
-            if(key < 0)
-			{
-                key += MASK;
-                hasNeg = TRUE;
-            }
-            ++buckets[key];
-        }
-        startIndex[0] = 0;
-        for (int j = 1; j < RADIX; ++j)
-			startIndex[j] = startIndex[j - 1] + buckets[j - 1];
-        for (int i = N-1; i >= 0; --i)
-		{
-            key = (a[i] & (MASK << flag)) >> flag;
-            if(key < 0)
-				key += MASK;
-            result[startIndex[key] + --buckets[key]] = a[i];
-        }
-        memcpy(a, result, N * sizeof(int));
-        flag += MASK_BIT_LENGTH;
-    }
-    if(hasNeg)
-	{
-        int indexOfNeg = 0;
-        for (int i = 0; i < N; i++)
-		{
-            if(a[i] < 0)
-			{
-                indexOfNeg = i;
-                break ;
-            }
-        }
-        memcpy(a,result+indexOfNeg,(N-indexOfNeg)*sizeof(int));
-        memcpy(a+(N-indexOfNeg),result,indexOfNeg*sizeof(int));
-    }
-    free(result);
-    free(buckets);
-    free(startIndex);
+  for (int i = 1; i < size; i++)
+  {
+    if (((array[i] / place) % 10) > max)
+      max = array[i];
+  }
+  int count[max + 1];
+  for (int i = 0; i < max; ++i)
+    count[i] = 0;
+  for (int i = 0; i < size; i++)
+    count[(array[i] / place) % 10]++;
+  for (int i = 1; i < 10; i++)
+    count[i] += count[i - 1];
+  for (int i = size - 1; i >= 0; i--)
+  {
+    output[count[(array[i] / place) % 10] - 1] = array[i];
+    count[(array[i] / place) % 10]--;
+  }
+  mcpy(array, output, sizeof(int) * size);
+}
+
+void radixsort(int array[], int size)
+{
+  int max = getMax(array, size);
+  for (int place = 1; max / place > 0; place *= 10)
+    countingSort(array, size, place);
+}
+
+void printArray(int array[], int size)
+{
+  for (int i = 0; i < size; ++i)
+    printf("%d  ", array[i]);
+  printf("\n");
 }
 
 double	test_clock(
@@ -82,7 +74,7 @@ int cmpfunc(const void * a, const void * b)
 
 int	test(void *arg, t_size size)
 {
-	radixSort((int *)arg, size);
+	radixsort((int *)arg, size);
 	return (1);
 }
 
