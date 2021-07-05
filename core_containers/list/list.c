@@ -4,7 +4,7 @@ typedef struct s_list
 {
 	void			*data;
 	struct s_list	*next;
-}					t_list;
+}	t_list;
 
 t_list	*list_new(void *data)
 {
@@ -76,12 +76,10 @@ void lprint(void **data)
 	print("%s\n", *data);
 }
 
-/* See https:// www.geeksforgeeks.org/?p=3622 for details of this
-function */
 t_list	*list_sort_merge(t_list *a, t_list *b, t_ssize (*f)(void *, void *))
 {
     t_list	*result = NULL;
- 
+
     if (a == NULL)
         return (b);
     else if (b == NULL)
@@ -98,12 +96,12 @@ t_list	*list_sort_merge(t_list *a, t_list *b, t_ssize (*f)(void *, void *))
     }
     return (result);
 }
- 
+
 void list_sort_split(t_list *src, t_list **a, t_list **b)
 {
     t_list *fast;
     t_list *slow;
-    
+
 	slow = src;
     fast = src->next;
     while (fast != NULL)
@@ -114,7 +112,7 @@ void list_sort_split(t_list *src, t_list **a, t_list **b)
             slow = slow->next;
             fast = fast->next;
         }
-    } 
+    }
     *a = src;
     *b = slow->next;
     slow->next = NULL;
@@ -125,10 +123,10 @@ void list_sort(t_list **src, t_ssize (*f)(void *, void *))
     t_list *head = *src;
     t_list *a;
     t_list *b;
- 
+
     if ((head == NULL) || (head->next == NULL))
         return ;
- 
+
     list_sort_split(head, &a, &b);
     list_sort(&a, f);
     list_sort(&b, f);
