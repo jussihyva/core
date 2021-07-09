@@ -14,7 +14,7 @@ t_size		iters = 0; // 2^36
 //
 
 static inline void __attribute__((nonnull))
-copy_small(t_byte *restrict dst, const t_byte *restrict src, t_size n)
+copy_small(t_byte *dst, const t_byte *src, t_size n)
 {
 	if (n >= 8)
 	{
@@ -38,7 +38,7 @@ copy_small(t_byte *restrict dst, const t_byte *restrict src, t_size n)
 }
 
 static inline void __attribute__((nonnull))
-copy512(t_uint64 *restrict dst, const t_uint64 *restrict src, t_size n)
+copy512(t_uint64 *dst, const t_uint64 *src, t_size n)
 {
 	t_size	chunks;
 	t_size	offset;
@@ -61,7 +61,7 @@ copy512(t_uint64 *restrict dst, const t_uint64 *restrict src, t_size n)
 }
 
 void __attribute__((nonnull))
-*mcpy(void *restrict dst, const void *restrict src, t_size n)
+*mcpy(void *dst, const void *src, t_size n)
 {
 	t_byte			*dst8;
 	const t_byte	*src8;

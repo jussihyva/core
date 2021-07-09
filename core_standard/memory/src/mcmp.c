@@ -13,7 +13,7 @@
 #include "../../../inc/core.h"
 
 static inline
-int	cmp_small(t_byte *restrict dst, const t_byte *restrict src, t_size n)
+int	cmp_small(t_byte *dst, const t_byte *src, t_size n)
 {
 	t_size	i;
 
@@ -28,7 +28,7 @@ int	cmp_small(t_byte *restrict dst, const t_byte *restrict src, t_size n)
 }
 
 static inline
-int	cmp512(t_uint64 *restrict dst, const t_uint64 *restrict src, t_size n)
+int	cmp512(t_uint64 *dst, const t_uint64 *src, t_size n)
 {
 	t_size	chunks;
 	t_size	offset;
@@ -52,7 +52,7 @@ int	cmp512(t_uint64 *restrict dst, const t_uint64 *restrict src, t_size n)
 }
 
 // static inline
-// int	cmp512(t_uint64 *restrict dst, const t_uint64 *restrict src, t_size n)
+// int	cmp512(t_uint64 *dst, const t_uint64 *src, t_size n)
 // {
 // 	t_size	chunks;
 // 	t_size	offset;

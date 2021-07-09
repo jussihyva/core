@@ -6,14 +6,14 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:31:35 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/06/12 21:44:55 by julius           ###   ########.fr       */
+/*   Updated: 2021/07/07 02:10:30 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../inc/core.h"
 
 static inline
-void	copy_small(t_byte *restrict dst, const t_byte *restrict src, t_size n)
+void	copy_small(t_byte *dst, const t_byte *src, t_size n)
 {
 	if (n >= 8)
 	{
@@ -37,7 +37,7 @@ void	copy_small(t_byte *restrict dst, const t_byte *restrict src, t_size n)
 }
 
 static inline
-void	copy512(t_uint64 *restrict dst, const t_uint64 *restrict src, t_size n)
+void	copy512(t_uint64 *dst, const t_uint64 *src, t_size n)
 {
 	t_size	chunks;
 	t_size	offset;
@@ -59,7 +59,7 @@ void	copy512(t_uint64 *restrict dst, const t_uint64 *restrict src, t_size n)
 		*dst++ = *src++;
 }
 
-void	*mcpy(void *dst, const void *restrict src, t_size n)
+void	*mcpy(void *dst, const void *src, t_size n)
 {
 	t_byte			*dst8;
 	const t_byte	*src8;

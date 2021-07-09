@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 06:09:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/06/12 21:41:56 by julius           ###   ########.fr       */
+/*   Updated: 2021/07/07 02:10:30 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "../../../inc/types.h"
 
-void		*mcpy(void *dst, const void *restrict src, t_size n);
+void		*mcpy(void *dst, const void *src, t_size n);
 void		*mcpy_safe(void *dst, const void *src, t_size size);
 void		*mccpy(void *dst, const void *src, int c, t_size size);
 void		*mchr(const void *src, int c, t_size size);
