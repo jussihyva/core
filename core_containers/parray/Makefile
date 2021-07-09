@@ -48,6 +48,7 @@ SRC_BASE	=	parr_add.c \
 				parr_copy.c \
 				parr_dup.c \
 				parr_rotate.c \
+				parr_foreach.c \
 
 SRC			=	$(addprefix $(SRC_DIR), $(SRC_BASE))
 OBJ			=	$(addprefix $(OBJ_DIR), $(SRC_BASE:.c=.o))

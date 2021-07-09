@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 06:09:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/06/11 16:42:50 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/07/10 02:49:03 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,6 @@ t_ssize			parr_iter(t_parray *arr,
 					t_ssize (*f)(void *, t_size));
 t_ssize			parr_parse(t_parray *dst, t_parray *src,
 					t_ssize (*f)(t_parray *, void *));
+void			parr_foreach(t_parray *src, void (*f)(const void *));
 
 #endif
