@@ -10,7 +10,7 @@
 /// \param count Number of elements passed as arguments.
 /// \param first Destination array.
 /// \param va_list Arrays to be joined.
-/// \return 1 on success 0 on failure.
+/// \return Index or return error.
 ///
 ///////////////////////////////////////////////////////////////////////////////
 

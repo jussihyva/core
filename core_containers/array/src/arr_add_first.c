@@ -9,13 +9,15 @@
 ///
 /// \param dst Destination array.
 /// \param elem Element to be added.
-/// \return 1 on success 0 on failure.
+/// \return Index or return error.
 ///
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "../inc/array.h"
 
-t_ret	arr_add_first(t_array *dst, void *elem)
+t_ret	arr_add_first(
+		t_array *dst,
+		void *elem)
 {
 	t_ret	ret;
 

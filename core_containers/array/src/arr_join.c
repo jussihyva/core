@@ -11,7 +11,7 @@
 /// \param dst Destination array.
 /// \param src Source array.
 ///
-/// \return Dst len after join or negative integer error condition.
+/// \return Index or return error.
 ///
 ///////////////////////////////////////////////////////////////////////////////
 

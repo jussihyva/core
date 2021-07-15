@@ -14,7 +14,7 @@
 /// elements. Has to be > 0.
 /// \param elem_size Size of the elemets in the array in bytes. Use sizeof.
 ///
-/// \return The new array as a t_array object.
+/// \return Index or return error.
 ///
 ///////////////////////////////////////////////////////////////////////////////
 

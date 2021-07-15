@@ -4,9 +4,11 @@
 ///
 /// \brief Join multiple arrays.
 ///
-/// \param
+/// \param dst Destination array.
+/// \param count Amount of arrays in the va_list
+/// \param va_list List of count arrays to be joined to dst.
 ///
-/// \return
+/// \return	Index or return error.
 ///
 ///////////////////////////////////////////////////////////////////////////////
 

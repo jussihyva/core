@@ -10,7 +10,7 @@
 /// \param dst Destination memory.
 /// \param src source array.
 ///
-/// \return Pointer to dst.
+/// \return Index or return error.
 ///
 ///////////////////////////////////////////////////////////////////////////////
 

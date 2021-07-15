@@ -10,7 +10,7 @@
 /// \param src Source array.
 /// \param key Array data to be matched.
 ///
-/// \return Index of the fisrt matching element on success, -1 on failure.
+/// \return Index or return error.
 ///
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -36,5 +36,5 @@ t_ret	arr_search(
 			return (i);
 		i++;
 	}
-	return (CR_EMPTY);
+	return (CR_ERROR_BOUNDS);
 }

@@ -9,14 +9,15 @@
 ///
 /// \param dst Destination array.
 /// \param src Source array.
-/// \return Elements copied on success or a negative integer as error
-/// condition.
+/// \return Elements copied or return error.
 ///
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "../inc/array.h"
 
-t_ret	arr_copy(t_array *dst, t_array *src)
+t_ret	arr_copy(
+		t_array *dst,
+		t_array *src)
 {
 	t_byte	*raw_start;
 	t_ret	ret;

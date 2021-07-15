@@ -8,7 +8,7 @@
 /// by the user.
 ///
 /// \param src Source array.
-/// \return 1 on success 0 on failure.
+/// \return Index or return error.
 ///
 ///////////////////////////////////////////////////////////////////////////////
 

@@ -8,7 +8,7 @@
 /// \param src Source data.
 ///	\param len Source data element count
 ///
-/// \return Total length of the array after operation.
+/// \return Index or return error.
 ///
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -24,7 +24,7 @@ t_ret	arr_put(
 	t_size	i;
 
 	if (!src)
-		return (CR_FAIL);
+		return (CR_ERROR_INPUT);
 	raw = src;
 	i = 0;
 	while (i < len)
@@ -35,5 +35,5 @@ t_ret	arr_put(
 		raw += dst->elem_size;
 		i++;
 	}
-	return ((t_ssize)dst->len);
+	return (dst->len);
 }

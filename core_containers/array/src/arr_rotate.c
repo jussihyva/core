@@ -10,7 +10,7 @@
 /// \param src Source array.
 /// \param steps Amount of rotations.
 ///
-/// \return 1 on success 0 on failure.
+/// \return 0 or return error.
 ///
 ///////////////////////////////////////////////////////////////////////////////
 

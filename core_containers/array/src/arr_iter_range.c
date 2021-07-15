@@ -14,13 +14,16 @@
 /// \param end End index of the range to be iterated.
 /// \param f A function to be applied to each iterated element.
 ///
-/// \return Amount of elements iterated on success or 0 on failure.
+/// \return Index or return error.
 ///
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "../inc/array.h"
 
-t_ret	arr_iter_range(t_array *src, t_size start, t_size end,
+t_ret	arr_iter_range(
+		t_array *src,
+		t_size start,
+		t_size end,
 		t_ssize (*f)(void *, t_size))
 {
 	t_size	i;

@@ -10,8 +10,7 @@
 /// \param src Source array.
 /// \param f A function to be applied to each iterated element.
 ///
-/// \return Amount of elements iterated on success or a negative integer error
-/// condition.
+/// \return Index or return error.
 ///
 ///////////////////////////////////////////////////////////////////////////////
 

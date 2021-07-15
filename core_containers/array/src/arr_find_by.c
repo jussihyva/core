@@ -15,7 +15,7 @@
 /// \param key A key of any type which will be matched to an element.
 /// \param f A pointer to a function which returns 1 if an element assosiactes
 /// to a key.
-/// \return Index of the element or -1 on failure.
+/// \return Index or return error.
 ///
 ///////////////////////////////////////////////////////////////////////////////
 

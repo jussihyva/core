@@ -9,7 +9,7 @@
 ///
 /// \param src Source array.
 /// \param index Index of the element to be deleted.
-/// \return 1 on success 0 on failure.
+/// \return Index or return error.
 ///
 ///////////////////////////////////////////////////////////////////////////////
 

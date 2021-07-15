@@ -11,7 +11,7 @@
 /// \param src Source array.
 /// \param f A function to be applied to each iterated element.
 ///
-/// \return Amount of elements iterated on success or 0 on failure.
+/// \return Index or return error.
 ///
 ///////////////////////////////////////////////////////////////////////////////
 

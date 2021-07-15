@@ -6,7 +6,7 @@
 ///
 /// \param src The source array.
 ///
-/// \return 1 on success 0 on failure.
+/// \return If arrary is NULL return TRUE, otherwise return FALSE.
 ///
 ///////////////////////////////////////////////////////////////////////////////
 

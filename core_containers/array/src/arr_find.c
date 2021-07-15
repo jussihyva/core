@@ -8,13 +8,15 @@
 ///
 /// \param src Source array.
 /// \param key The element to be searched.
-/// \return Index of the element or -1 on failure.
+/// \return Index or return error.
 ///
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "../inc/array.h"
 
-t_ret	arr_find(t_array *src, void *key)
+t_ret	arr_find(
+		t_array *src,
+		void *key)
 {
 	void	*value;
 	t_size	i;
