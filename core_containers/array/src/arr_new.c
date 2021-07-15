@@ -20,17 +20,17 @@
 
 #include "../inc/array.h"
 
-t_array	arr_new(t_size alloc_size, t_size elem_size)
+t_ret	arr_new(t_array *src, t_size alloc_size, t_size elem_size)
 {
-	t_array	out;
+	t_ret	ret;
 
-	out.len = 0;
-	out.elem_size = elem_size;
-	out.raw = raw_new(alloc_size * elem_size);
-	if (!out.raw.data)
+	src->len = 0;
+	src->elem_size = elem_size;
+	ret = raw_new(&src->raw, alloc_size * elem_size);
+	if (ret < CR_SUCCESS)
 	{
-		print("Allocation failed in function: arr!\n");
-		exit(-1);
+		src->elem_size = 0;
+		return (ret);
 	}
-	return (out);
+	return (CR_SUCCESS);
 }

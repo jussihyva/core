@@ -1,9 +1,9 @@
 #include "../inc/string.h"
 
-t_page	page_new(t_size size)
+t_ret	page_new(t_page *src, t_size size)
 {
-	t_page	new;
+	t_ret	ret;
 
-	new = arr_new(size, sizeof(t_str));
-	return (new);
+	ret = arr_new(src, size, sizeof(t_str));
+	return (ret);
 }

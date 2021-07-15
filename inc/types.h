@@ -15,8 +15,8 @@
 /// Standard redef ////////////////////////////////////////////////////////////
 
 typedef unsigned char		t_byte;
-typedef unsigned long long	t_size;
-typedef long long			t_ssize;
+typedef unsigned long		t_size;
+typedef long				t_ssize;
 typedef signed char			t_int8;
 typedef short int			t_int16;
 typedef int					t_int32;
@@ -25,6 +25,7 @@ typedef unsigned char		t_uint8;
 typedef unsigned short int	t_uint16;
 typedef unsigned int		t_uint32;
 typedef unsigned long long	t_uint64;
+typedef long long			t_ret;
 
 /// Boolean ///////////////////////////////////////////////////////////////////
 
@@ -32,7 +33,7 @@ typedef enum e_bool
 {
 	FALSE,
 	TRUE
-}				t_bool;
+}	t_bool;
 
 /// Memory ////////////////////////////////////////////////////////////////////
 
@@ -40,7 +41,7 @@ typedef struct s_raw
 {
 	t_byte		*data;
 	t_size		size;
-}				t_raw;
+}	t_raw;
 
 typedef t_raw				t_hraw;
 

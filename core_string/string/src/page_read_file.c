@@ -17,7 +17,7 @@ t_ssize	page_read_file(t_page *dst, char *filename)
 	while (ret == 1)
 	{
 		ret = s_readline(fd, &line);
-		string = str_from_s(line);
+		str_from_s(&string, line);
 		free(line);
 		if (!(arr_add_last(dst, &string)))
 			return (CR_FAIL);

@@ -9,8 +9,8 @@
 #ifndef PRINT_INTERNAL_H
 # define PRINT_INTERNAL_H
 
-# include "../../../inc/stdinc.h"
-# include "../../../inc/types.h"
+// # include "../../../inc/stdinc.h"
+// # include "../../../inc/types.h"
 
 typedef struct s_data
 {
@@ -29,26 +29,26 @@ typedef struct s_data
 	t_size		precision;
 	t_size		min_field_width;
 	va_list		*ap;
-}				t_data;
+}	t_data;
 
-typedef union u_ret
-{
-	char		c;
-	char		*cptr;
-	t_str		str;
-	t_int8		i8;
-	t_int16		i16;
-	t_int32		i32;
-	t_int64		i64;
-	t_uint8		u8;
-	t_uint16	u16;
-	t_uint32	u32;
-	t_uint64	u64;
-	float		f;
-	double		d;
-	long double	ld;
-	void		*vptr;
-}				t_ret;
+// typedef union u_ret
+// {
+// 	char		c;
+// 	char		*cptr;
+// 	t_str		str;
+// 	t_int8		i8;
+// 	t_int16		i16;
+// 	t_int32		i32;
+// 	t_int64		i64;
+// 	t_uint8		u8;
+// 	t_uint16	u16;
+// 	t_uint32	u32;
+// 	t_uint64	u64;
+// 	float		f;
+// 	double		d;
+// 	long double	ld;
+// 	void		*vptr;
+// }	t_ret;
 
 static const char	g_types [] = "%cdiouxXbeEfFsSp";
 

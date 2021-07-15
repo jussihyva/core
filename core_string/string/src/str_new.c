@@ -1,11 +1,15 @@
 #include "../inc/string.h"
 
-t_str	str_new(t_size len)
+t_ret	str_new(t_str *src, t_size len)
 {
-	t_str	new;
+	t_ret	ret;
 
-	new.raw = raw_new(len + 1);
-	new.len = len;
-	new.raw.data[0] = '\0';
-	return (new);
+	ret = raw_new(&src->raw, len + 1);
+	if (ret < 0)
+	{
+		return (ret);
+	}
+	src->len = len;
+	src->raw.data[0] = '\0';
+	return (CR_SUCCESS);
 }

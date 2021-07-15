@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/20 21:57:40 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/07/15 14:17:23 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	*parr_find(t_parray *src, void *key, void *(*f)(void *, void *))
 	i = 0;
 	data = NULL;
 	if (parr_null(src))
-		return (CR_FAIL);
+		return (NULL);
 	while (1)
 	{
 		if (i == src->len)
