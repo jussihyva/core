@@ -2,24 +2,24 @@
 ///
 /// \authors Julius Koskela
 ///
-/// \brief Iterate a dynamic array and apply f to each element.
+/// \brief Simple foreach iterator with minimal f- function.
 ///
 /// An iterator function that takes a user defined function f as a parameter
-/// and applies f to each element iterated. If f returns a
-/// value < 1, iteration stops.
+/// and applies f to each element iterated.
 ///
 /// \param src Source array.
 /// \param f A function to be applied to each iterated element.
 ///
-/// \return Amount of elements iterated on success or 0 on failure.
+/// \return Amount of elements iterated on success or a negative integer error
+/// condition.
 ///
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "../inc/array.h"
 
-t_ret	arr_iter(
-		t_array *src,
-		t_ssize (*f)(void *, t_size))
+t_ret	arr_foreach(
+			t_array *src,
+			void (*f)(void *))
 {
 	t_size	i;
 	void	*tmp;
@@ -30,9 +30,8 @@ t_ret	arr_iter(
 	while (i < src->len)
 	{
 		tmp = arr_get(src, i);
-		if ((f(tmp, i)) == CR_STOP)
-			return ((t_ssize)i);
+		f(tmp);
 		i++;
 	}
-	return ((t_ssize)i);
+	return (i);
 }

@@ -9,25 +9,31 @@
 ///
 /// \param dst Destination array.
 /// \param src Source array.
-/// \return 1 on success 0 on failure.
+/// \return Elements copied on success or a negative integer as error
+/// condition.
 ///
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "../inc/array.h"
 
-t_ssize	arr_copy(t_array *dst, t_array *src)
+t_ret	arr_copy(t_array *dst, t_array *src)
 {
 	t_byte	*raw_start;
+	t_ret	ret;
 
 	if (arr_null(src))
-		return (CR_FAIL);
+		return (CR_ERROR_INPUT);
 	if (dst->raw.size <= src->len * src->elem_size)
-		raw_realloc(&dst->raw, src->len * src->elem_size);
+	{
+		ret = raw_realloc(&dst->raw, src->len * src->elem_size);
+		if (ret < 0)
+			return (ret);
+	}
 	raw_start = dst->raw.data;
 	dst->raw.data = mcpy(
 			raw_start,
 			src->raw.data,
 			src->len * src->elem_size);
 	dst->len = src->len;
-	return (CR_SUCCESS);
+	return (dst->len);
 }

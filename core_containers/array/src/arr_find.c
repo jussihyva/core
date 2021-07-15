@@ -14,7 +14,7 @@
 
 #include "../inc/array.h"
 
-t_ssize	arr_find(t_array *src, void *key)
+t_ret	arr_find(t_array *src, void *key)
 {
 	void	*value;
 	t_size	i;
@@ -26,8 +26,8 @@ t_ssize	arr_find(t_array *src, void *key)
 			break ;
 		value = arr_get(src, i);
 		if (mcmp(key, value, src->elem_size) == 0)
-			return ((t_ssize)i);
+			return (i);
 		i++;
 	}
-	return (CR_EMPTY);
+	return (CR_ERROR_BOUNDS);
 }

@@ -16,15 +16,19 @@
 
 #include "../inc/array.h"
 
-void	*arr_take(void *dst, t_array *src, t_size index)
+t_ret	arr_take(
+		void *dst,
+		t_array *src,
+		t_size index)
 {
 	void	*tmp;
-
+	t_ret	ret;
 	if (index >= src->len)
-		return (NULL);
+		return (CR_ERROR_BOUNDS);
 	tmp = arr_get(src, index);
 	dst = mcpy(dst, tmp, src->elem_size);
-	if (!(arr_del(src, index)))
-		return (NULL);
-	return (dst);
+	ret = arr_del(src, index);
+	if (ret < 0)
+		return (ret);
+	return (src->len);
 }

@@ -14,10 +14,14 @@
 
 #include "../inc/array.h"
 
-t_ssize	arr_put(t_array *dst, void *src, t_size len)
+t_ret	arr_put(
+		t_array *dst,
+		void *src,
+		t_size len)
 {
-	t_size	i;
 	t_byte	*raw;
+	t_ret	ret;
+	t_size	i;
 
 	if (!src)
 		return (CR_FAIL);
@@ -25,7 +29,9 @@ t_ssize	arr_put(t_array *dst, void *src, t_size len)
 	i = 0;
 	while (i < len)
 	{
-		arr_add_last(dst, raw);
+		ret = arr_add_last(dst, raw);
+		if (ret < 0)
+			return (ret);
 		raw += dst->elem_size;
 		i++;
 	}

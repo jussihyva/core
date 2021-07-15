@@ -15,15 +15,20 @@
 
 #include "../inc/array.h"
 
-t_ssize	arr_add_last(t_array *dst, void *elem)
+t_ret	arr_add_last(t_array *dst, void *elem)
 {
 	t_byte	*raw_pos;
+	t_ret	ret;
 
 	if (dst->len == dst->raw.size / dst->elem_size)
-		raw_realloc(&dst->raw, dst->raw.size * 2);
+	{
+		ret = raw_realloc(&dst->raw, dst->raw.size * 2);
+		if (ret < 0)
+			return (ret);
+	}
 	raw_pos = dst->raw.data;
 	raw_pos += dst->len * dst->elem_size;
 	raw_pos = mcpy(raw_pos, elem, dst->elem_size);
 	dst->len++;
-	return (CR_SUCCESS);
+	return (dst->len);
 }

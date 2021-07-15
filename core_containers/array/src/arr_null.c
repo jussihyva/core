@@ -12,9 +12,9 @@
 
 #include "../inc/array.h"
 
-t_ssize	arr_null(t_array *src)
+t_bool	arr_null(t_array *src)
 {
 	if (src->raw.data == NULL)
-		return (CR_SUCCESS);
-	return (CR_FAIL);
+		return (TRUE);
+	return (FALSE);
 }

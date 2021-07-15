@@ -16,7 +16,9 @@
 
 #include "../inc/array.h"
 
-t_ssize	arr_search(t_array *src, t_array *key)
+t_ret	arr_search(
+		t_array *src,
+		t_array *key)
 {
 	t_byte	*raw_key;
 	t_byte	*raw_src;
@@ -31,7 +33,7 @@ t_ssize	arr_search(t_array *src, t_array *key)
 	{
 		if (mcmp(&raw_src[key->elem_size * i],
 				raw_key, key->len * key->elem_size) == 0)
-			return ((t_ssize)i);
+			return (i);
 		i++;
 	}
 	return (CR_EMPTY);

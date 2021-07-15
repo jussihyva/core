@@ -16,48 +16,74 @@
 
 #include "../inc/array.h"
 
-static t_ssize	rot(t_array *src, t_ssize steps)
+static t_ret	rot(t_array *src, t_ssize steps)
 {
 	void	*tmp;
+	t_ret	ret;
 	t_ssize	i;
 
 	tmp = malloc(src->elem_size);
+	if (!tmp)
+		return (CR_ERROR_MALLOC);
 	steps = steps * -1LLU;
 	i = 0;
 	while (i < steps)
 	{
-		tmp = arr_take_first(tmp, src);
-		arr_add_last(src, tmp);
+		ret = arr_take_first(tmp, src);
+		if (ret < 0)
+			return (ret);
+		ret = arr_add_last(src, tmp);
+		if (ret < 0)
+			return (ret);
 		i++;
 	}
 	free(tmp);
 	return (i);
 }
 
-static t_ssize	rrot(t_array *src, t_ssize steps)
+static t_ret	rrot(t_array *src, t_ssize steps)
 {
 	void	*tmp;
+	t_ret	ret;
 	t_ssize	i;
 
 	tmp = malloc(src->elem_size);
+	if (!tmp)
+		return (CR_ERROR_MALLOC);
 	i = 0;
 	while (i < steps)
 	{
-		tmp = arr_take_last(tmp, src);
-		arr_add_first(src, tmp);
+		ret = arr_take_last(tmp, src);
+		if (ret < 0)
+			return (ret);
+		ret = arr_add_first(src, tmp);
+		if (ret < 0)
+			return (ret);
 		i++;
 	}
 	free(tmp);
 	return (i);
 }
 
-t_ssize	arr_rotate(t_array *src, t_ssize steps)
+t_ret	arr_rotate(
+		t_array *src,
+		t_ssize steps)
 {
+	t_ret	ret;
+
 	if (src->len < 2 || steps == 0)
-		return (0);
+		return (CR_ERROR_BOUNDS);
 	if (steps > 0)
-		rrot(src, steps);
+	{
+		ret = rrot(src, steps);
+		if (ret < 0)
+			return (ret);
+	}
 	else if (steps < 0)
-		rot(src, steps);
+	{
+		ret = rot(src, steps);
+		if (ret < 0)
+			return (ret);
+	}
 	return (CR_SUCCESS);
 }

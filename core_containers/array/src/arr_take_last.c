@@ -16,8 +16,14 @@
 
 #include "../inc/array.h"
 
-void	*arr_take_last(void *dst, t_array *src)
+t_ret	arr_take_last(
+		void *dst,
+		t_array *src)
 {
-	dst = arr_take(dst, src, src->len - 1);
-	return (dst);
+	t_ret	ret;
+
+	ret = arr_take(dst, src, src->len - 1);
+	if (ret < 0)
+		return (ret);
+	return (src->len);
 }

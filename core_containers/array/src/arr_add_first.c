@@ -15,9 +15,15 @@
 
 #include "../inc/array.h"
 
-t_ssize	arr_add_first(t_array *dst, void *elem)
+t_ret	arr_add_first(t_array *dst, void *elem)
 {
+	t_ret	ret;
+
 	if (!(arr_add(dst, elem, 0)))
-		return (CR_FAIL);
-	return (CR_SUCCESS);
+	{
+		ret = arr_add(dst, elem, 0);
+		if (ret < 0)
+			return (ret);
+	}
+	return (dst->len);
 }

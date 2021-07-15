@@ -20,14 +20,14 @@
 
 #include "../inc/array.h"
 
-t_ssize	arr_parse(t_array *dst, t_array *src,
+t_ret	arr_parse(t_array *dst, t_array *src,
 		t_ssize (*f)(t_array *, void *))
 {
 	t_size	i;
 	void	*data;
 
 	if (arr_null(src) || arr_null(dst))
-		return (CR_FAIL);
+		return (CR_ERROR_INPUT);
 	i = 0;
 	while (i < src->len)
 	{
