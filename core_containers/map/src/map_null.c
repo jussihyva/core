@@ -7,9 +7,9 @@
 
 #include "../../../inc/core.h"
 
-t_ssize	map_null(t_map *src)
+t_bool	map_null(t_map *src)
 {
 	if (src->node == NULL)
-		return (1);
-	return (0);
+		return (TRUE);
+	return (FALSE);
 }

@@ -10,6 +10,8 @@ void	map_print(t_map *m)
 	{
 		if (map_null_node(&m->node[i]))
 			print("[EMPTY]\n");
+		else if (m->node[i].tombstone == TRUE)
+			print("[TOMBSTONE]\n");
 		else
 			print("%s\n", m->node[i].key);
 		i++;

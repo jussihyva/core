@@ -25,7 +25,7 @@ typedef unsigned char		t_uint8;
 typedef unsigned short int	t_uint16;
 typedef unsigned int		t_uint32;
 typedef unsigned long long	t_uint64;
-typedef long long			t_ret;
+typedef t_ssize				t_ret;
 
 /// Boolean ///////////////////////////////////////////////////////////////////
 
@@ -81,6 +81,7 @@ typedef struct s_map_node
 {
 	const char	*key;
 	void		*data;
+	t_bool		tombstone;
 }				t_map_node;
 
 typedef struct s_map

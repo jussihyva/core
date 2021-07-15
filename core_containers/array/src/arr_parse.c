@@ -5,14 +5,14 @@
 /// \brief Iterate the array for each element for parsing.
 ///
 /// Iterates over each element of the src array. At each iteration a user
-/// defined function f is called and dst array as well as current rawber passed
-/// as parameters. Intended usage is for parsing each rawber and putting the
+/// defined function f is called and dst array as well as current element passed
+/// as parameters. Intended usage is for parsing each element and putting the
 /// results in the dst array. Iteration can be stopped by returning a
 /// non-positive integer from f.
 ///
 /// \param dst Destination array.
 /// \param src Source array.
-/// \param f Function f to be called for each rawber.
+/// \param f Function f to be called for each element.
 ///
 /// \return Amount of elements iterated on success 0 on failure.
 ///

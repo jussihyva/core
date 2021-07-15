@@ -6,7 +6,7 @@ A multi-purpose dynamic array implementation for the C language.
 
 -   Dynamic resizing. Doubles the size of the array when maximum size
     is reached.
--   Datatype agnostic. Contains only pointers to array rawbers.
+-   Datatype agnostic. Contains only pointers to array elements.
 -   Clear allocation and deallocation of the array structure. Only the
     constructor `parr` returns an array to help clarity.
 -   All other functions apart from the constructor work by passing
@@ -32,7 +32,7 @@ typedef struct  s_parray
 
 ```
 
-`Count` refers to the number of rawbers in the array. `Size` is the size of the
+`Count` refers to the number of elements in the array. `Size` is the size of the
 allocated memory associated with the array. Neither should ever be manipulated
 by the user but they can be accessed and checked easily.
 
@@ -95,7 +95,7 @@ t_ssize             parr_del_last(t_parray *arr);
 
 ```
 
-This group of functions is used to add and delete rawbers from an array.  The
+This group of functions is used to add and delete elements from an array.  The
 functions without a postfix (such as `parr_add`) manipulate data in a defined index.
 The rest are templated to add to the end or start of the array, to add multiple
 things into an array or to add a normal array to an array.
@@ -113,9 +113,9 @@ void            *parr_take_last(t_parray *arr);
 
 ```
 
-This group of functions is used to fetch a single rawber from an array.  A `get`
-style function just fetches the rawber whereas a `take` style function also
-removes the fetched rawber from the list.
+This group of functions is used to fetch a single element from an array.  A `get`
+style function just fetches the element whereas a `take` style function also
+removes the fetched element from the list.
 
 ### Manipulate
 

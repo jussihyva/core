@@ -1,17 +1,16 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   parr.h                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/11 06:09:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/07/10 02:49:03 by jkoskela         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef PARR_H
 # define PARR_H
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+///////////////////////////////////////////////////////////////////////////////
+///
+/// \brief Dynamic array implementation library.
+///
+/// \authors Julius Koskela
+///
+///////////////////////////////////////////////////////////////////////////////
 
 # include "../../../inc/types.h"
 
@@ -29,7 +28,7 @@ t_ssize			parr_null(t_parray *arr);
 /*
 **	---------------------------------------------------------------------------
 **
-**	Add or delete rawber(s)
+**	Add or delete element(s)
 */
 
 t_ssize			parr_add(t_parray *arr, void *node, t_size index);
@@ -44,7 +43,7 @@ t_ssize			parr_del_last(t_parray *arr);
 /*
 **	---------------------------------------------------------------------------
 **
-**	Get or take a rawber
+**	Get or take a element
 */
 
 void			*parr_get(t_parray *arr, t_size index);
@@ -87,4 +86,7 @@ t_ssize			parr_parse(t_parray *dst, t_parray *src,
 					t_ssize (*f)(t_parray *, void *));
 void			parr_foreach(t_parray *src, void (*f)(const void *));
 
+#ifdef __cplusplus
+}
+#endif
 #endif

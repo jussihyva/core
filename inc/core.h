@@ -12,7 +12,6 @@
 # include "../core_standard/print/inc/print.h"
 # include "../core_math/linear_algebra/inc/lin.h"
 # include "../core_string/cstring/inc/cstr.h"
-# include "../core_math/graph/inc/graph.h"
 # include "../core_math/math/inc/math.h"
 # include "../core_string/string/inc/string.h"
 # include "../core_standard/checks/inc/checks.h"

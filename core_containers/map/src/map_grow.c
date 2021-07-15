@@ -29,23 +29,23 @@ static t_ssize	map_grow_add(t_map *dst, void *src, const char *key)
 	return (CR_SUCCESS);
 }
 
-t_ssize	map_grow(t_map *src)
+t_ret	map_grow(t_map *src)
 {
 	t_map	new;
 	t_size	i;
 
 	new.capacity = src->resize(src->capacity + 1);
+	new.node = (t_map_node *)minit(sizeof(t_map_node) * new.capacity);
+	if (!new.node)
+	{
+		*src = (t_map){NULL, 0, 0, 0.0, NULL, NULL, NULL};
+		return (CR_ERROR_MALLOC);
+	}
 	new.count = 0;
 	new.hash = src->hash;
 	new.load_factor = src->load_factor;
 	new.probe = src->probe;
 	new.resize = src->resize;
-	new.node = (t_map_node *)minit(sizeof(t_map_node) * new.capacity);
-	if (!new.node)
-	{
-		print("Allocation failed in function: map_grow!\n");
-		exit(-1);
-	}
 	i = 0;
 	while (i < src->capacity)
 	{

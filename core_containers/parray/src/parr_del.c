@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/07/03 17:20:50 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/07/15 15:48:02 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_ssize	parr_del(t_parray *arr, t_size index)
 **
 **	PARR_DEL
 **
-**	Delete a rawber at `index` from a dynamic array.
+**	Delete a element at `index` from a dynamic array.
 **
 **  ----------------------------------------------------------------------------
 */

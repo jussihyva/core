@@ -6,7 +6,7 @@ t_ret	raw_new(t_raw *src, t_size bytes)
 	if (!src->data)
 	{
 		src->size = 0;
-		return (CR_MALLOC_FAIL);
+		return (CR_ERROR_MALLOC);
 	}
 	src->size = bytes;
 	return (CR_SUCCESS);

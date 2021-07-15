@@ -2,11 +2,11 @@
  *
  * \authors Julius Koskela
  *
- * \brief  Gives next power of two resize for a hash map.
+ * \brief  Probing function P(x) = (x^2 + x) / 2
  *
- * \param capacity Current capacity of the hash map.
+ * \param x Probing increment
  *
- * \return Value that can be used to grow the hash map.
+ * \return Value to be added to hash value to move to the next index
  *
  *****************************************************************************/
 
@@ -33,7 +33,7 @@ static inline t_int64	m_ipow(t_int64 base, t_int64 exp)
 	return (tmp);
 }
 
-t_uint64	map_resize_pow2(t_uint64 capacity)
+t_uint64	map_probe_quadratic(t_uint64 x)
 {
-	return (m_ipow(2, ceil(log(capacity) / log(2))));
+	return ((m_ipow(x, 2) + x) / 2);
 }
