@@ -14,6 +14,7 @@ CSTR 		=	core_string/cstring/
 STRING		=	core_string/string/
 SYSTEM		=	core_system/
 RNG			=	core_standard/rng/
+GRAPH		=	core_graph/
 
 RM			=	rm -rf
 
@@ -34,6 +35,7 @@ all:
 			+@make -C $(CHECKS)
 			+@make -C $(SYSTEM)
 			+@make -C $(RNG)
+			+@make -C $(GRAPH)
 			@mkdir -p $(OBJ)
 			@cp $(RAW)obj/*.o $(OBJ)
 			@cp $(MEMORY)obj/*.o $(OBJ)
@@ -49,6 +51,7 @@ all:
 			@cp $(CHECKS)obj/*.o $(OBJ)
 			@cp $(SYSTEM)obj/*.o $(OBJ)
 			@cp $(RNG)obj/*.o $(OBJ)
+			@cp $(GRAPH)obj/*.o $(OBJ)
 			@ar -rcs $(NAME) $(OBJ)*.o
 			@echo "\\n\033[32;1mCORE ACTIVATED \033[0m \\n"
 
@@ -66,6 +69,7 @@ clean:
 			@make clean -C $(CHECKS)
 			@make clean -C $(SYSTEM)
 			@make clean -C $(RNG)
+			@make clean -C $(GRAPH)
 			@echo "\\n\033[32;1mCORE DEACTIVATED \033[0m \\n"
 
 fclean:		clean
@@ -84,6 +88,7 @@ fclean:		clean
 			@make fclean -C $(CHECKS)
 			@make fclean -C $(SYSTEM)
 			@make fclean -C $(RNG)
+			@make fclean -C $(GRAPH)
 
 re:			fclean all
 

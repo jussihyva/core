@@ -1,0 +1,16 @@
+///////////////////////////////////////////////////////////////////////////////
+///
+/// \authors Julius Koskela
+/// \brief Print edges in a set.
+///
+///////////////////////////////////////////////////////////////////////////////
+
+#include "../inc/digraph.h"
+
+void	digraph_print_edge_set(
+		t_digraph_edge_set *src,
+		t_print_type flag)
+{
+	if (flag == DOT)
+		digraph_print_edge_set_dot(src);
+}
