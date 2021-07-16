@@ -12,6 +12,7 @@
 # include <string.h>
 # include <unistd.h>
 
+
 /// Standard redef ////////////////////////////////////////////////////////////
 
 typedef unsigned char		t_byte;

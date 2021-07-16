@@ -28,7 +28,7 @@ int main(void)
 	course = map_get(&m, "cs03");
 	printf("Course: %s\n", course);
 
-	map_add(&m, "Computer Science 1", "cs01");
+	map_add(&m, "Chemistry 1", "ch01");
 	course = map_get(&m, "ch01");
 	printf("Course: %s\n", course);
 	map_print(&m);
