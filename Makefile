@@ -5,6 +5,7 @@ PARR 		=	core_containers/parray/
 MAP 		=	core_containers/map/
 MEMORY 		=	core_standard/memory/
 RAW 		=	core_containers/raw/
+LIST 		=	core_containers/list/
 PRINT		=	core_standard/print/
 CHECKS		=	core_standard/checks/
 LIN 		=	core_math/linear_algebra/
@@ -36,6 +37,7 @@ all:
 			+@make -C $(SYSTEM)
 			+@make -C $(RNG)
 			+@make -C $(GRAPH)
+			+@make -C $(LIST)
 			@mkdir -p $(OBJ)
 			@cp $(RAW)obj/*.o $(OBJ)
 			@cp $(MEMORY)obj/*.o $(OBJ)
@@ -52,6 +54,7 @@ all:
 			@cp $(SYSTEM)obj/*.o $(OBJ)
 			@cp $(RNG)obj/*.o $(OBJ)
 			@cp $(GRAPH)obj/*.o $(OBJ)
+			@cp $(LIST)obj/*.o $(OBJ)
 			@ar -rcs $(NAME) $(OBJ)*.o
 			@echo "\\n\033[32;1mCORE ACTIVATED \033[0m \\n"
 
@@ -70,6 +73,7 @@ clean:
 			@make clean -C $(SYSTEM)
 			@make clean -C $(RNG)
 			@make clean -C $(GRAPH)
+			@make clean -C $(LIST)
 			@echo "\\n\033[32;1mCORE DEACTIVATED \033[0m \\n"
 
 fclean:		clean
@@ -89,6 +93,7 @@ fclean:		clean
 			@make fclean -C $(SYSTEM)
 			@make fclean -C $(RNG)
 			@make fclean -C $(GRAPH)
+			@make fclean -C $(LIST)
 
 re:			fclean all
 
