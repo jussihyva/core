@@ -17,20 +17,22 @@ t_ret	map_del(t_map *src, const char *key)
 {
 	t_uint64	hash_key;
 	t_uint64	probe;
+	t_map_node	*node;
 	t_size		i;
 
 	hash_key = src->hash(key);
 	probe = 0;
 	i = 0;
-	while (i < src->count)
+	while (1)
 	{
-		if (src->node[(hash_key + probe)
-				% src->capacity].key
-			&& s_cmp(src->node[(hash_key + probe)
-					% src->capacity].key, key) == 0)
+		node = &src->node[(hash_key + probe) % src->capacity];
+		if (node->key == NULL && node->tombstone == FALSE)
+			break ;
+		if (node->key && s_cmp(node->key, key) == 0)
 		{
-			src->node[(hash_key + probe) % src->capacity]
-				= (t_map_node){NULL, NULL, TRUE};
+			free((char *)node->key);
+			*node = (t_map_node){NULL, NULL, TRUE};
+			src->count--;
 			return (i);
 		}
 		probe = src->probe(i);
