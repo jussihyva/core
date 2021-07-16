@@ -7,24 +7,34 @@
 /// Adds a variable amount of elements to a dynamic array passed as arguments.
 /// Number of arguments have to be defined in the count variable.
 ///
-/// \param dst Destination array.
 /// \param count Number of elements passed as arguments.
-/// \return 1 on success 0 on failure.
+/// \param first Destination array.
+/// \param va_list Arrays to be joined.
+/// \return Index or return error.
 ///
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "../inc/array.h"
 
-t_ssize	arr_add_mult(t_array *dst, t_size count, ...)
+t_ret	arr_add_mult(
+		t_array *dst,
+		t_size count,
+		...)
 {
 	va_list	ap;
+	void	*arg;
+	t_ret	ret;
 
 	va_start(ap, count);
 	while (count--)
 	{
-		if (!(arr_add_last(dst, va_arg(ap, void *))))
-			return (CR_FAIL);
+		arg = va_arg(ap, void *);
+		if (!arg)
+			return (CR_ERROR_BOUNDS);
+		ret = arr_add_last(dst, arg);
+		if (ret < 0)
+			return (ret);
 	}
 	va_end(ap);
-	return ((t_ssize)dst->len);
+	return (dst->len);
 }

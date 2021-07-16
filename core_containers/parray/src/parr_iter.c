@@ -34,7 +34,7 @@ t_ssize	parr_iter(t_parray *arr, t_ssize (*f)(void *, t_size))
 **	PARR_iter
 **
 **	iter a dynamic array and execute a function passed by f on all
-**	rawbers.
+**	elements.
 **
 **  ----------------------------------------------------------------------------
 */

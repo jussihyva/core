@@ -12,11 +12,12 @@
 # include <string.h>
 # include <unistd.h>
 
+
 /// Standard redef ////////////////////////////////////////////////////////////
 
 typedef unsigned char		t_byte;
-typedef unsigned long long	t_size;
-typedef long long			t_ssize;
+typedef unsigned long		t_size;
+typedef long				t_ssize;
 typedef signed char			t_int8;
 typedef short int			t_int16;
 typedef int					t_int32;
@@ -25,6 +26,7 @@ typedef unsigned char		t_uint8;
 typedef unsigned short int	t_uint16;
 typedef unsigned int		t_uint32;
 typedef unsigned long long	t_uint64;
+typedef t_ssize				t_ret;
 
 /// Boolean ///////////////////////////////////////////////////////////////////
 
@@ -32,7 +34,7 @@ typedef enum e_bool
 {
 	FALSE,
 	TRUE
-}				t_bool;
+}	t_bool;
 
 /// Memory ////////////////////////////////////////////////////////////////////
 
@@ -40,18 +42,26 @@ typedef struct s_raw
 {
 	t_byte		*data;
 	t_size		size;
-}				t_raw;
+}	t_raw;
 
 typedef t_raw				t_hraw;
 
-/// Array /////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+///
+/// Array
+///
+///////////////////////////////////////////////////////////////////////////////
+
+/// \param raw Resizable raw memory container.
+/// \param len Length of the array
+/// \param elem_size Size of elements in the array.
 
 typedef struct s_array
 {
 	t_raw		raw;
 	t_size		len;
 	t_size		elem_size;
-}				t_array;
+}	t_array;
 
 /// Pointer Array /////////////////////////////////////////////////////////////
 
@@ -60,7 +70,7 @@ typedef struct s_parray
 	void		**data;
 	t_size		len;
 	t_size		size;
-}				t_parray;
+}	t_parray;
 
 /// String ////////////////////////////////////////////////////////////////////
 
@@ -80,6 +90,7 @@ typedef struct s_map_node
 {
 	const char	*key;
 	void		*data;
+	t_bool		tombstone;
 }				t_map_node;
 
 typedef struct s_map

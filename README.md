@@ -64,6 +64,124 @@ wish!
     have additional features spesific to the datatypes in this library.
 -   Math, linear algebra, graph etc. functionality.
 
+## Patterns
+
+The library focuses on consistency so understanding the general patterns used in the library
+make it easy to read and use.
+
+### Function Structure
+
+
+#### Parameter Order
+
+```c
+// All functions have dst --> src parameter order.
+t_ret	map_add(t_map *dst, void *src, const char *key);
+```
+
+#### New & Free
+
+Function names containing the word `new` are allocators and have to be coupled
+with a corresponding `free` function.
+
+```c
+
+int main(void)
+{
+	t_array	arr;
+
+	// Allocate array
+	if (arr_new(&arr, 1, sizeof(int)) < 0)
+		return (0);
+	// Use array
+	arr_free(&arr);
+}
+```
+
+#### Add & Get & Take & Del
+
+All functions in this group all have 3 spesific definions for accessing and element
+at a spesific index or the last or the first element. These functions check for
+bounds and return NULL on failure.
+
+```c
+arr_get(&arr, 0); // Get element at index 0
+arr_take_last(&arr); // Get last element
+arr_get_first(&arr); // Get first element
+```
+
+Difference between get and take is that take functions also delete the element in the `src`.
+If the container holds the actual data and not a pointer to it, this means that allocated
+memory must be passed as a parameter.
+
+### Function Usage
+
+#### Return Values
+
+Common return types.
+
+```c
+
+// The enum `e_return_type` contains error values as negative integers.
+enum e_return_type
+{
+	// ...
+	CR_ERROR_BOUNDS = -4,
+	CR_ERROR_MALLOC,
+	CR_ERROR_INPUT,
+	CR_FAIL,
+	CR_SUCCESS = 0
+};
+
+// Boolean type.
+typedef enum e_bool
+{
+	FALSE,
+	TRUE
+}	t_bool;
+
+// Signed return type. Type implies this should be checked and possibly
+// contains an error code.
+typedef t_ssize	t_ret;
+
+```
+
+Function returns a `t_ret` signed type. Generic success is CR_SUCCESS = 0. CR_FAIL = -1 is generic failure. Below -1 are spesific error codes such as -2 = CR_MALLOC FAIL etc. 0 and
+positive integers are thus available to represent different things on success
+such as bytes copied or elements iterated.
+
+```c
+// Iterates f over dst and returns amount of elements iterated or negative
+// on failure.
+t_ret  arr_iter(t_array *dst, t_ssize (*f)(void *, t_size));
+
+```
+Function returns boolean t_bool which has the states TRUE = 1 and FALSE = 0.
+Usually used by functions that ask a question about the input data and don't
+have side effects such as allocating new memory.
+
+```c
+// Check if c is an alphanumeric character and return TRUE or False
+// respectively.
+t_bool  is_alpha(int c);
+```
+Functions that return a pointer or NULL. These are used when we want a
+pointer to existing memory ie. an opaque pointer without allocating new
+memory or making a copy.
+```c
+// Returns a pointer to the last element of the array.
+void  *arr_get_last(t_array *src);
+```
+
+As opposed to...
+
+```c
+// Copy last element to allocated memory pointed by `dst`. Return bytes copied
+// on success or negative error condition on failure.
+t_ret  arr_take_last(void *dst, t_array *src);
+
+```
+
 ## Core Containers
 
 Different container data-structures.
@@ -154,7 +272,7 @@ typedef struct  s_map
 
 ## Core Standard
 
-Basic functionality io and memory management and manipulation.
+Basic functionality for i/o and memory management and manipulation.
 
 ### Print
 

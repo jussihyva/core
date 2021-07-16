@@ -1,10 +1,10 @@
 #include "../../../inc/core.h"
 
-t_ssize	raw_realloc(t_raw *m, t_size new_size)
+t_ret	raw_realloc(t_raw *m, t_size new_size)
 {
 	t_raw	new;
 
-	new = raw_new(new_size);
+	raw_new(&new, new_size);
 	if (new_size < m->size)
 		mcpy(new.data, m->data, new_size);
 	else

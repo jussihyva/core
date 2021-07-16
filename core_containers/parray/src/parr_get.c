@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/23 21:26:54 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/07/15 15:48:02 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	*parr_get(t_parray *arr, t_size index)
 **
 **	PARR_GET
 **
-**	Pull a rawber from a dynamic array at `index`.
+**	Pull a element from a dynamic array at `index`.
 **
 **  ----------------------------------------------------------------------------
 */

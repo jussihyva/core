@@ -4,28 +4,37 @@
 ///
 /// \brief Join multiple arrays.
 ///
-/// \param
+/// \param dst Destination array.
+/// \param count Amount of arrays in the va_list
+/// \param va_list List of count arrays to be joined to dst.
 ///
-/// \return
+/// \return	Index or return error.
 ///
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "../inc/array.h"
 
-t_ssize	arr_join_mult(t_array *dst, t_size len, ...)
+t_ret	arr_join_mult(
+		t_array *dst,
+		t_size count,
+		...)
 {
 	va_list	ap;
 	t_array	*tmp;
+	t_ret	ret;
 
-	va_start(ap, len);
-	while (len--)
+	if (!dst || arr_null(dst))
+		return (CR_ERROR_INPUT);
+	va_start(ap, count);
+	while (count--)
 	{
 		tmp = va_arg(ap, t_array *);
-		if (arr_null(tmp))
-			return (CR_FAIL);
-		if (!(arr_join(dst, tmp)))
-			return (CR_FAIL);
+		if (!tmp || arr_null(tmp))
+			return (CR_ERROR_INPUT);
+		ret = arr_join(dst, tmp);
+		if (ret < 0)
+			return (ret);
 	}
 	va_end(ap);
-	return ((t_ssize)dst->len);
+	return (dst->len);
 }

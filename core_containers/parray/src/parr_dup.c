@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/23 21:26:54 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/07/15 15:48:02 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_ssize	parr_dup(t_parray *dst, t_parray *src, t_size size)
 **	PARR_DUP
 **
 **	Duplicate contents from `src` to `dst`. This method assumes that all
-**	rawbers in the array are of equal size and that size is passed in bytes in
+**	elements in the array are of equal size and that size is passed in bytes in
 **	the parameter `size`.
 **
 **  ----------------------------------------------------------------------------

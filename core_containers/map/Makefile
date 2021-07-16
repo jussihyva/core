@@ -12,7 +12,7 @@ OBJ_DIR		=	obj/
 DEP_DIR		=	.deps/
 
 CC			=	gcc
-CFLAGS 		=	-O3 -Wall -Wextra -Werror -fPIC
+CFLAGS 		=	-g -Wall -Wextra -Werror -fPIC
 DFLAGS		=	-Wunreachable-code -Wconversion -Wpedantic -Wtype-limits
 CPPFLAGS	=	-I $(INC_DIR)
 DEPFLAGS	=	-MT $@ -MMD -MP -MF $(DEP_DIR)$*.d
@@ -29,9 +29,9 @@ SRC_BASE	=	map_add.c \
 				map_parse.c \
 				map_grow.c \
 				map_null_node.c \
-				map_hash_1.c \
-				map_probe_quad_pow2.c \
-				map_resize_pow2.c \
+				map_hash_fast.c \
+				map_probe_quadratic.c \
+				map_resize_quadratic.c \
 				map_probe_linear.c \
 				map_resize_linear.c \
 

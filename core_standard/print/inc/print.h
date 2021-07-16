@@ -9,7 +9,7 @@
 #ifndef PRINT_H
 # define PRINT_H
 
-# include "../../../inc/stdinc.h"
+// # include "../../../inc/stdinc.h"
 
 int		print(const char *format, ...);
 int		print_fd(int fd, const char *format, ...);

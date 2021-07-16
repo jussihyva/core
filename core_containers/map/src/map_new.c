@@ -1,34 +1,68 @@
-/******************************************************************************
- * \authors
- * \brief
- * \param
- * \return
- *****************************************************************************/
+///////////////////////////////////////////////////////////////////////////////
+///
+/// \authors Julius Koskela
+///
+/// \brief Create a new hash map.
+///
+/// Input capacity might be bigger than what given as parameter since hash
+/// map needs to conform to different resizing divisions depending on
+/// resizing methods.
+///
+/// Available resizing methods:
+///
+/// Linear
+/// Quadratic
+///
+/// \param src Hash map to be allocated.
+/// \param capacity Starting capacity
+///
+///////////////////////////////////////////////////////////////////////////////
 
 #include "../../../inc/core.h"
 
-t_map	map_new(void)
+static void	map_set_params(
+		t_map *src,
+		t_size capacity,
+		t_size method,
+		t_uint64 (*hash)(const char *))
 {
-	t_map	m;
+	if (method == CR_MAP_LINEAR)
+	{
+		src->probe = map_probe_linear;
+		src->resize = map_resize_linear;
+		src->load_factor = 0.4;
+	}
+	else if (method == CR_MAP_QUADRATIC)
+	{
+		src->probe = map_probe_quadratic;
+		src->resize = map_probe_quadratic;
+		src->load_factor = 0.4;
+	}
+	src->hash = hash;
+	src->capacity = src->probe(capacity);
+}
+
+t_ret	map_new(
+	t_map *src,
+	t_size capacity,
+	t_size method,
+	t_uint64 (*hash)(const char *))
+{
 	t_size	i;
 
-	m.capacity = CR_MAP_START_CAPACITY;
-	m.load_factor = CR_MAP_LOAD_FACTOR;
-	m.hash = map_hash_1;
-	m.probe = map_probe_linear;
-	m.resize = map_resize_linear;
-	m.node = (t_map_node *)minit(sizeof(t_map_node) * m.capacity);
-	if (!m.node)
+	map_set_params(src, capacity, method, hash);
+	src->node = (t_map_node *)minit(sizeof(t_map_node) * src->capacity);
+	if (!src->node)
 	{
-		print("Allocation failed in function: map!\n");
-		exit(-1);
+		*src = (t_map){NULL, 0, 0, 0.0, NULL, NULL, NULL};
+		return (CR_ERROR_MALLOC);
 	}
 	i = 0;
-	while (i < m.capacity)
+	while (i < src->capacity)
 	{
-		m.node[i] = (t_map_node){NULL, NULL};
+		src->node[i] = (t_map_node){NULL, NULL, FALSE};
 		i++;
 	}
-	m.count = 0;
-	return (m);
+	src->count = 0;
+	return (CR_SUCCESS);
 }

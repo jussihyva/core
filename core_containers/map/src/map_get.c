@@ -9,6 +9,7 @@
 
 void	*map_get(t_map *src, const char *key)
 {
+	t_map_node	node;
 	t_uint64	hash_key;
 	t_uint64	probe;
 	t_size		i;
@@ -20,10 +21,11 @@ void	*map_get(t_map *src, const char *key)
 	i = 0;
 	while (i < src->count)
 	{
-		if (src->node[(hash_key + probe) % src->capacity].key
-			&& s_cmp(src->node[(hash_key + probe) % src->capacity].key, key)
-			== 0)
-			return (src->node[(hash_key + probe) % src->capacity].data);
+		node = src->node[(hash_key + probe) % src->capacity];
+		if (map_null_node(&node) == TRUE)
+			return (NULL);
+		if (node.key && s_cmp(node.key, key) == 0)
+			return (node.data);
 		probe = src->probe(i);
 		i++;
 	}

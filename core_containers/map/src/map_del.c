@@ -13,7 +13,7 @@
 
 #include "../../../inc/core.h"
 
-t_ssize	map_del(t_map *src, const char *key)
+t_ret	map_del(t_map *src, const char *key)
 {
 	t_uint64	hash_key;
 	t_uint64	probe;
@@ -30,11 +30,11 @@ t_ssize	map_del(t_map *src, const char *key)
 					% src->capacity].key, key) == 0)
 		{
 			src->node[(hash_key + probe) % src->capacity]
-				= (t_map_node){NULL, NULL};
+				= (t_map_node){NULL, NULL, TRUE};
 			return (i);
 		}
 		probe = src->probe(i);
 		i++;
 	}
-	return (0);
+	return (CR_ERROR_BOUNDS);
 }

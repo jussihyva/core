@@ -1,9 +1,12 @@
-/******************************************************************************
- * \authors
- * \brief
- * \param
- * \return
- *****************************************************************************/
+///////////////////////////////////////////////////////////////////////////////
+///
+/// \authors Julius Koskela
+///
+/// \brief A fast hash function for non cryptographic hashing.
+///
+/// \param str Input to be hashed in string format.
+///
+///////////////////////////////////////////////////////////////////////////////
 
 #include "../../../inc/core.h"
 
@@ -12,7 +15,7 @@ static inline t_uint64	shift(t_uint64 x, t_uint64 n)
 	return ((x << n) >> n);
 }
 
-t_uint64	map_hash_1(const char *str)
+t_uint64	map_hash_fast(const char *str)
 {
 	t_size		wrdlen;
 	t_uint32	prime;

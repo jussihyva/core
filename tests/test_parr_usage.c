@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/23 21:26:54 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/07/15 15:48:02 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct	s_person
 //-----------------------------------------------------------------------------
 // These are printing functions for the different kinds of data we might be
 // printing. We pass these functions into the parr_iter function which iterates
-// over the array and executes the function on each array rawber. We return the
+// over the array and executes the function on each array element. We return the
 // iterator, but we could also return -1 or CR_STOP to CR_STOP the loop.
 
 int				print_string(void **data, t_size i)
@@ -59,7 +59,7 @@ int				print_person(void **data, t_size i)
 // These are different search functions we could use. These functions can be
 // used with the parr_search function by passing them as a parameter. CR_search will
 // pass the key value passed as a parameter into parr_search, into the user defined
-// function in which it can be used to match some data in the rawber value
+// function in which it can be used to match some data in the element value
 // passed as a parameter. The function will iterate the whole array and put any
 // pointer returned from the function into the destination array.
 
@@ -89,7 +89,7 @@ void			*match_firstname(void *key, void *val)
 
 //-----------------------------------------------------------------------------
 // This is an example of a parse function. The parr_parse function passes the
-// destination array and a rawber from the source array. User can define how
+// destination array and a element from the source array. User can define how
 // that data is parsed and add that data into the destination array on each
 // iteration. User can return CR_STOP or -1 to indicate the loop should CR_STOP.
 
@@ -113,23 +113,23 @@ int				deserialize(t_parray *dst, void *data)
 //-----------------------------------------------------------------------------
 // Here are examples of deallocators. these would be passed into parr_iterate.
 
-int				deallocate_string(void **rawber, t_size i)
+int				deallocate_string(void **element, t_size i)
 {
 	char		*str;
 
 	printf("[%zu] String deallocated!\n", i);
-	str = *rawber;
+	str = *element;
 	free(str);
 	return (i);
 }
 
-int				deallocate_person(void **rawber, t_size i)
+int				deallocate_person(void **element, t_size i)
 {
 	t_person	*person;
 
-	if (!*rawber)
+	if (!*element)
 		return (CR_STOP);
-	person = *rawber;
+	person = *element;
 	printf("[%zu] Person deallocated!\n", i);
 	free(person->firstname);
 	free(person->lastname);
@@ -190,10 +190,10 @@ int				main(int argc, char **argv)
 	// Write array to a file. We can use CR_APPEND, CR_PREPEND or CR_WRITE flags to
 	// signify where in the file we want to write. As the last parameter we
 	// could pass a function pointer or the CR_STRING macro to indicate we want
-	// the function to interpet each rawber as a string.
+	// the function to interpet each element as a string.
 	parr_write_file(argv[2], &duplicate, CR_WRITE, CR_STRING);
 
-	// Deallocate allocated array rawbers
+	// Deallocate allocated array elements
 	parr_iterate(&source, deallocate_string);
 	parr_iterate(&people, deallocate_person);
 	parr_iterate(&duplicate, deallocate_string);

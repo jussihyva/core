@@ -4,6 +4,9 @@
 ///
 /// \brief Sort array
 ///
+/// Quick sort method without using auxiliary space. No allocations thus
+/// minimum side effects.
+///
 /// \param src Source array
 /// \param f Comparison method.
 ///
@@ -11,7 +14,8 @@
 
 #include "../inc/array.h"
 
-static void	arr_sort_recurse(t_array *src,
+static void	arr_sort_recurse(
+	t_array *src,
 	t_ssize low,
 	t_ssize high,
 	t_ssize (*f)(void *, void *))
@@ -40,7 +44,9 @@ static void	arr_sort_recurse(t_array *src,
 	}
 }
 
-void	arr_sort(t_array *src, t_ssize (*f)(void *, void *))
+void	arr_sort(
+		t_array *src,
+		t_ssize (*f)(void *, void *))
 {
 	arr_sort_recurse(src, 0, src->len - 1, f);
 }

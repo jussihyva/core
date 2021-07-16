@@ -11,20 +11,21 @@
 /// \param src Source array.
 /// \param f A function to be applied to each iterated element.
 ///
-/// \return Amount of elements iterated on success or 0 on failure.
+/// \return Index or return error.
 ///
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "../inc/array.h"
 
-t_ssize	arr_iter(t_array *src,
+t_ret	arr_iter(
+		t_array *src,
 		t_ssize (*f)(void *, t_size))
 {
 	t_size	i;
 	void	*tmp;
 
 	if (arr_null(src))
-		return (CR_FAIL);
+		return (CR_ERROR_INPUT);
 	i = 0;
 	while (i < src->len)
 	{

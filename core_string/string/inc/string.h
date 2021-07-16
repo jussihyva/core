@@ -22,9 +22,9 @@
 
 /// String ////////////////////////////////////////////////////////////////////
 
-t_str	str_from_s(char *str);
+t_ret	str_from_s(t_str *dst, char *src);
 void	str_free(t_str *str);
-t_str	str_new(t_size len);
+t_ret	str_new(t_str *src, t_size len);
 t_str	str_cpy(t_str dst, t_str src);
 t_str	str_join(t_str dst, t_str src);
 t_str	str_ncpy(t_str dst, t_str src, t_size len);
@@ -44,7 +44,7 @@ t_hstr	hstr_range(t_str src, t_size s, t_size t);
 
 /// Page //////////////////////////////////////////////////////////////////////
 
-t_page	page_new(t_size size);
+t_ret	page_new(t_page *src, t_size size);
 t_str	page_get(t_page *src, t_size i);
 t_ssize	page_read_file(t_page *dst, char *filename);
 t_ssize	page_write_file(char *dst, t_page *src, t_ssize flag);

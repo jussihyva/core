@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 06:09:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/23 21:26:54 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/07/15 15:48:02 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void	*parr_take_last(t_parray *arr)
 **
 **	PARR_TAKE_LAST
 **
-**	Take the last rawber from an array. Contrary to get, take also
-**	removes the rawber from the array.
+**	Take the last element from an array. Contrary to get, take also
+**	removes the element from the array.
 **
 **  ----------------------------------------------------------------------------
 */

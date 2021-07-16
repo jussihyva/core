@@ -9,30 +9,35 @@
 ///
 /// \param src Source array.
 /// \param index Index of the element to be deleted.
-/// \return 1 on success 0 on failure.
+/// \return Index or return error.
 ///
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "../inc/array.h"
 
-static void	bytecpy(t_byte *a, t_byte *b, t_size len)
+static void	bytecpy(
+		t_byte *a,
+		t_byte *b,
+		t_size len)
 {
 	while (len--)
 		*a++ = *b++;
 }
 
-t_ssize	arr_del(t_array *src, t_size index)
+t_ret	arr_del(
+		t_array *src,
+		t_size index)
 {
 	t_byte	*raw_start;
 	t_byte	*raw_end;
 	t_size	rem;
 
 	if (index >= src->len)
-		return (CR_FAIL);
+		return (CR_ERROR_BOUNDS);
 	if (index == src->len - 1)
 	{
 		src->len--;
-		return (CR_SUCCESS);
+		return (src->len);
 	}
 	rem = src->len * src->elem_size
 		- (index + 1) * src->elem_size;
@@ -42,5 +47,5 @@ t_ssize	arr_del(t_array *src, t_size index)
 	raw_end += (index + 1) * src->elem_size;
 	bytecpy(raw_start, raw_end, rem);
 	src->len--;
-	return (CR_SUCCESS);
+	return (src->len);
 }

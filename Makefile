@@ -13,6 +13,7 @@ GRAPH 		=	core_math/graph/
 CSTR 		=	core_string/cstring/
 STRING		=	core_string/string/
 SYSTEM		=	core_system/
+RNG			=	core_standard/rng/
 
 RM			=	rm -rf
 
@@ -26,28 +27,28 @@ all:
 			+@make -C $(LIN)
 			+@make -C $(PARR)
 			+@make -C $(CSTR)
-			+@make -C $(GRAPH)
 			+@make -C $(MAP)
 			+@make -C $(MATH)
 			+@make -C $(PRINT)
 			+@make -C $(STRING)
 			+@make -C $(CHECKS)
 			+@make -C $(SYSTEM)
+			+@make -C $(RNG)
 			@mkdir -p $(OBJ)
-			@mv $(RAW)obj/*.o $(OBJ)
-			@mv $(MEMORY)obj/*.o $(OBJ)
-			@mv $(ARR)obj/*.o $(OBJ)
-			@mv $(LIN)obj/*.o $(OBJ)
-			@mv $(PARR)obj/*.o $(OBJ)
-			@mv $(CSTR)obj/*.o $(OBJ)
-			@mv $(GRAPH)obj/*.o $(OBJ)
-			@mv $(MAP)obj/*.o $(OBJ)
-			@mv $(MATH)obj/*.o $(OBJ)
-			@mv $(PRINT)obj/*.o $(OBJ)
-			@mv $(PRINT)obj/sub/*.o $(OBJ)
-			@mv $(STRING)obj/*.o $(OBJ)
-			@mv $(CHECKS)obj/*.o $(OBJ)
-			@mv $(SYSTEM)obj/*.o $(OBJ)
+			@cp $(RAW)obj/*.o $(OBJ)
+			@cp $(MEMORY)obj/*.o $(OBJ)
+			@cp $(ARR)obj/*.o $(OBJ)
+			@cp $(LIN)obj/*.o $(OBJ)
+			@cp $(PARR)obj/*.o $(OBJ)
+			@cp $(CSTR)obj/*.o $(OBJ)
+			@cp $(MAP)obj/*.o $(OBJ)
+			@cp $(MATH)obj/*.o $(OBJ)
+			@cp $(PRINT)obj/*.o $(OBJ)
+			@cp $(PRINT)obj/sub/*.o $(OBJ)
+			@cp $(STRING)obj/*.o $(OBJ)
+			@cp $(CHECKS)obj/*.o $(OBJ)
+			@cp $(SYSTEM)obj/*.o $(OBJ)
+			@cp $(RNG)obj/*.o $(OBJ)
 			@ar -rcs $(NAME) $(OBJ)*.o
 			@echo "\\n\033[32;1mCORE ACTIVATED \033[0m \\n"
 
@@ -58,13 +59,13 @@ clean:
 			@make clean -C $(LIN)
 			@make clean -C $(PARR)
 			@make clean -C $(CSTR)
-			@make clean -C $(GRAPH)
 			@make clean -C $(MAP)
 			@make clean -C $(MATH)
 			@make clean -C $(PRINT)
 			@make clean -C $(STRING)
 			@make clean -C $(CHECKS)
 			@make clean -C $(SYSTEM)
+			@make clean -C $(RNG)
 			@echo "\\n\033[32;1mCORE DEACTIVATED \033[0m \\n"
 
 fclean:		clean
@@ -76,13 +77,13 @@ fclean:		clean
 			@make fclean -C $(LIN)
 			@make fclean -C $(PARR)
 			@make fclean -C $(CSTR)
-			@make fclean -C $(GRAPH)
 			@make fclean -C $(MAP)
 			@make fclean -C $(MATH)
 			@make fclean -C $(PRINT)
 			@make fclean -C $(STRING)
 			@make fclean -C $(CHECKS)
 			@make fclean -C $(SYSTEM)
+			@make fclean -C $(RNG)
 
 re:			fclean all
 
