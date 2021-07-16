@@ -69,7 +69,7 @@ typedef struct s_parray
 	void		**data;
 	t_size		len;
 	t_size		size;
-}				t_parray;
+}	t_parray;
 
 /// String ////////////////////////////////////////////////////////////////////
 

@@ -1,6 +1,7 @@
 #ifndef ARRAY_H
 # define ARRAY_H
 #ifdef __cplusplus
+# include "array_class.h"
 extern "C" {
 #endif
 
@@ -46,16 +47,16 @@ t_bool		arr_null(
 
 t_ret		arr_add(
 				t_array *src,
-				void *node,
+				void *elem,
 				t_size index);
 
 t_ret		arr_add_first(
 				t_array *src,
-				void *node);
+				void *elem);
 
 t_ret		arr_add_last(
 				t_array *src,
-				void *node);
+				void *elem);
 
 t_ret		arr_add_mult(
 				t_array *dst,
@@ -165,7 +166,7 @@ t_ret		arr_find(
 				void *key);
 
 t_ret		arr_find_by(
-				t_array *arr,
+				t_array *src,
 				const void *key,
 				t_ssize (*f)(const void *, const void *));
 
@@ -174,7 +175,7 @@ t_ret		arr_search(
 				t_array *key);
 
 t_ret		arr_rotate(
-				t_array *arr,
+				t_array *src,
 				t_ssize steps);
 
 void		arr_print(

@@ -2,8 +2,14 @@
 
 t_ret	raw_realloc(t_raw *m, t_size new_size)
 {
-	m-> data = realloc(m->data, new_size);
-	if (!m->data)
-		return (CR_ERROR_MALLOC);
-	return (CR_SUCCESS);
+	t_raw	new;
+
+	raw_new(&new, new_size);
+	if (new_size < m->size)
+		mcpy(new.data, m->data, new_size);
+	else
+		mcpy(new.data, m->data, m->size);
+	raw_free(m);
+	*m = new;
+	return (new.size);
 }

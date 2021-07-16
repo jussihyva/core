@@ -5,7 +5,7 @@ int main(void)
 	t_map	m;
 	char	*course;
 
-	map_new(&m, 10, CR_MAP_LINEAR, map_hash_fast);
+	map_new(&m, 10, CR_MAP_QUADRATIC, map_hash_fast);
 	map_add(&m, "Quantum Physics 1", "qp01");
 	map_add(&m, "Quantum Physics 2", "qp02");
 	map_add(&m, "Computer Science 1", "cs01");
@@ -17,7 +17,6 @@ int main(void)
 	map_add(&m, "Quantum Chromodynamics", "qd00");
 
 	course = NULL;
-	map_print(&m);
 	course = map_get(&m, "cs01");
 	printf("Course: %s\n", course);
 
@@ -28,4 +27,10 @@ int main(void)
 
 	course = map_get(&m, "cs03");
 	printf("Course: %s\n", course);
+
+	map_add(&m, "Computer Science 1", "cs01");
+	course = map_get(&m, "ch01");
+	printf("Course: %s\n", course);
+	map_print(&m);
+	map_free(&m);
 }

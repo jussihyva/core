@@ -8,12 +8,14 @@ void	map_print(t_map *m)
 	i = 0;
 	while (i < m->capacity)
 	{
-		if (map_null_node(&m->node[i]))
-			print("[EMPTY]\n");
+		if (i > 0 && i % 16 == 0)
+			print("\n");
+		if (map_null_node(&m->node[i]) == TRUE)
+			print("[x]");
 		else if (m->node[i].tombstone == TRUE)
-			print("[TOMBSTONE]\n");
+			print("[T]");
 		else
-			print("%s\n", m->node[i].key);
+			print("[$]");
 		i++;
 	}
 }

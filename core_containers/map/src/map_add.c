@@ -27,6 +27,7 @@ t_ssize	map_add(t_map *dst, void *val, const char *key)
 {
 	t_uint64	hash_key;
 	t_map_node	new_node;
+	t_map_node	tmp;
 	t_uint64	probe;
 	t_size		i;
 
@@ -34,14 +35,20 @@ t_ssize	map_add(t_map *dst, void *val, const char *key)
 		return (CR_FAIL);
 	new_node.data = val;
 	new_node.key = key;
+	new_node.tombstone = FALSE;
 	if (dst->count >= map_threshold(dst))
 		map_grow(dst);
 	hash_key = dst->hash(key);
 	probe = 0;
 	i = 0;
-	while (!map_null_node(&dst->node[(hash_key + probe) % dst->capacity]))
+	while (1)
 	{
-		if (s_cmp(dst->node[(hash_key + probe) % dst->capacity].key, key) == 0)
+		tmp = dst->node[(hash_key + probe) % dst->capacity];
+		if (tmp.tombstone == TRUE)
+			break ;
+		if (map_null_node(&tmp) == TRUE)
+			break ;
+		if (s_cmp(tmp.key, key) == 0)
 			return (CR_ERROR_BOUNDS);
 		probe = dst->probe(i);
 		i++;

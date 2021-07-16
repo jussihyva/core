@@ -20,7 +20,10 @@
 
 #include "../inc/array.h"
 
-t_ret	arr_new(t_array *src, t_size alloc_size, t_size elem_size)
+t_ret	arr_new(
+		t_array *src,
+		t_size alloc_size,
+		t_size elem_size)
 {
 	t_ret	ret;
 

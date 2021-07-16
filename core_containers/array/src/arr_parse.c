@@ -20,7 +20,9 @@
 
 #include "../inc/array.h"
 
-t_ret	arr_parse(t_array *dst, t_array *src,
+t_ret	arr_parse(
+		t_array *dst,
+		t_array *src,
 		t_ssize (*f)(t_array *, void *))
 {
 	t_size	i;
