@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parr_write.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/20 21:57:40 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/07/16 16:39:22 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,16 @@ t_ssize	parr_write_string(t_parray *dst, t_parray *src)
 	return (i);
 }
 
-t_ssize	parr_write(t_parray *dst, t_parray *src, t_ssize (*f)(void *, void *))
+t_ret	parr_write(t_parray *dst,
+		t_parray *src,
+		t_ssize (*f)(void *, void *))
 {
 	t_size	i;
 	void	*tmp;
 
-	i = 0;
 	if (f == CR_STRING)
 		return (parr_write_string(dst, src));
+	i = 0;
 	while (i < src->len)
 	{
 		tmp = NULL;

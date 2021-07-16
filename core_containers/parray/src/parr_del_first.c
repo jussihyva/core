@@ -3,20 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   parr_del_first.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/07/15 15:48:02 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/07/16 16:08:48 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../inc/core.h"
 
-t_ssize	parr_del_first(t_parray *arr)
+t_ret	parr_del_first(t_parray *arr)
 {
-	if (!(parr_del(arr, 0)))
-		return (CR_FAIL);
-	return (CR_SUCCESS);
+	t_ret	ret;
+
+	ret = parr_del(arr, 0);
+	if (ret < 0)
+		return (ret);
+	return (arr->len);
 }
 
 /*

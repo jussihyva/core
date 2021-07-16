@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   parr_null.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/20 21:57:40 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/07/16 15:29:35 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../inc/core.h"
 
-t_ssize	parr_null(t_parray *arr)
+t_bool	parr_null(t_parray *arr)
 {
 	if (arr->data == NULL || arr->size == 0)
-		return (CR_SUCCESS);
-	return (CR_FAIL);
+		return (TRUE);
+	return (FALSE);
 }
 
 /*

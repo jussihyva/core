@@ -57,20 +57,23 @@ FILE	*open_file(char *filename, t_ssize flag)
 	return (file);
 }
 
-t_ssize	parr_write_file(char *dst, t_parray *src, t_ssize flag,
+t_ret	parr_write_file(
+		char *dst,
+		t_parray *src,
+		t_ssize flag,
 		t_ssize (*f)(void *, void *))
 {
 	FILE		*file;
 	t_parray	prepend;
 
 	if (parr_null(src))
-		return (CR_FAIL);
-	prepend = parr_new(1);
+		return (CR_ERROR_INPUT);
+	parr_new(&prepend, 1);
 	if (flag == CR_PREPEND && !(parr_read_file(&prepend, dst)))
 		return (CR_FAIL);
 	file = open_file(dst, flag);
 	if (!file)
-		return (CR_FAIL);
+		return (CR_ERROR_FILE);
 	if (!(write_file(file, src, f)))
 		return (CR_FAIL);
 	if (flag == CR_PREPEND && !(write_file(file, &prepend, f)))

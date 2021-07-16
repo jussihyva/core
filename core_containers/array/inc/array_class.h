@@ -47,6 +47,8 @@ namespace core
 		t_ret	search(t_array *key);
 		t_ret	rotate(t_ssize steps);
 		void	print(char *format);
+
+		
 	};
 };
 

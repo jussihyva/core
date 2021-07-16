@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   parr_copy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/07/15 15:48:02 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/07/16 16:10:02 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../inc/core.h"
 
-t_ssize	parr_copy(t_parray *dst, t_parray *src)
+t_ret	parr_copy(t_parray *dst, t_parray *src)
 {
 	t_size	i;
 
 	i = 0;
 	if (parr_null(src) || parr_null(dst))
-		return (CR_FAIL);
+		return (CR_ERROR_INPUT);
 	while (i < src->len)
 	{
 		if (i == dst->size)
