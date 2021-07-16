@@ -32,7 +32,7 @@ t_ssize	map_add(t_map *dst, void *val, const char *key)
 	t_size		i;
 
 	if (!key || !val || map_null(dst))
-		return (CR_FAIL);
+		return (CR_ERROR_INPUT);
 	new_node.data = val;
 	new_node.key = key;
 	new_node.tombstone = FALSE;
