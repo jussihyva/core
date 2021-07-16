@@ -3,16 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   parr_rotate.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/20 21:57:40 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/07/16 16:15:21 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../inc/core.h"
 
-t_ssize	parr_rotate(t_parray *arr, t_ssize steps)
+t_ret	parr_rotate(
+		t_parray *arr,
+		t_ssize steps)
 {
 	void	*tmp;
 	t_ssize	i;

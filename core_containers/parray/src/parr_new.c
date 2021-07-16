@@ -12,19 +12,14 @@
 
 #include "../../../inc/core.h"
 
-t_parray	parr_new(t_size size)
+t_ret	parr_new(t_parray *src, t_size size)
 {
-	t_parray	out;
-
-	out.size = size;
-	out.len = 0;
-	out.data = (void **)malloc(sizeof(void *) * size);
-	if (!out.data)
-	{
-		print("Allocation failed in function: map!\n");
-		return ((t_parray){NULL, 0, 0});
-	}
-	return (out);
+	src->size = size;
+	src->len = 0;
+	src->data = (void **)malloc(sizeof(void *) * size);
+	if (!src->data)
+		return (CR_ERROR_MALLOC);
+	return (CR_SUCCESS);
 }
 
 /*

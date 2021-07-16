@@ -3,22 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   parr_free.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/20 21:57:40 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/07/16 15:27:34 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../inc/core.h"
 
-t_ssize	parr_free(t_parray *arr)
+void	parr_free(t_parray *arr)
 {
-	if (parr_null(arr))
-		return (CR_FAIL);
 	free(arr->data);
 	*arr = (t_parray){NULL, 0, 0};
-	return (CR_SUCCESS);
 }
 
 /*

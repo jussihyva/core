@@ -30,7 +30,8 @@
 
 enum e_return_type
 {
-	CR_ERROR_BOUNDS = -4,
+	CR_ERROR_FILE = -5,
+	CR_ERROR_BOUNDS,
 	CR_ERROR_MALLOC,
 	CR_ERROR_INPUT,
 	CR_FAIL,

@@ -3,28 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   parr_read_file.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/05/20 21:57:40 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/07/16 16:23:25 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../inc/core.h"
 
-t_ssize	parr_read_file(t_parray *dst, char *filename)
+t_ret	parr_read_file(
+		t_parray *dst,
+		char *filename)
 {
 	char	*line;
 	t_ssize	fd;
 	t_ssize	ret;
 
-	if (parr_null(dst))
-		return (CR_FAIL);
-	if (filename == NULL)
-		return (CR_FAIL);
+	if (parr_null(dst) || filename == NULL)
+		return (CR_ERROR_INPUT);
 	fd = open(filename, O_RDONLY);
 	if (!fd)
-		return (CR_FAIL);
+		return (CR_ERROR_FILE);
 	line = NULL;
 	ret = s_readline(fd, &line);
 	while (ret)
@@ -35,9 +35,8 @@ t_ssize	parr_read_file(t_parray *dst, char *filename)
 	}
 	close(fd);
 	if (ret == -1)
-		return (-1);
-	else
-		return (dst->len);
+		return (CR_ERROR_FILE);
+	return (dst->len);
 }
 
 /*

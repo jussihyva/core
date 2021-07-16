@@ -12,9 +12,9 @@ void	cr_activate(void)
 	core->track_allocs = CR_TRACK_ALLOC;
 	core->track_allocs_backtrace = CR_TRACK_ALLOC_BACKTRACE;
 	if (core->track_errors == TRUE)
-		core->errors = parr_new(1);
+		parr_new(&core->errors, 1);
 	if (core->track_allocs == TRUE)
-		core->allocs = parr_new(1);
+		parr_new(&core->allocs, 1);
 	print("\n\033[32;1mCORE SYSTEM\033[0m\n\n");
 	print("Active!.\n\n");
 }

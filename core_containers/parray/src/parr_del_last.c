@@ -3,19 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   parr_del_last.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jkoskela <jkoskela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 01:31:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/07/15 15:48:02 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/07/16 16:09:15 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../inc/core.h"
 
-t_ssize	parr_del_last(t_parray *arr)
+t_ret	parr_del_last(t_parray *arr)
 {
-	if (!(parr_del(arr, arr->len - 1)))
-		return (CR_FAIL);
+	t_ret	ret;
+
+	ret = parr_del(arr, arr->len - 1);
+	if (ret < 0)
+		return (ret);
 	return (CR_SUCCESS);
 }
 
