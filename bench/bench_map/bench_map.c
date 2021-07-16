@@ -87,7 +87,7 @@ int main(int argc, char **argv)
 
 	if (argc < 4)
 	{
-		print("usage: test[count][keysize][method]\n");
+		print("usage: bench [count][keysize][method]\n");
 		return (0);
 	}
 	rng_seed(0);
@@ -102,14 +102,17 @@ int main(int argc, char **argv)
 		parr_add_last(&args.keys, str);
 		i++;
 	}
-	if (s_cmp(argv[3], "L") == 0)
+	if (s_cmp(argv[3], "QUADRATIC") == 0)
 		map_new(&args.map, 1, CR_MAP_LINEAR, map_hash_fast);
 	else
 		map_new(&args.map, 1, CR_MAP_QUADRATIC, map_hash_fast);
-	print("add: %f\n", test_clock(&args, bench_map_add));
-	print("get: %f\n", test_clock(&args, bench_map_get));
-	print("del: %f\n", test_clock(&args, bench_map_del));
-	print("readd: %f\n", test_clock(&args, bench_map_add));
+	print("bench: core::map\n");
+	print("count = %lu\n", count);
+	print("keysize = %lu\n", keysize);
+	print("bench add [s]: %f\n", test_clock(&args, bench_map_add));
+	print("bench get [s]: %f\n", test_clock(&args, bench_map_get));
+	print("bench del [s]: %f\n", test_clock(&args, bench_map_del));
+	print("bench add [s]: %f\n", test_clock(&args, bench_map_add));
 	if (s_cmp(argv[4], "PRINT") == 0)
 		map_print(&args.map);
 	map_free(&args.map);

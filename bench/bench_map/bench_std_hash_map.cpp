@@ -86,26 +86,32 @@ int main(int argc, char **argv)
 	t_args		args;
 	t_size		count;
 	t_size		keysize;
-
+	t_size		i;
 
 	if (argc < 3)
 	{
-		print("usage: test[count][keysize]\n");
+		print("usage: bench [count][keysize]\n");
 		return (0);
 	}
 	rng_seed(0);
 	count = s_toi(argv[1]);
 	keysize = s_toi(argv[2]);
 	parr_new(&args.keys, 1);
-	while (count--)
+	i = 0;
+	while (i < count)
 	{
 		char *str = (char *)malloc(keysize + 1);
 		rng_string(str, keysize);
 		parr_add_last(&args.keys, str);
+		i++;
 	}
-	print("add: %f\n", test_clock(&args, bench_map_add));
-	print("get: %f\n", test_clock(&args, bench_map_get));
-	print("del: %f\n", test_clock(&args, bench_map_del));
+	print("bench: std::unordered_map\n");
+	print("count = %lu\n", count);
+	print("keysize = %lu\n", keysize);
+	print("bench add [s]: %f\n", test_clock(&args, bench_map_add));
+	print("bench get [s]: %f\n", test_clock(&args, bench_map_get));
+	print("bench del [s]: %f\n", test_clock(&args, bench_map_del));
+	print("bench add [s]: %f\n", test_clock(&args, bench_map_add));
 	parr_foreach(&args.keys, free_string);
 	parr_free(&args.keys);
 }
