@@ -35,11 +35,11 @@ static void	map_set_params(
 	else if (method == CR_MAP_QUADRATIC)
 	{
 		src->probe = map_probe_quadratic;
-		src->resize = map_probe_quadratic;
+		src->resize = map_resize_quadratic;
 		src->load_factor = 0.4;
 	}
 	src->hash = hash;
-	src->capacity = src->probe(capacity);
+	src->capacity = src->resize(capacity);
 }
 
 t_ret	map_new(
