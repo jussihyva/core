@@ -36,7 +36,7 @@ static void	map_set_params(
 	{
 		src->probe = map_probe_quadratic;
 		src->resize = map_resize_quadratic;
-		src->load_factor = 0.4;
+		src->load_factor = 0.2;
 	}
 	src->hash = hash;
 	src->capacity = src->resize(capacity);

@@ -39,7 +39,7 @@ t_uint64	map_hash_fast(const char *str)
 		}
 		return (hash64 ^ (hash64 >> 32));
 	}
-	mcpy(&ndhead, str, wrdlen);
+	memcpy(&ndhead, str, wrdlen);
 	hash64 = (hash64 ^ shift(ndhead, (8 - wrdlen) << 3)) * prime;
 	return (hash64 ^ (hash64 >> 32));
 }
